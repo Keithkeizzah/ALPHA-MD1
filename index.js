@@ -80,7 +80,7 @@ setTimeout(() => {
         const sockOptions = {
             version,
             logger: pino({ level: "silent" }),
-            browser: ['Flash-Md', "safari", "1.0.0"],
+            browser: ['Alpha-Md', "safari", "1.0.0"],
             printQRInTerminal: true,
             fireInitQueries: false,
             shouldSyncHistoryMessage: true,
@@ -165,7 +165,7 @@ setTimeout(() => {
             
             var dev = [FranceKing, FranceKing1,FranceKing2,FranceKing3].map((t) => t.replace(/[^0-9]/g) + "@s.whatsapp.net").includes(auteurMessage);
             function repondre(mes) { zk.sendMessage(origineMessage, { text: mes }, { quoted: ms }); }
-            console.log("\t [][]...{IBRAHIM-TECH}...[][]");
+            console.log("\t [][]...{KEITH-TECH}...[][]");
             console.log("=========== New message ===========");
             if (verifGroupe) {
                 console.log("message from the group : " + nomGroupe);
@@ -438,7 +438,7 @@ function mybotpic() {
                                    // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
                                     const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
                                     var sticker = new Sticker(gifLink, {
-                                        pack: 'IBRAHIM-TECH',
+                                        pack: 'KEITH-TECH',
                                         author: conf.OWNER_NAME,
                                         type: StickerTypes.FULL,
                                         categories: ['🤩', '🎉'],
@@ -536,7 +536,7 @@ function mybotpic() {
            // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
             const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
             var sticker = new Sticker(gifLink, {
-                pack: 'IBRAHIM-TECH',
+                pack: 'KEITH-TECH',
                 author: conf.OWNER_NAME,
                 type: StickerTypes.FULL,
                 categories: ['🤩', '🎉'],
@@ -680,7 +680,7 @@ zk.ev.on('group-participants.update', async (group) => {
         const metadata = await zk.groupMetadata(group.id);
 
         if (group.action == 'add' && (await recupevents(group.id, "welcome") == 'on')) {
-            let msg = `╭═══◇IBRAHIM-TECH◇═══⊷
+            let msg = `╭═══◇KEITH-TECH◇═══⊷
 `;
              
             let membres = group.participants;
@@ -865,8 +865,8 @@ ${metadata.desc}`;
                 
                 if((conf.DP).toLowerCase() === 'yes') {     
                 let cmsg = `╭════⊷
-║ *『IBRAHIM-TECH is CONNECTED』*
-║    Creator: *Ibrahim adams*
+║ *『KEITH-TECH is CONNECTED』*
+║    Creator: *Keith huncho*
 ║    Prefix : [ ${prefixe} ]
 ║    Mode :${md}
 ║    Total Commands : ${evt.cm.length}︎
@@ -875,10 +875,10 @@ ${metadata.desc}`;
 ╭───◇
 ┃ 
 ┃
-┃ *Thank you for choosing IBRAHIM-TECH*
+┃ *Thank you for choosing KEITH-TECH*
 ┃
 ┃
-┃ Join The Official WhatsApp Group https://chat.whatsapp.com/L7T4iMvnfwCA8oLkUIRCFj
+┃ Join The Official Whatsapp:https://chat.whatsapp.com/KeEYrEX8UDdGD4m4GbdHaA
 ╰═════════════════⊷`;
                 await zk.sendMessage(zk.user.id, { text: cmsg });
                 }
