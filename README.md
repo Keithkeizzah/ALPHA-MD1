@@ -2,9 +2,9 @@
 <p align="center"> ALPHA BOT, A Simple WhatsApp user BOT, Created by France King.
 </p>
 
+ <h1 align="center">
 
-
-<img src="https://telegra.ph/file/b148f6ed21fa02ac5325b.jpg" width="700" height="300"/>
+  ><img src="https://telegra.ph/file/49a3833ccbc65a8e7ea4b.jpg" width="400" height="500"/>
 
 
 
