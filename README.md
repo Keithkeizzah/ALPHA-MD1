@@ -12,7 +12,7 @@
 
 1, Fork the repo
 
-   ***Click [`FORK`](https://github.com/ibrahimaitech/IBRAHIM-AI-10.10/tree/main) and `Star 👑 Repository` for Courage.***
+   ***Click [`FORK`](https://github.com/Keithkeizzah/keith-tech-1) and `Star 👑 Repository` for Courage.***
   
 
 
@@ -36,10 +36,10 @@ Contributions to IBRAHIM-AI-10.10 are welcome! If you have ideas for new feature
 
 The ALPHA MD is released under the [MIT License](https://opensource.org/licenses/MIT).
 
-Enjoy the diverse features of the IBRAHIM-AI-10.10  to enhance your conversations and make your WhatsApp experience more interesting!
+Enjoy the diverse features of the KEITH- to enhance your conversations and make your WhatsApp experience more interesting!
 
 ## Developer:
 
-- <h1 align="center"> [**SUPPORTED GROUP**](https://chat.whatsapp.com/L7T4iMvnfwCA8oLkUIRCFj)
-- <h1 align="center"> [**DM THE OWNER IF HAVING ANY PROBLEM**](https://wa.me/message/74F2PC4JA4F3P1)
+- <h1 align="center"> [**SUPPORTED GROUP**](https://chat.whatsapp.com/KeEYrEX8UDdGD4m4GbdHaA)
+- <h1 align="center"> [**DM THE OWNER IF HAVING ANY PROBLEM**](https://wa.me/qr/W6BT5CSV4NPNJ1)
 
