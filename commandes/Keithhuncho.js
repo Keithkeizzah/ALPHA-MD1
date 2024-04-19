@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const { zokou } = require("../framework/zokou");
-zokou({ nomCom: "Ibrahimadamd", reaction: "📷", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "Keithhuncho", reaction: "📷", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
     console.log("Commande saisie !!!s");
-    let z = 'IBRAHIMADAMS-HD-PHOTO \n\n ' + "*ⁱᵇʳᵃʰⁱᵐ-ᵗᵉᶜʰ.*";
-    let d = ' #KING'S';
+    let z = 'KEITHHUNCHO-HD-PHOTO \n\n ' + "*ⁱᵇʳᵃʰⁱᵐ-ᵗᵉᶜʰ.*";
+    let d = ' #KEITH'S';
     let varmess = z + d;
-    var img = 'https://telegra.ph/file/ecc3e71f3e224e2ead026.jpg';
+    var img = 'https://telegra.ph/file/65b51c8109714e63c497b.jpg';
     await zk.sendMessage(dest, { image: { url: img }, caption: varmess });
     //console.log("montest")
 });
