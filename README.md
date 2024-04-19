@@ -1,10 +1,10 @@
- <h1 align="center"> IBRAHIM-AI-10.10 </h1>
-<p align="center"> IBRAHIM-AI-10.10, A Simple WhatsApp user BOT, Created by France King.
+ <h1 align="center"> keith-tech-1</h1>
+<p align="center"> ALPHA BOT, A Simple WhatsApp user BOT, Created by France King.
 </p>
 
 
 
-<img src="https://telegra.ph/file/c66d12099fb7a4f62d70a.jpg" width="700" height="300"/>
+<img src="https://telegra.ph/file/b148f6ed21fa02ac5325b.jpg" width="700" height="300"/>
 
 
 
@@ -25,7 +25,7 @@
 3, Copy the session and deploy on heroku.  
 
    
- - ***Now [`DEPLOY`](https://dashboard.heroku.com/new?template=https://github.com/ibrahimaitech/IBRAHIM-AI-10.10).***
+ - ***Now [`DEPLOY`](https://dashboard.heroku.com/new?template=https://github.com/keithkeizzah/keith-tech-1).***
 
 
 ## Contributions
@@ -34,7 +34,7 @@ Contributions to IBRAHIM-AI-10.10 are welcome! If you have ideas for new feature
 
 ## License
 
-The IBRAHIM-AI-10.10 is released under the [MIT License](https://opensource.org/licenses/MIT).
+The ALPHA MD is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 Enjoy the diverse features of the IBRAHIM-AI-10.10  to enhance your conversations and make your WhatsApp experience more interesting!
 
