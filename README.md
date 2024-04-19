@@ -19,7 +19,7 @@
 2, Scan the code and link it with your Whatsapp.
 
 
-  ***Click [`Get Session`](https://alpha-session-code-91e67fa3af79.herokuapp.com//)and `use pairing code` then enter it through the "WhatsApp Linked Devices" option in your WhatsApp app.***
+  ***Click [`Get Session`](https://alpha-bot-session-36fa234e8d19.herokuapp.com/)and `use pairing code` then enter it through the "WhatsApp Linked Devices" option in your WhatsApp app.***
     
    
 3, Copy the session and deploy on heroku.  
