@@ -35,7 +35,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
       
     ╚═════ ✨✨ ☬ ✨✨ ═════╝*/
     /* menuMsg+=`
-   ╔════ ✨✨ 𝗜𝗕𝗥𝗔𝗛𝗜𝗠-𝗔𝗜 ✨✨ ════╗
+   ╔════ ✨✨𝐀𝐋𝐏𝐇𝐀-𝐌𝐃✨✨ ════╗
   
    ||     Préfixe : ${s.prefixe}
    ||      Owner : ${s.OWNER_NAME}
@@ -47,7 +47,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
    ||
    ╚════ ✨✨ ☬ ✨✨ ════╝`;*/
     menuMsg += `
-╔════----*𝗜𝗕𝗥𝗔𝗛𝗜𝗠-𝗧𝗘𝗖𝗛-----
+╔════----*𝐊𝐄𝐈𝐓𝐇-𝐓𝐄𝐂𝐇-----
 ║    Préfixe : ${s.PREFIXE}
 ║    Owner : ${s.OWNER_NAME}    
 ║    Mode : ${mode}
