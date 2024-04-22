@@ -55,12 +55,12 @@ zokou({ nomCom: "dev", categorie: "General", reaction: "💞" }, async (dest, zk
     const { ms, mybotpic } = commandeOptions;
 
     const devs = [
-      { nom: "KING IBRAHIM", numero: "254710772666" },
-      { nom: "᚛KING IBRAHIM᚜", numero: "254710772666" },
+      { nom: "KEITH TECH", numero: "254748387615" },
+      { nom: "᚛KEITH TECH᚜", numero: "254748387615" },
       // Ajoute d'autres développeurs ici avec leur nom et numéro
     ];
 
-    let message = "👋 *Welcome to IBRAHIM-AI-10.10!* here is the developer numbers:\n\n";
+    let message = "👋 *Welcome to KEITH-TECH!* here is the developer numbers:\n\n";
     for (const dev of devs) {
       message += `----------------\n• ${dev.nom} : https://wa.me/${dev.numero}\n`;
     }
@@ -95,7 +95,7 @@ zokou({ nomCom: "support", categorie: "General" }, async (dest, zk, commandeOpti
   const { ms, repondre, auteurMessage, } = commandeOptions; 
  
   repondre("look on pm sir ")
-  await zk.sendMessage(auteurMessage,{text : `254710772666`},{quoted :ms})
+  await zk.sendMessage(auteurMessage,{text : `254748387615`},{quoted :ms})
 
 })
 
