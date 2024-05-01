@@ -33,9 +33,9 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     
     
       
-    ╚═════ ✨✨ ☬ ✨✨ ═════╝*/
+    ╚═════ ༒༒ ☬ ༒༒ ═════╝*/
     /* menuMsg+=`
-   ╔════ ✨✨𝐀𝐋𝐏𝐇𝐀-𝐌𝐃✨✨ ════╗
+   ╔════ ༒༒𝐀𝐋𝐏𝐇𝐀-𝐌𝐃༒༒ ════╗
   
    ||     Préfixe : ${s.prefixe}
    ||      Owner : ${s.OWNER_NAME}
@@ -45,7 +45,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
    ||      Mém: ${format(os.totalmem()-os.freemem())}/${format(os.totalmem())}                   {Plateforme : ${os.platform()}
    ||  Developer : France King 
    ||
-   ╚════ ✨✨ ☬ ✨✨ ════╝`;*/
+   ╚════ ༒༒ ☬ ༒༒ ════╝`;*/
     menuMsg += `
 ╔════----*𝐊𝐄𝐈𝐓𝐇-𝐓𝐄𝐂𝐇-----
 ║    Préfixe : ${s.PREFIXE}
