@@ -91,7 +91,7 @@ zokou({ nomCom: "naruto", categorie: "Logo", reaction: "⛩" }, async (dest, zk,
 zokou({ nomCom: "didong", categorie: "Logo", reaction: "📱" }, async (dest, zk, commandeOptions) => {
     let { arg, repondre, prefixe, ms } = commandeOptions;
    try {
-     var titre = "\t *Logo by FLASH-MD*";
+     var titre = "\t *Logo by BELIEVE-MD*";
       var lien = "https://ephoto360.com/tao-anh-che-vui-tu-choi-cuoc-goi-voi-ten-cua-ban-930.html";
         if (!arg || arg == "") {
            repondre(`*exemple :* ${prefixe}didong Keith Tech`)
@@ -111,7 +111,7 @@ zokou({ nomCom: "didong", categorie: "Logo", reaction: "📱" }, async (dest, zk
 );
 
 
-zokou({nomCom : "wall",categorie : "Logo",reaction : "👍"} , async (dest,zk,commandeOptions) =>{
+zokou({nomCom : "wall",categorie : "Logo",reaction : "🤤"} , async (dest,zk,commandeOptions) =>{
 
   const {arg,repondre,ms,prefixe} = commandeOptions;
   if(!arg[0]) { repondre( `Exemple of using commande:\n ${prefixe}wall Zokou-MD` ); return ;}
@@ -123,7 +123,7 @@ zokou({nomCom : "wall",categorie : "Logo",reaction : "👍"} , async (dest,zk,co
 .catch(console.log)
 })
 ;
-zokou({nomCom: "summer", categorie: "Logo", reaction: "🌞"}, async (dest, zk, commandeOptions) => {
+zokou({nomCom: "summer", categorie: "Logo", reaction: "🙂"}, async (dest, zk, commandeOptions) => {
   const { arg, repondre, ms, prefixe } = commandeOptions;
   if (!arg[0]) {
     repondre(`Exemple of using commande:\n ${prefixe}summer My text`);
