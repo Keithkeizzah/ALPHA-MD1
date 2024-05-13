@@ -75,7 +75,7 @@ async (origineMessage, zk, commandeOptions) => {
 
 // Commande megumin
 zokou({
-  nomCom: "hackerKeith",
+  nomCom: "hacker",
   categorie: "Weeb",
   reaction: "☣"
 },
