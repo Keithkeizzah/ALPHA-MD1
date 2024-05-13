@@ -31,13 +31,13 @@ const temps = moment().format('HH:mm:ss');
 const date = moment().format('DD/MM/YYYY');
 
   let infoMsg =  `
-╭────《𝐀𝐋𝐏𝐇𝐀-𝐓𝐄𝐂𝐇》────༄
+╭────《BELIEVE-𝐓𝐄𝐂𝐇》────༄
 ☠ *User* : ${s.OWNER_NAME}
 ☠ *Mode* : ${mode}
 ☠ *Commands* : ${cm.length} 
 ☠ *Time* : ${temps} 
 ☠ *Ram* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
-❄ 𝐊𝐄𝐈𝐓𝐇-𝐓𝐄𝐂𝐇 ❄
+❄ BELIEVE-𝐓𝐄𝐂𝐇 ❄
 ╰─────༒༒༒༒༒─────༄ \n\n`;
  
     let menuMsg=`  
@@ -59,7 +59,7 @@ const date = moment().format('DD/MM/YYYY');
 ◇            ◇
 *————— ༒ —————*
 
-  *𝐊𝐄𝐈𝐓𝐇-𝐓𝐄𝐂𝐇✞2024*                                         
+  *BELIEVE-𝐓𝐄𝐂𝐇✞2024*                                         
 *↪═════════════༄*
 `;
 
