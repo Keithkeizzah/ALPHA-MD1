@@ -31,14 +31,14 @@ const temps = moment().format('HH:mm:ss');
 const date = moment().format('DD/MM/YYYY');
 
   let infoMsg =  `
-╭────《𝐀𝐋𝐏𝐇𝐀-𝐓𝐄𝐂𝐇》────༄
-☠ *User* : ${s.OWNER_NAME}
-☠ *Mode* : ${mode}
-☠ *Commands* : ${cm.length} 
-☠ *Time* : ${temps} 
-☠ *Ram* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
-❄ 𝐊𝐄𝐈𝐓𝐇-𝐓𝐄𝐂𝐇 ❄
-╰─────༒༒༒༒༒─────༄ \n\n`;
+╭────《𝐀𝐋𝐏𝐇𝐀-𝐓𝐄𝐂𝐇》───𒆓
+𒊹 *User* : ${s.OWNER_NAME}
+𒊹 *Mode* : ${mode}
+𒊹 *Commands* : ${cm.length} 
+𒊹 *Time* : ${temps} 
+𒊹 *Ram* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
+𒄋 𝐊𝐄𝐈𝐓𝐇-𝐓𝐄𝐂𝐇 𒄋
+╰─────༒༒༒༒༒────𒆓 \n\n`;
  
     let menuMsg=`  
   ┆┆┆┆┆┆┆┆┆┆┆┆┆┆┆┆┆┆┆┆┆┆
@@ -46,13 +46,13 @@ const date = moment().format('DD/MM/YYYY');
 `;
 
     for (const cat in coms) {
-        menuMsg += `*╭────༄* *${cat}* *༄⊷*`;
+        menuMsg += `*╭───𒉱* *${cat}* 𒉱⊷*`;
         for (const cmd of coms[cat]) {
             menuMsg += `  
-*⬆༄* ${cmd}`;
+*𒉱* ${cmd}`;
         }
         menuMsg += `
-*↪═════════════༄* \n`
+*↪════════════𒉱* \n`
     }
 
     menuMsg += `
