@@ -78,7 +78,7 @@ fetch(`http://api.brainshop.ai/get?bid=177607&key=NwzhALqeO1kubFVD&uid=[uid]&msg
   
     try {
       if (!arg || arg.length === 0) {
-        return repondre(`Please ask a question Ibrahim will answer it.`);
+        return repondre(`Please ask a question Keith will answer it.`);
       }
   
       // Regrouper les arguments en une seule chaîne séparée par "-"
