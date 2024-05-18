@@ -127,7 +127,7 @@ _*On downloading...*_\n\n`
 
       fileStream.on('finish', () => {
         // Envoi du fichier vidéo en utilisant l'URL du fichier local
-        zk.sendMessage(origineMessage, { video: { url :"./video.mp4"} , caption: "*®™ⁱᵇʳᵃʰⁱᵐ-ᵗᵉᶜʰ*", gifPlayback: false }, { quoted: ms });
+        zk.sendMessage(origineMessage, { video: { url :"./video.mp4"} , caption: "*𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃 𝐁𝐘 𝐀𝐋𝐏𝐇𝐀*", gifPlayback: false }, { quoted: ms });
       });
 
       fileStream.on('error', (error) => {
