@@ -49,7 +49,7 @@
 ## STEPS TO DEPLOY YOUR BOT
 
 
-1, <a href="https://github.com/Keithkeizzah/ALPHA-MD/fork"><img src="https://img.shields.io/badge/Fork%20My%20Repository-blue" alt="Fork my repository" width="300"></a>
+1, <a href="https://github.com/Keithkeizzah/ALPHA-MD1/fork"><img src="https://img.shields.io/badge/Fork%20My%20Repository-blue" alt="Fork my repository" width="300"></a>
 
 2, TAP ON KEITH TECH APP DOWN THERE
 
@@ -64,7 +64,7 @@
 ## 𝐂𝐋𝐈𝐂𝐊 𝐎𝐍 HEROKU OR 𝐀𝐏𝐏 𝐓𝐎 𝐃𝐄𝐏𝐋𝐎𝐘  𝐊𝐄𝐈𝐓𝐇 𝐌𝐃
 <h1 align="center">
  
- ***[![Tap to deploy on heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https://github.com/keithkeizzah/ALPHA-MD&template=https://github.com/keithkeizzah/ALPHA-MD.git)***
+ ***[![Tap to deploy on heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https://github.com/keithkeizzah/ALPHA-MD1&template=https://github.com/keithkeizzah/ALPHA-MD1.git)***
 
 <br>
 
