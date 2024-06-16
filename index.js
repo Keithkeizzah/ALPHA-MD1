@@ -680,7 +680,7 @@ zk.ev.on('group-participants.update', async (group) => {
         const metadata = await zk.groupMetadata(group.id);
 
         if (group.action == 'add' && (await recupevents(group.id, "welcome") == 'on')) {
-            let msg = `╭═══◇KEITH-TECH◇═══⊷
+            let msg = `╭═══◇𝐀𝐋𝐏𝐇𝐀-𝐌𝐃◇═══⊷
 `;
              
             let membres = group.participants;
@@ -691,7 +691,7 @@ zk.ev.on('group-participants.update', async (group) => {
             msg += `║ *You are welcomed here* _You MAY read the group description FOR more info and Avoid getting removed_
             
      
- ╰═══◇IBRAHIM-TECH◇═══⊷
+ ╰═══◇KEITH-TECH◇═══⊷
             
  ◇ *GROUP DESCRIPTION*  ◇
 
@@ -865,20 +865,20 @@ ${metadata.desc}`;
                 
                 if((conf.DP).toLowerCase() === 'yes') {     
                 let cmsg = `╭════⊷
-║ *『KEITH-TECH is CONNECTED』*
-║    Creator: *Keith huncho*
+║ *『𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 𝐢𝐬 𝐜𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝』*
+║    Creator: 𝐊𝐄𝐈𝐓𝐇 𝐊𝐄𝐈𝐙𝐙𝐀𝐇
 ║    Prefix : [ ${prefixe} ]
 ║    Mode :${md}
 ║    Total Commands : ${evt.cm.length}︎
 ╰═════════════════⊷
-
+              *𝐩𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐊𝐄𝐈𝐓𝐇 𝐓𝐄𝐂𝐇
 ╭───◇
 ┃ 
 ┃
-┃ *Thank you for choosing KEITH-TECH*
+┃ *Thank you for choosing 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃*
 ┃
 ┃
-┃ Join The Official Whatsapp:https://chat.whatsapp.com/KeEYrEX8UDdGD4m4GbdHaA
+┃ Join The Official Whatsapp:https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47
 ╰═════════════════⊷`;
                 await zk.sendMessage(zk.user.id, { text: cmsg });
                 }
