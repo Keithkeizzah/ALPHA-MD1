@@ -103,7 +103,7 @@ console.log("mon test");
 
 zokou({ nomCom: "news", reaction: "🇰🇪", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
     console.log("Commande saisie !!!s");
-    let z = ' *❒⁠⁠⁠𝐓𝐡𝐞 𝐛𝐞𝐥𝐨𝐰 𝐥𝐢𝐧𝐤 𝐢𝐬 𝐨𝐟 𝐭𝐡𝐞 𝐋𝐚𝐭𝐞𝐬𝐭 𝐊𝐞𝐧𝐲𝐚𝐧 𝐍𝐞𝐰𝐬  ❒⁠⁠⁠⁠*\n\n𝐂𝐥𝐢𝐜𝐤 𝐢𝐭 𝐚𝐧𝐝 𝐣𝐨𝐢𝐧 𝐦𝐲 𝐩𝐚𝐠𝐞 *❒⁠⁠⁠⁠𝐊𝐄𝐈𝐓𝐇 𝐓𝐑𝐄𝐍𝐃𝐈𝐍𝐆 𝐍𝐄𝐖𝐒❒* official⁠⁠⁠⁠ WhatsApp Channel\nHelp us grow and reject that piece of shiet.\n\n';
+    let z = ' *❒⁠⁠⁠𝐓𝐡𝐞 𝐛𝐞𝐥𝐨𝐰 𝐥𝐢𝐧𝐤 𝐢𝐬 𝐨𝐟 𝐭𝐡𝐞 𝐋𝐚𝐭𝐞𝐬𝐭 𝐊𝐞𝐧𝐲𝐚𝐧 𝐍𝐞𝐰𝐬  ❒⁠⁠⁠⁠*\n\n𝐂𝐥𝐢𝐜𝐤 𝐢𝐭 𝐚𝐧𝐝 𝐣𝐨𝐢𝐧 𝐦𝐲 𝐩𝐚𝐠𝐞 *❒⁠⁠⁠⁠𝐊𝐄𝐈𝐓𝐇 𝐓𝐑𝐄𝐍𝐃𝐈𝐍𝐆 𝐍𝐄𝐖𝐒❒* official⁠⁠⁠⁠ x and facebook page\n𝐂𝐥𝐢𝐜𝐤 𝐭𝐡𝐞𝐬𝐞 𝐥𝐢𝐧𝐥𝐬 𝐟𝐨𝐥𝐥𝐨𝐰 𝐚𝐧𝐝 𝐬𝐡𝐚𝐫𝐞 𝐬𝐨 𝐚𝐥𝐥 𝐜𝐚𝐧 𝐠𝐚𝐢𝐧😉.\n\n';
     let d = 'https://www.facebook.com/profile.php?id=61560520487051  𝐚𝐧𝐝 https://x.com/keithkeizzah?t=yC5xptJCzxf5RJRBE1qjBA&s=08 ';
     let varmess = z + d;
     var img = 'https://telegra.ph/file/db98050a014b44c1f2706.jpg';
