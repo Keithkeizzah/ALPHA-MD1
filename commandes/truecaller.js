@@ -1,4 +1,10 @@
 const {
+  zokou
+} = require("../framework/zokou");
+zokou({
+  'nomCom': 'truecaller',
+  'reaction': '💻',
+  'categorie': "Search"
 
 	Function,
 
