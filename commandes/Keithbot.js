@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const { zokou } = require("../framework/zokou");
-zokou({ nomCom: "keithbot", reaction: "📷", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "keith", reaction: "📷", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
     console.log("Commande saisie !!!s");
     let z = '𝘧𝘰𝘭𝘭𝘰𝘸 𝘮𝘺 𝘤𝘩𝘢𝘯𝘯𝘦𝘭\n\n ' + "*https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47*";
     let d = ' #𝐊𝐢𝐧𝐝𝐥𝐲 𝐟𝐨𝐥𝐥𝐨𝐰 𝐠𝐞𝐞😭';
