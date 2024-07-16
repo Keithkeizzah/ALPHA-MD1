@@ -94,7 +94,7 @@ else {
 zokou({ nomCom: "support", categorie: "General" }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, auteurMessage, } = commandeOptions; 
  
-  repondre("look on pm sir ")
+  repondre(" 𝐊𝐢𝐧𝐝𝐥𝐲 𝐬𝐡𝐚𝐫𝐞 𝐦𝐲 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐥𝐢𝐧𝐤 https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47 ")
   await zk.sendMessage(auteurMessage,{text : `https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47`},{quoted :ms})
 
 })
