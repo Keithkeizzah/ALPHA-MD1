@@ -18,8 +18,8 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     cm.map(async (com, index) => { if (!coms[com.categorie])
         coms[com.categorie] = []; coms[com.categorie].push(com.nomCom); });
     const temps = moment(moment()).format("HH:MM:SS");
-    moment.tz.setDefault('africa/nairobi').locale("id");
-    const date = moment.tz("africa/nairobi").format("DD/MM/YYYY");
+    moment.tz.setDefault('asia/karachi ').locale("id");
+    const date = moment.tz("asia/karachi").format("DD/MM/YYYY");
     console.log("date" + date);
     console.log("temps " + temps);
     let menuMsg = "  ╩═══ * Ƶ𝓞ｋØ𝓊 * ╩═══\n\n";
@@ -33,30 +33,31 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     
     
       
-    ╚═════ ༒༒ ☬ ༒༒ ═════╝*/
+    ╚═════ ▓▓ ࿇ ▓▓ ═════╝*/
     /* menuMsg+=`
-   ╔════ ༒༒𝐀𝐋𝐏𝐇𝐀-𝐌𝐃༒༒ ════╗
-  
+   ╔════ ▓▓ ࿇ ▓▓ ════╗
+   
+   ||
    ||     Préfixe : ${s.prefixe}
    ||      Owner : ${s.OWNER_NAME}
-   ||      Commands : ${cm.length}
+   ||      Commandes : ${cm.length}
    ||      Date : ${date}
-   ||      Hour : ${temps}
-   ||      Mém: ${format(os.totalmem()-os.freemem())}/${format(os.totalmem())}                   {Plateforme : ${os.platform()}
-   ||  Developer : France King 
+   ||      Heure : ${temps}
+   ||      Mémoire : ${format(os.totalmem()-os.freemem())}/${format(os.totalmem())}                   {Plateforme : ${os.platform()}
+   ||  Développeurs : Djalega++||Luffy
    ||
-   ╚════ ༒༒ ☬ ༒༒ ════╝`;*/
+   ╚════ ▓▓ ࿇ ▓▓ ════╝`;*/
     menuMsg += `
-╔════----*𝐊𝐄𝐈𝐓𝐇-𝐓𝐄𝐂𝐇-----
+╔════---------
 ║    Préfixe : ${s.PREFIXE}
 ║    Owner : ${s.OWNER_NAME}    
 ║    Mode : ${mode}
-║    Commands :${cm.length}
+║    Commandes:${cm.length}
 ║    Date : ${date}
-║    Hour: ${temps}
-║    Mém : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
-║    Platform : ${os.platform()}
-║    Déveloper : France King
+║    Heure : ${temps}
+║    Mémoire : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
+║    Plateforme : ${os.platform()}
+║    Développeurs : Djalega++||Luffy
 ╚════--------------- \n\n`;
     for (const cat in coms) {
         if (!emoji[cat]) {
