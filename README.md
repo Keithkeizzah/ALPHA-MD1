@@ -112,5 +112,8 @@ The *ALPHA-MD* is released under the [MIT License](https://opensource.org/licens
 
 Enjoy the diverse features of the *ALPHA-MD*  to enhance your Whatsapp more enjoyable
 ☣Powered by Keith Tech
+
+### Credits to:
+- [ibrahim Adams](https://github.com/ibrahimaitech)
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
