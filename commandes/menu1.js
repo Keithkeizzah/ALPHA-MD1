@@ -52,7 +52,7 @@ const date = moment().format('DD/MM/YYYY');
 > 𝐑𝐞𝐠𝐚𝐫𝐝𝐬 𝐊𝐞𝐢𝐭𝐡\n${readmore}`;
     
 let menuMsg = `
-> Hello ${nomAuteurMessage},,, Type menu1,menu2 or menu3 to access a list of Alpha commands. 
+> Hello ${nomAuteurMessage},,, Type menu1,menu2,menu3 or menu4 to access a list of Alpha commands. 
   
 ╰───────────────────☆`;
 
