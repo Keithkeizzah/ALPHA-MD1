@@ -691,7 +691,7 @@ zk.ev.on('group-participants.update', async (group) => {
             msg += `║ *You are welcomed here* _You MAY read the group description FOR more info and Avoid getting removed_
             
      
- ╰═══◇KEITH-TECH◇═══⊷
+ ╰═══◇𝐊𝐄𝐈𝐓𝐇 𝐓𝐄𝐂𝐇◇═══⊷
             
  ◇ *GROUP DESCRIPTION*  ◇
 
@@ -875,10 +875,7 @@ ${metadata.desc}`;
 ╭───◇
 ┃ 
 ┃
-┃ *Thank you for choosing 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃*
-┃
-┃
-┃ Join The Official Whatsapp:https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47
+┃ *Thank you for choosing 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃
 ╰═════════════════⊷`;
                 await zk.sendMessage(zk.user.id, { text: cmsg });
                 }
