@@ -874,8 +874,8 @@ ${metadata.desc}`;
               *𝐩𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐊𝐄𝐈𝐓𝐇 𝐓𝐄𝐂𝐇
 ╭───◇
 ┃ 
-┃
-┃ *Thank you for choosing 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃
+┃Thank you for choosing 
+┃  𝐀𝐋𝐏𝐇𝐀-𝐌𝐃
 ╰═════════════════⊷`;
                 await zk.sendMessage(zk.user.id, { text: cmsg });
                 }
