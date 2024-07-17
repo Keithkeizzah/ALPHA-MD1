@@ -621,7 +621,7 @@ function mybotpic() {
 
             if (!superUser && origineMessage === auteurMessage&& conf.PM_PERMIT === "yes" ) {
                 repondre("You don't have acces to commands here") ; return }
-            ///////////////////////////////
+            //////////////////////////////
 
              
             /*****************************banGroup  */
@@ -699,7 +699,7 @@ ${metadata.desc}`;
 
             zk.sendMessage(group.id, { image: { url: ppgroup }, caption: msg, mentions: membres });
         } else if (group.action == 'remove' && (await recupevents(group.id, "goodbye") == 'on')) {
-            let msg = `Goodbye to that Fallen soldier, Powered by *Ibrahim-tech*;\n`;
+            let msg = `𝐆𝐨𝐨𝐝𝐛𝐲𝐞 𝐭𝐨 𝐭𝐡𝐚𝐭 𝐟𝐚𝐥𝐥𝐞𝐧 𝐬𝐨𝐥𝐝𝐢𝐞𝐫😭, Powered by *Keith-tech*;\n`;
 
             let membres = group.participants;
             for (let membre of membres) {
