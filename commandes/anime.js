@@ -65,7 +65,7 @@ zokou({
 });
 
 zokou({
-  nomCom: "imdb",
+  nomCom: "movie",
   categorie: "Search"
 }, async (dest, zk, commandeOptions) => {
   const { arg, repondre , ms } = commandeOptions;
@@ -81,7 +81,7 @@ zokou({
     const imdbData = response.data;
 
     let imdbInfo = "⚍⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚍\n";
-    imdbInfo += " ``` 𝕀𝕄𝔻𝔹 𝕊𝔼𝔸ℝℂℍ```\n";
+    imdbInfo += " ``` Tap on the link to join movie channel and download your movie there```\n";
     imdbInfo += "⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎\n";
     imdbInfo += "🎬Title    : " + imdbData.Title + "\n";
     imdbInfo += "📅year      : " + imdbData.Year + "\n";
