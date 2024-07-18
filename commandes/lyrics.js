@@ -1,11 +1,11 @@
-const {zokou} = require("../framework/zokou")
+const axios = require("axios");
 
 module.exports = {
     config: {
         name: "lyrics",
         author: "Samir Œ",
         description: "Get lyrics of a song",
-        category: "Recherche",
+        category: "Search",
         usage: "<song_name>",
         usePrefix: true
     },
