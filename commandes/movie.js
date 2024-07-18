@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const { zokou } = require("../framework/zokou");
-zokou({ nomCom: "movie", reaction: "🖥", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "series", reaction: "🖥", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
     console.log("Commande saisie !!!s");
     let z = '```𝐇𝐞𝐲 𝐭𝐡𝐢𝐬 𝐢𝐬 𝐲𝐨𝐮𝐫 𝐟𝐢𝐫𝐬𝐭 𝐬𝐭𝐞𝐩 𝐧𝐨𝐰 𝐜𝐥𝐢𝐜𝐤 𝐭𝐡𝐞 𝐥𝐢𝐧𝐤 𝐛𝐞𝐥𝐨𝐰 𝐭𝐨 𝐠𝐞𝐭 𝐲𝐨𝐮𝐫 𝐛𝐞𝐬𝐭 𝐬𝐞𝐫𝐢𝐞𝐬 𝐚𝐧𝐝 𝐦𝐨𝐯𝐢𝐞👇👇```\n\n ' + "*https://t.me/keithseriehub*";
     let d = ' 𝐇𝐨𝐩𝐞 𝐲𝐨𝐮 𝐚𝐫𝐞 𝐧𝐨𝐭 𝐛𝐨𝐫𝐞𝐝😴';
