@@ -38,8 +38,7 @@ Hello ${nomAuteurMessage},,,👋This is 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 the best b
 ╭─────────────────☆
 │❍ *Developer* :Keithkeizzah
 │❍ *Repo* : https://github.com/keithkeizzah/ALPHA-MD1
-│❍ *Forks* : ${repoInfo.forks} 
-│❍ *Stars* : ${repoInfo.stars}
+│
 │❍ *Session* : https://keith-sessions-pi5z.onrender.com
 │
 │❍▸ *RAM* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
