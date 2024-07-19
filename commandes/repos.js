@@ -38,13 +38,15 @@ Hello ${nomAuteurMessage},,,👋This is 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 the best b
 ╭─────────────────☆
 │❍ *Developer* :Keithkeizzah
 │❍ *Repo* : https://github.com/keithkeizzah/ALPHA-MD1
-│
+│❍ *Stars:* " + (_0x44f98c?.stargazers_count || "120+")
+│❍ * Forks:* " + (_0x44f98c?.forks_count || "1000+") 
 │❍ *Session* : https://keith-sessions-pi5z.onrender.com
 │
 │❍▸ *RAM* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
 │❍ *Youtube* : https://youtube.com/@keithkeizzah
 │❍ *Channel* : https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47
 │
+│❍ * Created On:* " + (_0x44f98c?.created_at || "undefined")
 │❍ *Telegram* : https://t.me/keithmd
 │
 > Regards keithkeizzah
