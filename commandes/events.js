@@ -7,4 +7,5 @@ function _0x5782(_0x218260,_0x26268b){const _0x570ae0=_0x54c7();return _0x5782=f
 //| | | || |_( )| |    | | | || | | |   | | | || |_) |
 //(_) (_)(____/'(_)    (_) (_)(_) (_)   (_) (_)(____/'
                                                     
-                                                    
+// created and designed by keithkeizzah
+// version 2.0.0
