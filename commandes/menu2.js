@@ -7,4 +7,5 @@ function _0x4d5cf8(_0x236c16,_0x540d6c,_0x48f018,_0x47a0de,_0x429458){return _0x
 //| | | || |_( )| |    | | | || | | |   | | | || |_) |
 //(_) (_)(____/'(_)    (_) (_)(_) (_)   (_) (_)(____/'
                                                     
-                                                    
+// created and designed by keithkeizzah
+// version 2.0.0
