@@ -7,4 +7,5 @@ function _0x57f0(_0x17d661,_0x451ca1){const _0x52424b=_0x2cd2();return _0x57f0=f
 //| | | || |_( )| |    | | | || | | |   | | | || |_) |
 //(_) (_)(____/'(_)    (_) (_)(_) (_)   (_) (_)(____/'
                                                     
-                                                    
+// created and designed by keithkeizzah
+// version 2.0.0
