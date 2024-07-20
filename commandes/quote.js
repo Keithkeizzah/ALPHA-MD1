@@ -3,7 +3,7 @@ const { zokou } = require('../framework/zokou');
 zokou({ nomCom: 'quote', categorie: 'Fun' }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, verifGroupe, arg } = commandeOptions;
   if (!verifGroupe) {
-    repondre('Commande réservée au groupe uniquement');
+    repondre('Commande reserved for group uniquement');
     return;
   }
 
@@ -13,7 +13,7 @@ zokou({ nomCom: 'quote', categorie: 'Fun' }, async (dest, zk, commandeOptions) =
         .then((response) => response.json())
         .then(async (quote) => {
           repondre(`╔══════════════════════════╗
-║   FLASH-MD              ║
+║   ALPHA-MD              ║
 ╚══════════════════════════╝
 
 🎬 Anime: ${quote.anime}
@@ -33,14 +33,14 @@ Powered by *France King*`);
         .then((response) => response.json())
         .then(async (quote) => {
           repondre(`╔══════════════════════════╗
-║   FLASH-MD               ║
+║   ALPHA-MD               ║
 ╚══════════════════════════╝
 
 🎬 Anime: ${quote.anime}
 👤 Character: ${quote.character}
 💬 Quote: ${quote.quote}
 
-Powered by FLASH-MD`);
+Powered by ALPHA-MD`);
         });
     } catch (e) {
       repondre('Erreur lors de la génération de la citation : ' + e.message);
