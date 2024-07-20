@@ -7,4 +7,5 @@ function _0x535219(_0x41e059,_0x329377,_0x3b6b88,_0x147f58,_0x48bdfc){return _0x
 //| | | || |_( )| |    | | | || | | |   | | | || |_) |
 //(_) (_)(____/'(_)    (_) (_)(_) (_)   (_) (_)(____/'
                                                     
-                                                    
+// created and designed by keithkeizzah
+// version 2.0.0
