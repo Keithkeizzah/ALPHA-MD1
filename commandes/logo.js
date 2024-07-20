@@ -375,7 +375,7 @@ zokou({ nomCom: "whitegold", categorie: "Logo", reaction: "💫" }, async (dest,
     });
 });
 
-zokou({ nomCom: "lightglow", categorie: "Logo", reaction: "🌟" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "lightglow", categorie: "Logo", reaction: "🎗" }, async (dest, zk, commandeOptions) => {
   const { arg, ms, prefixe,repondre } = commandeOptions;
   if (!arg[0]) {
     repondre(`Exemple of using commande:\n ${prefixe}LightGlow My text`);
