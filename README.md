@@ -39,7 +39,7 @@
 ## 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗧𝗛𝗘 𝗢𝗪𝗡𝗘𝗥 𝗨𝗦𝗜𝗡𝗚 𝗧𝗛𝗘 𝗕𝗘𝗟𝗢𝗪 𝗕𝗨𝗧𝗧𝗢𝗡 𝗔𝗣𝗣
 
 <p align="left">
-  <a href="https://wa.me/2348059540212?text=Hello%20Keith~tech%20...%20I%20need%20some%20help%20in%20huncho%20md">
+  <a href="https://wa.me/254796299159?text=Hello%20Keith~tech%20...%20I%20need%20some%20help%20in%20huncho%20md">
     <img align="centre" alt="SIEGRIN | Whastapp" width="86px" src="https://raw.githubusercontent.com/PikaBotz/My_Personal_Space/main/Images/AnyaBot_pics/Anya_v2/Whatsapp.svg" />
 
    
