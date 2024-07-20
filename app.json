@@ -2,7 +2,7 @@
   "name":"ALPHA-MD",
   "description":"Alpha bot is created by keithkeizzah",
   "keywords":["bot","node","baileys","whatsapp"],
-  "logo":"https://telegra.ph/file/6025a7fdb08d6d77d8ad1.jpg",
+  "logo":"https://telegra.ph/file/967c663a5978c545f78d6.jpg",
   "repository":"https://github.com/Keithkeizzah/keith-tech-1",
   "succes_url":"/",
   "stack":"container",
@@ -42,7 +42,7 @@
      "BOT_MENU_LINKS" : {
     
       "description":"add one or many link for your bot menu  ; eg : url1,url2,url3.....",
-      "value":"https://telegra.ph/file/6025a7fdb08d6d77d8ad1.jpg",
+      "value":"https://telegra.ph/file/967c663a5978c545f78d6.jpg",
       "required":false
        
      },
