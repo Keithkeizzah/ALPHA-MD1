@@ -1,6 +1,6 @@
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
- <h1 align="center"> ALPHA MD</h1>
+ <h1 align="center"> ALPHA MD V 2.0.0</h1>
 
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
@@ -9,12 +9,12 @@
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
  
-<p align="center"> ALPHA MD💥, A Simple WhatsApp user BOT, Created by Keith Tech.
+<p align="center"> ᵃˡᵖʰᵃ ᵐᵈ ⁱˢ ᵗʰᵉ ᵇᵉˢᵗ ʷᵃᵇᵒᵗ ᵈᵉˢⁱᵍⁿᵉᵈ ᵇʸ ᴷᵉⁱᵗʰᵏᵉⁱᶻᶻᵃʰ.
 </p>
 
 
 
-  <a href="https://ibb.co/N6NMDtn"><img src="https://telegra.ph/file/100f2a13f5a8a89dcba3d.jpg" alt="01" border="0" /></a>                     
+  <a href="https://ibb.co/N6NMDtn"><img src="https://telegra.ph/file/6025a7fdb08d6d77d8ad1.jpg" alt="01" border="0" /></a>                     
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
  <h1 align="center">  SCAN SESSION </h1>
  
@@ -24,6 +24,8 @@
 
   <a href="https://keith-sessions-pi5z.onrender.com"><img src="https://img.shields.io/badge/qr%20session%20code-orange" alt="𝐐𝐫 𝐬𝐞𝐬𝐬𝐢𝐨𝐧 𝐜𝐨𝐝𝐞" width="300"></a>
 <a><img src='https://i.imgur.com/LyHc3i.gif'/></a>
+## First fork my repository
+<a href="https://github.com/Keithkeizzah/ALPHA-MD1/fork"><img src="https://img.shields.io/badge/Fork%20My%20Repository-blue" alt="Fork my repository" width="300"></a>
 ## 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗠𝗘 𝗚𝗘𝗘
 ## 𝐏𝐥𝐞𝐚𝐬𝐞 𝐣𝐨𝐢𝐧 𝐦𝐲 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐚𝐧𝐝 𝐠𝐞𝐭 𝐟𝐫𝐞𝐞 𝐜𝐜 𝐚𝐧𝐝 𝐮𝐩𝐝𝐚𝐭𝐞𝐬👇👇
 
@@ -49,17 +51,17 @@
 ## STEPS TO DEPLOY YOUR BOT
 
 
-1, <a href="https://github.com/Keithkeizzah/ALPHA-MD1/fork"><img src="https://img.shields.io/badge/Fork%20My%20Repository-blue" alt="Fork my repository" width="300"></a>
-
-2, TAP ON KEITH TECH APP DOWN THERE
 
 
-
-3, CONNECT TO WHATSAPP WITH PAIRING CODE OR QR
+1, TAP ON KEITH TECH APP DOWN THERE
 
 
 
-4, TAP DEPLOY.., AND DEPLOY IT ON HEROKU ..Use Keith Tech App..
+2, CONNECT TO WHATSAPP WITH PAIRING CODE OR QR
+
+
+
+3, TAP DEPLOY.., AND DEPLOY IT ON HEROKU ..Use Keith Tech App..
 
 ## 𝐂𝐋𝐈𝐂𝐊 𝐎𝐍 HEROKU OR 𝐀𝐏𝐏 𝐓𝐎 𝐃𝐄𝐏𝐋𝐎𝐘  𝐊𝐄𝐈𝐓𝐇 𝐌𝐃
 <h1 align="center">
