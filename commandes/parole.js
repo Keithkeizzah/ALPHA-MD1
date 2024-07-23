@@ -6,31 +6,27 @@ zokou({ nomCom: "lyrics",
         reaction: "✨",
         categorie: "Search" }, async (dest, zk, commandeOptions) => {
     
-    const { repondre, arg, ms } = commandeOptions;  
-        
-   try {
+    },
+    onStart: async function ({ bot, chatId, args }) {
+        const query = args.join(" ");
 
-    if (!arg || arg.length === 0) return repondre("Where is the name of musique");
+        if (!query) {
+            return bot.sendMessage(chatId, `Please provide a song name. Usage: /lyrics [song_name]`);
+        }
 
-    let  result  = await axios.get(`https://vihangayt.me/search/lyrics?q=${arg.join(' ')}`);
+        const searchMessage = await bot.sendMessage(chatId, `🔍 Searching for lyrics: ${query}`);
 
-    let lyrics = result.data.data;
+        try {
+            const response = await axios.get(`https://samirxpikachuio.onrender.com/lyrics?query=${encodeURIComponent(query)}`);
+            const { title, artist, lyrics, image } = response.data;
 
-    if (lyrics.error) return repondre("no lyrics found");
+            await bot.sendMessage(chatId, `Lyrics: ${lyrics}\n\nSong Name: ${title}\n\nWriter: ${artist}`);
+            await bot.sendPhoto(chatId, image);
+        } catch (error) {
+            console.error('[ERROR]', error);
+            bot.sendMessage(chatId, 'An error occurred while fetching the lyrics.');
+        }
 
-    let msg = `---------Alpha-lyrics-finder--------
-
-* *Artist :* ${lyrics.artist}
-
-
-* *Title :* ${lyrics.title}
-
-
-${lyrics.lyrics}`
-
-    zk.sendMessage(dest,{image : { url : './media/lyrics-img.jpg'} , caption : msg}, { quoted : ms });
-    
-   } catch (err) {
-       repondre('Error')
-   }
-        })
+        await bot.deleteMessage(chatId, searchMessage.message_id);
+    }
+};
