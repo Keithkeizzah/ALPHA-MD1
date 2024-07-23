@@ -122,5 +122,34 @@ zokou({ nomCom: "gpt", reaction: "🤔", categorie: "IA" }, async (dest, zk, com
     }
   });
 
-
+zokou(
+  {
+    nomCom:"text2prompt",
+    reaction:"📡",
+    categorie:"Ai"
+  },
+  
+  async (dest, zk, commandeOptions) => {
+    const { ms, arg, repondre} = commandeOptions;
+    
+    if (!arg[0])
+      return await repondre(`text argument is required \n> try ${conf.PREFIXE}text2prompt a sad cat`)
+      
+    const text = await traduire(arg.join(' '), { to: 'en'} );
+    
+    await text2prompt(text).then(sus).catch(err)
+    
+    function sus(res) {
+      if(res.status)
+        return repondre(res.prompt)
+      else
+        repondre('an error occoured genrating prompt')
+    }
+    function err(e){
+      console.log(`an error occoured at :${e}`)
+      return repondre('an error occoured genrating prompt')
+    }
+    
+  }
+);
   
