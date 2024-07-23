@@ -9,7 +9,7 @@
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
  
-<p align="center"> ᵃˡᵖʰᵃ ᵐᵈ ⁱˢ ᵗʰᵉ ᵇᵉˢᵗ ʷᵃᵇᵒᵗ ᵈᵉˢⁱᵍⁿᵉᵈ ᵇʸ ᴷᵉⁱᵗʰᵏᵉⁱᶻᶻᵃʰ.
+<p align="center"> Survival is winning frankline everything else is bullshit,fairy tales spun by people afraid to look life in the eye,do whatever it takes kid ,,survive 😏🙏
 </p>
 
 
