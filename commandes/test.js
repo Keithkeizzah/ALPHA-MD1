@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const { zokou } = require("../framework/zokou");
 
-zokou({ nomCom: "repo", catégorie:"Général", reaction: "✨", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "repo2", catégorie:"Général", reaction: "✨", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
   const githubRepo = 'https://github.com/keithkeizzah/ALPHA-MD1';
   const img = 'https://telegra.ph/file/9b8be68fca11ec4cf3b32.jpg';
 
