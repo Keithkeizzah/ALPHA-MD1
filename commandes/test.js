@@ -21,7 +21,7 @@ zokou({ nomCom: "repo2", catégorie:"Général", reaction: "✨", nomFichier: __
       const releaseDate = new Date(data.created_at).toLocaleDateString('en-GB');
       const lastUpdateDate = new Date(data.updated_at).toLocaleDateString('en-GB');
 
-      const gitdata = `┏❏ ⌜ 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 𝐑𝐞𝐩𝐨 ⌟ ❐
+      const gitdata = `┏❏ ⌜ 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 ⌟ ❐
 ┃🗼 *REPOSITORY:* ${data.html_url}
 ┃✨ *STARS:* ${repoInfo.stars}
 ┃🧧 *FORKS:* ${repoInfo.forks}
@@ -38,13 +38,3 @@ zokou({ nomCom: "repo2", catégorie:"Général", reaction: "✨", nomFichier: __
     console.log("Error fetching data:", error);
   }
 });
-
-// _____  _      ___    _   _  _____            ___   
-//(  _  )( )    (  _`\ ( ) ( )(  _  )   /'\_/`\(  _`\ 
-//| (_) || |    | |_) )| |_| || (_) |   |     || | ) |
-//|  _  || |  _ | ,__/'|  _  ||  _  |   | (_) || | | )
-//| | | || |_( )| |    | | | || | | |   | | | || |_) |
-//(_) (_)(____/'(_)    (_) (_)(_) (_)   (_) (_)(____/'
-                                                    
-// created and designed by keithkeizzah
-// version 2.0.0
