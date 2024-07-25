@@ -44,15 +44,15 @@ const date = moment().format('DD/MM/YYYY');
 ╰━━━━━━━━━━━━━━━┈⊷
 `
 	for (const command in commandslist) {
-		msg += `╭─────────────┈⊷
+		menuMsg += `╭─────────────┈⊷
 `
-		msg += `│ 「 *${await Fancy(command.toUpperCase(), 32)}* 」 `
-		msg += `╰┬────────────┈⊷\n┌┤\n`
+		menuMsg += `│ 「 *${await Fancy(command.toUpperCase(), 32)}* 」 `
+		menuMsg += `╰┬────────────┈⊷\n┌┤\n`
 		for (const plugin of commandslist[command])
 			msg += `││◦➛ ${await Fancy(plugin.toLowerCase(), 32)}\n`
-		msg += `│╰────────────┈⊷
+		menuMsg += `│╰────────────┈⊷
 `
-		msg += `╰─────────────┈⊷
+		menuMsg += `╰─────────────┈⊷
 `
 	}
 	await message.send(msg);
