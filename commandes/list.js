@@ -8,7 +8,7 @@ const s = require(__dirname + "/../set");
 const more = String.fromCharCode(8206)
 const readmore = more.repeat(4001)
 
-zokou({ nomCom: "list", categorie: "General" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "menu3", categorie: "General" }, async (dest, zk, commandeOptions) => {
     let { ms, repondre ,prefixe,nomAuteurMessage,mybotpic} = commandeOptions;
     let { cm } = require(__dirname + "/../framework//zokou");
     var coms = {};
@@ -56,18 +56,16 @@ let menuMsg = `
 `;
 
     for (const cat in coms) {
-        menuMsg += ` ╭─────────────┈⊷`
-menuMsg += │ 「*${cat}*」` menuMsg += `╰┬────────────┈⊷\n┌┤\n`;
+        menuMsg += ` ╭──────「 *${cat}* 」─────┈⊷`;
         for (const cmd of coms[cat]) {
             menuMsg += `
 ││◦➛ ${cmd}`;
         }
         menuMsg += `
-│╰────────────┈⊷`
-menuMsg += `╰────────────┈⊷\n`
+╰────────────┈⊷ \n`
     }
 
-    menuMsg += `> 𝐑𝐄𝐆𝐀𝐑𝐃𝐒 𝐊𝐄𝐈𝐓𝐇🤝
+    menuMsg += `╰────────────┈⊷
 `;
 
    var lien = mybotpic();
