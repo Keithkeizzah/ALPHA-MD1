@@ -18,7 +18,7 @@ const { bugtext5 } = require("../framework/bugs/bugtext5");
 const { bugtext6 } = require("../framework/bugs/bugtext6");
 const { bugpdf } = require("../framework/bugs/bugpdf.js");
 
-const category = "dev";
+const category = "bug-cmds";
 const reaction = "🤯";
 
 const mess = {};
