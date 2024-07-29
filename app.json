@@ -1,9 +1,9 @@
 {
   "name":"ALPHA-MD",
-  "description":"Alpha bot is created by keithkeizzah",
+  "description":"Best whatsapp bot developed by keithkeizzah",
   "keywords":["bot","node","baileys","whatsapp"],
-  "logo":"https://telegra.ph/file/967c663a5978c545f78d6.jpg",
-  "repository":"https://github.com/Keithkeizzah/keith-tech-1",
+  "logo":"https://telegra.ph/file/0c351a67f1dffd1f34cf5.jpg",
+  "repository":"https://github.com/keithkeizzah/ALPHA-MD1",
   "succes_url":"/",
   "stack":"container",
   "env":{
@@ -42,7 +42,7 @@
      "BOT_MENU_LINKS" : {
     
       "description":"add one or many link for your bot menu  ; eg : url1,url2,url3.....",
-      "value":"https://telegra.ph/file/967c663a5978c545f78d6.jpg",
+      "value":"https://telegra.ph/file/0c351a67f1dffd1f34cf5.jpg",
       "required":false
        
      },
@@ -74,14 +74,14 @@
     
     "desc": "Your Name",
     "required": false,
-    "value": "MR KEITH"
+    "value": "𝐊𝐞𝐢𝐭𝐡"
   },
     "NUMERO_OWNER":
   {
     
     "desc": "Your number , dont put '+' and put you area code(exemple of togo '228')",
     "required":false,
-    "value": "254748387615"
+    "value": "254796299159"
   },
     "WARN_COUNT":
   {
@@ -103,20 +103,31 @@
   "ANTI_DELETE_MESSAGE" : {
     "description": "if you want to enable anti delete message put yes else put no",
     "value": "yes",
-    "required": false
+        "required": false
   }
   },
 
-  "formation": {
-		"worker": {
-			"quantity": 1,
-			"size": "standard-2x"
-		}
-	},
-
-  "addons":[
+    "buildpacks": [
     {
-      "plan":"heroku-postgresql"
+      "url": "heroku/nodejs"
+    },
+
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "standard-2x"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:essential-0"
     }
   ]
 }
