@@ -68,7 +68,7 @@
     "youtube-yts": "^2.0.0",
     "youtubedl-core": "^4.11.7",
     "yt-search": "^2.10.4",
-    "ytdl-core": "github:franceking1/flash-dls"
+    "ytdl-core": "npm:@distube/ytdl-core"
   }
 }
 
