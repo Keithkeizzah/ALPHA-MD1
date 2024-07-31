@@ -1,14 +1,9 @@
-const {zokou} = require("../framework/zokou");
-const conf = require("../set");
+const {zokou} =require("../framework/zokou");
+const axios =require("axios");
 
 
-
-zokou(
-  {
-    nomCom: 'broadcast',
-    categorie: 'Special',
-    reaction: '⚜️',
-  },
+zokou({ nomCom: "broadcast",
+        reaction: "✨",
         alias: ["bc"],
         desc: "Bot makes a broadcast in all groups",
         fromMe: true,
