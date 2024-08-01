@@ -1,6 +1,6 @@
 
  {
-  "name": "ALPHA-MD",
+  "name": "LORD RAMA-MD",
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
@@ -13,11 +13,11 @@
   "keywords": [
     "bot",
     "Baileys",
-    "KEITH-KEIZZAH",
+    "LORD-RAMAH",
     "whatsapp",
     "whatsapp-bot",
-    "keithkeizzah" ],
-  "author": "keithkeizzah",
+    "LordRamah" ],
+  "author": "LordRama",
 "license": "ISC",
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
