@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: ALPHA-MD
+    env: docker
+    region: Frankfurt
+    plan: free
+    dockerfilePath: Dockerfile
+
