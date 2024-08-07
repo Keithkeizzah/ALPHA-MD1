@@ -31,11 +31,11 @@ zokou({
           image: {url : videos[0]. thumbnail},
          caption : `*𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 𝐒𝐎𝐍𝐆 𝐏𝐋𝐀𝐘𝐄𝐑*\n
 ╭───────────────◆
-│⿻ *Title:* ${videos[0].title}
-│⿻ *Duration:* ${videos[0].timestamp}
-│⿻ *Viewers:* ${videos[0].views}
-│⿻ *Uploaded:* ${videos[0].ago}
-│⿻ *Artist:* ${videos[0].author.name}
+│☬ *Title:* ${videos[0].title}
+│☬ *Duration:* ${videos[0].timestamp}
+│☬ *Viewers:* ${videos[0].views}
+│☬ *Uploaded:* ${videos[0].ago}
+│☬ *Artist:* ${videos[0].author.name}
 ╰────────────────◆
 ⦿ *Direct Link:* ${videos[0].url}
 
@@ -109,11 +109,11 @@ zokou({
         image: { url: videos[0].thumbnail },
         caption: `*𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 𝐕𝐈𝐃𝐄𝐎 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐄𝐑*\n
 ╭───────────────◆
-│⿻ *Title:* ${Element.title}
-│⿻ *Duration:* ${Element.timestamp}
-│⿻ *Viewers:* ${Element.views}
-│⿻ *Uploaded:* ${Element.ago}
-│⿻ *Author:* ${Element.author.name}
+│☬ *Title:* ${Element.title}
+│☬ *Duration:* ${Element.timestamp}
+│☬ *Viewers:* ${Element.views}
+│☬ *Uploaded:* ${Element.ago}
+│☬ *Author:* ${Element.author.name}
 ╰────────────────◆
 ⦿ *Direct Link:* ${Element.url}
 
