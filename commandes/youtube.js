@@ -107,10 +107,19 @@ zokou({
 
       let InfoMess = {
         image: { url: videos[0].thumbnail },
-        caption: `*Video name :* _${Element.title}_
-*Time :* _${Element.timestamp}_
-*Url :* _${Element.url}_
-_*𝐑𝐄𝐆𝐀𝐑𝐃𝐒 𝐊𝐄𝐈𝐓𝐇𝐊𝐄𝐙𝐙𝐀𝐇*_\n\n`
+        caption: `*𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 𝐕𝐈𝐃𝐄𝐎 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐄𝐑*\n
+╭───────────────◆
+│⿻ *Title:* ${Element.title}
+│⿻ *Duration:* ${Element.timestamp}
+│⿻ *Viewers:* ${Element.views}
+│⿻ *Uploaded:* ${Element.ago}
+│⿻ *Author:* ${Element.author.name}
+╰────────────────◆
+⦿ *Direct Link:* ${Element.url}
+
+╭───────────────◆
+│ *_Powered by keithkeizzah._*
+╰────────────────◆ `
       };
 
       zk.sendMessage(origineMessage, InfoMess, { quoted: ms });
