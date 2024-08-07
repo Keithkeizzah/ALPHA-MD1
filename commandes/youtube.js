@@ -155,29 +155,3 @@ zokou({
     repondre('Une erreur est survenue lors de la recherche ou du téléchargement de la vidéo.');
   }
 });
-
-
-zokou({
-  nomCom: "shazam",
-  categorie: "Search",
-  reaction: "👨🏿‍💻"
-}, async (origineMessage, zk, commandeOptions) => {
-  const { ms, msgRepondu, arg, repondre, nomAuteurMessage } = commandeOptions;
-
-  if (!msgRepondu) {
-    return repondre('Make sure to mention the media.');
-  }
-
-  // Define mime type (you may need to adjust this based on your setup)
-  let mime = msgRepondu.mimetype || '';
-
-  if (!/video|audio/.test(mime)) {
-    return repondre("Tag a short video or audio for the bot to analyse.");
-  }
-
-  try {
-    let acr = new acrcloud({
-      host: 'identify-ap-southeast-1.acrcloud.com',
-      access_key: '26afd4eec96b0f5e5ab16a7e6e05ab37',
-      access_secret: 'wXOZIqdMNZmaHJP1YDWVyeQLg579uK2CfY6hWMN8'
-    });
