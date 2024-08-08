@@ -68,6 +68,6 @@
     "wa-sticker-formatter": "^4.4.4",
     "youtube-yts": "^2.0.0",
     "yt-search": "^2.10.4",
-    "youtubedl-core": "^4.11.5"
+    "youtubedl-core": "^4.11.7"
   }
 }
