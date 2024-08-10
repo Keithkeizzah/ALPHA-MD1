@@ -1,1 +1,622 @@
-function _0x2531(_0x53458b,_0x25871f){const _0x156461=_0x1380();return _0x2531=function(_0x53e2a3,_0x39adbc){_0x53e2a3=_0x53e2a3-0x18d;let _0x5e4399=_0x156461[_0x53e2a3];return _0x5e4399;},_0x2531(_0x53458b,_0x25871f);}const _0x2ffe4f=_0x2531;(function(_0x5517ce,_0x2bf73b){const _0x42bba4=_0x2531,_0x30d042=_0x5517ce();while(!![]){try{const _0x1ec61c=-parseInt(_0x42bba4(0x1c9))/0x1*(parseInt(_0x42bba4(0x1a3))/0x2)+-parseInt(_0x42bba4(0x19c))/0x3*(-parseInt(_0x42bba4(0x1c8))/0x4)+parseInt(_0x42bba4(0x1ab))/0x5+-parseInt(_0x42bba4(0x1bd))/0x6+parseInt(_0x42bba4(0x1a2))/0x7*(parseInt(_0x42bba4(0x1d7))/0x8)+-parseInt(_0x42bba4(0x19a))/0x9*(-parseInt(_0x42bba4(0x1b8))/0xa)+-parseInt(_0x42bba4(0x1dc))/0xb;if(_0x1ec61c===_0x2bf73b)break;else _0x30d042['push'](_0x30d042['shift']());}catch(_0x585bea){_0x30d042['push'](_0x30d042['shift']());}}}(_0x1380,0x28fa0));const _0x21024b=(function(){let _0x2d89d4=!![];return function(_0x10812a,_0x4f3400){const _0x1b7281=_0x2d89d4?function(){const _0x3612b6=_0x2531;if(_0x4f3400){const _0x2ce4df=_0x4f3400[_0x3612b6(0x191)](_0x10812a,arguments);return _0x4f3400=null,_0x2ce4df;}}:function(){};return _0x2d89d4=![],_0x1b7281;};}()),_0x37931d=_0x21024b(this,function(){const _0x4af425=_0x2531;return _0x37931d[_0x4af425(0x197)]()[_0x4af425(0x1a9)](_0x4af425(0x1e4))[_0x4af425(0x197)]()[_0x4af425(0x1d0)](_0x37931d)[_0x4af425(0x1a9)](_0x4af425(0x1e4));});function _0x1380(){const _0x1b52ea=['Error\x20from\x20Flash-MD\x20API:','\x0a\x0a╭───────────────◆\x0a│\x20*_Powered\x20by\x20keithkeizzah._*\x0a╰────────────────◆','mygroups','url','log','__proto__','\x0a╰────────────────◆\x0a᳆\x20*Direct\x20Link:*\x20','audio/mp4','groupFetchAllParticipating','3436pmMccN','19OGtyxh','quality','\x0a│᳆\x20*Artist:*\x20','*ALPHA-MD\x20VIDEO\x20DOWNLOADER*\x0a\x0a╭───────────────◆\x0a│᳆\x20*Title:*\x20','return\x20(function()\x20','fileSize','groupMetadata','constructor','error','slice','length','sendMessage','name','exception','86648ScfXZT','youtube-yts','info','ago','videos','4252842dfCsmJ','\x0a│᳆\x20*File\x20Size:*\x20','../framework/dl/ytdl-core.js','{}.constructor(\x22return\x20this\x22)(\x20)','table','status','data','*GROUPS\x20AM\x20IN*\x0a\x0a','(((.+)+)+)+$','download','\x0a│᳆\x20*Views:*\x20','entries','video','https://api.prabath-md.tech/api/ytmp3?url=','\x0a\x0a╭───────────────◆\x0a│\x20*_Powered\x20by\x20keithkeizzah._*\x0a╰────────────────◆\x20','success\x20✅','Download\x20Success...','apply','file_size','Failed\x20to\x20download\x20audio.\x20Please\x20try\x20again\x20later.','*ALPHA-MD\x20SONG\x20PLAYER*\x0a╭───────────────◆\x0a│᳆\x20*Title:*\x20','json','.mp3','toString','prototype','Sending\x20video\x20file\x20completed!','135DcWAbr','bind','1149BsMYii','audio/mpeg','Hello\x20_*${m.pushName}*_\x20,\x20Please\x20provide\x20song\x20name,\x20eg\x20*.play\x20already\x20dead\x20by\x20Juice\x20wrld*.','*MEMBERS:*-\x20','React','views','84ybHWRG','20934EUZiDp','warn','\x0a│᳆\x20*Viewers:*\x20','\x0a│᳆\x20*Quality:*\x20','\x0a│᳆\x20*Duration:*\x20','../framework/zokou','search','An\x20error\x20occurred\x20while\x20searching\x20or\x20downloading\x20the\x20video.','1026730gXSMKy','thumbnail','timestamp','trace','title','join','author','\x0a│᳆\x20*Author:*\x20','*ALPHA-MD\x20SONG\x20PLAYER*\x0a\x0a╭───────────────◆\x0a│᳆\x20*Title:*\x20','Sending\x20audio\x20file\x20completed!','\x0a│᳆\x20*Uploaded:*\x20','map','You\x20are\x20Currently\x20in\x20','96200zaowkc','console','yt-search','Hello\x20_*${m.pushName}*_\x20,\x20Please\x20provide\x20song\x20name,\x20eg\x20*.song\x20already\x20dead\x20by\x20Juice\x20wrld.*','play','331680zrBEJg','Search'];_0x1380=function(){return _0x1b52ea;};return _0x1380();}_0x37931d();const _0x39adbc=(function(){let _0x1a4179=!![];return function(_0x22dc33,_0x50c977){const _0x287d2a=_0x1a4179?function(){const _0x3eae2f=_0x2531;if(_0x50c977){const _0x427cfe=_0x50c977[_0x3eae2f(0x191)](_0x22dc33,arguments);return _0x50c977=null,_0x427cfe;}}:function(){};return _0x1a4179=![],_0x287d2a;};}()),_0x53e2a3=_0x39adbc(this,function(){const _0x14a8fa=_0x2531,_0x33f5b4=function(){const _0x4b0577=_0x2531;let _0x44e4a2;try{_0x44e4a2=Function(_0x4b0577(0x1cd)+_0x4b0577(0x1df)+');')();}catch(_0x54c066){_0x44e4a2=window;}return _0x44e4a2;},_0x58dbe0=_0x33f5b4(),_0x8a9676=_0x58dbe0[_0x14a8fa(0x1b9)]=_0x58dbe0[_0x14a8fa(0x1b9)]||{},_0x5227e7=[_0x14a8fa(0x1c3),_0x14a8fa(0x1a4),_0x14a8fa(0x1d9),'error',_0x14a8fa(0x1d6),_0x14a8fa(0x1e0),_0x14a8fa(0x1ae)];for(let _0x46c8b7=0x0;_0x46c8b7<_0x5227e7[_0x14a8fa(0x1d3)];_0x46c8b7++){const _0x13f845=_0x39adbc[_0x14a8fa(0x1d0)][_0x14a8fa(0x198)][_0x14a8fa(0x19b)](_0x39adbc),_0x5c3ab1=_0x5227e7[_0x46c8b7],_0xa4b27=_0x8a9676[_0x5c3ab1]||_0x13f845;_0x13f845[_0x14a8fa(0x1c4)]=_0x39adbc['bind'](_0x39adbc),_0x13f845[_0x14a8fa(0x197)]=_0xa4b27[_0x14a8fa(0x197)][_0x14a8fa(0x19b)](_0xa4b27),_0x8a9676[_0x5c3ab1]=_0x13f845;}});_0x53e2a3();const {zokou}=require(_0x2ffe4f(0x1a8)),yts=require(_0x2ffe4f(0x1ba)),fs=require('fs'),yt=require(_0x2ffe4f(0x1de)),ffmpeg=require('fluent-ffmpeg'),yts1=require(_0x2ffe4f(0x1d8));zokou({'nomCom':_0x2ffe4f(0x1c1),'categorie':'User','reaction':'💿'},async(_0x2cd1bf,_0x3a70a5,_0x433df3)=>{const _0x333842=_0x2ffe4f,{ms:_0x4c059a,repondre:_0x4acc71,arg:_0x2ab486}=_0x433df3;let _0x4c863e=await _0x3a70a5[_0x333842(0x1c7)](),_0x47ed6e=Object[_0x333842(0x1e7)](_0x4c863e)[_0x333842(0x1d2)](0x0)['map'](_0x486e57=>_0x486e57[0x1]),_0x13da45=_0x47ed6e[_0x333842(0x1b6)](_0x22a037=>_0x22a037['id']),_0x4650ac=_0x333842(0x1e3);_0x4acc71(_0x333842(0x1b7)+_0x13da45[_0x333842(0x1d3)]+'\x20groups,\x20Alpha\x20MD\x20will\x20send\x20that\x20list\x20in\x20a\x20moment.\x20.\x20.');for(let _0x1ceb93 of _0x13da45){let _0x2b54de=await _0x3a70a5[_0x333842(0x1cf)](_0x1ceb93);_0x4650ac+='*GROUP\x20NAME:*-\x20'+_0x2b54de['subject']+'\x0a',_0x4650ac+=_0x333842(0x19f)+_0x2b54de['participants'][_0x333842(0x1d3)]+'\x0a',_0x4650ac+='*GROUP\x20ID:*-\x20'+_0x1ceb93+'\x0a\x0a';}await _0x4acc71(_0x4650ac);}),zokou({'nomCom':_0x2ffe4f(0x1bc),'categorie':_0x2ffe4f(0x1be),'reaction':'💿'},async(_0x5b491c,_0x543008,_0x4b8b79)=>{const _0x4660dd=_0x2ffe4f,{ms:_0xe01a27,repondre:_0xa23982,arg:_0xb71fe0}=_0x4b8b79;if(!_0xb71fe0[0x0]){_0xa23982(_0x4660dd(0x19e));return;}try{let _0x5645f5=_0xb71fe0[_0x4660dd(0x1b0)]('\x20');const _0x4fe165=await yts(_0x5645f5),_0x4e7ad0=_0x4fe165[_0x4660dd(0x1db)];if(_0x4e7ad0&&_0x4e7ad0[_0x4660dd(0x1d3)]>0x0&&_0x4e7ad0[0x0]){const _0x518034=_0x4e7ad0[0x0][_0x4660dd(0x1c2)],_0xabb183=await fetch(_0x4660dd(0x18d)+encodeURIComponent(_0x518034)),_0x372a25=await _0xabb183['json']();if(_0x372a25[_0x4660dd(0x1e1)]===_0x4660dd(0x18f)){const _0x3f19ac=_0x372a25[_0x4660dd(0x1e2)][_0x4660dd(0x1e5)],_0x1e8b1c={'title':_0x372a25[_0x4660dd(0x1e2)]['title'],'fileSize':_0x372a25[_0x4660dd(0x1e2)][_0x4660dd(0x192)],'quality':_0x372a25[_0x4660dd(0x1e2)]['quality']};let _0xb1ebfd={'image':{'url':_0x4e7ad0[0x0][_0x4660dd(0x1ac)]},'caption':_0x4660dd(0x1b3)+_0x1e8b1c[_0x4660dd(0x1af)]+_0x4660dd(0x1dd)+_0x1e8b1c['fileSize']+_0x4660dd(0x1a6)+_0x1e8b1c[_0x4660dd(0x1ca)]+_0x4660dd(0x1a7)+_0x4e7ad0[0x0][_0x4660dd(0x1ad)]+_0x4660dd(0x1a5)+_0x4e7ad0[0x0][_0x4660dd(0x1a1)]+_0x4660dd(0x1b5)+_0x4e7ad0[0x0][_0x4660dd(0x1da)]+_0x4660dd(0x1cb)+_0x4e7ad0[0x0][_0x4660dd(0x1b1)][_0x4660dd(0x1d5)]+_0x4660dd(0x1c5)+_0x3f19ac+'\x0a\x0a╭────────────────◆\x0a│\x20*_Powered\x20by\x20keithkeizzah._*\x0a╰─────────────────◆'};_0x543008[_0x4660dd(0x1d4)](_0x5b491c,_0xb1ebfd,{'quoted':_0xe01a27}),_0x543008[_0x4660dd(0x1d4)](_0x5b491c,{'audio':{'url':_0x3f19ac},'mimetype':_0x4660dd(0x1c6)},{'quoted':_0xe01a27,'ptt':![]}),console['log'](_0x4660dd(0x1b4)),await _0xe01a27[_0x4660dd(0x1a0)]('✅'),_0xa23982('Download\x20Success...');}else _0xa23982('Failed\x20to\x20download\x20audio.\x20Please\x20try\x20again\x20later.');}else _0xa23982('No\x20videos\x20found.');}catch(_0x2a1943){console[_0x4660dd(0x1d1)]('Error\x20from\x20Flash-MD\x20API:',_0x2a1943),_0xa23982(_0x4660dd(0x1aa));}}),zokou({'nomCom':_0x2ffe4f(0x1e8),'categorie':_0x2ffe4f(0x1be),'reaction':'🎥'},async(_0x40ae21,_0x7060b8,_0x2d970b)=>{const _0x13a99=_0x2ffe4f,{arg:_0x46747e,ms:_0x1d5c3e,repondre:_0x4f89d2}=_0x2d970b;if(!_0x46747e[0x0]){_0x4f89d2('Hello\x20_*${m.pushName}*_\x20,\x20Please\x20provide\x20song\x20name,\x20eg\x20*.video\x20already\x20dead\x20by\x20Juice\x20wrld*.');return;}const _0x428120=_0x46747e[_0x13a99(0x1b0)]('\x20');try{const _0x5b2a9c=await yts(_0x428120),_0x130fd6=_0x5b2a9c[_0x13a99(0x1db)];if(_0x130fd6&&_0x130fd6[_0x13a99(0x1d3)]>0x0&&_0x130fd6[0x0]){const _0x3ab709=_0x130fd6[0x0],_0x3dd19e=await fetch(_0x13a99(0x18d)+encodeURIComponent(_0x3ab709[_0x13a99(0x1c2)])),_0x1e9060=await _0x3dd19e[_0x13a99(0x195)]();if(_0x1e9060[_0x13a99(0x1e1)]===_0x13a99(0x18f)){const _0x3dda4d=_0x1e9060[_0x13a99(0x1e2)][_0x13a99(0x1e5)],_0xcafac9={'title':_0x1e9060[_0x13a99(0x1e2)][_0x13a99(0x1af)],'fileSize':_0x1e9060[_0x13a99(0x1e2)][_0x13a99(0x192)],'quality':_0x1e9060[_0x13a99(0x1e2)][_0x13a99(0x1ca)]};let _0x3563e4={'image':{'url':_0x130fd6[0x0]['thumbnail']},'caption':_0x13a99(0x1cc)+_0xcafac9['title']+_0x13a99(0x1dd)+_0xcafac9[_0x13a99(0x1ce)]+'\x0a│᳆\x20*Quality:*\x20'+_0xcafac9['quality']+_0x13a99(0x1a7)+_0x3ab709[_0x13a99(0x1ad)]+_0x13a99(0x1a5)+_0x3ab709[_0x13a99(0x1a1)]+_0x13a99(0x1b5)+_0x3ab709[_0x13a99(0x1da)]+_0x13a99(0x1b2)+_0x3ab709[_0x13a99(0x1b1)][_0x13a99(0x1d5)]+_0x13a99(0x1c5)+_0x3dda4d+_0x13a99(0x18e)};_0x7060b8['sendMessage'](_0x40ae21,_0x3563e4,{'quoted':_0x1d5c3e}),_0x7060b8[_0x13a99(0x1d4)](_0x40ae21,{'video':{'url':_0x3dda4d},'caption':'╭───────────────◆\x0a│\x20*ALPHA-MD\x20DOWNLOADER*\x0a╰────────────────◆','gifPlayback':![]},{'quoted':_0x1d5c3e}),console['log'](_0x13a99(0x199)),await _0x1d5c3e['React']('✅'),_0x4f89d2(_0x13a99(0x190));}else _0x4f89d2('Failed\x20to\x20download\x20video.\x20Please\x20try\x20again\x20later.');}else _0x4f89d2('No\x20video\x20found.');}catch(_0x33a2a8){console[_0x13a99(0x1d1)](_0x13a99(0x1bf),_0x33a2a8),_0x4f89d2('An\x20error\x20occurred\x20while\x20searching\x20or\x20downloading\x20the\x20video.');}}),zokou({'nomCom':'song','categorie':_0x2ffe4f(0x1be),'reaction':'💿'},async(_0xb8e912,_0x17ba2c,_0x406c29)=>{const _0x4d68ad=_0x2ffe4f,{ms:_0xf03b6e,repondre:_0x25b057,arg:_0x47cf85}=_0x406c29;if(!_0x47cf85[0x0])return _0x25b057(_0x4d68ad(0x1bb));try{const _0x496682=_0x47cf85['join']('\x20'),_0x1ea41e=await yts(_0x496682),_0x2f5474=_0x1ea41e[_0x4d68ad(0x1db)];if(!_0x2f5474||_0x2f5474['length']<=0x0)return _0x25b057('No\x20matching\x20videos\x20found\x20for:\x20*'+_0x496682+'*!!');const _0x3bd8ea=_0x2f5474[0x0]['url'],_0x503ccd=await fetch(_0x4d68ad(0x18d)+encodeURIComponent(_0x3bd8ea)),_0x2e5be9=await _0x503ccd['json']();if(_0x2e5be9['status']===_0x4d68ad(0x18f)){const _0xea1d17=_0x2e5be9[_0x4d68ad(0x1e2)][_0x4d68ad(0x1e5)],_0x212c87={'title':_0x2e5be9[_0x4d68ad(0x1e2)][_0x4d68ad(0x1af)],'fileSize':_0x2e5be9['data']['file_size'],'quality':_0x2e5be9[_0x4d68ad(0x1e2)]['quality']},_0x9d0433=_0x4d68ad(0x194)+_0x212c87[_0x4d68ad(0x1af)]+_0x4d68ad(0x1dd)+_0x212c87[_0x4d68ad(0x1ce)]+_0x4d68ad(0x1a6)+_0x212c87[_0x4d68ad(0x1ca)]+'\x0a│᳆\x20*Duration:*\x20'+_0x2f5474[0x0][_0x4d68ad(0x1ad)]+_0x4d68ad(0x1e6)+_0x2f5474[0x0]['views']+'\x0a│᳆\x20*Uploaded:*\x20'+_0x2f5474[0x0][_0x4d68ad(0x1da)]+'\x0a│᳆\x20*Artist:*\x20'+_0x2f5474[0x0][_0x4d68ad(0x1b1)][_0x4d68ad(0x1d5)]+'\x0a╰────────────────◆\x0a᳆\x20*Direct\x20Link:*\x20'+_0xea1d17+_0x4d68ad(0x1c0);await _0x17ba2c[_0x4d68ad(0x1d4)](_0xb8e912,{'text':_0x9d0433},{'quoted':_0xf03b6e}),await _0x17ba2c[_0x4d68ad(0x1d4)](_0xb8e912,{'document':{'url':_0xea1d17},'mimetype':_0x4d68ad(0x19d),'fileName':_0x212c87[_0x4d68ad(0x1af)]+_0x4d68ad(0x196)},{'quoted':_0xf03b6e}),console[_0x4d68ad(0x1c3)](_0x4d68ad(0x1b4)),await _0xf03b6e[_0x4d68ad(0x1a0)]('✅'),_0x25b057(_0x4d68ad(0x190));}else _0x25b057(_0x4d68ad(0x193));}catch(_0x4c099d){console[_0x4d68ad(0x1d1)]('Error:',_0x4c099d),_0x25b057(_0x4d68ad(0x1aa));}});
+const { zokou } = require("../framework/zokou");
+const yts = require('yt-search');
+//const ytdl = require('ytdl-core');
+const fs = require('fs');
+const yt=require("../framework/dl/ytdl-core.js")
+const ffmpeg = require("fluent-ffmpeg");
+const yts1 = require("youtube-yts");
+/*
+zokou({
+  nomCom: "play",
+  categorie: "Search",
+  reaction: "💿"
+}, async (origineMessage, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+     
+  if (!arg[0]) {
+    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.play Spectre by Alan Walker*.");
+    return;
+  }
+
+  try {
+
+    let topo = arg.join(" ")
+    const search = await yts(topo);
+    const videos = search.videos;
+
+    if (videos && videos.length > 0 && videos[0]) {
+      const urlElement = videos[0].url;
+          
+       let infoMess = {
+          image: {url : videos[0]. thumbnail},
+         caption : `*ALPHA-MD SONG PLAYER*\n
+╭───────────────◆
+│᳆ *Title:* ${videos[0].title}
+│᳆ *Duration:* ${videos[0].timestamp}
+│᳆ *Viewers:* ${videos[0].views}
+│᳆ *Uploaded:* ${videos[0].ago}
+│᳆ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
+       }
+
+      
+
+      
+
+      
+       zk.sendMessage(origineMessage,infoMess,{quoted:ms}) ;
+      // Obtenir le flux audio de la vidéo
+      const audioStream = ytdl(urlElement, { filter: 'audioonly', quality: 'highestaudio' });
+
+      // Nom du fichier local pour sauvegarder le fichier audio
+      const filename = 'audio.mp3';
+
+      // Écrire le flux audio dans un fichier local
+      const fileStream = fs.createWriteStream(filename);
+      audioStream.pipe(fileStream);
+
+      fileStream.on('finish', () => {
+        // Envoi du fichier audio en utilisant l'URL du fichier local
+      
+
+     zk.sendMessage(origineMessage, { audio: { url:"audio.mp3"},mimetype:'audio/mp4' }, { quoted: ms,ptt: false });
+        console.log("Sending audio file completed !");
+
+     
+      });
+
+      fileStream.on('error', (error) => {
+        console.error('Error Occurred while writing audio file :', error);
+        repondre('An error occurred while writing the audio file.');
+      });
+    } else {
+      repondre('No videos found.');
+    }
+  } catch (error) {
+    console.error('Error while searching or downloading video :', error);
+  }
+});
+
+  
+
+zokou({
+  nomCom: "video",
+  categorie: "Search",
+  reaction: "🎥"
+}, async (origineMessage, zk, commandeOptions) => {
+  const { arg, ms, repondre } = commandeOptions;
+
+  if (!arg[0]) {
+    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.video Spectre by Alan Walker*");
+    return;
+  }
+
+  const topo = arg.join(" ");
+  try {
+    const search = await yts(topo);
+    const videos = search.videos;
+
+    if (videos && videos.length > 0 && videos[0]) {
+      const Element = videos[0];
+
+      let InfoMess = {
+        image: { url: videos[0].thumbnail },
+        caption: `*ALPHA-MD VIDEO DOWNLOADER*\n
+╭───────────────◆
+│᳆ *Title:* ${Element.title}
+│᳆ *Duration:* ${Element.timestamp}
+│᳆ *Viewers:* ${Element.views}
+│᳆ *Uploaded:* ${Element.ago}
+│᳆ *Author:* ${Element.author.name}
+╰────────────────◆
+
+╭───────────────◆
+│ *_Powered by keithkeizzah._*
+╰────────────────◆ `
+      };
+
+      zk.sendMessage(origineMessage, InfoMess, { quoted: ms });
+
+      // Obtenir les informations de la vidéo à partir du lien YouTube
+      const videoInfo = await ytdl.getInfo(Element.url);
+      // Format vidéo avec la meilleure qualité disponible
+      const format = ytdl.chooseFormat(videoInfo.formats, { quality: '18' });
+      // Télécharger la vidéo
+      const videoStream = ytdl.downloadFromInfo(videoInfo, { format });
+
+      // Nom du fichier local pour sauvegarder la vidéo
+      const filename = 'video.mp4';
+
+      // Écrire le flux vidéo dans un fichier local
+      const fileStream = fs.createWriteStream(filename);
+      videoStream.pipe(fileStream);
+
+      fileStream.on('finish', () => {
+        // Envoi du fichier vidéo en utilisant l'URL du fichier local
+        zk.sendMessage(origineMessage, { video: { url :"./video.mp4"} , caption:
+          "╭───────────────◆\n│ *ALPHA-MD DOWNLOADER*\n╰────────────────◆", gifPlayback: false }, { quoted: ms });
+      });
+
+
+      fileStream.on('error', (error) => {
+        console.error('Error while writing video file :', error);
+        repondre('An error occurred while writing the video file.');
+      });
+    } else {
+      repondre('No video found');
+    }
+  } catch (error) {
+    console.error('Error searching or downloading video :', error);
+    repondre('An error occurred while searching or downloading the video.');
+  }
+});
+*/
+
+zokou({
+  nomCom: "mygroups",
+  categorie: "User",
+  reaction: "💿"
+}, async (senn, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+     
+let getGroupzs = await zk.groupFetchAllParticipating();
+            let groupzs = Object.entries(getGroupzs)
+                .slice(0)
+                .map((entry) => entry[1]);
+            let anaa = groupzs.map((v) => v.id);
+            let jackhuh = `*GROUPS AM IN*\n\n`
+            repondre(`You are Currently in ${anaa.length} groups, Alpha MD will send that list in a moment. . .`)
+            for (let i of anaa) {
+                let metadat = await zk.groupMetadata(i);
+               
+                jackhuh += `*GROUP NAME:*- ${metadat.subject}\n`
+                jackhuh += `*MEMBERS:*- ${metadat.participants.length}\n`
+                jackhuh += `*GROUP ID:*- ${i}\n\n`
+
+            }
+          await repondre(jackhuh)
+
+}
+);
+
+/*
+
+
+zokou({
+  nomCom: "song",
+  categorie: "Search",
+  reaction: "💿"
+}, async (origineMessage, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+     
+  if (!arg[0]) {
+    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.song already dead by Juice wrld*.");
+    return;
+  }
+
+  try {
+    let topo = arg.join(" ")
+  
+    const {
+                videos
+            } = await yts1(topo);
+            if (!videos || videos.length <= 0) {
+                repondre(`No Matching videos found for : *${args[0]}*!!`)
+                return;
+            }
+
+
+let urlYt = videos[0].url
+            let infoYt = await ytdl.getInfo(urlYt);
+
+
+            const getRandonm = (ext) => {
+                return `${Math.floor(Math.random() * 10000)}${ext}`;
+            };
+
+let titleYt = infoYt.videoDetails.title;
+            let randomName = getRandonm(".mp3");
+            const stream = ytdl(urlYt, {
+                    filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
+                })
+                .pipe(fs.createWriteStream(`./${randomName}`));
+            console.log("Audio downloading ->", urlYt);
+
+            await new Promise((resolve, reject) => {
+                stream.on("error", reject);
+                stream.on("finish", resolve);
+            });
+
+            let stats = fs.statSync(`./${randomName}`);
+            let fileSizeInBytes = stats.size;
+           
+            let fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+            console.log("Audio downloaded ! \n Size: " + fileSizeInMegabytes);
+
+
+await zk.sendMessage(
+                    origineMessage, {
+                        document: fs.readFileSync(`./${randomName}`),
+                        mimetype: "audio/mpeg",
+                        fileName: titleYt + ".mp3",
+                    }, {
+                        quoted: ms
+                    }
+                );
+
+            fs.unlinkSync(`./${randomName}`);
+        } catch (e) {
+            repondre(e.toString())
+        }
+
+       
+});
+
+
+
+zokou({
+  nomCom: "shazam",
+  categorie: "Search",
+  reaction: "👨🏿‍💻"
+}, async (origineMessage, zk, commandeOptions) => {
+  const { ms, msgRepondu, arg, repondre, nomAuteurMessage } = commandeOptions;
+
+  if (!msgRepondu) {
+    return repondre('Make sure to mention the media.');
+  }
+
+  // Define mime type (you may need to adjust this based on your setup)
+  let mime = msgRepondu.mimetype || '';
+
+  if (!/video|audio/.test(mime)) {
+    return repondre("Tag a short video or audio for the bot to analyse.");
+  }
+
+  try {
+    let acr = new acrcloud({
+      host: 'identify-ap-southeast-1.acrcloud.com',
+      access_key: '26afd4eec96b0f5e5ab16a7e6e05ab37',
+      access_secret: 'wXOZIqdMNZmaHJP1YDWVyeQLg579uK2CfY6hWMN8'
+    });
+
+    let buffer = await msgRepondu.download();
+
+    let { status, metadata } = await acr.identify(buffer);
+    if (status.code !== 0) {
+      return repondre(status.msg);
+    }
+
+    let { title, artists, album, genres, release_date } = metadata.music[0];
+    let txt = `Title: ${title}${artists ? `\nArtists: ${artists.map(v => v.name).join(', ')}` : ''}`;
+    txt += `${album ? `\nAlbum: ${album.name}` : ''}${genres ? `\nGenres: ${genres.map(v => v.name).join(', ')}` : ''}\n`;
+    txt += `Release Date: ${release_date}`;
+    repondre(txt.trim());
+
+    const { videos } = await yts(txt.trim());
+    if (!videos || videos.length <= 0) {
+      return repondre("Song not found");
+    }
+
+    let urlYt = videos[0].url;
+    let infoYt = await ytdl.getInfo(urlYt);
+    let getRandomName = (ext) => `${Math.floor(Math.random() * 10000)}${ext}`;
+
+    let titleYt = infoYt.videoDetails.title;
+    let randomName = getRandomName(".mp3");
+    const stream = ytdl(urlYt, {
+      filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
+    }).pipe(fs.createWriteStream(`./${randomName}`));
+
+    await new Promise((resolve, reject) => {
+      stream.on("error", reject);
+      stream.on("finish", resolve);
+    });
+
+    await zk.sendMessage(
+      origineMessage, {
+        document: fs.readFileSync(`./${randomName}`),
+        mimetype: "audio/mpeg",
+        fileName: `${titleYt}.mp3`,
+      }, {
+        quoted: ms
+      }
+    );
+  } catch (error) {
+    console.error('Error processing the media:', error.message);
+  }
+});
+
+
+zokou({
+  nomCom: "song",
+  categorie: "Search",
+  reaction: "💿"
+}, async (origineMessage, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+
+  if (!arg[0]) {
+    return repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.song already dead by Juice wrld*.");
+  }
+
+  try {
+    const topo = arg.join(" ");
+
+    const { videos } = await yts1(topo);
+    if (!videos || videos.length <= 0) {
+      return repondre(`No matching videos found for: *${topo}*!!`);
+    }
+
+    const urlYt = videos[0].url;
+    const infoYt = await ytdl.getInfo(urlYt);
+
+    const getRandomName = (ext) => `${Math.floor(Math.random() * 10000)}${ext}`;
+
+    const titleYt = infoYt.videoDetails.title;
+    const views = infoYt.videoDetails.viewCount || 'Unknown Views';
+    const duration = infoYt.videoDetails.lengthSeconds || 0; // Duration in seconds
+    const artistYt = infoYt.videoDetails.author.name || 'Unknown Artist';
+    const uploadYear = infoYt.videoDetails.uploadDate.split('-')[0] || 'Unknown Year';
+    const directLink = urlYt;
+
+    // Format duration as MM:SS
+    const formattedDuration = `${Math.floor(duration / 60)}:${String(duration % 60).padStart(2, '0')}`;
+
+    // Send song details first
+    const songDetails = `*ALPHA-MD SONG PLAYER*
+╭───────────────◆
+│᳆ *Title:* ${titleYt}
+│᳆ *Artist:* ${artistYt}
+│᳆ *Views:* ${views}
+│᳆ *Duration:* ${formattedDuration}
+│᳆ *Year:* ${uploadYear}
+╰────────────────◆
+
+╭───────────────◆
+│ *_Powered by keithkeizzah._*
+╰────────────────◆`;
+
+    await zk.sendMessage(origineMessage, { text: songDetails }, { quoted: ms });
+
+    const randomName = getRandomName(".mp3");
+    const stream = ytdl(urlYt, {
+      filter: (info) => info.audioBitrate === 160 || info.audioBitrate === 128,
+    }).pipe(fs.createWriteStream(`./${randomName}`));
+
+    console.log("Audio downloading ->", urlYt);
+
+    await new Promise((resolve, reject) => {
+      stream.on("error", reject);
+      stream.on("finish", resolve);
+    });
+
+    const stats = fs.statSync(`./${randomName}`);
+    const fileSizeInBytes = stats.size;
+    const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+    console.log("Audio downloaded! \n Size: " + fileSizeInMegabytes.toFixed(2) + " MB");
+
+    // Send the audio file
+    await zk.sendMessage(
+      origineMessage, {
+        document: fs.readFileSync(`./${randomName}`),
+        mimetype: "audio/mpeg",
+        fileName: titleYt + ".mp3",
+      }, {
+        quoted: ms
+      }
+    );
+
+    fs.unlinkSync(`./${randomName}`);
+  } catch (e) {
+    return repondre(`Error: ${e.toString()}`);
+  }
+});*/
+
+zokou({
+  nomCom: "play",
+  categorie: "Search",
+  reaction: "💿"
+}, async (origineMessage, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+     
+  if (!arg[0]) {
+    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.play already dead by Juice wrld*.");
+    return;
+  }
+
+  try {
+    let topo = arg.join(" ");
+    const search = await yts(topo);
+    const videos = search.videos;
+
+    if (videos && videos.length > 0 && videos[0]) {
+      const urlElement = videos[0].url;
+      const apiResponse = await fetch(`https://api.prabath-md.tech/api/ytmp3?url=${encodeURIComponent(urlElement)}`);
+      const apiResult = await apiResponse.json();
+
+      if (apiResult.status === 'success ✅') {
+        const audioUrl = apiResult.data.download;
+        const fileInfo = {
+          title: apiResult.data.title,
+          fileSize: apiResult.data.file_size,
+          quality: apiResult.data.quality
+        };
+
+        let infoMess = {
+          image: { url: videos[0].thumbnail },
+          caption: `*ALPHA-MD SONG PLAYER*\n
+╭───────────────◆
+│᳆ *Title:* ${fileInfo.title}
+│᳆ *File Size:* ${fileInfo.fileSize}
+│᳆ *Quality:* ${fileInfo.quality}
+│᳆ *Duration:* ${videos[0].timestamp}
+│᳆ *Viewers:* ${videos[0].views}
+│᳆ *Uploaded:* ${videos[0].ago}
+│᳆ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
+        };
+
+        zk.sendMessage(origineMessage, infoMess, { quoted: ms });
+
+        // Send the audio file using the audio URL
+        zk.sendMessage(origineMessage, { audio: { url: audioUrl }, mimetype: 'audio/mp4' }, { quoted: ms, ptt: false });
+        console.log("Sending audio file completed!");
+
+        await ms.React('✅');
+        repondre('Download Success...');
+      } else {
+        repondre('Failed to download audio. Please try again later.');
+      }
+    } else {
+      repondre('No videos found.');
+    }
+  } catch (error) {
+    console.error('Error from Flash-MD API:', error);
+  }
+});
+
+zokou({
+  nomCom: "video",
+  categorie: "Search",
+  reaction: "🎥"
+}, async (origineMessage, zk, commandeOptions) => {
+  const { arg, ms, repondre } = commandeOptions;
+
+  if (!arg[0]) {
+    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.video already dead by Juice wrld*.");
+    return;
+  }
+
+  const topo = arg.join(" ");
+  try {
+    const search = await yts(topo);
+    const videos = search.videos;
+
+    if (videos && videos.length > 0 && videos[0]) {
+      const Element = videos[0];
+      const apiResponse = await fetch(`https://api.prabath-md.tech/api/ytmp3?url=${encodeURIComponent(Element.url)}`);
+      const apiResult = await apiResponse.json();
+
+      if (apiResult.status === 'success ✅') {
+        const videoUrl = apiResult.data.download;
+        const fileInfo = {
+          title: apiResult.data.title,
+          fileSize: apiResult.data.file_size,
+          quality: apiResult.data.quality
+        };
+
+        let InfoMess = {
+          image: { url: videos[0].thumbnail },
+          caption: `*ALPHA-MD VIDEO DOWNLOADER*\n
+╭───────────────◆
+│᳆ *Title:* ${fileInfo.title}
+│᳆ *File Size:* ${fileInfo.fileSize}
+│᳆ *Quality:* ${fileInfo.quality}
+│᳆ *Duration:* ${Element.timestamp}
+│᳆ *Viewers:* ${Element.views}
+│᳆ *Uploaded:* ${Element.ago}
+│᳆ *Author:* ${Element.author.name}
+╰────────────────◆
+
+╭───────────────◆
+│ *_Powered by keithkeizzah._*
+╰────────────────◆ `
+        };
+
+        zk.sendMessage(origineMessage, InfoMess, { quoted: ms });
+
+        // Send the video file using the video URL
+        zk.sendMessage(origineMessage, { video: { url: videoUrl }, caption: "╭───────────────◆\n│ *ALPHA-MD DOWNLOADER*\n╰────────────────◆", gifPlayback: false }, { quoted: ms });
+        console.log("Sending video file completed!");
+
+        await ms.React('✅');
+        repondre('Download Success...');
+      } else {
+        repondre('Failed to download video. Please try again later.');
+      }
+    } else {
+      repondre('No video found.');
+    }
+  } catch (error) {
+    console.error('Error from Flash-MD API:', error);
+  }
+});
+
+zokou({
+  nomCom: "song",
+categorie: "Search",
+reaction: "💿"
+}, async (origineMessage, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+
+ if (!arg[0]) {
+    return repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.song already dead by Juice wrld.*");
+  }
+
+  try {
+    const topo = arg.join(" ");
+    const search = await yts(topo);
+    const videos = search.videos;
+
+    if (!videos || videos.length <= 0) {
+      return repondre(`No matching videos found for: *${topo}*!!`);
+    }
+
+    const urlYt = videos[0].url;
+    const apiResponse = await fetch(`https://api.prabath-md.tech/api/ytmp3?url=${encodeURIComponent(urlYt)}`);
+    const apiResult = await apiResponse.json();
+
+    if (apiResult.status === 'success ✅') {
+      const audioUrl = apiResult.data.download;
+      const fileInfo = {
+        title: apiResult.data.title,
+        fileSize: apiResult.data.file_size,
+        quality: apiResult.data.quality
+      };
+
+      const songDetails = `*ALPHA-MD SONG PLAYER*
+╭───────────────◆
+│᳆ *Title:* ${fileInfo.title}
+│᳆ *File Size:* ${fileInfo.fileSize}
+│᳆ *Quality:* ${fileInfo.quality}
+│᳆ *Duration:* ${videos[0].timestamp}
+│᳆ *Views:* ${videos[0].views}
+│᳆ *Uploaded:* ${videos[0].ago}
+│᳆ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+
+╭───────────────◆
+│ *_Powered by keithkeizzah._*
+╰────────────────◆`;
+
+      await zk.sendMessage(origineMessage, { text: songDetails }, { quoted: ms });
+
+      // Send the audio file with the correct name and mimetype
+      await zk.sendMessage(
+        origineMessage, 
+        { 
+          document: { url: audioUrl }, 
+          mimetype: 'audio/mpeg', 
+          fileName: `${fileInfo.title}.mp3` 
+        }, 
+        { quoted: ms }
+      );
+
+      console.log("Sending audio file completed!");
+
+      await ms.React('✅');
+      repondre('Download Success...');
+    } else {
+      repondre('Failed to download audio. Please try again later.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+});
