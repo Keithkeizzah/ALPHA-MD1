@@ -71,7 +71,7 @@
 
 3, TAP DEPLOY.., AND DEPLOY IT ON HEROKU ..Use Keith Tech App..
 
-## 𝐂𝐋𝐈𝐂𝐊 𝐎𝐍 HEROKU OR 𝐀𝐏𝐏 𝐓𝐎 𝐃𝐄𝐏𝐋𝐎𝐘  𝐊𝐄𝐈𝐓𝐇 𝐌𝐃
+## 𝐂𝐋𝐈𝐂𝐊 𝐎𝐍 HEROKU OR 𝐀𝐏𝐏 𝐓𝐎 𝐃𝐄𝐏𝐋𝐎𝐘  ALPHA 𝐌𝐃
 <h1 align="center">
  
  ***[![Tap to deploy on heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https://github.com/keithkeizzah/ALPHA-MD1&template=https://github.com/keithkeizzah/ALPHA-MD1.git)***
