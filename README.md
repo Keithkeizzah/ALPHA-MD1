@@ -30,6 +30,11 @@
 ## First fork my repository
 <a href="https://github.com/Keithkeizzah/ALPHA-MD1/fork"><img src="https://img.shields.io/badge/Fork%20My%20Repository-blue" alt="Fork my repository" width="300"></a>
 ## 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗠𝗘 𝗚𝗘𝗘
+
+**JOIN OUR SUPPORT GROUP**
+- <a href="https://chat.whatsapp.com/BXVmus83Yfq8SjNv63SAhJ" target="_blank">
+    <img alt="CLICK HERE" src="https://img.shields.io/badge/ JOIN OUR WHATSAPP GROUP  -25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+  </a>
 ## 𝐏𝐥𝐞𝐚𝐬𝐞 𝐣𝐨𝐢𝐧 𝐦𝐲 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐚𝐧𝐝 𝐠𝐞𝐭 𝐟𝐫𝐞𝐞 𝐜𝐜 𝐚𝐧𝐝 𝐮𝐩𝐝𝐚𝐭𝐞𝐬👇👇
 
 
