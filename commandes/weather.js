@@ -4,7 +4,7 @@ zokou({nomCom : "weather" , categorie : "NEW"},async (dest , zk , commandeOption
   const {text,repondre,textw} = commandeOptions ;
 if (!text) return repondre("Give me location!!");
             const response = await axios.get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273&language=en`
+                `https://samirxpikachuio.onrender.com/weather/${encodeURIComponent(city)`
             );
             let textw = "";
             textw += `*🌟Weather of  ${text}*\n\n`;
