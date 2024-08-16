@@ -24,7 +24,7 @@ const yts1 = require("youtube-yts");
 
     if (videos && videos.length > 0 && videos[0]) {
       const urlElement = videos[0].url;
-      const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/ytmp3?url=${encodeURIComponent(urlElement)}`);
+      const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/api/ytmp3?url=${encodeURIComponent(urlElement)}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 'success ✅') {
@@ -91,7 +91,7 @@ zokou({
 
     if (videos && videos.length > 0 && videos[0]) {
       const Element = videos[0];
-      const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/ytmp3?url=${encodeURIComponent(Element.url)}`);
+      const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/api/ytmp3?url=${encodeURIComponent(Element.url)}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 'success ✅') {
@@ -160,7 +160,7 @@ reaction: "💿"
     }
 
     const urlYt = videos[0].url;
-    const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/ytmp3?url=${encodeURIComponent(urlYt)}`);
+    const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/api/ytmp3?url=${encodeURIComponent(urlYt)}`);
     const apiResult = await apiResponse.json();
 
     if (apiResult.status === 'success ✅') {
