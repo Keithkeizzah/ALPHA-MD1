@@ -3,7 +3,7 @@ const {
 } = require("../framework/zokou");
 const axios = require("axios");
 zokou({
-  'nomCom': 'define',
+  'nomCom': 'weather',
   'reaction': '🤔',
  description: "Fetch and display weather information",
         category: "information",
@@ -21,7 +21,7 @@ zokou({
         }
 
         try {
-            const apiUrl = `https://apis-samir.onrender.com/weather/${encodeURIComponent(city)}`;
+            const apiUrl = `https://samirxpikachuio.onrender.com/weather/${encodeURIComponent(city)}`;
             const response = await axios.get(apiUrl);
             const weatherData = response.data;
 
