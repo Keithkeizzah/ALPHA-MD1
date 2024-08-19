@@ -31,7 +31,9 @@ zokou({
           image: {url : videos[0]. thumbnail},
          caption : `*ALPHA-MD SONG PLAYER*\n
 ╭───────────────◆
-│᳆ *Title:* ${videos[0].title}
+│᳆ *Title:* ${fileInfo.title}
+│᳆ *File Size:* ${fileInfo.fileSize}
+│᳆ *Quality:* ${fileInfo.quality}
 │᳆ *Duration:* ${videos[0].timestamp}
 │᳆ *Viewers:* ${videos[0].views}
 │᳆ *Uploaded:* ${videos[0].ago}
@@ -81,7 +83,7 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error while searching or downloading video :', error);
-  }
+    
 });
 
   
@@ -110,16 +112,19 @@ zokou({
         image: { url: videos[0].thumbnail },
         caption: `*ALPHA-MD VIDEO DOWNLOADER*\n
 ╭───────────────◆
-│᳆ *Title:* ${Element.title}
-│᳆ *Duration:* ${Element.timestamp}
-│᳆ *Viewers:* ${Element.views}
-│᳆ *Uploaded:* ${Element.ago}
-│᳆ *Author:* ${Element.author.name}
+│᳆ *Title:* ${fileInfo.title}
+│᳆ *File Size:* ${fileInfo.fileSize}
+│᳆ *Quality:* ${fileInfo.quality}
+│᳆ *Duration:* ${videos[0].timestamp}
+│᳆ *Viewers:* ${videos[0].views}
+│᳆ *Uploaded:* ${videos[0].ago}
+│᳆ *Artist:* ${videos[0].author.name}
 ╰────────────────◆
 Join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
+
 ╭───────────────◆
 │ *_Powered by keithkeizzah._*
 ╰────────────────◆ `
@@ -157,8 +162,6 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error searching or downloading video :', error);
-    repondre('An error occurred while searching or downloading the video.');
-  }
 });
 */
 
@@ -200,7 +203,7 @@ zokou({
   const { ms, repondre, arg } = commandeOptions;
      
   if (!arg[0]) {
-    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.song already dead by Juice wrld*.");
+    repondre("Insert a song name!");
     return;
   }
 
@@ -333,6 +336,7 @@ zokou({
     );
   } catch (error) {
     console.error('Error processing the media:', error.message);
+    repondre('An error occurred while processing the media.');
   }
 });
 
@@ -345,7 +349,7 @@ zokou({
   const { ms, repondre, arg } = commandeOptions;
 
   if (!arg[0]) {
-    return repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.song already dead by Juice wrld*.");
+    return repondre("Insert a song name!");
   }
 
   try {
@@ -374,16 +378,19 @@ zokou({
     // Send song details first
     const songDetails = `*ALPHA-MD SONG PLAYER*
 ╭───────────────◆
-│᳆ *Title:* ${titleYt}
-│᳆ *Artist:* ${artistYt}
-│᳆ *Views:* ${views}
-│᳆ *Duration:* ${formattedDuration}
-│᳆ *Year:* ${uploadYear}
+│᳆ *Title:* ${fileInfo.title}
+│᳆ *File Size:* ${fileInfo.fileSize}
+│᳆ *Quality:* ${fileInfo.quality}
+│᳆ *Duration:* ${videos[0].timestamp}
+│᳆ *Viewers:* ${videos[0].views}
+│᳆ *Uploaded:* ${videos[0].ago}
+│᳆ *Artist:* ${videos[0].author.name}
 ╰────────────────◆
 Join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
+
 ╭───────────────◆
 │ *_Powered by keithkeizzah._*
 ╰────────────────◆`;
@@ -432,7 +439,7 @@ zokou({
   const { ms, repondre, arg } = commandeOptions;
      
   if (!arg[0]) {
-    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.play already dead by Juice wrld*.");
+    repondre("Please insert a song name.");
     return;
   }
 
@@ -470,6 +477,7 @@ Join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
+
 ╭────────────────◆
 │ *_Powered by keithkeizzah._*
 ╰─────────────────◆`
@@ -491,7 +499,6 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error from Alpha-MD API:', error);
-  }
 });
 
 zokou({
@@ -502,7 +509,7 @@ zokou({
   const { arg, ms, repondre } = commandeOptions;
 
   if (!arg[0]) {
-    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.video already dead by Juice wrld*.");
+    repondre("Please insert a video name.");
     return;
   }
 
@@ -527,19 +534,20 @@ zokou({
         let InfoMess = {
           image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD VIDEO DOWNLOADER*\n
-╭───────────────◆
-│᳆ *Title:* ${fileInfo.title}
-│᳆ *File Size:* ${fileInfo.fileSize}
-│᳆ *Quality:* ${fileInfo.quality}
-│᳆ *Duration:* ${Element.timestamp}
-│᳆ *Viewers:* ${Element.views}
-│᳆ *Uploaded:* ${Element.ago}
-│᳆ *Author:* ${Element.author.name}
-╰────────────────◆
+
 Join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
+╭───────────────◆
+│᳆ *Title:* ${fileInfo.title}
+│᳆ *File Size:* ${fileInfo.fileSize}
+│᳆ *Quality:* ${fileInfo.quality}
+│᳆ *Duration:* ${videos[0].timestamp}
+│᳆ *Viewers:* ${videos[0].views}
+│᳆ *Uploaded:* ${videos[0].ago}
+│᳆ *Artist:* ${videos[0].author.name}
+╰────────────────◆
 ╭───────────────◆
 │ *_Powered by keithkeizzah._*
 ╰────────────────◆ `
@@ -548,7 +556,7 @@ use prefix {/}  example {/search dada}
         zk.sendMessage(origineMessage, InfoMess, { quoted: ms });
 
         // Send the video file using the video URL
-        zk.sendMessage(origineMessage, { video: { url: videoUrl }, mimetype: 'video/mp4' caption: "╭───────────────◆\n│ *ALPHA-MD DOWNLOADER*\n╰────────────────◆", gifPlayback: false }, { quoted: ms });
+        zk.sendMessage(origineMessage, { video: { url: videoUrl }, caption: "╭───────────────◆\n│ *ALPHA-MD DOWNLOADER*\n╰────────────────◆", gifPlayback: false }, { quoted: ms });
         console.log("Sending video file completed!");
 
         await ms.React('✅');
@@ -561,7 +569,6 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error from Alpha-MD API:', error);
-  }
 });
 
 zokou({
@@ -572,7 +579,7 @@ reaction: "💿"
   const { ms, repondre, arg } = commandeOptions;
 
  if (!arg[0]) {
-    return repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.song already dead by Juice wrld.*");
+    return repondre("Insert a song name!");
   }
 
   try {
@@ -602,7 +609,7 @@ reaction: "💿"
 │᳆ *File Size:* ${fileInfo.fileSize}
 │᳆ *Quality:* ${fileInfo.quality}
 │᳆ *Duration:* ${videos[0].timestamp}
-│᳆ *Views:* ${videos[0].views}
+│᳆ *Viewers:* ${videos[0].views}
 │᳆ *Uploaded:* ${videos[0].ago}
 │᳆ *Artist:* ${videos[0].author.name}
 ╰────────────────◆
@@ -610,6 +617,7 @@ Join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
+
 ╭───────────────◆
 │ *_Powered by keithkeizzah._*
 ╰────────────────◆`;
@@ -636,5 +644,4 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error:', error);
-  }
 });
