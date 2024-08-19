@@ -31,9 +31,7 @@ zokou({
           image: {url : videos[0]. thumbnail},
          caption : `*ALPHA-MD SONG PLAYER*\n
 ╭───────────────◆
-│᳆ *Title:* ${fileInfo.title}
-│᳆ *File Size:* ${fileInfo.fileSize}
-│᳆ *Quality:* ${fileInfo.quality}
+│᳆ *Title:* ${videos[0].title}
 │᳆ *Duration:* ${videos[0].timestamp}
 │᳆ *Viewers:* ${videos[0].views}
 │᳆ *Uploaded:* ${videos[0].ago}
@@ -83,7 +81,7 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error while searching or downloading video :', error);
-    
+  }
 });
 
   
@@ -112,19 +110,16 @@ zokou({
         image: { url: videos[0].thumbnail },
         caption: `*ALPHA-MD VIDEO DOWNLOADER*\n
 ╭───────────────◆
-│᳆ *Title:* ${fileInfo.title}
-│᳆ *File Size:* ${fileInfo.fileSize}
-│᳆ *Quality:* ${fileInfo.quality}
-│᳆ *Duration:* ${videos[0].timestamp}
-│᳆ *Viewers:* ${videos[0].views}
-│᳆ *Uploaded:* ${videos[0].ago}
-│᳆ *Artist:* ${videos[0].author.name}
+│᳆ *Title:* ${Element.title}
+│᳆ *Duration:* ${Element.timestamp}
+│᳆ *Viewers:* ${Element.views}
+│᳆ *Uploaded:* ${Element.ago}
+│᳆ *Author:* ${Element.author.name}
 ╰────────────────◆
 Join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
-
 ╭───────────────◆
 │ *_Powered by keithkeizzah._*
 ╰────────────────◆ `
@@ -162,6 +157,8 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error searching or downloading video :', error);
+    repondre('An error occurred while searching or downloading the video.');
+  }
 });
 */
 
@@ -203,7 +200,7 @@ zokou({
   const { ms, repondre, arg } = commandeOptions;
      
   if (!arg[0]) {
-    repondre("Insert a song name!");
+    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.song already dead by Juice wrld*.");
     return;
   }
 
@@ -264,7 +261,7 @@ await zk.sendMessage(
 
        
 });
-
+*/
 
 
 zokou({
@@ -336,7 +333,6 @@ zokou({
     );
   } catch (error) {
     console.error('Error processing the media:', error.message);
-    repondre('An error occurred while processing the media.');
   }
 });
 
@@ -349,7 +345,7 @@ zokou({
   const { ms, repondre, arg } = commandeOptions;
 
   if (!arg[0]) {
-    return repondre("Insert a song name!");
+    return repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.song already dead by Juice wrld*.");
   }
 
   try {
@@ -378,19 +374,16 @@ zokou({
     // Send song details first
     const songDetails = `*ALPHA-MD SONG PLAYER*
 ╭───────────────◆
-│᳆ *Title:* ${fileInfo.title}
-│᳆ *File Size:* ${fileInfo.fileSize}
-│᳆ *Quality:* ${fileInfo.quality}
-│᳆ *Duration:* ${videos[0].timestamp}
-│᳆ *Viewers:* ${videos[0].views}
-│᳆ *Uploaded:* ${videos[0].ago}
-│᳆ *Artist:* ${videos[0].author.name}
+│᳆ *Title:* ${titleYt}
+│᳆ *Artist:* ${artistYt}
+│᳆ *Views:* ${views}
+│᳆ *Duration:* ${formattedDuration}
+│᳆ *Year:* ${uploadYear}
 ╰────────────────◆
 Join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
-
 ╭───────────────◆
 │ *_Powered by keithkeizzah._*
 ╰────────────────◆`;
@@ -439,7 +432,7 @@ zokou({
   const { ms, repondre, arg } = commandeOptions;
      
   if (!arg[0]) {
-    repondre("Please insert a song name.");
+    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.play already dead by Juice wrld*.");
     return;
   }
 
@@ -477,7 +470,6 @@ Join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
-
 ╭────────────────◆
 │ *_Powered by keithkeizzah._*
 ╰─────────────────◆`
@@ -498,7 +490,8 @@ use prefix {/}  example {/search dada}
       repondre('No videos found.');
     }
   } catch (error) {
-    console.error('Error from Alpha-MD API:', error);
+    console.error('Error from Flash-MD API:', error);
+  }
 });
 
 zokou({
@@ -509,7 +502,7 @@ zokou({
   const { arg, ms, repondre } = commandeOptions;
 
   if (!arg[0]) {
-    repondre("Please insert a video name.");
+    repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.video already dead by Juice wrld*.");
     return;
   }
 
@@ -534,20 +527,19 @@ zokou({
         let InfoMess = {
           image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD VIDEO DOWNLOADER*\n
-
-Join here to get your song download
-in more tracks 🤗😋 
-https://t.me/keithmd 
-use prefix {/}  example {/search dada}
 ╭───────────────◆
 │᳆ *Title:* ${fileInfo.title}
 │᳆ *File Size:* ${fileInfo.fileSize}
 │᳆ *Quality:* ${fileInfo.quality}
-│᳆ *Duration:* ${videos[0].timestamp}
-│᳆ *Viewers:* ${videos[0].views}
-│᳆ *Uploaded:* ${videos[0].ago}
-│᳆ *Artist:* ${videos[0].author.name}
+│᳆ *Duration:* ${Element.timestamp}
+│᳆ *Viewers:* ${Element.views}
+│᳆ *Uploaded:* ${Element.ago}
+│᳆ *Author:* ${Element.author.name}
 ╰────────────────◆
+Join here to get your song download
+in more tracks 🤗😋 
+https://t.me/keithmd 
+use prefix {/}  example {/search dada}
 ╭───────────────◆
 │ *_Powered by keithkeizzah._*
 ╰────────────────◆ `
@@ -568,7 +560,8 @@ use prefix {/}  example {/search dada}
       repondre('No video found.');
     }
   } catch (error) {
-    console.error('Error from Alpha-MD API:', error);
+    console.error('Error from Flash-MD API:', error);
+  }
 });
 
 zokou({
@@ -579,7 +572,7 @@ reaction: "💿"
   const { ms, repondre, arg } = commandeOptions;
 
  if (!arg[0]) {
-    return repondre("Insert a song name!");
+    return repondre("Hello _*${m.pushName}*_ , Please provide song name, eg *.song already dead by Juice wrld.*");
   }
 
   try {
@@ -609,7 +602,7 @@ reaction: "💿"
 │᳆ *File Size:* ${fileInfo.fileSize}
 │᳆ *Quality:* ${fileInfo.quality}
 │᳆ *Duration:* ${videos[0].timestamp}
-│᳆ *Viewers:* ${videos[0].views}
+│᳆ *Views:* ${videos[0].views}
 │᳆ *Uploaded:* ${videos[0].ago}
 │᳆ *Artist:* ${videos[0].author.name}
 ╰────────────────◆
@@ -617,7 +610,6 @@ Join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
-
 ╭───────────────◆
 │ *_Powered by keithkeizzah._*
 ╰────────────────◆`;
@@ -644,4 +636,5 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error:', error);
+  }
 });
