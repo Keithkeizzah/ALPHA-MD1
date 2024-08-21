@@ -1,41 +1,9 @@
-const util = require('util');
-const fs = require('fs-extra');
-const { zokou } = require(__dirname + "/../framework/zokou");
-const { format } = require(__dirname + "/../framework/mesfonctions");
-const os = require("os");
-const moment = require("moment-timezone");
-const s = require(__dirname + "/../set");
-const more = String.fromCharCode(8206)
-const readmore = more.repeat(4001)
-
-zokou({ nomCom: "deploy", categorie: "General" }, async (dest, zk, commandeOptions) => {
-    let { ms, repondre ,prefixe,nomAuteurMessage,mybotpic} = commandeOptions;
-    let { cm } = require(__dirname + "/../framework//zokou");
-    var coms = {};
-    var mode = "public";
-    
-    if ((s.MODE).toLocaleLowerCase() != "yes") {
-        mode = "private";
-    }
-
-
-    
-
-    cm.map(async (com, index) => {
-        if (!coms[com.categorie])
-            coms[com.categorie] = [];
-        coms[com.categorie].push(com.nomCom);
-    });
-
-    moment.tz.setDefault('Etc/GMT');
-
-// Créer une date et une heure en GMT
-const temps = moment().format('HH:mm:ss');
-const date = moment().format('DD/MM/YYYY');
-
-  let infoMsg =  ` Hello ${nomAuteurMessage},,,
-
-*${s.BOT} DEPLOYMENT STEPS* 
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const { zokou } = require("../framework/zokou");
+zokou({ nomCom: "deploy", reaction: "🖥", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
+    console.log("Commande saisie !!!s");
+    let z = '```*${s.BOT} DEPLOYMENT STEPS* 
 ╭───────────────────☆
 ★When you want to deploy any whatsapp bot check on its repo and check on its deployment procedure and make sure you have the deployment site e.g;  heroku.com , render.com , Koyeb.com and many more:
 ✔First type the `sc` ,`repo` or `script` command and you will get alpha md repository 
@@ -54,33 +22,25 @@ const date = moment().format('DD/MM/YYYY');
 ✔In some heroku apps the buld logs might not show but it will eventually deploy \n${readmore}
 ✔Now click on this devs number and give alpha md owner credits +254748387615 or +254796299159
 ╰────────────────────☆
-> Regards keithkeizzah `;
+> Regards keithkeizzah ```\n\n ' + "https://github.com/keithkeizzah/ALPHA-MD1";
+    let d = ' Have a nice time pal';
+    let varmess = z + d;
+    var img = 'https://telegra.ph/file/3a39dc1af75b57409bb43.jpg';
+    await zk.sendMessage(dest, { image: { url: img }, caption: varmess });
+    //console.log("montest")
+});
+console.log("mon test");
+/*module.exports.commande = () => {
+  var nomCom = ["test","t"]
+  var reaction="☺️"
+  return { nomCom, execute,reaction }
+};
 
-   var lien = mybotpic();
-
-   if (lien.match(/\.(mp4|gif)$/i)) {
-    try {
-        zk.sendMessage(dest, { video: { url: lien }, caption:infoMsg + menuMsg, footer: "Je suis *keithkeizzah*, déveloper Keith Tech" , gifPlayback : true }, { quoted: ms });
-    }
-    catch (e) {
-        console.log("🥵🥵 Menu erreur " + e);
-        repondre("🥵🥵 Menu erreur " + e);
-    }
-} 
-// Vérification pour .jpeg ou .png
-else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
-    try {
-        zk.sendMessage(dest, { image: { url: lien }, caption:infoMsg + menuMsg, footer: "Je suis *keithkeizzah*, déveloper Keith Tech" }, { quoted: ms });
-    }
-    catch (e) {
-        console.log("🥵🥵 Menu erreur " + e);
-        repondre("🥵🥵 Menu erreur " + e);
-    }
-} 
-else {
-    
-    repondre(infoMsg + menuMsg);
-    
-}
-
-}); 
+async function  execute  (origineMessage,zok) {
+  console.log("Commande saisie !!!s")
+   let z ='Salut je m\'appelle *FLASH-MD* \n\n '+'je suis un bot Whatsapp Multi-appareil '
+      let d =' developpé par *France King*'
+      let varmess=z+d
+      var img='https://telegra.ph/file/13d63c21c1a665bfd8324.jpg'
+await  zok.sendMessage(origineMessage,  { image:{url:img},caption:varmess});
+}  */ 
