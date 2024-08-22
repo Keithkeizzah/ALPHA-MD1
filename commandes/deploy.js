@@ -8,7 +8,7 @@ const s = require(__dirname + "/../set");
 const more = String.fromCharCode(8206)
 const readmore = more.repeat(4001)
 
-zokou({ nomCom: "deploy", categorie: "General" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions) => {
     let { ms, repondre ,prefixe,nomAuteurMessage,mybotpic} = commandeOptions;
     let { cm } = require(__dirname + "/../framework//zokou");
     var coms = {};
@@ -33,9 +33,9 @@ zokou({ nomCom: "deploy", categorie: "General" }, async (dest, zk, commandeOptio
 const temps = moment().format('HH:mm:ss');
 const date = moment().format('DD/MM/YYYY');
 
-  let infoMsg =  ` 
-
-      *DEPLOYMENT STEPS* 
+  let infoMsg =  `
+Hello ${nomAuteurMessage},,
+*DEPLOYMENT STEPS* 
 ╭───────────────────☆
 ★When you want to deploy any whatsapp bot check on its repo and check on its deployment procedure and make sure you have the deployment site e.g;  heroku.com , render.com , Koyeb.com and many more:
 ✔First type the `sc` ,`repo` or `script` command and you will get alpha md repository 
@@ -53,9 +53,9 @@ const date = moment().format('DD/MM/YYYY');
 ✔Enter the valid *heroku app name* and again repeat it to the blank space asking for app name accordingly.Fill everything and press on the below tab `Deploy`
 ✔In some heroku apps the buld logs might not show but it will eventually deploy 
 ✔Now click on this devs number and give alpha md owner credits https://wa.me/qr/7HLS3WQTBCI6O1
-╰────────────────────☆
-> Regards keithkeizzah `;
-
+╰────────────────────☆`;
+let menuMsg = `
+     𝐑𝐞𝐠𝐚𝐫𝐝𝐬 𝐊𝐄𝐈𝐓𝐇 𝐊𝐄𝐈𝐙𝐙𝐀𝐇`;
    var lien = mybotpic();
 
    if (lien.match(/\.(mp4|gif)$/i)) {
@@ -83,4 +83,4 @@ else {
     
 }
 
-});
+}); 
