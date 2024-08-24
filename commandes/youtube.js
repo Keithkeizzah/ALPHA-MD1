@@ -443,7 +443,7 @@ zokou({
 
     if (videos && videos.length > 0 && videos[0]) {
       const urlElement = videos[0].url;
-      const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/api/ytmp3?url=${encodeURIComponent(urlElement)}`);
+      const apiResponse = await fetch(`https://api.maher-zubair.xyz/api/ytmp3?url=${encodeURIComponent(urlElement)}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 'success ✅') {
@@ -490,7 +490,7 @@ use prefix {/}  example {/search dada}
       repondre('No videos found.');
     }
   } catch (error) {
-    console.error('Error from Flash-MD API:', error);
+    console.error('Error from Alpha-MD API:', error);
   }
 });
 
@@ -513,7 +513,7 @@ zokou({
 
     if (videos && videos.length > 0 && videos[0]) {
       const Element = videos[0];
-      const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/api/ytmp3?url=${encodeURIComponent(Element.url)}`);
+      const apiResponse = await fetch(`https://api.maher-zubair.xyz/api/ytmp3?url=${encodeURIComponent(Element.url)}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 'success ✅') {
@@ -585,7 +585,7 @@ reaction: "💿"
     }
 
     const urlYt = videos[0].url;
-    const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/api/ytmp3?url=${encodeURIComponent(urlYt)}`);
+    const apiResponse = await fetch(`https://api.maher-zubair.xyz/api/ytmp3?url=${encodeURIComponent(urlYt)}`);
     const apiResult = await apiResponse.json();
 
     if (apiResult.status === 'success ✅') {
