@@ -6,7 +6,7 @@ zokou({nomCom:"GTAImg",reaction:"📡",categorie:"IA"},async(dest,zk,commandeOpt
 
 async function getGTAImg() {
   const imageSrc = 'https://i.postimg.cc/P5cPtzZJ/FB-IMG-1720537848140.jpg';
-  const apiUrl = https://www.samirxpikachu.run.place/gta?url=${encodeURIComponent(imageSrc)};
+  const apiUrl = ('https://www.samirxpikachu.run.place/gta?url=${encodeURIComponent(imageSrc)};
 
   try {
     const response = await axios({
