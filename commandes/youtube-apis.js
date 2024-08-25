@@ -1,8 +1,7 @@
 const { zokou } = require("../framework/zokou");
 const yts = require('yt-search');
-const BaseUrl = 'https://gifted-apis-third-30b2fdbb9819.herokuapp.com;
-const giftedapikey = 'giftedtechk'; 
-/* For unlimited/premium api keys -----> t.me/mouricedevs */
+const BaseUrl = 'https://gifted-apis-third-30b2fdbb9819.herokuapp.com';
+const giftedapikey = 'giftedtechk'; /* For unlimited/premium api keys -----> t.me/mouricedevs */
 
 zokou({
   nomCom: "play",
