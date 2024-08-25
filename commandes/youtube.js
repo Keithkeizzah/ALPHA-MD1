@@ -443,15 +443,15 @@ zokou({
 
     if (videos && videos.length > 0 && videos[0]) {
       const urlElement = videos[0].url;
-      const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/api/ytmp3?url=${encodeURIComponent(urlElement)}`);
+      const apiResponse = await fetch(`https://gifted-apis-third-30b2fdbb9819.herokuapp.com/download/api/ytmp3?url=${encodeURIComponent(urlElement)}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 'success ✅') {
-        const audioUrl = apiResult.data.download;
+        const audioUrl = apiResult.result.download;
         const fileInfo = {
-          title: apiResult.data.title,
-          fileSize: apiResult.data.file_size,
-          quality: apiResult.data.quality
+          title: apiResult.result.title,
+          fileSize: apiResult.result.file_size,
+          quality: apiResult.result.quality
         };
 
         let infoMess = {
@@ -490,7 +490,7 @@ use prefix {/}  example {/search dada}
       repondre('No videos found.');
     }
   } catch (error) {
-    console.error('Error from Flash-MD API:', error);
+    console.error('Error from Alpha-MD API:', error);
   }
 });
 
@@ -517,7 +517,7 @@ zokou({
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 'success ✅') {
-        const videoUrl = apiResult.result.download_url;
+        const videoUrl = apiResult.result.download;
         const fileInfo = {
           title: apiResult.result.title,
           fileSize: apiResult.result.file_size,
@@ -560,7 +560,7 @@ use prefix {/}  example {/search dada}
       repondre('No video found.');
     }
   } catch (error) {
-    console.error('Error from Flash-MD API:', error);
+    console.error('Error from Alpha-MD API:', error);
   }
 });
 
@@ -585,11 +585,11 @@ reaction: "💿"
     }
 
     const urlYt = videos[0].url;
-    const apiResponse = await fetch(`https://samirxpikachuio.onrender.com/api/ytmp3?url=${encodeURIComponent(urlYt)}`);
+    const apiResponse = await fetch(`https://gifted-apis-third-30b2fdbb9819.herokuapp.com/download/api/ytmp3?url=${encodeURIComponent(urlYt)}&apikey=${giftedapikey}`);
     const apiResult = await apiResponse.json();
 
     if (apiResult.status === 'success ✅') {
-      const audioUrl = apiResult.result.download_url;
+      const audioUrl = apiResult.result.download;
       const fileInfo = {
         title: apiResult.result.title,
         fileSize: apiResult.result.file_size,
