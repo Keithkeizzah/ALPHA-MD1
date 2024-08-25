@@ -3,8 +3,6 @@ const yts = require('yt-search');
 //const ytdl = require('ytdl-core');
 const fs = require('fs');
 const yt=require("../framework/dl/ytdl-core.js")
-const BaseUrl = 'https://gifted-apis-third-30b2fdbb9819.herokuapp.com';
-const giftedapikey = 'giftedtechk';
 //const fetch = require('node-fetch');
 const ffmpeg = require("fluent-ffmpeg");
 const yts1 = require("youtube-yts");
@@ -427,7 +425,7 @@ use prefix {/}  example {/search dada}
   }
 });*/
 
-zokou({
+/* zokou({
   nomCom: "play",
   categorie: "Search",
   reaction: "💿"
@@ -493,9 +491,9 @@ zokou({
     console.error('Error from API:', error);
     repondre('An error occurred while searching or downloading the video.');
   }
-}); 
+}); */
 
-zokou({
+/* zokou({
   nomCom: "video",
   categorie: "Search",
   reaction: "🎥"
@@ -563,9 +561,9 @@ use prefix {/}  example {/search dada}
   } catch (error) {
     console.error('Error from Flash-MD API:', error);
   }
-});
+}); */
 
-zokou({
+/* zokou({
   nomCom: "song",
 categorie: "Search",
 reaction: "💿"
@@ -638,4 +636,4 @@ use prefix {/}  example {/search dada}
   } catch (error) {
     console.error('Error:', error);
   }
-});
+}); */
