@@ -10,42 +10,24 @@ const DATABASE_URL = process.env.DATABASE_URL === undefined
 module.exports = { session: process.env.SESSION_ID || '',
     PREFIXE: process.env.PREFIX || ".",
     OWNER_NAME: process.env.OWNER_NAME || "keithkeizzah",
-    OWNER_NUMBER : process.env.OWNER_NUMBER || "254796299159", 
-    A_REACT : process.env.AUTO_REACTION || 'on',     
-    AUTO_READ_STATUS: process.env.AUTO_VIEW_STATUS || "on",
-AUTOREAD_MESSAGES: process.env.AUTO_READ_MESSAGES || "off",
-CHATBOT: process.env.CHAT_BOT || "on",
-    AUTO_DOWNLOAD_STATUS: process.env.AUTO_SAVE_STATUS || 'off',
+    NUMERO_OWNER : process.env.NUMERO_OWNER || " keithkeizzah",              
+    AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "yes",
+    AUTO_DOWNLOAD_STATUS: process.env.AUTO_DOWNLOAD_STATUS || 'no',
     BOT : process.env.BOT_NAME || '𝐀𝐋𝐏𝐇𝐀-𝐌𝐃',
-    //OPENAI_API_KEY : process.env.OPENAI_API_KEY || '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',
     URL : process.env.BOT_MENU_LINKS || 'https://telegra.ph/file/0c351a67f1dffd1f34cf5.jpg',
-    MODE: process.env.BOT_MODE || "private",
-    PM_PERMIT: process.env.PM_PERMIT || 'off',
+    MODE: process.env.PUBLIC_MODE || "yes",
+    PM_PERMIT: process.env.PM_PERMIT || 'yes',
     HEROKU_APP_NAME : process.env.HEROKU_APP_NAME,
-    HEROKU_APY_KEY : process.env.HEROKU_API_KEY ,
+    HEROKU_APY_KEY : process.env.HEROKU_APY_KEY ,
     WARN_COUNT : process.env.WARN_COUNT || '3' ,
-    PRESENCE : process.env.PRESENCE || '',
-    //GPT : process.env.OPENAI_API_KEY || '',
-    DP : process.env.STARTING_MESSAGE || "on",
-//    ADM : process.env.ANTI_DELETE_MESSAGE || 'off',
+    ETAT : process.env.PRESENCE || '',
+    CHATBOT : process.env.PM_CHATBOT || 'no',
+    DP : process.env.STARTING_BOT_MESSAGE || "yes",
+    ADM : process.env.ANTI_DELETE_MESSAGE || 'no',
     DATABASE_URL,
     DATABASE: DATABASE_URL === databasePath
-        ? "postgresql://flashmd_user:JlUe2Vs0UuBGh0sXz7rxONTeXSOra9XP@dpg-cqbd04tumphs73d2706g-a/flashmd" : "postgresql://flashmd_user:JlUe2Vs0UuBGh0sXz7rxONTeXSOra9XP@dpg-cqbd04tumphs73d2706g-a/flashmd",
-    /* new Sequelize({
-     dialect: 'sqlite',
-     storage: DATABASE_URL,
-     logging: false,
-})
-: new Sequelize(DATABASE_URL, {
-     dialect: 'postgres',
-     ssl: true,
-     protocol: 'postgres',
-     dialectOptions: {
-         native: true,
-         ssl: { require: true, rejectUnauthorized: false },
-     },
-     logging: false,
-}),*/
+        ? "postgresql://postgres:bKlIqoOUWFIHOAhKxRWQtGfKfhGKgmRX@viaduct.proxy.rlwy.net:47738/railway" : "postgresql://postgres:bKlIqoOUWFIHOAhKxRWQtGfKfhGKgmRX@viaduct.proxy.rlwy.net:47738/railway",
+   
 };
 let fichier = require.resolve(__filename);
 fs.watchFile(fichier, () => {
