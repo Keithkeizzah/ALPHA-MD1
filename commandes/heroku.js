@@ -1,4 +1,4 @@
-const { france } = require('../framework/zokou');
+const { zokou } = require('../framework/zokou');
 const s = require('../set')
 
 
