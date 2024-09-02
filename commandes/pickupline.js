@@ -1,4 +1,3 @@
-```javascript
 const { zokou } = require("../framework/zokou");
 const axios = require("axios");
 
@@ -15,4 +14,3 @@ zokou({ 'nomCom': "pickupline", 'reaction': '💫', 'categorie': "FUN" }, async 
         console.error(error);
     }
 });
-```
