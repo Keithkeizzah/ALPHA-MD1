@@ -410,3 +410,351 @@ zokou({
     _0x2b1a81("Oops, an error occurred while processing your request");
   }
 });
+zokou({
+  'nomCom': "pooh",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("make yourself meme.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/pooh?text1=&text2=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "oogway",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("make your own quotes here.example; better late than never.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/oogway?text=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "drake",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("make meme e.g; amongus&amogus.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/drake?text1=&text2=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "biden",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("your text.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/biden?text=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "drip",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("your image url.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/drip?image=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "clown",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("your image url.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/clown?image=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "ad",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("your image url dog😬");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/ad?image=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "blur",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("insert your image url dog😬😬.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/blur?image=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "meme",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("insert your image url to generate your meme.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/mnm?image=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "pet",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("your image url.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/pet?image=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "alert",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("your text.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/alert?text=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
+zokou({
+  'nomCom': "caution",
+  'reaction': '📡',
+  'categorie': 'AI'
+}, async (_0x22ef9c, _0x5287a8, _0x2ccd49) => {
+  const {
+    repondre: _0x2b1a81,
+    arg: _0x885e30,
+    ms: _0x4eb9fe
+  } = _0x2ccd49;
+  try {
+    if (!_0x885e30 || _0x885e30.length === 0) {
+      return _0x2b1a81("your text.");
+    }
+    const _0x30bcaa = _0x885e30.join(" ");
+    const _0x93b128 = "https://api.popcat.xyz/caution?text=" + _0x30bcaa;
+    _0x5287a8.sendMessage(_0x22ef9c, {
+      'image': {
+        'url': _0x93b128
+      },
+      'caption': "*powered by ALPHA-MD*"
+    }, {
+      'quoted': _0x4eb9fe
+    });
+  } catch (_0x3fe80d) {
+    console.error("Erreur:", _0x3fe80d.message || "Une erreur s'est produite");
+    _0x2b1a81("Oops, an error occurred while processing your request");
+  }
+});
