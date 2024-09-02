@@ -4,7 +4,7 @@ const {
 const {
   getAllSudoNumbers,
   isSudoTableNotEmpty
-} = require("../data/sudo");
+} = require("../bdd/sudo");
 const conf = require("../set");
 zokou({
   'nomCom': "agents",
