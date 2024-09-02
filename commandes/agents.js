@@ -52,9 +52,9 @@ zokou({
     'nom': "᚛M๏𝓷keℽ D Lบffy᚜ From Togo",
     'numero': "228 91 73 33 00"
   }];
-  let _0x2d5c7e = "Hello👋 ${nomAuteurMessage},,, * Thanks for CHOOSING ALPHA-MD* \nThe following numbers are for  *ALPHA-MD* agents, \nYou can ask them anything regarding Alpha Bot \n*KEEP USING ALPHA-MD*:\n\n";
+  let _0x2d5c7e = "Hello👋  *Thanks for CHOOSING ALPHA-MD* \nThe following numbers are for  *ALPHA-MD* agents, \nYou can ask them anything regarding Alpha Bot \n*KEEP USING ALPHA-MD*:\n\n";
   for (const _0x14eeec of _0x21b56d) {
-    _0x2d5c7e += "----------------\n• " + _0x14eeec.nom + " : https://wa.me/" + _0x14eeec.numero + "\n";
+    _0x2d5c7e += "----------------\n(●) " + _0x14eeec.nom + " : https://wa.me/" + _0x14eeec.numero + "\n";
   }
   var _0x11d31d = _0x43a6e2();
   if (_0x11d31d.match(/\.(mp4|gif)$/i)) {
