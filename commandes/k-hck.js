@@ -29,14 +29,20 @@ zokou({ nomCom: "hack", categorie: "fun", reaction: "💀", filename: __filename
   ];
 
   let editedMessage;
-  for (const message of messages) {
-    if (!editedMessage) {
-      // Send the initial message
-      editedMessage = await citel.send(message);
-    } else {
-      // Edit the existing message
-      await citel.edit(editedMessage, message);
+  try {
+    for (const message of messages) {
+      if (!editedMessage) {
+        // Send the initial message
+        editedMessage = await citel.send(message);
+        console.log(`Sent initial message: ${message}`);
+      } else {
+        // Edit the existing message
+        await citel.edit(editedMessage, message);
+        console.log(`Edited message to: ${message}`);
+      }
+      await sleep(1000); // Wait for 1 second
     }
-    await sleep(1000); // Wait for 1 second
+  } catch (error) {
+    console.error("An error occurred:", error);
   }
 });
