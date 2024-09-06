@@ -1,6 +1,10 @@
 const axios = require('axios');
-const { Sticker, StickerTypes } = require('some-sticker-library'); // Replace with actual sticker library
-const { zokou } = require('../framework/zokou');
+// Ensure the actual sticker library is required correctly
+const { Sticker, StickerTypes } = require('actual-sticker-library');
+const { zokou } = require('zokou');
+
+// Replace with your actual bot token
+const BOT_TOKEN = 'your_actual_bot_token_here';
 
 zokou({
   nomCom: 'telesticker',
@@ -18,7 +22,7 @@ zokou({
   const packName = url.replace('https://t.me/addstickers/', '');
 
   try {
-    const response = await axios.get(`https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getStickerSet?name=${encodeURIComponent(packName)}`, {
+    const response = await axios.get(`https://api.telegram.org/bot${BOT_TOKEN}/getStickerSet?name=${encodeURIComponent(packName)}`, {
       headers: { 'User-Agent': 'GoogleBot' }
     });
     const stickers = response.data.result.stickers;
@@ -26,19 +30,18 @@ zokou({
 
     for (const sticker of stickers) {
       const fileId = sticker.thumb.file_id;
-      const fileResponse = await axios.get(`https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getFile?file_id=${fileId}`);
+      const fileResponse = await axios.get(`https://api.telegram.org/bot${BOT_TOKEN}/getFile?file_id=${fileId}`);
       const filePath = fileResponse.data.result.file_path;
 
       hasil.push({
         status: 200,
         author: 'Xfarr05',
-        url: `https://api.telegram.org/file/bot<YOUR_BOT_TOKEN>/${filePath}`,
+        url: `https://api.telegram.org/file/bot${BOT_TOKEN}/${filePath}`,
       });
     }
 
-    // Example of how to use the Sticker library (replace with your actual usage)
-    const packname = nomAuteurMessage; // Use the appropriate pack name
-    const gifUrl = hasil[0].url; // Example: just using the first URL for illustration
+    const packname = nomAuteurMessage;
+    const gifUrl = hasil[0].url;
 
     const stickerMess = new Sticker(gifUrl, {
       pack: packname,
