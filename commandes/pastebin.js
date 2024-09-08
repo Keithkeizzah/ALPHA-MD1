@@ -2,9 +2,9 @@ const { zokou } = require("../framework/zokou");
 const axios = require("axios");
 const { Sticker, StickerTypes } = require("wa-sticker-formatter");
 
-// Replace with your actual bot token and base URL
-const botToken = 'bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4';
-const baseUrl = `https://api.telegram.org/${botToken}`;
+// Use environment variables for sensitive data
+const botToken = process.env.BOT_TOKEN; // Replace with your environment variable or configuration management
+const baseUrl = `https://api.telegram.org/bot${botToken}`;
 
 zokou({
   nomCom: 'telesticker',
@@ -22,7 +22,7 @@ zokou({
 
   const stickerLink = arg.join(" ");
   const stickerSetName = stickerLink.split("/addstickers/")[1];
-  const requestUrl = `https://api.telegram.org/bot${botToken}/getStickerSet?name=${encodeURIComponent(stickerSetName)}`;
+  const requestUrl = `${baseUrl}/getStickerSet?name=${encodeURIComponent(stickerSetName)}`;
 
   try {
     const response = await axios.get(requestUrl);
@@ -41,7 +41,7 @@ zokou({
     await repondre(statusMessage);
 
     for (const sticker of stickerSet.stickers) {
-      const fileResponse = await axios.get(`https://api.telegram.org/bot${botToken}/getFile?file_id=${sticker.file_id}`);
+      const fileResponse = await axios.get(`${baseUrl}/getFile?file_id=${sticker.file_id}`);
       const filePath = fileResponse.data.result.file_path;
       const fileData = await axios({
         method: 'get',
@@ -49,10 +49,11 @@ zokou({
         responseType: 'arraybuffer'
       });
 
+      // Adjust type according to your needs
       const stickerObject = new Sticker(fileData.data, {
         pack: nomAuteurMessage,
         author: "ALPHA-MD",
-        type: StickerTypes.FULL,
+        type: isAnimated ? StickerTypes.ANIMATED : StickerTypes.FULL, // Use appropriate type
         categories: ['🤩', '🎉'],
         id: "12345",
         quality: 50,  // Adjust quality as needed
