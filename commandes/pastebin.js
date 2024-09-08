@@ -1,24 +1,26 @@
 const { zokou } = require('../framework/zokou');
-const PastebinAPI = require('pastebin-js');
+const axios = require('axios');
+const fs = require('fs');
 
-// Initialize Pastebin API with your API key
-const pastebin = new PastebinAPI('EMWTMkQAVfJa9kM-MRUrxd5Oku1U7pgL');
+zokou({nomCom:"GTAImg", reaction:"📡", categorie:"IA"}, async (dest, zk, commandeOptions) => {
 
-zokou({
-    nomCom: "pastebin",
-    category: "extra",
-    reaction: "💻",
-}, async (Void, citel) => {
-    if (!citel.quoted) {
-        return citel.reply('Please quote any text to get a link.');
-    }
+  async function getGTAImg() {
+    const imageSrc = 'https://i.postimg.cc/P5cPtzZJ/FB-IMG-1720537848140.jpg';
+    const apiUrl = `https://www.samirxpikachu.run.place/gta?url=${encodeURIComponent(imageSrc)}`;
 
     try {
-        // Create a new paste
-        let data = await pastebin.createPaste(citel.quoted.text, 'Alpha-Pastebin');
-        citel.reply('_Here is your link:_\n' + data);
+      const response = await axios({
+        method: 'get',
+        url: apiUrl,
+        responseType: 'arraybuffer',
+      });
+
+      fs.writeFileSync('gta.jpg', response.data);
+      console.log('Saved as gta.jpg');
     } catch (error) {
-        citel.reply('There was an error creating the paste. Please try again.');
-        console.error(error);
+      console.error('Error:', error);
     }
+  }
+
+  getGTAImg();
 });
