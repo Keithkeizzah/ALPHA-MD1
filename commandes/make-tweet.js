@@ -1,6 +1,9 @@
 const { zokou } = require("../framework/zokou");
 const axios = require("axios"); // Ensure axios is properly required
 
+// Ensure `conn` is properly defined or imported
+const conn = require('../path/to/conn'); // Adjust the path to where `conn` is defined
+
 zokou({
   'nomCom': "tweet",
   'reaction': '📡',
@@ -19,10 +22,11 @@ zokou({
 
     const promptText = argumentsList.join(" ");
     
-    // Replace `conn` with actual object or import if not defined
-    const avatar = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png');
-    const displayName = conn.getName(m.sender);
-    const username = m.sender.split('@')[0];
+    // Retrieve profile picture and name
+    const avatar = await conn.profilePictureUrl(message.sender, 'image')
+      .catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png');
+    const displayName = conn.getName(message.sender);
+    const username = message.sender.split('@')[0];
     
     // Define these values or replace with dynamic content as needed
     const replies = '69';
@@ -33,7 +37,7 @@ zokou({
     const imageUrl = `https://some-random-api.com/canvas/misc/tweet?displayname=${encodeURIComponent(displayName)}&username=${encodeURIComponent(username)}&avatar=${encodeURIComponent(avatar)}&comment=${encodeURIComponent(promptText)}&replies=${encodeURIComponent(replies)}&retweets=${encodeURIComponent(retweets)}&theme=${encodeURIComponent(theme)}`;
     
     // Ensure context and message are valid
-    messageSender.sendMessage(context, {
+    await messageSender.sendMessage(context, {
       'image': {
         'url': imageUrl
       },
