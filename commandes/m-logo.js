@@ -221,3 +221,241 @@ zokou({nomCom:"bokeh",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,com
     await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
   }catch(e){repondre(e)}
 })
+zokou({nomCom:"firework",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"firework Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/text-firework-effect-356.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"gaming",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"gaming Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/free-gaming-logo-maker-for-fps-game-team-546.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"pornhub",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"pornhub Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/create-pornhub-style-logos-online-free-549.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"juventus",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"juventus Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/create-juventus-shirt-effect-536.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"barca",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"barca Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/create-football-shirt-messi-barca-online-268.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"chelsea",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"chelsea Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/create-photo-premier-league-cup-263.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"man-united",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"man-united Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/create-avatar-of-club-football-261.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"tattoo",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"tattoo Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/make-tattoos-online-by-your-name-309.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"pentakill",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"pentakill Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/create-a-lol-pentakill-231.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"halloween1",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"halloween1 Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/cards-halloween-online-81.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"horror",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"horror Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/writing-horror-letters-on-metal-plates-265.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"halloween2",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"halloween2 Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/write-blood-text-on-the-wall-264.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"women's-day",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"women's-day Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/create-beautiful-international-women-s-day-cards-399.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
+zokou({nomCom:"valentine",categorie:"Modern-Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"valentine Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/beautiful-flower-valentine-s-day-greeting-cards-online-512.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
