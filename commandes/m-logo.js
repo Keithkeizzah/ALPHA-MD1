@@ -1,23 +1,19 @@
 const { zokou } = require("../framework/zokou");
 var mumaker = require("mumaker");
-zokou({ nomCom: "matrix",
-    categorie: "Modern-Logo", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
-    const { prefixe, arg, ms, repondre } = commandeOptions;
-    if (!arg || arg == "") {
-        repondre("*__Exemple : * " + prefixe + "hacker Keith");
-        return;
-    }
-    try {
-        let radio = "984dd03e-220d-4335-a6ba-7ac56b092240";
-        let anu = await mumaker.ephoto("https://en.ephoto360.com/create-matrix-movie-photo-effects-online-741.html", arg); //
-        //
-       // let res = Object.values(anu)[3];
-        // console.log("&€"+res);
-      //  let lien = "https://e1.yotools.net" + res;
-        repondre("*processing...*");
-        await zk.sendMessage(origineMessage, { image: { url:anu.image}, caption: "\t *Powered by Alpha Md*" }, { quoted: ms });
-    }
-    catch (e) {
-        repondre("🥵🥵 " + e);
-    }
-});
+zokou({nomCom:"birthday1",categorie:"Logo",reaction:"🥵"},async(dest,zk,commandeOptions)=>{
+
+
+  let {ms,arg,prefixe,repondre}=commandeOptions;
+  try{
+      if(!arg||arg=="")
+      {
+        repondre(prefixe+"arena Alpha Md");return;
+      }
+
+    var lien="https://en.ephoto360.com/birthday-cake-96.html";
+
+    var img = await mumaker.ephoto(lien,arg.join(' '));
+   repondre("processing ...")
+    await zk.sendMessage(dest,{image:{url:img.image},caption:" *Powered by Alpha Md*"},{quoted:ms})
+  }catch(e){repondre(e)}
+})
