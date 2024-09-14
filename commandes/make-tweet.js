@@ -1,52 +1,40 @@
 const { zokou } = require("../framework/zokou");
-const axios = require("axios"); // Ensure axios is properly required
-
-// Ensure `conn` is properly defined or imported
-const conn = require('../path/to/conn'); // Adjust the path to where `conn` is defined
 
 zokou({
-  'nomCom': "tweet",
-  'reaction': '📡',
-  'categorie': 'AI'
-}, async (context, messageSender, messageData) => {
-  const {
-    repondre: reply,
-    arg: argumentsList,
-    ms: message
-  } = messageData;
+  'nomCom': "elements",
+  'reaction': '📓',
+  'categorie': "Education-corner"
+}, async (context, args, options) => {
+  const { repondre: sendResponse, arg: commandArgs } = options;
+  const elementQuery = commandArgs.join(" ").trim();
+
+  if (!elementQuery) {
+    return sendResponse("Please provide an element symbol or name.");
+  }
 
   try {
-    if (!argumentsList || argumentsList.length === 0) {
-      return reply("Please enter the necessary information to generate the image.");
+    let response = await fetch(`https://api.popcat.xyz/periodic-table?element=${elementQuery}`);
+    
+    if (!response.ok) {
+      return sendResponse("Could not find information for the provided element. Please check the symbol or name.");
     }
 
-    const promptText = argumentsList.join(" ");
-    
-    // Retrieve profile picture and name
-    const avatar = await conn.profilePictureUrl(message.sender, 'image')
-      .catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png');
-    const displayName = conn.getName(message.sender);
-    const username = message.sender.split('@')[0];
-    
-    // Define these values or replace with dynamic content as needed
-    const replies = '69';
-    const retweets = '69';
-    const theme = 'dark';
+    let data = await response.json();
+    let formattedMessage = `
+*Element Information:*
+• *Name:* ${data.name}
+• *Symbol:* ${data.symbol}
+• *Atomic Number:* ${data.atomic_number}
+• *Atomic Mass:* ${data.atomic_mass}
+• *Period:* ${data.period}
+• *Phase:* ${data.phase}
+• *Discovered By:* ${data.discovered_by}
+• *Summary:* ${data.summary}
+    `;
 
-    // Ensure URL is properly encoded
-    const imageUrl = `https://some-random-api.com/canvas/misc/tweet?displayname=${encodeURIComponent(displayName)}&username=${encodeURIComponent(username)}&avatar=${encodeURIComponent(avatar)}&comment=${encodeURIComponent(promptText)}&replies=${encodeURIComponent(replies)}&retweets=${encodeURIComponent(retweets)}&theme=${encodeURIComponent(theme)}`;
-    
-    // Ensure context and message are valid
-    await messageSender.sendMessage(context, {
-      'image': {
-        'url': imageUrl
-      },
-      'caption': "*powered by ALPHA-MD*"
-    }, {
-      'quoted': message
-    });
+    await sendResponse(formattedMessage);
+
   } catch (error) {
-    console.error("Error:", error.message || "An error occurred");
-    reply("Oops, an error occurred while processing your request");
+    sendResponse("An error occurred while fetching the element data. Please try again later.");
   }
 });
