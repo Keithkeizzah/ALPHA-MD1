@@ -5,21 +5,22 @@ const { default: axios } = require('axios');
 
 
 
-  zokou({ nomCom: "news", reaction: "📡", categorie: "IA" }, async (dest, zk, commandeOptions) => {
+  
+zokou({ nomCom: "news", reaction: "🤔", categorie: "IA" }, async (dest, zk, commandeOptions) => {
     const { repondre, arg, ms } = commandeOptions;
   
     try {
       if (!arg || arg.length === 0) {
-        return repondre(`Please ask a question Keith will answer it.`);
+        return repondre(`Please ask a question.`);
       }
   
       // Regrouper les arguments en une seule chaîne séparée par "-"
       const question = arg.join(' ');
-      const response = await axios.get(`https://www.samirxpikachu.run.place/ppx?query=`);
+      const response = await axios.get(`https://www.samirxpikachu.run.place/ppx?query=${question}`);
       
       const data = response.data;
       if (data) {
-        repondre(data.data);
+        repondre(data.result);
       } else {
         repondre("Error during response generation.");
       }
@@ -28,8 +29,4 @@ const { default: axios } = require('axios');
       repondre("Oops, an error occurred while processing your request.");
     }
   });
-
-
-  
-
 
