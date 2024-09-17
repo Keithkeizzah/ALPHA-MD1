@@ -609,7 +609,7 @@ function mybotpic() {
             //execution des commandes   
             if (verifCom) {
                 //await await zk.readMessages(ms.key);
-                const cd = evt.cm.find((zokou) => zokou.nomCom === (com));
+                const cd = evt.cm.find((keith) => keith.nomCom === (com));
                 if (cd) {
                     try {
 
@@ -777,7 +777,7 @@ https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47`;
                   zk.sendMessage(crons[i].group_id, { image : { url : './media/chrono.webp'} , caption: "Hello, it's time to close the group; sayonara." });
 
                 }, {
-                    timezone: "Bungoma,Kenya"
+                    timezone: "Migori,Kenya"
                   });
               }
         
