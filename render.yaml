@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: ALPHA-MD
-    env: docker
-    region: Kenya
-    plan: free
-    dockerfilePath: Dockerfile
-
