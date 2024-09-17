@@ -46,7 +46,7 @@ const {isUserBanned , addUserToBanList , removeUserFromBanList} = require("./bdd
 const  {addGroupToBanList,isGroupBanned,removeGroupFromBanList} = require("./bdd/banGroup");
 const {isGroupOnlyAdmin,addGroupToOnlyAdminList,removeGroupFromOnlyAdminList} = require("./bdd/onlyAdmin");
 //const //{loadCmd}=require("/keizzah/mesfonctions")
-let { reagir } = require(__dirname + "/framework/app");
+let { reagir } = require(__dirname + "/keizzah/app");
 var session = conf.session.replace(/Zokou-MD-WHATSAPP-BOT;;;=>/g,"");
 const prefixe = conf.PREFIXE;
 
