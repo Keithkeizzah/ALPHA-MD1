@@ -14,7 +14,7 @@ async function uploadToTelegraph(path) {
         const form = new FormData();
         form.append("file", fs.createReadStream(path));
 
-        const { data } = await axios.post("https://i.imgur.com/upload", form, {
+        const { data } = await axios.post("https://imgur.com/upload", form, {
             headers: {
                 ...form.getHeaders(),
             },
