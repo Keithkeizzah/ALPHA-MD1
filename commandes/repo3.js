@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const { zokou } = require("../framework/zokou");
 const fetch = require("node-fetch"); // Ensure fetch is imported
 
-zokou({ nomCom: "repo3", catégorie: "Général", reaction: "🖕", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "repo3", catégorie: "General", reaction: "🖕", nomFichier: __filename }, async (dest, zk, commandeOptions) => {
   const githubRepo = 'https://api.github.com/repos/keithkeizzah/ALPHA-MD1';
   const img = 'https://i.imgur.com/hRP6xPl.jpeg';
 
