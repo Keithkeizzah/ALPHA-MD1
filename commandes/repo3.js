@@ -26,7 +26,7 @@ zokou({ nomCom: "repo3", catégorie: "Général", reaction: "🖕", nomFichier: 
       const releaseDate = new Date(data.created_at).toLocaleDateString('en-GB');
       const lastUpdateDate = new Date(repoInfo.lastUpdate).toLocaleDateString('en-GB');
 
-      const gitdata = `*Hello ${nomAuteurMessage},,,👋This is 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃*\n the best bot in the universe developed by Kᴇɪᴛʜ Kᴇɪᴢᴢᴀʜ,,fork and give a star 🌟 to my repo
+      const gitdata = `*Hello,,👋This is 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃*\n the best bot in the universe developed by Kᴇɪᴛʜ Kᴇɪᴢᴢᴀʜ,,fork and give a star 🌟 to my repo
 ╭────────────────────☆
 │❍ *Owner:* *${repoInfo.owner}*
 │❍ *Updated on:* ${lastUpdateDate}
