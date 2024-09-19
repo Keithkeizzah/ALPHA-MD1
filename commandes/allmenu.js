@@ -49,38 +49,43 @@ zokou({ nomCom: "allmenu", categorie: "General" }, async (dest, zk, commandeOpti
 
     const buttons = [
         {
-            buttonId: '.owner',
+            buttonId: 'support_channel',
+            buttonText: { displayText: "FOLLOW OUR SUPPORT CHANNEL" },
+            type: 1 // Type for URL button
+        },
+        {
+            buttonId: 'support_group',
+            buttonText: { displayText: "FOLLOW OUR SUPPORT GROUP" },
+            type: 1 // Type for URL button
+        },
+        {
+            buttonId: 'owner',
             buttonText: { displayText: "Owner 🎗️" },
-            type: 1
+            type: 2 // Type for quick reply
         },
         {
-            buttonId: '.menu2',
-            buttonText: { displayText: "📓 Menu2" },
-            type: 1
-        },
-        {
-            buttonId: '.menu3',
-            buttonText: { displayText: "📧 Owner Menu" },
-            type: 1
-        },
-        {
-            buttonId: '.groupmenu',
-            buttonText: { displayText: "🧬 Group Menu" },
-            type: 1
-        },
-        {
-            buttonId: '.stickermenu',
-            buttonText: { displayText: "🎨 Sticker Menu" },
-            type: 1
+            buttonId: 'select_menu',
+            buttonText: { displayText: "Select Alpha menu" },
+            type: 3, // Type for single-select
+            sections: [{
+                title: "📓 Here are the options 🏩",
+                highlightLabel: "ALPHA-MD",
+                rows: [
+                    { title: ".Menu2", id: ".menu2" },
+                    { title: "📧 Owner Menu", id: ".menu3" },
+                    { title: "📚 AI-Study Menu", id: ".menu" },
+                    { title: "💌 Bot Menu", id: ".owner" },
+                    { title: "🧬 Group Menu", id: ".groupmenu" },
+                    { title: "📥 DL Menu", id: ".dlmenu" },
+                    { title: "🧰 Tools Menu", id: ".toolmenu" },
+                    { title: "🎨 Sticker Menu", id: ".stickermenu" },
+                    { title: "🎩 Logo Menu", id: ".logomenu" },
+                    { title: "🎮 Game Menu", id: ".gamemenu" },
+                    { title: ".Owner", id: ".owner" }
+                ]
+            }]
         }
     ];
-
-    const buttonMessage = {
-        text: infoMsg + menuMsg,
-        footer: "Je suis *keithkeizzah*, développeur Keith Tech",
-        buttons: buttons,
-        headerType: 1
-    };
 
     const lien = mybotpic();
 
@@ -90,16 +95,18 @@ zokou({ nomCom: "allmenu", categorie: "General" }, async (dest, zk, commandeOpti
                 video: { url: lien },
                 caption: infoMsg + menuMsg,
                 footer: "Je suis *keithkeizzah*, développeur Keith Tech",
-                gifPlayback: true
+                gifPlayback: true,
+                buttons: buttons // Attach buttons to the message
             }, { quoted: ms });
         } else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
             await zk.sendMessage(dest, {
                 image: { url: lien },
                 caption: infoMsg + menuMsg,
-                footer: "Je suis *keithkeizzah*, développeur Keith Tech"
+                footer: "Je suis *keithkeizzah*, développeur Keith Tech",
+                buttons: buttons // Attach buttons to the message
             }, { quoted: ms });
         } else {
-            await zk.sendMessage(dest, buttonMessage, { quoted: ms });
+            repondre(infoMsg + menuMsg);
         }
     } catch (e) {
         console.error("🥵🥵 Menu erreur " + e);
