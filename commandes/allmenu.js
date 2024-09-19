@@ -1,1 +1,108 @@
-const _0x4a8cdb=_0x4e52;function _0xbd8e(){const _0x12f43e=['fromCharCode','fs-extra','📓\x20Menu2','.menu2','🎨\x20Sticker\x20Menu','.stickermenu','totalmem','MODE','Etc/GMT','nomCom','2ePVToV','9DUOpzC','📧\x20Owner\x20Menu','\x0a>\x20Hello\x20','\x20AVAILABLE\x20MENUS*\x20\x0a╭─────────────────☆\x0a│❍╭─────────────☆\x0a│❍│▸\x20*MENU1*\x20\x0a│❍│▸\x20*MENU2*\x20\x0a│❍│▸\x20*MENU3*\x0a│❍╰──────────────☆\x0a│❍│▸\x20*PLUGINS*\x20:\x20','HH:mm:ss','toLowerCase','push','231067MziSNF','util','forEach','🥵🥵\x20Menu\x20error:\x20','\x0a│❍│▸\x20*THEME*\x20:\x20*KEITH*\x0a│❍╰──────────────☆\x0a╰──────────────────☆\x0a>\x20𝐀𝐋𝐏𝐇𝐀-𝐌𝐃\x0a>\x20𝐑𝐞𝐠𝐚𝐫𝐝𝐬\x20𝐊𝐞𝐢𝐭𝐡\x0a','DD/MM/YYYY','.menu3','yes','format','freemem','\x0a│❍│▸\x20*SAVER*\x20:\x20','private','allmenu','moment-timezone','categorie','6866248kKJdiX','2505405WMtusw','length','@whiskeysockets/baileys','/../framework/mesfonctions','match','General','Je\x20suis\x20*keithkeizzah*,\x20développeur\x20Keith\x20Tech','sendMessage','7317345JAAjCL','.groupmenu','7923282ZFdflN','setDefault','platform','🧬\x20Group\x20Menu','6579716zlbnEZ','/../framework/zokou','1184433GCQXWa','/../set','Owner\x20🎗️'];_0xbd8e=function(){return _0x12f43e;};return _0xbd8e();}function _0x4e52(_0x1f8c13,_0x34b311){const _0xbd8e88=_0xbd8e();return _0x4e52=function(_0x4e525b,_0x16da66){_0x4e525b=_0x4e525b-0xae;let _0x1d150a=_0xbd8e88[_0x4e525b];return _0x1d150a;},_0x4e52(_0x1f8c13,_0x34b311);}(function(_0x572a61,_0x726988){const _0x1f5f40=_0x4e52,_0x253542=_0x572a61();while(!![]){try{const _0x1cc8db=-parseInt(_0x1f5f40(0xba))/0x1*(-parseInt(_0x1f5f40(0xb2))/0x2)+-parseInt(_0x1f5f40(0xda))/0x3+parseInt(_0x1f5f40(0xd8))/0x4+parseInt(_0x1f5f40(0xca))/0x5+-parseInt(_0x1f5f40(0xd4))/0x6+parseInt(_0x1f5f40(0xd2))/0x7+parseInt(_0x1f5f40(0xc9))/0x8*(-parseInt(_0x1f5f40(0xb3))/0x9);if(_0x1cc8db===_0x726988)break;else _0x253542['push'](_0x253542['shift']());}catch(_0x62d74e){_0x253542['push'](_0x253542['shift']());}}}(_0xbd8e,0xcf385));const util=require(_0x4a8cdb(0xbb)),fs=require(_0x4a8cdb(0xde)),{zokou}=require(__dirname+_0x4a8cdb(0xd9)),{format}=require(__dirname+_0x4a8cdb(0xcd)),os=require('os'),moment=require(_0x4a8cdb(0xc7)),s=require(__dirname+_0x4a8cdb(0xdb)),more=String[_0x4a8cdb(0xdd)](0x200e),readmore=more['repeat'](0xfa1),pkg=require(_0x4a8cdb(0xcc)),{generateWAMessageFromContent,proto}=pkg;zokou({'nomCom':_0x4a8cdb(0xc6),'categorie':_0x4a8cdb(0xcf)},async(_0x59d52b,_0x3c7639,_0x57b588)=>{const _0x1508ec=_0x4a8cdb,{ms:_0x4cb04c,repondre:_0x11aa36,prefixe:_0x50e50f,nomAuteurMessage:_0x1babc1,mybotpic:_0x1f64a9}=_0x57b588,{cm:_0x3afff6}=require(__dirname+_0x1508ec(0xd9));let _0x30407a={},_0x23b137=s[_0x1508ec(0xaf)][_0x1508ec(0xb8)]()===_0x1508ec(0xc1)?'public':_0x1508ec(0xc5);_0x3afff6[_0x1508ec(0xbc)](_0x24832b=>{const _0x3e3d6d=_0x1508ec;if(!_0x30407a[_0x24832b[_0x3e3d6d(0xc8)]])_0x30407a[_0x24832b[_0x3e3d6d(0xc8)]]=[];_0x30407a[_0x24832b[_0x3e3d6d(0xc8)]][_0x3e3d6d(0xb9)](_0x24832b[_0x3e3d6d(0xb1)]);}),moment['tz'][_0x1508ec(0xd5)](_0x1508ec(0xb0));const _0x35c5ec=moment()[_0x1508ec(0xc2)](_0x1508ec(0xb7)),_0x3c0d1a=moment()[_0x1508ec(0xc2)](_0x1508ec(0xbf)),_0xb7669e='\x0a*'+s['BOT']+_0x1508ec(0xb6)+_0x3afff6[_0x1508ec(0xcb)]+'\x20\x0a│❍│▸\x20*RAM*\x20:\x20'+format(os['totalmem']()-os[_0x1508ec(0xc3)]())+'/'+format(os[_0x1508ec(0xae)]())+_0x1508ec(0xc4)+os[_0x1508ec(0xd6)]()+_0x1508ec(0xbe)+readmore,_0x179bdb=_0x1508ec(0xb5)+_0x1babc1+',\x20type\x20*menu1*,\x20*menu2*\x20or\x20*menu3*\x20to\x20access\x20a\x20list\x20of\x20Alpha\x20commands.\x0a\x20\x20\x0a╰───────────────────☆',_0x34800c=[{'buttonId':'.owner','buttonText':{'displayText':_0x1508ec(0xdc)},'type':0x1},{'buttonId':_0x1508ec(0xe0),'buttonText':{'displayText':_0x1508ec(0xdf)},'type':0x1},{'buttonId':_0x1508ec(0xc0),'buttonText':{'displayText':_0x1508ec(0xb4)},'type':0x1},{'buttonId':_0x1508ec(0xd3),'buttonText':{'displayText':_0x1508ec(0xd7)},'type':0x1},{'buttonId':_0x1508ec(0xe2),'buttonText':{'displayText':_0x1508ec(0xe1)},'type':0x1}],_0x16c51d={'text':_0xb7669e+_0x179bdb,'footer':'Je\x20suis\x20*keithkeizzah*,\x20développeur\x20Keith\x20Tech','buttons':_0x34800c,'headerType':0x1},_0x43396f=_0x1f64a9();try{if(_0x43396f['match'](/\.(mp4|gif)$/i))await _0x3c7639[_0x1508ec(0xd1)](_0x59d52b,{'video':{'url':_0x43396f},'caption':_0xb7669e+_0x179bdb,'footer':'Je\x20suis\x20*keithkeizzah*,\x20développeur\x20Keith\x20Tech','gifPlayback':!![]},{'quoted':_0x4cb04c});else _0x43396f[_0x1508ec(0xce)](/\.(jpeg|png|jpg)$/i)?await _0x3c7639[_0x1508ec(0xd1)](_0x59d52b,{'image':{'url':_0x43396f},'caption':_0xb7669e+_0x179bdb,'footer':_0x1508ec(0xd0)},{'quoted':_0x4cb04c}):await _0x3c7639[_0x1508ec(0xd1)](_0x59d52b,_0x16c51d,{'quoted':_0x4cb04c});}catch(_0x45e7bd){console['error'](_0x1508ec(0xbd)+_0x45e7bd),_0x11aa36(_0x1508ec(0xbd)+_0x45e7bd);}});
+const util = require('util');
+const fs = require('fs-extra');
+const { zokou } = require(__dirname + "/../framework/zokou");
+const { format } = require(__dirname + "/../framework/mesfonctions");
+const os = require("os");
+const moment = require("moment-timezone");
+const s = require(__dirname + "/../set");
+const more = String.fromCharCode(8206);
+const readmore = more.repeat(4001);
+const pkg = require("@whiskeysockets/baileys");
+const { generateWAMessageFromContent, proto } = pkg;
+
+zokou({ nomCom: "allmenu", categorie: "General" }, async (dest, zk, commandeOptions) => {
+    const { ms, repondre, prefixe, nomAuteurMessage, mybotpic } = commandeOptions;
+    const { cm } = require(__dirname + "/../framework/zokou");
+    let coms = {};
+    let mode = s.MODE.toLowerCase() === "yes" ? "public" : "private";
+
+    cm.forEach(com => {
+        if (!coms[com.categorie]) coms[com.categorie] = [];
+        coms[com.categorie].push(com.nomCom);
+    });
+
+    moment.tz.setDefault('Etc/GMT');
+    const temps = moment().format('HH:mm:ss');
+    const date = moment().format('DD/MM/YYYY');
+
+    const infoMsg = `
+*${s.BOT} AVAILABLE MENUS* 
+╭─────────────────☆
+│❍╭─────────────☆
+│❍│▸ *MENU1* 
+│❍│▸ *MENU2* 
+│❍│▸ *MENU3*
+│❍╰──────────────☆
+│❍│▸ *PLUGINS* : ${cm.length} 
+│❍│▸ *RAM* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
+│❍│▸ *SAVER* : ${os.platform()}
+│❍│▸ *THEME* : *KEITH*
+│❍╰──────────────☆
+╰──────────────────☆
+> 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃
+> 𝐑𝐞𝐠𝐚𝐫𝐝𝐬 𝐊𝐞𝐢𝐭𝐡\n${readmore}`;
+
+    const menuMsg = `
+> Hello ${nomAuteurMessage},,, Type menu1, menu2 or menu3 to access a list of Alpha commands.
+  
+╰───────────────────☆
+
+    const buttons = [
+        {
+            buttonId: '.owner',
+            buttonText: { displayText: "Owner 🎗️" },
+            type: 1
+        },
+        {
+            buttonId: '.menu2',
+            buttonText: { displayText: "📓 Menu2" },
+            type: 1
+        },
+        {
+            buttonId: '.menu3',
+            buttonText: { displayText: "📧 Owner Menu" },
+            type: 1
+        },
+        {
+            buttonId: '.groupmenu',
+            buttonText: { displayText: "🧬 Group Menu" },
+            type: 1
+        },
+        {
+            buttonId: '.stickermenu',
+            buttonText: { displayText: "🎨 Sticker Menu" },
+            type: 1
+        }
+    ];
+
+    const buttonMessage = {
+        text: infoMsg + menuMsg,
+        footer: "Je suis *keithkeizzah*, développeur Keith Tech",
+        buttons: buttons,
+        headerType: 1
+    };
+
+    const lien = mybotpic();
+
+    try {
+        if (lien.match(/\.(mp4|gif)$/i)) {
+            await zk.sendMessage(dest, {
+                video: { url: lien },
+                caption: infoMsg + menuMsg,
+                footer: "Je suis *keithkeizzah*, développeur Keith Tech",
+                gifPlayback: true
+            }, { quoted: ms });
+        } else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
+            await zk.sendMessage(dest, {
+                image: { url: lien },
+                caption: infoMsg + menuMsg,
+                footer: "Je suis *keithkeizzah*, développeur Keith Tech"
+            }, { quoted: ms });
+        } else {
+            await zk.sendMessage(dest, buttonMessage, { quoted: ms });
+        }
+    } catch (e) {
+        console.error("🥵🥵 Menu erreur " + e);
+        repondre("🥵🥵 Menu erreur " + e);
+    }
+});
