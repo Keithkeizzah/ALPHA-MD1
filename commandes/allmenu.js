@@ -45,9 +45,7 @@ zokou({ nomCom: "allmenu", categorie: "General" }, async (dest, zk, commandeOpti
     const menuMsg = `
 > Hello ${nomAuteurMessage},,, Type menu1, menu2 or menu3 to access a list of Alpha commands.
   
-╰───────────────────☆`;
-
-    const buttons = [
+const buttons = [
         {
             buttonId: 'support_channel',
             buttonText: { displayText: "FOLLOW OUR SUPPORT CHANNEL" },
@@ -86,7 +84,10 @@ zokou({ nomCom: "allmenu", categorie: "General" }, async (dest, zk, commandeOpti
             }]
         }
     ];
+    
+    ╰───────────────────☆`;
 
+    
     const lien = mybotpic();
 
     try {
