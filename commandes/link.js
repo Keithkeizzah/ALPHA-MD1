@@ -1,5 +1,6 @@
 const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
 const { zokou } = require("../framework/zokou");
+const uploadImageToImgur = require("../framework/imgur");
 const { downloadMediaMessage } = require('@whiskeysockets/baileys');
 const fs = require("fs-extra");
 const axios = require('axios');
@@ -14,7 +15,7 @@ async function uploadToTelegraph(path) {
         const form = new FormData();
         form.append("file", fs.createReadStream(path));
 
-        const { data } = await axios.post("https://imgur.com/upload", form, {
+        const { data } = await axios.post("https://api.imgur.com/3/image", form, {
             headers: {
                 ...form.getHeaders(),
             },
@@ -50,7 +51,7 @@ zokou({ nomCom: "link", categorie: "General", reaction: "👨🏿‍💻" }, asy
             return;
         }
 
-        const imgUrl = await uploadToTelegraph(mediaPath); // Renamed to imgUrl
+        const imgUrl = await uploadImageToImgur(mediaPath); // Renamed to imgUrl
         fs.unlinkSync(mediaPath);  // Delete file after use
         repondre(imgUrl); // Respond with imgUrl
     } catch (error) {
