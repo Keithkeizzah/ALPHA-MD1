@@ -45,7 +45,7 @@ zokou({ nomCom: "allmenu", categorie: "General" }, async (dest, zk, commandeOpti
     const menuMsg = `
 > Hello ${nomAuteurMessage},,, Type menu1, menu2 or menu3 to access a list of Alpha commands.
   
-╰───────────────────☆
+╰───────────────────☆`;
 
     const buttons = [
         {
