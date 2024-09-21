@@ -9,23 +9,24 @@ zokou({
   reaction: '🎎',
   categorie: "General"
 }, async (context, message, params) => {
-  const { repondre: respond, arg, ms } = params;
-  const reference = arg.join(" ");
+  const { repondre: respond, arg } = params;
+  const username = arg.join(" ");
   
-  if (!reference) {
+  if (!username) {
     return respond("Please specify the username");
   }
   
   try {
-    const response = await fetch("https://www.noobs-api.000.pe/dipto/instainfo?username=${encodeURIComponent(username)}`);
+    const response = await axios.get(`https://www.noobs-api.000.pe/dipto/instainfo?username=${encodeURIComponent(username)}`);
     
-    if (!response.ok) {
+    if (response.status !== 200) {
       return respond("Invalid username");
     }
     
-    const data = await response.json();
+    const userInfo = response.data; // Assuming the API returns the user info directly
+
     const messageText = `
-   ┌──「 *ALPHA INSTAGRAM STALK* 
+┌──「 *ALPHA INSTAGRAM STALK* 
 ▢ *🔖Name:* ${userInfo.full_name || 'Unknown'}
 ▢ *🔖Username:* ${userInfo.username || "Unknown"}
 ▢ *👥Followers:* ${userInfo.followers || 'Unknown'}
@@ -38,6 +39,6 @@ zokou({
     await respond(messageText);
   } catch (error) {
     console.error(error);
-    await respond("An error occurred .");
+    await respond("An error occurred.");
   }
 });
