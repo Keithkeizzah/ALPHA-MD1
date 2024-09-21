@@ -5,7 +5,7 @@ const { default: axios } = require('axios');
 
 
 
-  zokou({ nomCom: "news", reaction: "📡", categorie: "IA" }, async (dest, zk, commandeOptions) => {
+  zokou({ nomCom: "news", reaction: "❗", categorie: "IA" }, async (dest, zk, commandeOptions) => {
     const { repondre, arg, ms } = commandeOptions;
   
     try {
