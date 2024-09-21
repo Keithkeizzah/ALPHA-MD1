@@ -1,1 +1,39 @@
-const _0x2d9751=_0xd7a7;(function(_0x254b54,_0x31b29a){const _0x34f98e=_0xd7a7,_0x4af3ee=_0x254b54();while(!![]){try{const _0x208627=-parseInt(_0x34f98e(0x114))/0x1+-parseInt(_0x34f98e(0x10e))/0x2+parseInt(_0x34f98e(0x10c))/0x3+parseInt(_0x34f98e(0x100))/0x4+-parseInt(_0x34f98e(0x106))/0x5+parseInt(_0x34f98e(0xf7))/0x6*(-parseInt(_0x34f98e(0x111))/0x7)+parseInt(_0x34f98e(0x104))/0x8;if(_0x208627===_0x31b29a)break;else _0x4af3ee['push'](_0x4af3ee['shift']());}catch(_0x292084){_0x4af3ee['push'](_0x4af3ee['shift']());}}}(_0x5695,0xca720),zokou({'nomCom':_0x2d9751(0x103),'reaction':'🎎','categorie':_0x2d9751(0x113)},async(_0x1da364,_0x3495b4,_0x8d1f2e)=>{const _0x4cfac4=_0x2d9751,{repondre:_0x36ba8c,arg:_0x5ba12b}=_0x8d1f2e,_0x2e8164=_0x5ba12b[_0x4cfac4(0x110)]('\x20');if(!_0x2e8164)return _0x36ba8c(_0x4cfac4(0x112));try{const _0x31e995=await axios['get'](_0x4cfac4(0xfd)+encodeURIComponent(_0x2e8164)+'&apikey=giftedtechk');if(_0x31e995[_0x4cfac4(0x10d)]!==0xc8||!_0x31e995[_0x4cfac4(0xf5)][_0x4cfac4(0x109)])return _0x36ba8c(_0x4cfac4(0x101));const {user:_0x12452e,stats:_0x1cdbb4}=_0x31e995[_0x4cfac4(0xf5)][_0x4cfac4(0x108)],_0x5939ec=_0x4cfac4(0x102)+(_0x12452e[_0x4cfac4(0xff)]||'Unknown')+'\x0a▢\x20*🔖\x20Username:*\x20'+(_0x12452e[_0x4cfac4(0x10b)]||'Unknown')+_0x4cfac4(0x10f)+(_0x1cdbb4['followerCount']||_0x4cfac4(0xfb))+_0x4cfac4(0xfc)+(_0x1cdbb4[_0x4cfac4(0xf9)]||_0x4cfac4(0xfb))+'\x0a▢\x20*📌\x20Bio:*\x20'+(_0x12452e[_0x4cfac4(0xfe)]||_0x4cfac4(0x105))+_0x4cfac4(0x107)+(_0x12452e[_0x4cfac4(0xf4)]?.[_0x4cfac4(0xf6)]||'No\x20Link')+_0x4cfac4(0x10a)+(_0x12452e[_0x4cfac4(0x10b)]||_0x4cfac4(0xf8))+_0x4cfac4(0xfa);await _0x36ba8c(_0x5939ec);}catch(_0x2bf784){console['error'](_0x2bf784),await _0x36ba8c('An\x20error\x20occurred.');}}));function _0xd7a7(_0x16f976,_0x52e6fb){const _0x5695d5=_0x5695();return _0xd7a7=function(_0xd7a7f5,_0xb7b4c0){_0xd7a7f5=_0xd7a7f5-0xf4;let _0x459258=_0x5695d5[_0xd7a7f5];return _0x459258;},_0xd7a7(_0x16f976,_0x52e6fb);}function _0x5695(){const _0x51fdd5=['\x0a└────────────','Unknown','\x0a▢\x20*🫂\x20Following:*\x20','https://api.giftedtechnexus.co.ke/api/stalk/tiktokstalk?username=','signature','nickname','3313960aKeAkU','Invalid\x20username','\x0a┌──「\x20*ALPHA\x20TIKTOK\x20STALK*\x20」\x0a▢\x20*🔖\x20Name:*\x20','tikstalk','19764064xqcboS','No\x20Bio','1629470XMmruB','\x0a▢\x20*🔗\x20External\x20Link:*\x20','result','success','\x0a▢\x20*🔗\x20Profile\x20Link:*\x20https://tiktok.com/@','uniqueId','2683812suWrpa','status','1166662Czgtja','\x0a▢\x20*👥\x20Followers:*\x20','join','7717367FNlDSi','Please\x20specify\x20the\x20username','General','1352680CHlQYY','bioLink','data','link','6lNdcPX','unknown','followingCount'];_0x5695=function(){return _0x51fdd5;};return _0x5695();}
+javascript
+zokou({
+  nomCom: "tikstalk",
+  reaction: '🎎',
+  categorie: "General"
+}, async (context, message, params) => {
+  const { respond, arg } = params; // corrected from repondre to respond
+  const username = arg.join(" ");
+  
+  if (!username) {
+    return respond("Please specify the username");
+  }
+  
+  try {
+    const response = await axios.get(`https://api.giftedtechnexus.co.ke/api/stalk/tiktokstalk?username=${encodeURIComponent(username)}&apikey=giftedtechk`);
+    
+    if (response.status !== 200 || !response.data.success) {
+      return respond("Invalid username");
+    }
+    
+    const { user, stats } = response.data.result;
+
+    const messageText = `
+┌──「 *ALPHA TIKTOK STALK* 」
+▢ *🔖 Name:* ${user.nickname || 'Unknown'}
+▢ *🔖 Username:* ${user.uniqueId || 'Unknown'}
+▢ *👥 Followers:* ${stats.followerCount || 'Unknown'}
+▢ *🫂 Following:* ${stats.followingCount || 'Unknown'}
+▢ *📌 Bio:* ${user.signature || 'No Bio'}
+▢ *🔗 External Link:* ${user.bioLink?.link || 'No Link'}
+▢ *🔗 Profile Link:* https://tiktok.com/@${user.uniqueId || 'unknown'}
+└────────────`;
+    
+    await respond(messageText);
+  } catch (error) {
+    console.error(error);
+    await respond("An error occurred.");
+  }
+});
