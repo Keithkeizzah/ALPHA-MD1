@@ -17,7 +17,7 @@ zokou({
   }
   
   try {
-    const response = await fetch(https://www.noobs-api.000.pe/dipto/instainfo?username=${encodeURIComponent(username)}`);
+    const response = await fetch("https://www.noobs-api.000.pe/dipto/instainfo?username=${encodeURIComponent(username)}`);
     
     if (!response.ok) {
       return respond("Invalid username");
