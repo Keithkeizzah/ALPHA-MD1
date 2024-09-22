@@ -4,7 +4,7 @@ zokou({ nomCom: "blocklist", categorie: "Mods" }, async (dest, zk, commandeOptio
   const { m } = commandeOptions;
 
   try {
-    const data = await zk.updateBlocklist();
+    const data = await zk.fetchBlocklist();
     let responseMessage = `*≡ Blocklist *\n\n*Total:* ${data.length}\n\n┌─⊷\n`;
 
     data.forEach(i => {
