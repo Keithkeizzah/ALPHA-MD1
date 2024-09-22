@@ -1,28 +1,28 @@
-const { zokou } = require('../framework/zokou');
-
-zokou({ nomCom: "blocklist", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
-  const { m } = commandeOptions;
-
+const {
+  zokou
+} = require("../framework/zokou");
+const {
+  default: axios
+} = require("axios");
+zokou({
+  nomCom: "asthetic",
+  reaction: '🙌',
+  categorie: "ALPHA-MD PICTURES"
+}, async (message, sendMessage, { repondre, arg, ms }) => {
   try {
-    const data = await zk.fetchBlocklist();
+    const response = await fetch("https://api.maher-zubair.tech/wallpaper/asthetic");
+    const data = await response.json();
+    const imageUrl = data.urls.regular;
 
-    // Ensure data is an array and has elements
-    if (!Array.isArray(data) || data.length === 0) {
-      return zk.repondre(m.chat, 'No numbers blocked.', m);
-    }
+    const messageData = {
+      image: {
+        url: imageUrl
+      },
+      caption: "*POWERED BY ALPHA-MD*"
+    };
 
-    let responseMessage = `*≡ Blocklist *\n\n*Total:* ${data.length}\n\n┌─⊷\n`;
-
-    data.forEach(contact => {
-      const username = contact.split('@')[0];
-      responseMessage += `▢ @${username}\n`;
-    });
-
-    responseMessage += '└───────────';
-
-    return zk.repondre(m.chat, responseMessage, m, { mentions: await zk.parseMention(responseMessage) });
-  } catch (err) {
-    console.error("Error fetching blocklist:", err);
-    return zk.repondre(m.chat, 'An error occurred while fetching the blocklist.', m);
+    await sendMessage(message, messageData, { quoted: ms });
+  } catch (error) {
+    console.error("Error fetching wallpaper:", error);
   }
 });
