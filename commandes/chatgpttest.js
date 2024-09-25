@@ -1,87 +1,70 @@
-const { zokou } = require("../framework/zokou");
-const { default: axios } = require("axios");
-
+const {
+  zokou
+} = require("../framework/zokou");
+const axios = require('axios');
+const cheerio = require("cheerio");
+let hdb = require("../bdd/hentai");
 zokou({
-  nomCom: "chatgpt",
-  reaction: '📡',
-  categorie: 'AI'
-}, async (messageId, sendMessage, context) => {
-  const { repondre: reply, arg: args } = context;
-
+  'nomCom': "hentaivid",
+  'categorie': "Hentai",
+  'reaction': '🙄',
+  'desc': "send random hentai videos"
+}, async (_0x31851d, _0x2edd04, _0x25a8b1) => {
+  const {
+    repondre: _0x559836,
+    ms: _0x5bb474,
+    verifGroupe: _0x44ceee,
+    superUser: _0x115ef0
+  } = _0x25a8b1;
+  if (!_0x44ceee && !_0x115ef0) {
+    _0x559836("This command is reserved for groups only.");
+    return;
+  }
+  let _0x17866c = await hdb.checkFromHentaiList(_0x31851d);
+  if (!_0x17866c && !_0x115ef0) {
+    _0x559836("This group is not a group of perverts, calm down my friend.");
+    return;
+  }
   try {
-    if (!args || args.length === 0) {
-      return reply("Please ask a question.");
-    }
-
-    const query = args.join(" ");
-    const apiUrl = `https://api.cafirexos.com/api/chatgpt?text=${encodeURI(query)}&name=Kaizoku&prompt=${encodeURI("You are a WhatsApp bot AI called ALPHA-MD")}`;
-    
-    const response = await axios.get(apiUrl);
-    const data = response.data;
-
-    if (data && data.resultado) {
-      const output = data.resultado;
-
-      // Prepare buttons
-      const buttons = [{
-        name: "cta_url",
-        buttonParamsJson: JSON.stringify({
-          display_text: "FOLLOW OUR SUPPORT CHANNEL",
-          url: "https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47"
-        })
-      }];
-
-      const codeMatch = output.match(/```([\s\S]*?)```/);
-      if (codeMatch) {
-        const code = codeMatch[1];
-        buttons.unshift({
-          name: "cta_copy",
-          buttonParamsJson: JSON.stringify({
-            display_text: "📋 COPY YOUR CODE",
-            id: "copy_code",
-            copy_code: code
-          })
-        });
-      }
-
-      // Construct the message content
-      const messageContent = {
-        viewOnceMessage: {
-          message: {
-            messageContextInfo: {
-              deviceListMetadata: {},
-              deviceListMetadataVersion: 2
-            },
-            interactiveMessage: proto.Message.InteractiveMessage.create({
-              body: proto.Message.InteractiveMessage.Body.create({
-                text: output
-              }),
-              footer: proto.Message.InteractiveMessage.Footer.create({
-                text: "> *POWERED BY ALPHA-MD*"
-              }),
-              header: proto.Message.InteractiveMessage.Header.create({
-                title: '',
-                subtitle: '',
-                hasMediaAttachment: false
-              }),
-              nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                buttons: buttons
-              })
-            })
-          }
-        }
-      };
-
-      // Send the message
-      await sendMessage.relayMessage(messageId, messageContent, {
-        messageId: messageId // Ensure the message ID is set correctly
-      });
-
+    let _0x6d6d0f = await hentai();
+    let _0x3f2f53;
+    if (_0x6d6d0f.length > 0xa) {
+      _0x3f2f53 = 0xa;
     } else {
-      reply("Error during response generation.");
+      _0x3f2f53 = _0x6d6d0f.length;
     }
-  } catch (error) {
-    console.error("Error:", error.message || "An error occurred.");
-    reply("Oops, an error occurred while processing your request.");
+    let _0x285dae = Math.floor(Math.random() * _0x3f2f53);
+    _0x2edd04.sendMessage(_0x31851d, {
+      'video': {
+        'url': _0x6d6d0f[_0x285dae].video_1
+      },
+      'caption': "*Title :* " + _0x6d6d0f[_0x285dae].title + " \n *Category :* " + _0x6d6d0f[_0x285dae].category
+    }, {
+      'quoted': _0x5bb474
+    });
+  } catch (_0x478c30) {
+    console.log(_0x478c30);
   }
 });
+async function hentai() {
+  return new Promise((_0x54913d, _0xdf1c80) => {
+    const _0x1acb88 = Math.floor(Math.random() * 0x481);
+    axios.get('https://sfmcompile.club/page/' + _0x1acb88).then(_0x578b10 => {
+      const _0x222f86 = cheerio.load(_0x578b10.data);
+      const _0x2a6347 = [];
+      _0x222f86("#primary > div > div > ul > li > article").each(function (_0x5384ae, _0x4432be) {
+        _0x2a6347.push({
+          'title': _0x222f86(_0x4432be).find("header > h2").text(),
+          'link': _0x222f86(_0x4432be).find("header > h2 > a").attr("href"),
+          'category': _0x222f86(_0x4432be).find("header > div.entry-before-title > span > span").text().replace("in ", ''),
+          'share_count': _0x222f86(_0x4432be).find("header > div.entry-after-title > p > span.entry-shares").text(),
+          'views_count': _0x222f86(_0x4432be).find("header > div.entry-after-title > p > span.entry-views").text(),
+          'type': _0x222f86(_0x4432be).find("source").attr("type") || 'image/jpeg',
+          'video_1': _0x222f86(_0x4432be).find("source").attr('src') || _0x222f86(_0x4432be).find("img").attr("data-src"),
+          'video_2': _0x222f86(_0x4432be).find("video > a").attr("href") || ''
+        });
+      });
+      _0x54913d(_0x2a6347);
+    });
+  });
+}
