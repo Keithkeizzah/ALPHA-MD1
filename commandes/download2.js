@@ -25,14 +25,25 @@ zokou({
       const video = videos[0];
       const songDetails = {
         image: { url: video.thumbnail },
-        caption: `\n*✞𝐍𝐚𝐦𝐞:* _${video.title}_\n*✞𝐃𝐮𝐫𝐚𝐭𝐢𝐨𝐧:* _${video.timestamp}_\n*✞𝐃𝐢𝐫𝐞𝐜𝐭 𝐥𝐢𝐧𝐤:* _${video.url}_\n\n_╭────────────────◆
+         caption: `*ALPHA-MD SONG PLAYER*\n
+╭───────────────◆
+│✞ *Title:* ${video.title}
+│✞ *Quality:* ${video.type}
+│✞ *Duration:* ${videos[0].timestamp}
+│✞ *Viewers:* ${videos[0].views}
+│✞ *Uploaded:* ${videos[0].ago}
+│✞ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+⦿ *Direct YtLink:* ${video.url}
+╭────────────────◆
 u can as well join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
-╰────────────────◆_\n\n_╭────────────────◆
+╰────────────────◆
+╭────────────────◆
 │ *_Powered by keithkeizzah._*
-╰─────────────────◆_\n\n`
+╰─────────────────◆`
       };
 
       zk.sendMessage(origineMessage, songDetails, { quoted: commandeOptions.ms });
@@ -85,14 +96,25 @@ zokou({
       const video = videos[0];
       const videoDetails = {
         image: { url: video.thumbnail },
-        caption: `*✞𝐕𝐢𝐝𝐞𝐨 𝐍𝐚𝐦𝐞:* _${video.title}_\n*✞𝐃𝐮𝐫𝐚𝐭𝐢𝐨𝐧:* _${video.timestamp}_\n*✞𝐃𝐢𝐫𝐞𝐜𝐭 𝐥𝐢𝐧𝐤:* _${video.url}_\n_╭────────────────◆
+        caption: `*ALPHA-MD VIDEO DOWNLOADER*\n
+╭───────────────◆
+│✞ *Title:* ${video.title}
+│✞ *Quality:* ${video.type}
+│✞ *Duration:* ${videos[0].timestamp}
+│✞ *Viewers:* ${videos[0].views}
+│✞ *Uploaded:* ${videos[0].ago}
+│✞ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+⦿ *Direct YtLink:* ${video.url}
+╭────────────────◆
 u can as well join here to get your song download
 in more tracks 🤗😋 
 https://t.me/keithmd 
 use prefix {/}  example {/search dada}
-╰────────────────◆_\n\n_╭────────────────◆
+╰────────────────◆
+╭────────────────◆
 │ *_Powered by keithkeizzah._*
-╰─────────────────◆_\n\n`
+╰─────────────────◆`
       };
 
       zk.sendMessage(origineMessage, videoDetails, { quoted: commandeOptions.ms });
