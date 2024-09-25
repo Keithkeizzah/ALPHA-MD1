@@ -3,7 +3,6 @@ const yts = require("yt-search");
 const fs = require('fs');
 const axios = require("axios");
 const ytdl = require("ytdl-core");
-const BaseUrl = 'https://api.cafirexos.com';
 
 zokou({
   nomCom: "play",
