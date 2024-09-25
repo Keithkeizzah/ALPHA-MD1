@@ -78,17 +78,17 @@ zokou({
       const video = videos[0];
       const videoDetails = {
         image: { url: video.thumbnail },
-        caption: `*Video name:* _${video.title}_\n*Time:* _${video.timestamp}_\n*Url:* _${video.url}_\n_*On downloading...*_\n\n`
+        caption: `*Video Name:* _${video.title}_\n*Time:* _${video.timestamp}_\n*Url:* _${video.url}_\n_*Downloading...*_\n\n`
       };
 
       zk.sendMessage(origineMessage, videoDetails, { quoted: commandeOptions.ms });
 
-      const videoInfo = await ytdl.getInfo(video.url);
-      const format = ytdl.chooseFormat(videoInfo.formats, { quality: '18' });
-      const videoStream = ytdl.downloadFromInfo(videoInfo, { format });
+      const response = await axios.get(`https://api.cafirexos.com/api/v1/ytmp4?url=${video.url}`, {
+        responseType: "stream"
+      });
 
       const fileStream = fs.createWriteStream("video.mp4");
-      videoStream.pipe(fileStream);
+      response.data.pipe(fileStream);
 
       fileStream.on('finish', () => {
         zk.sendMessage(origineMessage, {
