@@ -66,7 +66,7 @@ async (origineMessage, zk, commandeOptions) => {
   }
 });
 zokou({
-nomCom': "ass",
+nomCom: "ass",
   'categorie': "Hentai",
   'reaction': '🍑'
 }, async (_0xc103f1, _0xfe64c2, _0x5c47af) => {
