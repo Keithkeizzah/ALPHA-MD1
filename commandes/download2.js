@@ -3,7 +3,7 @@ const yts = require("yt-search");
 const fs = require("fs");
 const axios = require("axios");
 const giftedapikey = 'gifteddevskk';
-const BaseUrl = 'https://api-gifted-tech.onrender.com';
+const BaseUrl = 'https://api-gifted-test-460bb726857c.herokuapp.com';
 
 const downloadFile = async (url, filePath, mimeType, originMessage, zk, commandeOptions) => {
   try {
