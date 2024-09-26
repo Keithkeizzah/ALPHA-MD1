@@ -1,28 +1,35 @@
-const {
-  zokou
-} = require("../framework/zokou");
-const {
-  default: axios
-} = require("axios");
+const { zokou } = require("../framework/zokou");
+const axios = require('axios');
+
 zokou({
-  nomCom: "asthetic",
-  reaction: '🙌',
-  categorie: "ALPHA-MD PICTURES"
-}, async (message, sendMessage, { repondre, arg, ms }) => {
+  nomCom: "openai",
+  reaction: '📡',
+  categorie: 'AI'
+}, async (responseHandler, args, meta) => {
+  const { repondre, arg } = meta;
+
+  // Check if there are any arguments provided
+  if (!arg || arg.length === 0) {
+    return repondre("Please ask a question.");
+  }
+
+  // Join the arguments into a query string
+  const query = arg.join(" ");
+
   try {
-    const response = await fetch("https://api.maher-zubair.tech/wallpaper/asthetic");
-    const data = await response.json();
-    const imageUrl = data.urls.regular;
+    // Fetch response from the external API
+    const { data } = await axios.get(`https://api.cafirexos.com/api/chatgpt`, {
+      params: { text: query }
+    });
 
-    const messageData = {
-      image: {
-        url: imageUrl
-      },
-      caption: "*POWERED BY ALPHA-MD*"
-    };
-
-    await sendMessage(message, messageData, { quoted: ms });
+    // Check if the response contains data
+    if (data && data.data) {
+      repondre(data.data);
+    } else {
+      repondre("Error during response generation.");
+    }
   } catch (error) {
-    console.error("Error fetching wallpaper:", error);
+    console.error("Error:", error.message || "An error occurred");
+    repondre("Oops, an error occurred while processing your request.");
   }
 });
