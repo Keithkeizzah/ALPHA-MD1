@@ -40,7 +40,7 @@ const handleSearch = async (origineMessage, zk, commandeOptions, isVideo) => {
     const videos = results.videos;
 
     if (videos.length > 0) {
-      const video = videos[0];
+      const videoUrl = videos[0].url;
       const fileType = isVideo ? "video" : "audio";
       const filePath = isVideo ? "video.mp4" : "audio.mp3";
 
