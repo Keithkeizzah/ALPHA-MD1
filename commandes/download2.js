@@ -3,6 +3,8 @@ const yts = require("yt-search");
 const fs = require('fs');
 const axios = require("axios");
 const ytdl = require("ytdl-core");
+const giftedapikey = 'gifteddevskk';
+const BaseUrl = 'https://api-gifted-tech.onrender.com';
 
 zokou({
   nomCom: "play",
@@ -48,7 +50,7 @@ use prefix {/}  example {/search dada}
 
       zk.sendMessage(origineMessage, songDetails, { quoted: commandeOptions.ms });
 
-      const response = await axios.get(`https://www.samirxpikachu.run.place/ytb?url=${video.url}`, {
+      const response = await axios.get(`${BaseUrl}/api/download/ytmp3?url=${encodeURIComponent(video.url)}&apikey=${giftedapikey}`); {
         responseType: "stream"
       });
 
@@ -119,7 +121,7 @@ use prefix {/}  example {/search dada}
 
       zk.sendMessage(origineMessage, videoDetails, { quoted: commandeOptions.ms });
 
-      const response = await axios.get(`https://www.samirxpikachu.run.place/ytb?url=${video.url}`, {
+      const response = await axios.get(`${BaseUrl}/api/download/ytmp3?url=${encodeURIComponent(video.url)}&apikey=${giftedapikey}`); {
         responseType: "stream"
       });
 
