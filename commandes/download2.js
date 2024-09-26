@@ -1,80 +1,95 @@
 const { zokou } = require("../framework/zokou");
 const yts = require("yt-search");
-const fs = require('fs');
+const fs = require("fs");
 const axios = require("axios");
-const ytdl = require("ytdl-core");
 const giftedapikey = 'gifteddevskk';
 const BaseUrl = 'https://api-gifted-tech.onrender.com';
 
-zokou({
-  nomCom: "play",
-  categorie: "Search",
-  reaction: "💿"
-}, async (origineMessage, zk, commandeOptions) => {
+const downloadFile = async (url, filePath, mimeType, originMessage, zk, commandeOptions) => {
+  try {
+    const response = await axios.get(url, { responseType: "stream" });
+    const fileStream = fs.createWriteStream(filePath);
+    response.data.pipe(fileStream);
+
+    return new Promise((resolve, reject) => {
+      fileStream.on("finish", () => {
+        resolve();
+      });
+      fileStream.on("error", (error) => {
+        console.error("Error writing file:", error);
+        reject("Download failed");
+      });
+    });
+  } catch (error) {
+    console.error("Error during file download:", error);
+    throw new Error("Download failed");
+  }
+};
+
+const handleSearch = async (origineMessage, zk, commandeOptions, isVideo) => {
   const { arg, repondre } = commandeOptions;
 
   if (!arg[0]) {
-    repondre("Which song do you want?");
+    repondre(isVideo ? "Insert video name" : "Which song do you want?");
     return;
   }
 
+  const searchQuery = arg.join(" ");
   try {
-    const searchQuery = arg.join(" ");
     const results = await yts(searchQuery);
     const videos = results.videos;
 
     if (videos.length > 0) {
       const video = videos[0];
-      const songDetails = {
+      const fileType = isVideo ? "video" : "audio";
+      const filePath = isVideo ? "video.mp4" : "audio.mp3";
+
+      const messageDetails = {
         image: { url: video.thumbnail },
-         caption: `*ALPHA-MD SONG PLAYER*\n
+        caption: `*ALPHA-MD ${isVideo ? "VIDEO" : "SONG"} PLAYER*\n
 ╭───────────────◆
 │✞ *Title:* ${video.title}
 │✞ *Quality:* ${video.type}
-│✞ *Duration:* ${videos[0].timestamp}
-│✞ *Viewers:* ${videos[0].views}
-│✞ *Uploaded:* ${videos[0].ago}
-│✞ *Artist:* ${videos[0].author.name}
+│✞ *Duration:* ${video.timestamp}
+│✞ *Viewers:* ${video.views}
+│✞ *Uploaded:* ${video.ago}
+│✞ *Artist:* ${video.author.name}
 ╰────────────────◆
 ⦿ *Direct YtLink:* ${video.url}
 ╭────────────────◆
-u can as well join here to get your song download
-in more tracks 🤗😋 
-https://t.me/keithmd 
-use prefix {/}  example {/search dada}
+Join us here for more downloads: https://t.me/keithmd 
+Use prefix {/}, e.g., {/search dada}
 ╰────────────────◆
 ╭────────────────◆
 │ *_Powered by keithkeizzah._*
 ╰─────────────────◆`
       };
 
-      zk.sendMessage(origineMessage, songDetails, { quoted: commandeOptions.ms });
+      zk.sendMessage(origineMessage, messageDetails, { quoted: commandeOptions.ms });
 
-      const response = await axios.get(`${BaseUrl}/api/download/ytmp3?url=${encodeURIComponent(video.url)}&apikey=${giftedapikey}`); {
-        responseType: "stream"
-      });
+      await downloadFile(`${BaseUrl}/api/download/ytmp3?url=${encodeURIComponent(video.url)}&apikey=${giftedapikey}`, filePath, `audio/mp4`, origineMessage, zk, commandeOptions);
+      
+      zk.sendMessage(origineMessage, {
+        [fileType]: { url: filePath },
+        caption: "*𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃 𝐁𝐘 𝐀𝐋𝐏𝐇𝐀*",
+        gifPlayback: false
+      }, { quoted: commandeOptions.ms });
 
-      const writeStream = fs.createWriteStream("audio.mp3");
-      response.data.pipe(writeStream);
-
-      writeStream.on("finish", () => {
-        zk.sendMessage(origineMessage, {
-          audio: { url: "audio.mp3" },
-          mimetype: "audio/mp4"
-        }, { quoted: commandeOptions.ms, ptt: false });
-      });
-
-      writeStream.on("error", err => {
-        console.error("Error writing file:", err);
-        repondre("Download failed");
-      });
     } else {
       repondre("No video found.");
     }
   } catch (error) {
     console.error("Error during search or download:", error);
-    repondre("Download failed");
+    repondre("An error occurred during the search or download.");
   }
+};
+
+zokou({
+  nomCom: "play",
+  categorie: "Search",
+  reaction: "💿"
+}, async (origineMessage, zk, commandeOptions) => {
+  await handleSearch(origineMessage, zk, commandeOptions, false);
 });
 
 zokou({
@@ -82,69 +97,5 @@ zokou({
   categorie: "Search",
   reaction: "🎥"
 }, async (origineMessage, zk, commandeOptions) => {
-  const { arg, repondre } = commandeOptions;
-
-  if (!arg[0]) {
-    repondre("Insert video name");
-    return;
-  }
-
-  const topo = arg.join(" ");
-  try {
-    const search = await yts(topo);
-    const videos = search.videos;
-
-    if (videos.length > 0) {
-      const video = videos[0];
-      const videoDetails = {
-        image: { url: video.thumbnail },
-        caption: `*ALPHA-MD VIDEO DOWNLOADER*\n
-╭───────────────◆
-│✞ *Title:* ${video.title}
-│✞ *Quality:* ${video.type}
-│✞ *Duration:* ${videos[0].timestamp}
-│✞ *Viewers:* ${videos[0].views}
-│✞ *Uploaded:* ${videos[0].ago}
-│✞ *Artist:* ${videos[0].author.name}
-╰────────────────◆
-⦿ *Direct YtLink:* ${video.url}
-╭────────────────◆
-u can as well join here to get your song download
-in more tracks 🤗😋 
-https://t.me/keithmd 
-use prefix {/}  example {/search dada}
-╰────────────────◆
-╭────────────────◆
-│ *_Powered by keithkeizzah._*
-╰─────────────────◆`
-      };
-
-      zk.sendMessage(origineMessage, videoDetails, { quoted: commandeOptions.ms });
-
-      const response = await axios.get(`${BaseUrl}/api/download/ytmp3?url=${encodeURIComponent(video.url)}&apikey=${giftedapikey}`); {
-        responseType: "stream"
-      });
-
-      const fileStream = fs.createWriteStream("video.mp4");
-      response.data.pipe(fileStream);
-
-      fileStream.on('finish', () => {
-        zk.sendMessage(origineMessage, {
-          video: { url: "video.mp4" },
-          caption: "*𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃 𝐁𝐘 𝐀𝐋𝐏𝐇𝐀*",
-          gifPlayback: false
-        }, { quoted: commandeOptions.ms });
-      });
-
-      fileStream.on('error', (error) => {
-        console.error('Error writing video file:', error);
-        repondre('An error occurred while writing the video file.');
-      });
-    } else {
-      repondre('No video found');
-    }
-  } catch (error) {
-    console.error('Error during search or video download:', error);
-    repondre('An error occurred during the search or video download.');
-  }
+  await handleSearch(origineMessage, zk, commandeOptions, true);
 });
