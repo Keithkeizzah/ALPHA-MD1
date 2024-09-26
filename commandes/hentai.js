@@ -141,57 +141,6 @@ zokou({
   }
 });
 zokou({
-  'nomCom': "dick",
-  'categorie': 'Hentai',
-  'reaction': '😋'
-}, async (_0x1f9156, _0x5ced55, _0x4f9af6) => {
-  const {
-    repondre: _0x5834e9,
-    ms: _0x526cfe
-  } = _0x4f9af6;
-  try {
-    for (let _0x4b80a2 = 0x0; _0x4b80a2 < 0x5; _0x4b80a2++) {
-      const _0x3a37af = await axios.get("https://api.maher-zubair.tech/nsfw/dick");
-      const _0x45528b = _0x3a37af.data.url;
-      _0x5ced55.sendMessage(_0x1f9156, {
-        'image': {
-          'url': _0x45528b
-        }
-      }, {
-        'quoted': _0x526cfe
-      });
-    }
-  } catch (_0xde24e5) {
-    _0x5834e9("Error occurred while retrieving data :", _0xde24e5);
-  }
-});
-zokou({
-  'nomCom': "porngif",
-  'categorie': "Hentai",
-  'reaction': '😋'
-}, async (_0x4fb4fb, _0x76cac9, _0x717541) => {
-  const {
-    repondre: _0x46cd4e,
-    ms: _0x4f7074
-  } = _0x717541;
-  try {
-    for (let _0x522565 = 0x0; _0x522565 < 0x5; _0x522565++) {
-      const _0x12c1cc = await axios.get("https://api.maher-zubair.tech/nsfw/porngif");
-      const _0x4c8ab8 = _0x12c1cc.data.url;
-      _0x76cac9.sendMessage(_0x4fb4fb, {
-        'image': {
-          'url': _0x4c8ab8
-        }
-      }, {
-        'quoted': _0x4f7074
-      });
-    }
-  } catch (_0x1ec37a) {
-    _0x46cd4e("Error occurred while retrieving data :", _0x1ec37a);
-  }
-});
-
-zokou({
   nomCom: "blowjob",
   categorie: "Hentai",
   reaction: "🙄"
