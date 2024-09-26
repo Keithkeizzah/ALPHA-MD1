@@ -118,7 +118,7 @@ zokou({
       'video': {
         'url': _0x6d6d0f[_0x285dae].video_1
       },
-      'caption': "*Title :* " + _0x6d6d0f[_0x285dae].title + " \n *Category :* " + _0x6d6d0f[_0x285dae].category
+      'caption': ❗Keith recommend only above eighteen years of age\n "*Alpha-Title :* " + _0x6d6d0f[_0x285dae].title + " \n *Category :* " + _0x6d6d0f[_0x285dae].category
     }, {
       'quoted': _0x5bb474
     });
