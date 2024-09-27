@@ -1,38 +1,5 @@
 const { zokou } = require("../framework/zokou");
 const axios = require("axios");
-const yts = require('yt-search');
-const fs = require('fs');
-const yt = require("../framework/dl/ytdl-core.js");
-const ffmpeg = require("fluent-ffmpeg");
-
-zokou({
-  nomCom: "mygroups",
-  categorie: "User",
-  reaction: "💿"
-}, async (senn, zk, commandeOptions) => {
-  const { repondre } = commandeOptions;
-
-  try {
-    const getGroupzs = await zk.groupFetchAllParticipating();
-    const groupzs = Object.entries(getGroupzs).map(entry => entry[1]);
-    const anaa = groupzs.map(v => v.id);
-    let jackhuh = `*GROUPS AM IN*\n\n`;
-
-    repondre(`You are currently in ${anaa.length} groups, Alpha MD will send that list in a moment...`);
-
-    for (const i of anaa) {
-      const metadat = await zk.groupMetadata(i);
-      jackhuh += `*GROUP NAME:* ${metadat.subject}\n`;
-      jackhuh += `*MEMBERS:* ${metadat.participants.length}\n`;
-      jackhuh += `*GROUP ID:* ${i}\n\n`;
-    }
-    
-    await repondre(jackhuh);
-  } catch (error) {
-    console.error("Error fetching groups:", error);
-    repondre("An error occurred while fetching groups.");
-  }
-});
 
 const fetchAPI = async (url, repondre) => {
   try {
@@ -43,6 +10,35 @@ const fetchAPI = async (url, repondre) => {
     repondre("An error occurred while fetching data.");
   }
 };
+
+zokou({
+  nomCom: "mygroups",
+  categorie: "User",
+  reaction: "💿"
+}, async (senn, zk, commandeOptions) => {
+  const { repondre } = commandeOptions;
+
+  try {
+    const getGroupzs = await zk.groupFetchAllParticipating();
+    const groupzs = Object.values(getGroupzs);
+    const groupIds = groupzs.map(v => v.id);
+    let responseMessage = `*GROUPS AM IN*\n\n`;
+
+    repondre(`You are currently in ${groupIds.length} groups. Alpha MD will send that list shortly...`);
+
+    for (const id of groupIds) {
+      const metadata = await zk.groupMetadata(id);
+      responseMessage += `*GROUP NAME:* ${metadata.subject}\n`;
+      responseMessage += `*MEMBERS:* ${metadata.participants.length}\n`;
+      responseMessage += `*GROUP ID:* ${id}\n\n`;
+    }
+    
+    await repondre(responseMessage);
+  } catch (error) {
+    console.error("Error fetching groups:", error);
+    repondre("An error occurred while fetching groups.");
+  }
+});
 
 zokou({
   nomCom: "flirt",
@@ -74,7 +70,7 @@ zokou({
 const generateImage = async (messageId, sender, prompt, category) => {
   try {
     const imageUrl = `https://www.noobs-api.000.pe/dipto/${category}?prompt=${encodeURIComponent(prompt)}`;
-
+    
     await sender.sendMessage(messageId, {
       image: {
         url: imageUrl
