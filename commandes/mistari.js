@@ -1,88 +1,35 @@
 const {
   zokou
 } = require("../framework/zokou");
-const axios = require("axios");
-
+const {
+  default: axios
+} = require("axios");
 zokou({
-  'nomCom': "chat",
-  'reaction': '📡',
-  'categorie': 'AI'
-}, async (_0x519f4b, _0x75f67d, _0x1ec287) => {
+ "nomCom": "mistari",
+  "reaction": '📡',
+  "categorie": 'IA',
+  "desc": "Chatgpt Ai , ask him question and request"
+};
+a19_0x336d04(a19_0x4f8cc1, async (_0x1d53cf, _0x59fd2e, _0x31195a) => {
   const {
-    repondre: _0x2a6e71,
-    arg: _0x4be2d3,
-    ms: _0xc63a20
-  } = _0x1ec287;
-
+    repondre: _0x4ebdd5,
+    arg: _0x4c09f8,
+    ms: _0xe571e4
+  } = _0x31195a;
   try {
-    if (!_0x4be2d3 || _0x4be2d3.length === 0) {
-      return _0x2a6e71("Please ask a question.");
+    if (!_0x4c09f8 || _0x4c09f8.length === 0x0) {
+      return _0x4ebdd5("Please ask a question.");
     }
-
-    const _0x5d0a29 = _0x4be2d3.join(" ");
-    const response = await axios.get(`https://hercai.onrender.com/v3/hercai?question=${encodeURIComponent(_0x5d0a29)}`);
-    const _0x4d66b9 = response.data;
-
-    if (_0x4d66b9 && _0x4d66b9.result) {
-      const _0x12cd9d = _0x4d66b9.result;
-      const _0x29d2ee = _0x12cd9d.match(/```([\s\S]*?)```/);
-      const buttons = [{
-        'name': "cta_url",
-        'buttonParamsJson': JSON.stringify({
-          'display_text': "FOLLOW OUR SUPPORT CHANNEL",
-          'url': "https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47"
-        })
-      }];
-
-      if (_0x29d2ee) {
-        const _0x5b6d25 = _0x29d2ee[1];
-        buttons.unshift({
-          'name': "cta_copy",
-          'buttonParamsJson': JSON.stringify({
-            'display_text': "📋 COPY YOUR CODE",
-            'id': "copy_code",
-            'copy_code': _0x5b6d25
-          })
-        });
-      }
-
-      const messageContent = {
-        'viewOnceMessage': {
-          'message': {
-            'messageContextInfo': {
-              'deviceListMetadata': {},
-              'deviceListMetadataVersion': 2
-            },
-            'interactiveMessage': {
-              'body': {
-                'text': _0x12cd9d
-              },
-              'footer': {
-                'text': "> *POWERED BY ALPHA-MD*"
-              },
-              'header': {
-                'title': '',
-                'subtitle': '',
-                'hasMediaAttachment': false
-              },
-              'nativeFlowMessage': {
-                'buttons': buttons
-              }
-            }
-          }
-        }
-      };
-
-      const message = generateWAMessageFromContent(_0x519f4b, messageContent, {});
-      await _0x75f67d.relayMessage(_0x519f4b, message.message, {
-        'messageId': message.key.id
-      });
-
+    const _0x4aea88 = _0x4c09f8.join(" ");
+    const _0x19c26e = await a19_0x17eeb6.get("https://api.cafirexos.com/api/chatgpt?text=" + encodeURI(_0x4aea88) + "&name=Kaizoku&prompt=" + encodeURI("You are an Whatsapp bot AI called ALPHA-MD"));
+    const _0x16c257 = _0x19c26e.data;
+    if (_0x16c257) {
+      _0x4ebdd5(_0x16c257.resultado);
     } else {
-      throw new Error("Invalid response from the GPT API.");
+      _0x4ebdd5("Error during response generation.");
     }
-  } catch (error) {
-    console.error("Error getting GPT response:", error.message);
-    _0x2a6e71("Error getting response from GPT.");
+  } catch (_0x7900d6) {
+    console.error("Erreur:", _0x7900d6.message || "Une erreur s'est produite");
+    _0x4ebdd5("Oops, an error occurred while processing your request.");
   }
 });
