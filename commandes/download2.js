@@ -1,8 +1,8 @@
 const { zokou } = require("../framework/zokou");
 const yts = require('yt-search');
-const fetch = require('node-fetch'); // Ensure fetch is imported
+const axios = require("axios");
 const BaseUrl = 'https://giftedapis.us.kg';
-const giftedapikey = 'gifteddevskk'; 
+const giftedapikey = 'gifteddevskk';
 
 const handleVideoSearch = async (dest, zk, commandeOptions, type) => {
   const { ms, repondre, arg } = commandeOptions;
@@ -44,10 +44,13 @@ const handleVideoSearch = async (dest, zk, commandeOptions, type) => {
 
         await zk.sendMessage(dest, infoMess, { quoted: ms });
 
-        const messageOptions = type === 'VIDEO' ? { video: { url: downloadUrl }, mimetype: 'video/mp4' } : { audio: { url: downloadUrl }, mimetype: 'audio/mp4' };
+        const messageOptions = type === 'VIDEO' 
+          ? { video: { url: downloadUrl }, mimetype: 'video/mp4' } 
+          : { audio: { url: downloadUrl }, mimetype: 'audio/mp4' };
+
         await zk.sendMessage(dest, messageOptions, { quoted: ms });
 
-        repondre(`'Download successful for your ${type.toLowerCase()} using Alpha bot.'`);
+        repondre(`Download successful for your ${type.toLowerCase()} using Alpha bot.`);
       } else {
         repondre('Failed to download the media. Please try again later.');
       }
@@ -60,34 +63,17 @@ const handleVideoSearch = async (dest, zk, commandeOptions, type) => {
   }
 };
 
-zokou({
-  nomCom: "play",
-  categorie: "Search",
-  reaction: "💿"
-}, async (dest, zk, commandeOptions) => {
-  await handleVideoSearch(dest, zk, commandeOptions, 'SONG');
-});
+const commandHandler = (nomCom, type, reaction) => {
+  zokou({
+    nomCom,
+    categorie: "Search",
+    reaction
+  }, async (dest, zk, commandeOptions) => {
+    await handleVideoSearch(dest, zk, commandeOptions, type);
+  });
+};
 
-zokou({
-  nomCom: "videodoc",
-  categorie: "Search",
-  reaction: "🎥"
-}, async (dest, zk, commandeOptions) => {
-  await handleVideoSearch(dest, zk, commandeOptions, 'VIDEO');
-});
-
-zokou({
-  nomCom: "video",
-  categorie: "Search",
-  reaction: "🎥"
-}, async (dest, zk, commandeOptions) => {
-  await handleVideoSearch(dest, zk, commandeOptions, 'VIDEO');
-});
-
-zokou({
-  nomCom: "song",
-  categorie: "Search",
-  reaction: "💿"
-}, async (dest, zk, commandeOptions) => {
-  await handleVideoSearch(dest, zk, commandeOptions, 'SONG');
-});
+commandHandler("play", 'SONG', "💿");
+commandHandler("videodoc", 'VIDEO', "🎥");
+commandHandler("video", 'VIDEO', "🎥");
+commandHandler("song", 'SONG', "💿");
