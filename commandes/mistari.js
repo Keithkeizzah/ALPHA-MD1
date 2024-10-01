@@ -1,25 +1,3 @@
-const a19_0x1059e8 = (() => {
-  let initialized = true;
-  return function (context, callback) {
-    const executeCallback = initialized
-      ? function () {
-          if (callback) {
-            const result = callback.apply(context, arguments);
-            callback = null; // Ensure callback is only called once
-            return result;
-          }
-        }
-      : function () {};
-    initialized = false; // Prevent further calls
-    return executeCallback;
-  };
-})();
-
-const translateFunction = a19_0x1059e8(this, function () {
-  return translateFunction.toString().search("(((.+)+)+)+$").toString().constructor(translateFunction).search("(((.+)+)+)+$");
-});
-
-translateFunction();
 
 const { zokou: registerCommand } = require("../framework/zokou");
 const axios = require("../framework/traduction").default;
