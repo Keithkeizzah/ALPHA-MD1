@@ -8,7 +8,7 @@ zokou({
 }, async (messageId, replyFunction, { repondre, ms }) => {
   try {
     for (let i = 0; i < 5; i++) {
-      const response = await axios.get("https://api.lolhuman.xyz/api/random/blackpink?apikey=beta");
+      const response = await axios.get("https://api.lolhuman.xyz/api/random/blackpink?apikey=");
       const imageUrl = response.data.url;
 
       await replyFunction.sendMessage(messageId, {
@@ -30,7 +30,7 @@ zokou({ nomCom: "habari", reaction: "📡", categorie: "IA" }, async (dest, zk, 
   
       // Regrouper les arguments en une seule chaîne séparée par "-"
       const question = arg.join(' ');
-      const response = await axios.get(`https://api.lolhuman.xyz/api/newsinfo?apikey=beta`);
+      const response = await axios.get(`https://api.lolhuman.xyz/api/newsinfo?apikey=`);
       
       const data = response.data;
       if (data) {
