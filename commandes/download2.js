@@ -1,3 +1,4 @@
+/*
 const { zokou } = require("../framework/zokou");
 const yts = require('yt-search');
 const axios = require("axios");
@@ -77,3 +78,4 @@ commandHandler("play", 'SONG', "💿");
 commandHandler("videodoc", 'VIDEO', "🎥");
 commandHandler("video", 'VIDEO', "🎥");
 commandHandler("song", 'SONG', "💿");
+//
