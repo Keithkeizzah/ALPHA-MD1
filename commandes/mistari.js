@@ -1,32 +1,31 @@
 const { zokou } = require("../framework/zokou");
 const axios = require("axios");
 
-zokou({ nomCom: "mistari", reaction: "👽", categorie: "IA" }, async (dest, zk, commandeOptions) => {
-  const { repondre, arg } = commandeOptions;
+const config = {
+  nomCom: "breaking",
+  reaction: '🤔',
+  categorie: 'IA'
+};
+
+zokou(config, async (responseHandler, args, context) => {
+  const { repondre, arg, ms } = context;
 
   try {
     if (!arg || arg.length === 0) {
-      return repondre("Please ask a question.");
+      return repondre("Ask any news update and Alpha bot will send you.");
     }
 
-    // Combine arguments into a single string
-    const question = arg.join(' ');
-    const response = await axios.get(`https://api.cafirexos.com/api/chatgpt`, {
-      params: {
-        text: question,
-        name: "Kaizoku",
-        prompt: "" // Add an appropriate value for prompt if needed
-      }
-    });
+    const query = arg.join(" ");
+    const apiResponse = await axios.get(`https://www.samirxpikachu.run.place/ppx?query=${query}`);
+    const result = apiResponse.data;
 
-    const data = response.data;
-    if (data && data.result) {
-      repondre(data.result);
+    if (result) {
+      repondre(result.result);
     } else {
       repondre("Error during response generation.");
     }
   } catch (error) {
-    console.error('Error:', error.message || 'An error occurred');
+    console.error("Error:", error.message || "An error occurred");
     repondre("Oops, an error occurred while processing your request.");
   }
 });
