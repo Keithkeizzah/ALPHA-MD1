@@ -1,38 +1,31 @@
-
-const { zokou } = require("../framework/zokou");
+// javascript
+const { zokou } = require('../framework/zokou');
+const traduire = require("../framework/traduction");
 const { default: axios } = require('axios');
 
-zokou({
-    nomCom: "lyric",
-    reaction: "✨",
-    categorie: "Search"
-}, async (dest, zk, commandeOptions) => {
+const apiUrl = 'https://giftedapis.us.kg/api/ai/gpt4';
+const apiKey = '_0x5aff35,_0x187643';
 
+zokou({ nomCom: "gpt7", reaction: "📡", categorie: "IA" }, async (dest, zk, commandeOptions) => {
     const { repondre, arg, ms } = commandeOptions;
 
     try {
-        if (!arg || arg.length === 0) return repondre("Where is the name of song");
-
-        const apikey = '_0x5aff35,_0x187643';
-        const apiurl = 'https://giftedapis.us.kg/api/search/lyrics';
-
-        const response = await fetch(`${apiurl}?query=${arg.join(' ')}&apikey=${apikey}`);
-        const result = await response.json();
-
-        if (result.status !== 200 || !result.success) {
-            return repondre("No lyrics found");
+        if (!arg || arg.length === 0) {
+            return repondre(`Please ask a question Keith will answer it.`);
         }
 
-        const lyrics = result.result;
+        // Regrouper les arguments en une seule chaîne séparée par "-"
+        const question = arg.join(' ');
+        const response = await axios.get(`${apiUrl}?q=${question}&apikey=${apiKey}`);
 
-        const msg = `---------ALPHA-lyrics-finder--------
-* *Artist :* ${lyrics.Artist}
-* *Title :* ${lyrics.Title}
-${lyrics.Lyrics}`;
-
-        zk.sendMessage(dest, { image: { url: './media/lyrics-img.jpg' }, caption: msg }, { quoted: ms });
-
-    } catch (err) {
-        repondre('Error');
+        const data = response.data;
+        if (data) {
+            repondre(data.result);
+        } else {
+            repondre("Error during response generation.");
+        }
+    } catch (error) {
+        console.error('Erreur:', error.message || 'Une erreur s\'est produite');
+        repondre("Oops, an error occurred while processing your request.");
     }
 });
