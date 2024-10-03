@@ -16,7 +16,7 @@ zokou(config, async (responseHandler, args, context) => {
     }
 
     const [artist, title] = arg; // Assuming the input is in the format: artist title
-    const apiResponse = await axios.get(`https://api.lyrics.ovh/v1/${encodeURIComponent(artist)}/${encodeURIComponent(title)}`);
+    const apiResponse = await axios.get(`https://www.samirxpikachu.run.place/lyrics?query=${encodeURIComponent(query)}`);
     const result = apiResponse.data;
 
     if (result && result.lyrics) {
