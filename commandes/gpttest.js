@@ -1,32 +1,31 @@
-const { zokou } = require('../framework/zokou');
-const traduire = require("../framework/traduction") ;
-const { default: axios } = require('axios');
-//const conf = require('../set');
+const { zokou } = require("../framework/zokou");
+const axios = require("axios");
 
+const config = {
+  nomCom: "breaking",
+  reaction: '🤔',
+  categorie: 'IA'
+};
 
-zokou({ nomCom: "chat", reaction: "🤔", categorie: "IA" }, async (dest, zk, commandeOptions) => {
-    const { repondre, arg, ms } = commandeOptions;
-  
-    try {
-      if (!arg || arg.length === 0) {
-        return repondre(`Please ask a question.`);
-      }
-  
-      // Regrouper les arguments en une seule chaîne séparée par "-"
-      const question = arg.join(' ');
-      const response = await axios.get(`https://giftedapis.us.kg/api/ai/gpt4?q=${question}`);
-      
-      const data = response.data;
-      if (data) {
-        repondre(data.result);
-      } else {
-        repondre("Error during response generation.");
-      }
-    } catch (error) {
-      console.error('Erreur:', error.message || 'Une erreur s\'est produite');
-      repondre("Oops, an error occurred while processing your request.");
+zokou(config, async (responseHandler, args, context) => {
+  const { repondre, arg, ms } = context;
+
+  try {
+    if (!arg || arg.length === 0) {
+      return repondre("Ask any news update and Alpha bot will send you.");
     }
-  });
 
+    const query = arg.join(" ");
+    const apiResponse = await axios.get(`https://www.samirxpikachu.run.place/gpt4mini?prompt=${prompt}`);
+    const result = apiResponse.data;
 
-  
+    if (result) {
+      repondre(result.result);
+    } else {
+      repondre("Error during response generation.");
+    }
+  } catch (error) {
+    console.error("Error:", error.message || "An error occurred");
+    repondre("Oops, an error occurred while processing your request.");
+  }
+});
