@@ -8,7 +8,7 @@ const config = {
 };
 
 zokou(config, async (responseHandler, args, context) => {
-  const { repondre, arg, ms } = context;
+  const { repondre, arg } = context;
 
   try {
     if (!arg || arg.length === 0) {
@@ -16,10 +16,10 @@ zokou(config, async (responseHandler, args, context) => {
     }
 
     const query = arg.join(" ");
-    const apiResponse = await axios.get(`https://www.samirxpikachu.run.place/gpt4mini?prompt=${prompt}`);
+    const apiResponse = await axios.get(`https://www.samirxpikachu.run.place/gpt4mini?prompt=${encodeURIComponent(query)}`);
     const result = apiResponse.data;
 
-    if (result) {
+    if (result && result.result) {
       repondre(result.result);
     } else {
       repondre("Error during response generation.");
