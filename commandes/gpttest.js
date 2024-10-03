@@ -1,6 +1,6 @@
 
-const fetch = require('node-fetch');
 const { zokou } = require("../framework/zokou");
+const { default: axios } = require('axios');
 
 zokou({
     nomCom: "lyric",
