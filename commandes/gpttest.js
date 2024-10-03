@@ -16,7 +16,7 @@ zokou(config, async (responseHandler, args, context) => {
     }
 
     const query = arg.join(" ");
-    const apiResponse = await axios.get(`https://www.samirxpikachu.run.place/gpt4mini?prompt=${encodeURIComponent(query)}`);
+    const apiResponse = await axios.get(`https://api.lyrics.ovh/v1/${encodeURIComponent(artist)}/${encodeURIComponent(title)}`);
     const result = apiResponse.data;
 
     if (result && result.result) {
