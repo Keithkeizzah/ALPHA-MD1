@@ -12,7 +12,7 @@ zokou({ nomCom: "lyric",
 
     if (!arg || arg.length === 0) return repondre("Where is the name of musique");
 
-    let  result  = await axios.get(`https://giftedapis.us.kg/api/search/lyrics?query=${arg.join(' ')}`);
+    let  result  = await axios.get(`https://samirxpikachuio.onrender.com/lyrics?query${arg.join(' ')}`);
 
     let lyrics = result.data.data;
 
