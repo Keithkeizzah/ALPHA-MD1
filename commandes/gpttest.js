@@ -1,31 +1,38 @@
+
+const fetch = require('node-fetch');
 const { zokou } = require("../framework/zokou");
-const axios = require("axios");
 
-const config = {
-  nomCom: "breaking",
-  reaction: '🤔',
-  categorie: 'IA'
-};
+zokou({
+    nomCom: "lyric",
+    reaction: "✨",
+    categorie: "Search"
+}, async (dest, zk, commandeOptions) => {
 
-zokou(config, async (responseHandler, args, context) => {
-  const { repondre, arg } = context;
+    const { repondre, arg, ms } = commandeOptions;
 
-  try {
-    if (!arg || arg.length < 2) {
-      return repondre("Please provide both artist and title.");
+    try {
+        if (!arg || arg.length === 0) return repondre("Where is the name of song");
+
+        const apikey = '_0x5aff35,_0x187643';
+        const apiurl = 'https://giftedapis.us.kg/api/search/lyrics';
+
+        const response = await fetch(`${apiurl}?query=${arg.join(' ')}&apikey=${apikey}`);
+        const result = await response.json();
+
+        if (result.status !== 200 || !result.success) {
+            return repondre("No lyrics found");
+        }
+
+        const lyrics = result.result;
+
+        const msg = `---------ALPHA-lyrics-finder--------
+* *Artist :* ${lyrics.Artist}
+* *Title :* ${lyrics.Title}
+${lyrics.Lyrics}`;
+
+        zk.sendMessage(dest, { image: { url: './media/lyrics-img.jpg' }, caption: msg }, { quoted: ms });
+
+    } catch (err) {
+        repondre('Error');
     }
-
-    const [artist, title] = arg; // Assuming the input is in the format: artist title
-    const apiResponse = await axios.get(`https://www.samirxpikachu.run.place/lyrics?query=${encodeURIComponent(query)}`);
-    const result = apiResponse.data;
-
-    if (result && result.lyrics) {
-      repondre(result.lyrics);
-    } else {
-      repondre("No lyrics found for the specified song.");
-    }
-  } catch (error) {
-    console.error("Error:", error.message || "An error occurred");
-    repondre("Oops, an error occurred while processing your request.");
-  }
 });
