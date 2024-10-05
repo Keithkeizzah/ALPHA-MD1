@@ -1,112 +1,95 @@
-const {zokou} = require("../framework/zokou");
-const axios = require('axios');
-const traduire = require('../framework/traduction')
+const { zokou: startGame } = require("../framework/zokou");
+const axios = require("axios");
+const { wcgCache } = require("../framework/wcg");
 
+const gameDetails = {
+  nomCom: "wcg",
+  categorie: "Games",
+  reaction: '🎮',
+  desc: "Play a game of World Chains Games, a word game."
+};
 
+startGame(gameDetails, async (chatId, chatClient, context) => {
+  const { repondre: respond, ms, arg, auteurMessage: authorMessage } = context;
 
-zokou({
-    nomCom: "wcg",
-    categorie: "Games",
-    reaction: "📺"
-  },
-
-a28_0x12800c(a28_0x1c3701, async (discussionId, messageSender, context) => {
-  const {
-    reply: sendMessage,
-    ms: msVariable,
-    arg: argVariable,
-    authorMessage: author
-  } = context;
-
-  // Check if a game is already in progress
-  if (a28_0x1713ff.has(discussionId)) {
-    return sendMessage("A game is already in progress in this discussion.");
+  if (wcgCache.has(chatId)) {
+    return respond("A game is already in progress in this chat.");
   }
 
-  a28_0x1713ff.set(discussionId, author);
+  wcgCache.set(chatId, authorMessage);
   
-  // Initial message for starting the game
   const initialMessage = {
-    text: "🌟 Initializing WCG (Word Chains Game) ... 🌟\n⏳ To join the game, please send *partant* (without any prefix) in the discussion.\n🚀 The game starts in 60 seconds! 🎉"
+    text: "🌟 Initializing the WCG (Word Chains Game) ... 🌟\n⏳ To join the game, please send *join* (without any prefix) in the chat.\n🚀 The game starts in 60 seconds! 🎉"
   };
-  messageSender.sendMessage(discussionId, initialMessage);
-  
-  let participants = [];
-  let isTimeUp = false;
-  let timer;
+  chatClient.sendMessage(chatId, initialMessage);
 
-  // Countdown timer for starting the game
-  new Promise((resolve) => {
-    let countdown = 60; // countdown in seconds
-    timer = setInterval(() => {
-      countdown -= 10;
-      if (countdown <= 0) {
-        isTimeUp = true;
+  let participants = [];
+  let gameStarted = false;
+  let countdownInterval;
+
+  new Promise((resolve, reject) => {
+    let timeLeft = 60; // 60 seconds countdown
+
+    countdownInterval = setInterval(() => {
+      timeLeft -= 10; // Decrease by 10 seconds
+      if (timeLeft <= 0) {
+        gameStarted = true;
         resolve();
       } else {
         const countdownMessage = {
-          text: "🚀 The game starts in " + countdown + " seconds! 🎉\n Send *partant* to join the game."
+          text: `🚀 The game starts in ${timeLeft} seconds! 🎉\nSend *join* to participate in the game.`
         };
-        messageSender.sendMessage(discussionId, countdownMessage);
+        chatClient.sendMessage(chatId, countdownMessage);
       }
-    }, 10000); // interval of 10 seconds
+    }, 10000); // 10 seconds interval
   }).then(() => {
-    clearInterval(timer);
-    messageSender.ev.off("messages.upsert", messageHandler);
-    a28_0x1713ff.delete(discussionId);
+    clearInterval(countdownInterval);
+    chatClient.ev.off("messages.upsert", messageHandler);
+    wcgCache.delete(chatId);
 
     if (participants.length === 0) {
-      return messageSender.sendMessage(discussionId, {
-        text: "No participants for the WCG game. The game is therefore canceled."
+      return chatClient.sendMessage(chatId, {
+        text: "No participants for the WCG, so the game is canceled."
       });
     }
 
-    // Start the game with the participants
-    messageSender.sendMessage(discussionId, {
-      text: "🎉 The game starts with the following participants:\n" + 
-            participants.map(participant => '@' + participant.split('@')[0]).join("\n") + " 🚀",
+    chatClient.sendMessage(chatId, {
+      text: `🎉 The game starts with the following participants:\n${participants.map(p => '@' + p.split('@')[0]).join("\n")} 🚀`,
       mentions: participants
     });
-    messageSender.StartWcgGame(discussionId, participants);
+
+    chatClient.StartWcgGame(chatId, participants);
   });
 
-  // Message handler for participant joining
-  const messageHandler = async (messageEvent) => {
-    const {
-      type,
-      messages
-    } = messageEvent;
-
+  const messageHandler = async (update) => {
+    const { type, messages } = update;
     if (type === "notify") {
       const message = messages[0];
-      const remoteJid = message.key.remoteJid;
-      const isGroupChat = remoteJid.endsWith("@g.us");
-      const isBroadcast = remoteJid === "status@broadcast";
+      const senderJid = message.key.remoteJid;
+      const isGroup = senderJid.endsWith("@g.us");
+      const isBroadcast = senderJid === "status@broadcast";
       const senderId = message.key.fromMe 
-        ? messageSender.user.id.replace(/:.*@/g, '@') 
-        : isGroupChat || isBroadcast 
+        ? chatClient.user.id.replace(/:.*@/g, '@') 
+        : isGroup || isBroadcast 
           ? message.key.participant.replace(/:.*@/g, '@') 
-          : remoteJid;
+          : senderJid;
 
-      const command = message.message?.["conversation"]?.trim()?.toLowerCase() || 
-                      message.message?.["extendedTextMessage"]?.["text"]?.trim()?.toLowerCase();
+      const textMessage = message.message?.["conversation"]?.trim()?.toLowerCase() || 
+                          message.message?.["extendedTextMessage"]?.["text"]?.trim()?.toLowerCase();
 
-      if (!command) {
-        return;
-      }
+      if (!textMessage) return;
 
-      if (command === "partant" && !participants.includes(senderId) && !isTimeUp && remoteJid === discussionId) {
+      if (textMessage === "join" && !participants.includes(senderId) && !gameStarted && senderJid === chatId) {
         console.log("A new participant has joined WCG");
         participants.push(senderId);
         console.log(participants);
-        
-        messageSender.sendMessage(discussionId, {
-          text: '@' + senderId.split('@')[0] + " has joined the game.",
+        chatClient.sendMessage(chatId, {
+          text: `@${senderId.split('@')[0]} has joined the game.`,
           mentions: [senderId]
         });
       }
     }
   };
 
-  messageSender.ev.on("messages.upsert", messageHandler);
+  chatClient.ev.on("messages.upsert", messageHandler);
 });
