@@ -1,79 +1,39 @@
-javascript
-const {
-    Sticker,
-    createSticker,
-    StickerTypes
-} = require("wa-sticker-formatter");
-const {
-    zokou
-} = require("../framework/zokou");
+
+const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
+const { zokou } = require("../framework/zokou");
 const traduire = require("../framework/traduction");
-const {
-    downloadMediaMessage,
-    downloadContentFromMessage
-} = require("@whiskeysockets/baileys");
+const { downloadMediaMessage, downloadContentFromMessage } = require('@whiskeysockets/baileys');
 const fs = require("fs-extra");
-const axios = require("axios");
-const {
-    exec
-} = require('child_process');
-const ffmpeg = require("fluent-ffmpeg");
-const {
-    Catbox
-} = require("node-catbox");
-const catbox = new Catbox();
+const axios = require('axios');
+const FormData = require('form-data');
+const { exec } = require("child_process");
+const { '098f6bcd4621d373cade4e832' } = require('node-catbox');
 
-async function uploadToCatbox(filePath) {
-    if (!fs.existsSync(filePath)) {
-        throw new Error("Fichier non existant");
-    }
-
-    try {
-        const uploadedFile = await catbox.uploadFile({
-            'path': filePath
-        });
-
-        if (uploadedFile) {
-            return uploadedFile;
-        } else {
-            throw new Error("Erreur lors de la récupération du lien du fichier");
-        }
-    } catch (error) {
-        throw new Error(String(error));
-    }
-}
-
-zokou({
-    'nomCom': 'catbox',
-    'categorie': "General",
-    'reaction': '👨🏿‍💻'
-}, async (command, api, context) => {
-    const {
-        msgRepondu,
-        repondre
-    } = context;
-
+zokou({ nomCom: "catbox", categorie: "General", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
+    const { msgRepondu, repondre } = commandeOptions;
     if (!msgRepondu) {
-        repondre("mention an image or video");
+        repondre('mention a image or video');
         return;
     }
 
-    let mediaFilePath;
+    let mediaPath;
     if (msgRepondu.videoMessage) {
-        mediaFilePath = await api.downloadAndSaveMediaMessage(msgRepondu.videoMessage);
+        mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.videoMessage);
     } else if (msgRepondu.imageMessage) {
-        mediaFilePath = await api.downloadAndSaveMediaMessage(msgRepondu.imageMessage);
+        mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.imageMessage);
     } else {
-        repondre("mention an image or video");
+        repondre('mention a image or video');
         return;
     }
 
     try {
-        const catboxUrl = await uploadToCatbox(mediaFilePath);
-        fs.unlinkSync(mediaFilePath);
-        repondre(catboxUrl);
+        const telegraphUrl = await uploadToTelegraph(mediaPath); // You need to implement the uploadToTelegraph function
+        fs.unlinkSync(mediaPath); // Supprime le fichier après utilisation
+        repondre(telegraphUrl);
     } catch (error) {
-        console.error("Error while creating your URL:", error);
-        repondre("Oops error");
+        console.error('Erreur lors de la création du lien Telegraph :', error);
+        repondre('Opps error');
     }
 });
+
+
