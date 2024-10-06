@@ -4,20 +4,11 @@ const axios = require('axios');
 zokou({ nomCom: "tinyurl", categorie: "General", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
     const { msgRepondu, repondre } = commandeOptions;
 
-    if (!msgRepondu) {
-        repondre('Mention an image or video or a URL to shorten.');
-        return;
-    }
+    // Check if a URL is provided in the message
+    const urlToShorten = msgRepondu?.urlToshorten;
 
-    let mediaPath;
-    const urlToShorten = msgRepondu.urlToshorten;
-
-    if (msgRepondu.videoMessage) {
-        mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.urlToshorten);
-    } else if (urlToShorten) {
-        mediaPath = await zk.downloadAndSaveMediaMessage(urlToShorten);
-    } else {
-        repondre('Mention a URL to shorten.');
+    if (!urlToShorten) {
+        repondre('Please mention a URL to shorten.');
         return;
     }
 
@@ -26,6 +17,6 @@ zokou({ nomCom: "tinyurl", categorie: "General", reaction: "👨🏿‍💻" }, 
         repondre(response.data);
     } catch (error) {
         console.error('Error while creating the short link:', error);
-        repondre('Oops, an error occurred.');
+        repondre('Oops, an error occurred while shortening the link.');
     }
 });
