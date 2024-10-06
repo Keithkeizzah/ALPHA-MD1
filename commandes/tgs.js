@@ -32,7 +32,7 @@ zokou({
     }
 
     const stickerType = stickerSet.is_animated ? "animated sticker" : "not animated sticker";
-    const message = `Zk-stickers-dl\n\n*Name:* ${stickerSet.name}\n*Type:* ${stickerType}\n*Length:* ${stickerSet.stickers.length}\n\nDownloading...`;
+    const message = `Alpha-md-stickers-dl\n\n*Name:* ${stickerSet.name}\n*Type:* ${stickerType}\n*Length:* ${stickerSet.stickers.length}\n\nDownloading...`;
     await respond(message);
 
     for (const sticker of stickerSet.stickers) {
