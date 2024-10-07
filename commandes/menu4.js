@@ -82,21 +82,18 @@ zokou({
   let messageText = `
 *${greeting} ${nomAuteurMessage}*
 
-╭━━━ 〔 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 〕━━━━┈⊷
+╭━━━ 〔 ${s.BOT} 〕━━━━┈⊷
 ┃✵╭──────────────
 ┃✵│▸ *BOT-OWNER* : ${s.OWNER_NAME}
-┃✵│▸ *COMMANDER* : ${nomAuteurMessage}
 │✰╰──────────────★
 ┃✵│▸ *TODAY* : ${date}
 ┃✵│▸ *TIME* : ${time}
 ┃✵│▸ *PREFIX* : ${s.PREFIXE}
 ┃✵│▸ *TOTAL USERS* : ${totalUsersFormatted}
-┃✵│▸ *WORKTYPE* : ${mode} mode
-┃✵│▸ *PLUGINS* : ${cm.length}
+┃✵│▸ *WORKTYPE* : ${mode} 
 ┃✵│▸ *RAM* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
-┃✵│▸ *RUNNING ON* : ${os.platform()}
 ┃✵│▸ *UPTIME* : ${runtime(process.uptime())}
-┃✵│▸ *THEME* : *𝐊𝐄𝐈𝐓𝐇*
+┃✵│▸ *TIME ZONE* : ${s.TZ}
 ┃✵╰──────────────
 ╰━━━━━━━━━━━━━━━━━┈⊷
 > 𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘 𝐊𝐄𝐈𝐓𝐇
