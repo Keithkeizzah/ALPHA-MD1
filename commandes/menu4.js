@@ -7,10 +7,15 @@ const s = require("../set");
 
 // Style mapping
 const styles = {
-  "0xa":{"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","a":"𝚫","b":"𝚩","c":"𝐂","d":"𝐃","e":"𝚵","f":"𝐅","g":"𝐆","h":
-"𝚮","i":"𝚰","j":"𝐉","k":"𝐊","l":"𝐋","m":"𝚳","n":"𝚴","o":"𝚯","p":"𝚸","q":"𝐐","r":"𝚪","s":"𝐒","t":"𝚻","u":"𝐔","v":"𝛁","w":"𝐖","x":"𝚾"
-,"y":"𝐘","z":"𝚭","A":"𝚫","B":"𝚩","C":"𝐂","D":"𝐃","E":"𝚵","F":"𝐅","G":"𝐆","H":"𝚮","I":"𝚰","J":"𝐉","K":"𝐊","L":"𝐋","M":"𝚳","N":"𝚴","O"
-:"𝚯","P":"𝚸","Q":"𝐐","R":"𝚪","S":"𝐒","T":"𝚻","U":"𝐔","V":"𝛁","W":"𝐖","X":"𝚾","Y":"𝐘","Z":"𝚭"}
+  "0xa": {
+    "0": "0", "1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "6": "6", "7": "7", "8": "8", "9": "9",
+    "a": "𝚫", "b": "𝚩", "c": "𝐂", "d": "𝐃", "e": "𝚵", "f": "𝐅", "g": "𝐆", "h": "𝚮", "i": "𝚰",
+    "j": "𝐉", "k": "𝐊", "l": "𝐋", "m": "𝚳", "n": "𝚴", "o": "𝚯", "p": "𝚸", "q": "𝐐", "r": "𝚪",
+    "s": "𝐒", "t": "𝚻", "u": "𝐔", "v": "𝛁", "w": "𝐖", "x": "𝚾", "y": "𝐘", "z": "𝚭",
+    "A": "𝚫", "B": "𝚩", "C": "𝐂", "D": "𝐃", "E": "𝚵", "F": "𝐅", "G": "𝐆", "H": "𝚮", "I": "𝚰",
+    "J": "𝐉", "K": "𝐊", "L": "𝐋", "M": "𝚳", "N": "𝚴", "O": "𝚯", "P": "𝚸", "Q": "𝐐", "R": "𝚪",
+    "S": "𝐒", "T": "𝚻", "U": "𝐔", "V": "𝛁", "W": "𝐖", "X": "𝚾", "Y": "𝐘", "Z": "𝚭"
+  }
 };
 
 // Apply style to text
@@ -26,7 +31,7 @@ const runtime = (seconds) => {
   const minutes = Math.floor((seconds % 3600) / 60);
   const secs = Math.floor(seconds % 60);
 
-  return `${days ? days + (days === 1 ? " day, " : " d, ") : ''}${hours ? hours + (hours === 1 ? " hour, " : " h, ") : ''}${minutes ? minutes + (minutes === 1 ? " minute, " : " m, ") : ''}${secs ? secs + (secs === 1 ? " second" : " s") : ''}`;
+  return `${days ? `${days} ${days === 1 ? "day" : "days"}, ` : ''}${hours ? `${hours} ${hours === 1 ? "hour" : "hours"}, ` : ''}${minutes ? `${minutes} ${minutes === 1 ? "minute" : "minutes"}, ` : ''}${secs ? `${secs} ${secs === 1 ? "second" : "seconds"}` : ''}`;
 };
 
 // Fetch GitHub stats
@@ -53,12 +58,10 @@ zokou({
   // Prepare command categories
   const commandCategories = {};
   const mode = s.MODE.toLowerCase() === "public" ? 'Public' : 'Private';
-  
+
   cm.forEach(command => {
     const category = command.categorie.toUpperCase();
-    if (!commandCategories[category]) {
-      commandCategories[category] = [];
-    }
+    commandCategories[category] = commandCategories[category] || [];
     commandCategories[category].push(command.nomCom.toUpperCase());
   });
 
@@ -67,9 +70,8 @@ zokou({
   const time = moment().format('HH:mm:ss');
   const date = moment().format("DD/MM/YYYY");
   const hour = moment().hour();
-
-  // Determine greeting based on time of day
-  const greetings = ["Good Night🌃", "Good Morning🌄", "Good Afternoon🌞", "Good Evening🌅"];
+  
+  const greetings = ["Good Night", "Good Morning", "Good Afternoon", "Good Evening"];
   const greeting = greetings[Math.min(3, Math.floor(hour / 6))];
 
   // Fetch GitHub stats
