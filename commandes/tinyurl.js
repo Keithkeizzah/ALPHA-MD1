@@ -37,7 +37,7 @@ zokou({
         contextInfo: {
           mentionedJid: [],
           externalAdReply: {
-            title: "THE FLASH MULTI DEVICE",
+            title: "ALPHA-MD",
             body: "POWERED BY ALPHA",
             thumbnailUrl: "https://telegra.ph/file/967c663a5978c545f78d6.jpg",
             sourceUrl: 'https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47',
