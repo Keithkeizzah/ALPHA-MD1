@@ -1,57 +1,46 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-const { zokou } = require('../framework/zokou');
+const { zokou } = require("../framework/zokou");
 
-zokou({
-  nomCom: 'users',
-  reaction: '😌'
-}, async (message, client, sendMessage) => {
-  try {
-    const response = await fetch("https://api.github.com/repos/Keithkeizzah/ALPHA-MD1");
-    const data = await response.json();
+zokou(
+  {
+    nomCom: "viral",
+    reaction: '😌'
+  }, 
+  async (message, sendMessage, reaction) => {
+    try {
+      const response = await fetch("https://api.github.com/repos/keithkeizzah/ALPHA-MD1");
+      const data = await response.json();
 
     if (data) {
       const { stargazers_count: stars, forks_count: forks } = data;
-      const totalUsers = (forks * 2) + (stars * 2);
+      const totalUsers = (forks * 2) + (stars * 2); 
+        const messageText = `
+          *According to Alpha updates it has been found out that ${totalUsers} People are using ALPHA-MD.*
+          
+          *${stars} People have starred it as a sign of Loving it.*
+          
+          *Go and fork alpha bot today and deploy to be one of ${totalUsers} users.*
+          
+          *Alpha bot to the world💥✌*
+       *Regards keithkeizzah*
+        `;
 
-      const messageCaption = `
-        *A total of ${totalUsers} people are using ALPHA-MD.*
-
-        *${stars} people have starred it as a sign of loving it.*
-
-        *KEEP USING ALPHA BOT*
-
-        *regards keithkeizzah*
-      `;
-
-      await sendMessage(message, {
-        video: {
-          url: "https://telegra.ph/file/08f740224ed39233f92cb.mp4"
-        },
-        caption: messageCaption
-      }, {
-        contextInfo: {
-          mentionedJid: [],
-          externalAdReply: {
-            title: "ALPHA-MD",
-            body: "POWERED BY ALPHA",
-            thumbnailUrl: "https://telegra.ph/file/967c663a5978c545f78d6.jpg",
-            sourceUrl: 'https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47',
-            mediaType: 1,
-            renderLargerThumbnail: true
-          }
-        }
-      });
-
-      await sendMessage(message, "*You can play that video and enjoy *");
-    } else {
-      console.log("Could not fetch data");
+        await sendMessage(message, {
+          video: {
+            url: 'https://telegra.ph/file/08f740224ed39233f92cb.mp4'
+          },
+          caption: messageText
+        });
+      } else {
+        console.log("Could not fetch data");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-  } catch (error) {
-    console.error("Error fetching data:", error);
   }
-});
+);
