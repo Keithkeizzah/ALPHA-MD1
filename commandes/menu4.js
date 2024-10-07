@@ -82,7 +82,7 @@ zokou({
   let messageText = `
 *${greeting} ${nomAuteurMessage}*
 
-╭━━━ 〔 ${s.BOT} 〕━━━━┈⊷
+╭━━━ 〔 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 〕━━━━┈⊷
 ┃✵╭──────────────
 ┃✵│▸ *BOT-OWNER* : ${s.OWNER_NAME}
 ┃✵│▸ *COMMANDER* : ${nomAuteurMessage}
