@@ -9,29 +9,27 @@ zokou({
   reaction: '🎎',
   categorie: "General"
 }, async (context, message, params) => {
-  const { repondre: respond, arg, ms } = params;
-  const reference = arg.join(" ");
+  const { repondre: respond, arg } = params;
+  const name = arg.join(" ");
   
-  if (!reference) {
-    return respond("Please specify the book, chapter, and verse you want to read. Example: bible john 3:16");
+  if (!name) {
+    return respond("Please specify a name. Example: keith");
   }
   
   try {
-    const response = await fetch(`https://api.agify.io/?name=${name}`);
+    const response = await axios.get(`https://api.agify.io/?name=${encodeURIComponent(name)}`);
     
-    if (!response.ok) {
-      return respond("provide a name example:keith");
+    if (response.status !== 200) {
+      return respond("Could not retrieve data. Please try again.");
     }
     
-    const data = await response.json();
+    const data = response.data;
     const messageText = `
-   ᬑ *ALPHA  GUESS AGE* ᬒ
+ᬑ *ALPHA GUESS AGE* ᬒ
       
-     ⧭ *_Name:_* ${data.name}
-      
-     ⧭ *_Count:_* ${data.count}
-      
-      ⧭ *_Estimated Age:_* ${data.age}
+⧭ *_Name:_* ${data.name}
+⧭ *_Count:_* ${data.count}
+⧭ *_Estimated Age:_* ${data.age}
 ╭────────────────◆
 │ *_Powered by keithkeizzah._*
 ╰─────────────────◆ `;
@@ -39,6 +37,6 @@ zokou({
     await respond(messageText);
   } catch (error) {
     console.error(error);
-    await respond("An error occurred while fetching the Bible passage.");
+    await respond("An error occurred while fetching the age estimate.");
   }
 });
