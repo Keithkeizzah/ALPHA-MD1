@@ -82,3 +82,39 @@ zokou({
     await respond("An error occurred while fetching the data. Please try again.");
   }
 });
+zokou({
+  nomCom: "guessgender",
+  reaction: '🎎',
+  categorie: "General"
+}, async (context, message, params) => {
+  const { repondre: respond, arg } = params;
+  const name = arg.join(" ");
+  
+  if (!name) {
+    return respond("Please specify a name. Example: keith");
+  }
+  
+  try {
+    const response = await axios.get(`https://api.genderize.io/?name=${encodeURIComponent(name)}`);
+    
+    if (response.status !== 200) {
+      return respond("Could not retrieve data. Please try again.");
+    }
+    
+    const data = response.data;
+    const messageText = `
+ᬑ *ALPHA GUESS GENDER* ᬒ
+      
+⧭ *_Estimated gender:_* ${data.gender}
+⧭ *_Count:_* ${data.count}
+⧭ *_Probability:_* ${data.(probability * 100).toFixed(2)}%
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆ `;
+    
+    await respond(messageText);
+  } catch (error) {
+    console.error(error);
+    await respond("An error occurred while fetching the gender estimate.");
+  }
+});
