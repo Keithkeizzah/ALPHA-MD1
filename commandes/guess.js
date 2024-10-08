@@ -49,7 +49,7 @@ zokou({
   const name = arg.join(" ");
   
   if (!name) {
-    return respond("Please specify a name. Example: keith");
+    return respond("Please specify a name. Example: Migori");
   }
   
   try {
