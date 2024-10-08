@@ -5,7 +5,7 @@ const axios = require("axios");
 const ytdl = require("ytdl-core");
 
 zokou({
-  nomCom: "play",
+  nomCom: "ply",
   categorie: "Search",
   reaction: "💿"
 }, async (origineMessage, zk, commandeOptions) => {
@@ -76,7 +76,7 @@ use prefix {/}  example {/search dada}
 });
 
 zokou({
-  nomCom: "video",
+  nomCom: "vido",
   categorie: "Search",
   reaction: "🎥"
 }, async (origineMessage, zk, commandeOptions) => {
