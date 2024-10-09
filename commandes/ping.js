@@ -1,7 +1,8 @@
 const { zokou } = require("../framework/zokou");
 const yts = require("yt-search");
 
-const apiKey = "giftedtechk";
+const giftedApiKey = '_0x5aff35,_0x187643';
+
 const apiUrl = "https://temp.giftedapis.us.kg/api/download/";
 
 async function downloadMedia(type, _0x175235, _0x5d14bf, _0x1378ad) {
