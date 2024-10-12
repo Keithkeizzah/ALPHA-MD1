@@ -1,60 +1,62 @@
 const { zokou } = require("../framework/zokou");
-const fs = require("fs-extra");
-const axios = require('axios');
+const traduire = require("../framework/traduction");
+const { downloadMediaMessage,downloadContentFromMessage } =  require('@whiskeysockets/baileys');
+const fs =require("fs-extra") ;
+const axios = require('axios');  
 const FormData = require('form-data');
+const { exec } = require("child_process");
 
-async function uploadToImgur(filePath) {
-    if (!fs.existsSync(filePath)) {
-        throw new Error("File does not exist");
-    }
+async function uploadToimgur(Path) {
+  if (!fs.existsSync(Path)) {
+      throw new Error("Fichier non existant");
+  }
 
-    try {
-        const form = new FormData();
-        form.append("image", fs.createReadStream(filePath));
+  try {
+      const form = new FormData();
+      form.append("file", fs.createReadStream(Path));
 
-        const { data } = await axios.post("https://api.imgur.com/3/image", form, {
-            headers: {
-                ...form.getHeaders(),
-                Authorization: `legacy-api-78f9c8f745-r9ch6/V3h7fASRpa-21537853`, // Replace with your actual Client ID
-            },
-        });
+      const { data } = await axios.post("https://i.imgur.com/upload", form, {
+          headers: {
+              ...form.getHeaders(),
+          },
+      });
 
-        if (data && data.data && data.data.link) {
-            return data.data.link;
-        } else {
-            throw new Error("Error retrieving the image link");
-        }
-    } catch (err) {
-        throw new Error(String(err));
-    }
+      if (data && data[0] && data[0].src) {
+          return "https://i.imgur.com" + data[0].src;
+      } else {
+          throw new Error("Erreur lors de la récupération du lien de la vidéo");
+      }
+  } catch (err) {
+      throw new Error(String(err));
+  }
 }
 
 zokou({ nomCom: "imgur", categorie: "General", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
-    const { msgRepondu, repondre } = commandeOptions;
+  const { msgRepondu, repondre } = commandeOptions;
 
-    if (!msgRepondu) {
-        repondre('Please mention an image or video.');
-        return;
-    }
+  if (!msgRepondu) {
+      repondre('mention a image or video');
+      return;
+  }
 
-    let mediaPath;
+  let mediaPath;
 
-    if (msgRepondu.videoMessage) {
-        mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.videoMessage);
-    } else if (msgRepondu.imageMessage) {
-        mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.imageMessage);
-    } else {
-        repondre('Please mention an image or video.');
-        return;
-    }
+  if (msgRepondu.videoMessage) {
+      mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.videoMessage);
+  } else if (msgRepondu.imageMessage) {
+      mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.imageMessage);
+  } else {
+      repondre('mention a image or video');
+      return;
+  }
 
-    try {
-        const imgurLink = await uploadToImgur(mediaPath);
-        fs.unlinkSync(mediaPath); // Remove the file after use
+  try {
+      const imgur = await uploadToimgur(mediaPath);
+      fs.unlinkSync(mediaPath);  // Supprime le fichier après utilisation
 
-        repondre(imgurLink);
-    } catch (error) {
-        console.error('Error while creating the Imgur link:', error);
-        repondre('Oops, an error occurred.');
-    }
+      repondre(imgur);
+  } catch (error) {
+      console.error('Erreur lors de la création du lien imgur :', error);
+      repondre('Opps error');
+  }
 });
