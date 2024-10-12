@@ -54,6 +54,7 @@
     "moment-timezone": "^0.5.43",
     "mumaker": "^2.0.0",
     "node-cron": "^3.0.3",
+    "node-catbox": "3.2.0", 
     "node-fetch": "^3.2.6",
     "node-id3": "^0.2.6",
     "pg": "^8.11.2",
