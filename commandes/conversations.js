@@ -1,40 +1,82 @@
+
 const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
 const { zokou } = require("../framework/zokou");
 const traduire = require("../framework/traduction");
-const { downloadMediaMessage,downloadContentFromMessage } =  require('@whiskeysockets/baileys');
-const fs =require("fs-extra") ;
-const axios = require('axios');  
-const FormData = require('form-data');
+const { downloadMediaMessage, downloadContentFromMessage } = require('@whiskeysockets/baileys');
+const fs = require("fs-extra");
+const axios = require('axios');
 const { exec } = require("child_process");
+const ffmpeg = require("fluent-ffmpeg");
+const FormData = require('form-data');
+const { Catbox } = require('node-catbox'); // Import Catbox
 
+const catbox = new Catbox();
 
+async function uploadToCatbox(Path) {
+    if (!fs.existsSync(Path)) {
+        throw new Error("Fichier non existant");
+    }
 
-async function uploadToTelegraph(Path) {
-  if (!fs.existsSync(Path)) {
-      throw new Error("Fichier non existant");
+    try {
+        // Use Catbox to upload the file
+        const response = await catbox.uploadFile({
+            path: Path // Provide the path to the file
+        });
+
+        if (response) {
+            return response; // returns the uploaded file URL
+        } else {
+            throw new Error("Erreur lors de la récupération du lien du fichier");
+        }
+    } catch (err) {
+        throw new Error(String(err));
+    }
+}
+
+zokou({ nomCom: "url", categorie: "General", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
+  const { msgRepondu, repondre } = commandeOptions;
+
+  if (!msgRepondu) {
+      repondre('mention a image or video');
+      return;
+  }
+
+  let mediaPath, mediaType;
+
+  if (msgRepondu.videoMessage) {
+      const videoSize = msgRepondu.videoMessage.fileLength;  // Get the video size in bytes
+
+      // Check if the video size exceeds the limit (e.g., 50MB = 50 * 1024 * 1024 bytes)
+      if (videoSize > 50 * 1024 * 1024) {
+          repondre('The video is too long. Please send a smaller video.');
+          return;
+      }
+
+      mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.videoMessage);
+      mediaType = 'video';
+  } else if (msgRepondu.imageMessage) {
+      mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.imageMessage);
+      mediaType = 'image';
+  } else {
+      repondre('reply to an image or video');
+      return;
   }
 
   try {
-      const form = new FormData();
-      form.append("file", fs.createReadStream(Path));
+      const catboxUrl = await uploadToCatbox(mediaPath);
+      fs.unlinkSync(mediaPath);  // Supprime le fichier après utilisation
 
-      const { data } = await axios.post("https://telegra.ph/upload", form, {
-          headers: {
-              ...form.getHeaders(),
-          },
-      });
-
-      if (data && data[0] && data[0].src) {
-          return "https://telegra.ph" + data[0].src;
-      } else {
-          throw new Error("Erreur lors de la récupération du lien de la vidéo");
+      // Respond with a custom message based on media type
+      if (mediaType === 'image') {
+          repondre(`Below is your image URL:\n${catboxUrl}`);
+      } else if (mediaType === 'video') {
+          repondre(`Below is your video URL:\n${catboxUrl}`);
       }
-  } catch (err) {
-      throw new Error(String(err));
+  } catch (error) {
+      console.error('Error while creating your url:', error);
+      repondre('Oops error');
   }
-}
-
-
+});
 
 zokou({nomCom:"sticker",categorie: "Conversion", reaction: "👨🏿‍💻"},async(origineMessage,zk,commandeOptions)=>{
 
@@ -186,7 +228,7 @@ mediamsg = msgRepondu.videoMessage
   var stick = await zk.downloadAndSaveMediaMessage(mediamsg)
 
      let stickerMess = new Sticker(stick, {
-            pack: FLASH-MD,
+            pack: ALPHA-MD,
             
             type: StickerTypes.FULL,
             categories: ["🤩", "🎉"],
@@ -252,7 +294,7 @@ zokou({ nomCom: "write", categorie: "Conversion", reaction: "👨🏿‍💻" },
     // Create the sticker
     const stickerMess = new Sticker(meme, {
       pack: nomAuteurMessage,
-      author: 'Alpha-MD',
+      author: 'ALPHA-MD',
       type: StickerTypes.FULL,
       categories: ["🤩", "🎉"],
       id: "12345",
@@ -345,34 +387,3 @@ zokou({ nomCom: "trt", categorie: "Conversion", reaction: "👨🏿‍💻" }, a
 
 
 }) ;
-
-
-zokou({ nomCom: "url", categorie: "General", reaction: "👨🏿‍💻" }, async (origineMessage, zk, commandeOptions) => {
-  const { msgRepondu, repondre } = commandeOptions;
-
-  if (!msgRepondu) {
-      repondre('mention a image or video');
-      return;
-  }
-
-  let mediaPath;
-
-  if (msgRepondu.videoMessage) {
-      mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.videoMessage);
-  } else if (msgRepondu.imageMessage) {
-      mediaPath = await zk.downloadAndSaveMediaMessage(msgRepondu.imageMessage);
-  } else {
-      repondre('mention a image or video');
-      return;
-  }
-
-  try {
-      const telegraphUrl = await uploadToTelegraph(mediaPath);
-      fs.unlinkSync(mediaPath);  // Supprime le fichier après utilisation
-
-      repondre(telegraphUrl);
-  } catch (error) {
-      console.error('Erreur lors de la création du lien Telegraph :', error);
-      repondre('Opps error');
-  }
-});
