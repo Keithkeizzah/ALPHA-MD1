@@ -57,6 +57,6 @@ zokou({ nomCom: "imgur", categorie: "General", reaction: "👨🏿‍💻" }, as
       repondre(imgur);
   } catch (error) {
       console.error('Erreur lors de la création du lien imgur :', error);
-      repondre('Opps error');
+      repondre('Opps error\n' + error);
   }
 });
