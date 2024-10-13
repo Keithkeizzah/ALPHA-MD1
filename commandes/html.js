@@ -12,7 +12,7 @@ zokou(config, async (responseHandler, args, context) => {
 
   try {
     if (!arg || arg.length === 0) {
-      return repondre("Ask any news update and Alpha bot will send you.");
+      return repondre("give me a clear prompt to generate your html code.");
     }
 
     const prompt = arg.join(" ");
