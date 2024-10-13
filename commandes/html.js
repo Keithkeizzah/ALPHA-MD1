@@ -8,18 +8,18 @@ const config = {
 };
 
 zokou(config, async (responseHandler, args, context) => {
-  const { repondre, arg, ms } = context;
+  const { repondre, arg } = context;
 
   try {
     if (!arg || arg.length === 0) {
       return repondre("Ask any news update and Alpha bot will send you.");
     }
 
-    const query = arg.join(" ");
-    const apiResponse = await axios.get(`https://itzpire.com/tools/generate-pageHtml?prompt=${prompt}`);
+    const prompt = arg.join(" ");
+    const apiResponse = await axios.get(`https://itzpire.com/tools/generate-pageHtml?prompt=${encodeURIComponent(prompt)}`);
     const result = apiResponse.data;
 
-    if (result) {
+    if (result && result.result) {
       repondre(result.result);
     } else {
       repondre("Error during response generation.");
