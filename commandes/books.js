@@ -8,21 +8,22 @@ const config = {
 };
 
 zokou(config, async (responseHandler, args, context) => {
-  const { repondre, arg, ms } = context;
+  const { repondre, arg } = context;
 
   try {
     if (!arg || arg.length === 0) {
-      return repondre("Ask any news update and Alpha bot will send you.");
+      return repondre("Ask for any book-related news, and Alpha bot will provide updates.");
     }
 
     const query = arg.join(" ");
-    const apiResponse = await axios.get(`https://itzpire.com/search/books?query=${query}`);
+    const apiResponse = await axios.get(`https://itzpire.com/search/books?query=${encodeURIComponent(query)}`);
+    
     const result = apiResponse.data;
 
-    if (result) {
+    if (result && result.result) {
       repondre(result.result);
     } else {
-      repondre("Error during response generation.");
+      repondre("No results found for your query.");
     }
   } catch (error) {
     console.error("Error:", error.message || "An error occurred");
