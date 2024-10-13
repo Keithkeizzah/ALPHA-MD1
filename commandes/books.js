@@ -1,24 +1,26 @@
 const { zokou } = require("../framework/zokou");
 const axios = require("axios");
 
-const bookSearch = {
+const config = {
   nomCom: "book",
   reaction: '🤔',
   categorie: 'IA'
 };
 
-zokou(bookSearch, async (repondre, arg, { arg: userArgs }) => {
+zokou(config, async (responseHandler, args, context) => {
+  const { repondre, arg, ms } = context;
+
   try {
-    if (!userArgs || userArgs.length === 0) {
-      return repondre("Ask for any book and Alpha bot will send you the information.");
+    if (!arg || arg.length === 0) {
+      return repondre("Ask any news update and Alpha bot will send you.");
     }
 
-    const query = userArgs.join(" ");
-    const response = await axios.get(`https://itzpire.com/search/books?query=${encodeURIComponent(query)}`);
-    
-    const result = response.data;
+    const query = arg.join(" ");
+    const apiResponse = await axios.get(`https://itzpire.com/search/books?query=${query}`);
+    const result = apiResponse.data;
+
     if (result) {
-      repondre(result.result || "No results found.");
+      repondre(result.result);
     } else {
       repondre("Error during response generation.");
     }
