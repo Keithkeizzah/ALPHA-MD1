@@ -1,7 +1,6 @@
 const { zokou } = require("../framework/zokou");
 const yts = require('yt-search');
-const BaseUrl = 'https://api.giftedtech.us.kg';
-const giftedapikey = '_0x5aff35,_0x187643';
+const BaseUrl = 'https://www.noobs-api.000.pe';
 
 zokou({
   nomCom: "play",
@@ -27,7 +26,7 @@ zokou({
       const videoUrl = videos[0].url;
 
       // Call the API endpoint with the video URL to fetch audio download URL
-      const apiResponse = await fetch(`${BaseUrl}/api/download/ytmp3v2?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResponse = await fetch(`${BaseUrl}/dipto/alldl?url=${encodeURIComponent(videoUrl)}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 200 && apiResult.success) {
@@ -103,7 +102,7 @@ zokou({
       const videoUrl = videos[0].url;
 
       // Call the API endpoint with the video URL to fetch audio download URL
-      const apiResponse = await fetch(`${BaseUrl}/api/download/ytmp3v2?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResponse = await fetch(`${BaseUrl}/dipto/alldl?url=${encodeURIComponent(videoUrl)}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 200 && apiResult.success) {
@@ -180,7 +179,7 @@ zokou({
       const videoUrl = videos[0].url;
 
       // Call the API endpoint with the video URL to fetch the video download URL
-      const apiResponse = await fetch(`${BaseUrl}/api/download/ytmp4v2?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResponse = await fetch(`${BaseUrl}/dipto/alldl?url=${encodeURIComponent(videoUrl)}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 200 && apiResult.success) {
@@ -257,7 +256,7 @@ zokou({
       const videoUrl = videos[0].url;
 
       // Call the API endpoint with the video URL to fetch the video download URL
-      const apiResponse = await fetch(`${BaseUrl}/api/download/ytmp4v2?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResponse = await fetch(`${BaseUrl}/dipto/alldl?url=${encodeURIComponent(videoUrl)}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 200 && apiResult.success) {
