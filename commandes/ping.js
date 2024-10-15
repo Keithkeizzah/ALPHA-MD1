@@ -24,29 +24,29 @@ const handleMediaDownload = async (dest, zk, commandeOptions, isVideo = false) =
       const videoUrl = videos[0].url;
       const downloadInfo = await youtubedl(videoUrl).catch(async () => await youtubedlv2(videoUrl));
 
-      if (downloadInfo) {
+      if (downloadInfo && downloadInfo.result) {
         const mediaUrl = isVideo ? downloadInfo.result.video_url : downloadInfo.result.download_url;
         const infoMess = {
           image: { url: videos[0].thumbnail },
-          caption: `*ALPHA-MD ${isVideo ? "VIDEO" : "SONG"} PLAYER*\n
-╭───────────────◆
-│ *Title:* ${videos[0].title}
-│ *Quality:* ${isVideo ? "720p-HD" : "mp3 (320kbps)"}
-│ *Duration:* ${videos[0].timestamp}
-│ *Viewers:* ${videos[0].views}
-│ *Uploaded:* ${videos[0].ago}
-│ *Artist:* ${videos[0].author.name}
-╰────────────────◆
-⦿ *Direct YtLink:* ${videoUrl}
-╭────────────────◆
-u can as well join here to get your song download
-in more tracks 🤗😋 
-https://t.me/keithmd 
-use prefix {/} example {/search dada}
-╰────────────────◆
-╭────────────────◆
-│ *_Powered by keithkeizzah._*
-╰─────────────────◆`
+          caption: `*ALPHA-MD ${isVideo ? "VIDEO" : "SONG"} PLAYER*\n` +
+                   `╭───────────────◆\n` +
+                   `│ *Title:* ${videos[0].title}\n` +
+                   `│ *Quality:* ${isVideo ? "720p-HD" : "mp3 (320kbps)"}\n` +
+                   `│ *Duration:* ${videos[0].timestamp}\n` +
+                   `│ *Viewers:* ${videos[0].views}\n` +
+                   `│ *Uploaded:* ${videos[0].ago}\n` +
+                   `│ *Artist:* ${videos[0].author.name}\n` +
+                   `╰────────────────◆\n` +
+                   `⦿ *Direct YtLink:* ${videoUrl}\n` +
+                   `╭────────────────◆\n` +
+                   `u can as well join here to get your song download\n` +
+                   `in more tracks 🤗😋 \n` +
+                   `https://t.me/keithmd \n` +
+                   `use prefix {/} example {/search dada}\n` +
+                   `╰────────────────◆\n` +
+                   `╭────────────────◆\n` +
+                   `│ *_Powered by keithkeizzah._*\n` +
+                   `╰─────────────────◆`
         };
 
         const mediaMessage = isVideo ? {
