@@ -32,6 +32,7 @@ zokou({
         };
 
         await client.sendMessage(chatId, { text: "𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%" }, { quoted: ms });
+let downloadedLength = 0;
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: ms });
         repondre("Keep using alpha md");
@@ -78,6 +79,7 @@ zokou({
         };
 
         await client.sendMessage(chatId, { text: "𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%" }, { quoted: ms });
+let downloadedLength = 0;
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
         repondre(`* ${jsonResponse.result.title}*\n\n*Downloaded successfully. Keep using Alpha md*`);
@@ -124,6 +126,7 @@ zokou({
         };
 
         await client.sendMessage(chatId, { text: "𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%" }, { quoted: ms });
+let downloadedLength = 0;
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
         repondre(`* ${jsonResponse.result.title}*\n\n*Downloaded successfully. Keep using alpha bot*`);
