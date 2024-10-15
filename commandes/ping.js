@@ -28,7 +28,7 @@ zokou({
 
         const messageData = {
           image: { url: videoResults.videos[0].thumbnail },
-          caption: `*ALPHA-MD VIDEO PLAYER\n
+          caption: `*ALPHA-MD VIDEO PLAYER*\n
 ╭───────────────◆
 │ *Title:* ${jsonResponse.result.title}
 │ *Duration:* ${videoResults.videos[0].timestamp}
@@ -38,20 +38,20 @@ zokou({
 ╰────────────────◆`
         };
 
-        await client.sendMessage(chatId, { text: "𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%" }, { quoted: ms });
+        await client.sendMessage(chatId, { text: "*𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%*" }, { quoted: ms });
 let downloadedLength = 0;
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: ms });
         repondre("Keep using alpha md");
       } else {
-        repondre("Searching...⏳");
+        repondre("wait alpha is loading your file");
       }
     } else {
       repondre("No videos found.");
     }
   } catch (error) {
     console.error("Error from API:", error);
-    repondre("Searching...⏳");
+    repondre("Wait Alpha is getting your file");
   }
 });
 
@@ -59,7 +59,7 @@ let downloadedLength = 0;
 zokou({
   nomCom: "play",
   categorie: "Download",
-  reaction: '🎧'
+  reaction: '🦄'
 }, async (chatId, client, messageData) => {
   const { ms, repondre, arg } = messageData;
 
@@ -92,7 +92,7 @@ zokou({
 ╰────────────────◆`
         };
 
-        await client.sendMessage(chatId, { text: "𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%" }, { quoted: ms });
+        await client.sendMessage(chatId, { text: "*𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%*" }, { quoted: ms });
 let downloadedLength = 0;
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
@@ -113,7 +113,7 @@ let downloadedLength = 0;
 zokou({
   nomCom: "song",
   categorie: "Download",
-  reaction: '🎸'
+  reaction: '🦄'
 }, async (chatId, client, messageData) => {
   const { ms, repondre, arg } = messageData;
 
@@ -146,7 +146,7 @@ zokou({
 ╰────────────────◆`
         };
 
-        await client.sendMessage(chatId, { text: "𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%" }, { quoted: ms });
+        await client.sendMessage(chatId, { text: "*𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%*" }, { quoted: ms });
 let downloadedLength = 0;
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
