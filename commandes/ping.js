@@ -38,14 +38,22 @@ zokou({
           image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD SONG PLAYER*\n
 ╭───────────────◆
-│ *Title:* ${videos[0].title}
-│ *Quality:* mp3 (320kbps)
-│ *Duration:* ${videos[0].timestamp}
-│ *Viewers:* ${videos[0].views}
-│ *Uploaded:* ${videos[0].ago}
-│ *Artist:* ${videos[0].author.name}
+│✞ *Title:* ${video.title}
+│✞ *Quality:* ${video.type}
+│✞ *Duration:* ${video.timestamp}
+│✞ *Viewers:* ${video.views}
+│✞ *Uploaded:* ${video.ago}
+│✞ *Artist:* ${video.author.name}
 ╰────────────────◆
-⦿ *Direct YtLink:* ${videoUrl}`
+⦿ *Direct YtLink:* ${video.url}
+╭────────────────◆
+You can also join here to get your song download in more tracks 🤗😋 
+https://t.me/keithmd 
+Use prefix {/} example {/search dada}
+╰────────────────◆
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
         };
 
         // Send song details
@@ -105,14 +113,22 @@ zokou({
           image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD SONG PLAYER*\n
 ╭───────────────◆
-│ *Title:* ${videos[0].title}
-│ *Quality:* mp3 (320kbps)
-│ *Duration:* ${videos[0].timestamp}
-│ *Viewers:* ${videos[0].views}
-│ *Uploaded:* ${videos[0].ago}
-│ *Artist:* ${videos[0].author.name}
+│✞ *Title:* ${video.title}
+│✞ *Quality:* ${video.type}
+│✞ *Duration:* ${video.timestamp}
+│✞ *Viewers:* ${video.views}
+│✞ *Uploaded:* ${video.ago}
+│✞ *Artist:* ${video.author.name}
 ╰────────────────◆
-⦿ *Direct YtLink:* ${videoUrl}`
+⦿ *Direct YtLink:* ${video.url}
+╭────────────────◆
+You can also join here to get your song download in more tracks 🤗😋 
+https://t.me/keithmd 
+Use prefix {/} example {/search dada}
+╰────────────────◆
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
         };
 
         // Send song details
@@ -173,14 +189,22 @@ zokou({
           image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD VIDEO PLAYER*\n
 ╭───────────────◆
-│ *Title:* ${videos[0].title}
-│ *Quality:* 720p-HD
-│ *Duration:* ${videos[0].timestamp}
-│ *Viewers:* ${videos[0].views}
-│ *Uploaded:* ${videos[0].ago}
-│ *Artist:* ${videos[0].author.name}
+│✞ *Title:* ${video.title}
+│✞ *Quality:* ${video.type}
+│✞ *Duration:* ${video.timestamp}
+│✞ *Viewers:* ${video.views}
+│✞ *Uploaded:* ${video.ago}
+│✞ *Artist:* ${video.author.name}
 ╰────────────────◆
-⦿ *Direct YtLink:* ${videoUrl}`
+⦿ *Direct YtLink:* ${video.url}
+╭────────────────◆
+You can also join here to get your song download in more tracks 🤗😋 
+https://t.me/keithmd 
+Use prefix {/} example {/search dada}
+╰────────────────◆
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
         };
 
         // Send video details
@@ -241,14 +265,22 @@ zokou({
           image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD VIDEO PLAYER*\n
 ╭───────────────◆
-│ *Title:* ${videos[0].title}
-│ *Quality:* 720p-HD
-│ *Duration:* ${videos[0].timestamp}
-│ *Viewers:* ${videos[0].views}
-│ *Uploaded:* ${videos[0].ago}
-│ *Artist:* ${videos[0].author.name}
+│✞ *Title:* ${video.title}
+│✞ *Quality:* ${video.type}
+│✞ *Duration:* ${video.timestamp}
+│✞ *Viewers:* ${video.views}
+│✞ *Uploaded:* ${video.ago}
+│✞ *Artist:* ${video.author.name}
 ╰────────────────◆
-⦿ *Direct YtLink:* ${videoUrl}`
+⦿ *Direct YtLink:* ${video.url}
+╭────────────────◆
+You can also join here to get your song download in more tracks 🤗😋 
+https://t.me/keithmd 
+Use prefix {/} example {/search dada}
+╰────────────────◆
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
         };
 
         // Send video details
