@@ -1,14 +1,13 @@
 const { zokou } = require("../framework/zokou");
-const yts = require('yt-search');
-const { youtubedl, youtubedlv2 } = require("@bochilteam/scraper");
+const yts = require("yt-search");
 
-const sendMediaMessage = async (dest, zk, media, infoMess, ms) => {
-  await zk.sendMessage(dest, infoMess, { quoted: ms });
-  await zk.sendMessage(dest, media, { quoted: ms });
-};
-
-const handleMediaDownload = async (dest, zk, commandeOptions, isVideo = false) => {
-  const { ms, repondre, arg } = commandeOptions;
+// Command to search and download videos
+zokou({
+  nomCom: "video",
+  categorie: "Search",
+  reaction: '🎥'
+}, async (chatId, client, messageData) => {
+  const { ms, repondre, arg } = messageData;
 
   if (!arg[0]) {
     repondre("Please insert a song/video name.");
@@ -16,82 +15,120 @@ const handleMediaDownload = async (dest, zk, commandeOptions, isVideo = false) =
   }
 
   try {
-    const query = arg.join(" ");
-    const searchResults = await yts(query);
-    const videos = searchResults.videos;
+    const searchQuery = arg.join(" ");
+    const videoResults = await yts(searchQuery);
 
-    if (videos && videos.length > 0) {
-      const videoUrl = videos[0].url;
-      const downloadInfo = await youtubedl(videoUrl).catch(async () => await youtubedlv2(videoUrl));
+    if (videoResults && videoResults.videos.length > 0) {
+      const videoUrl = videoResults.videos[0].url;
+      const response = await fetch(`https://api.giftedtech.us.kg/api/download/ytmp4v2?url=${encodeURIComponent(videoUrl)}&apikey=ibrahimadams`);
+      const jsonResponse = await response.json();
 
-      if (downloadInfo && downloadInfo.result) {
-        const mediaUrl = isVideo ? downloadInfo.result.video_url : downloadInfo.result.download_url;
-        const infoMess = {
-          image: { url: videos[0].thumbnail },
-          caption: `*ALPHA-MD ${isVideo ? "VIDEO" : "SONG"} PLAYER*\n` +
-                   `╭───────────────◆\n` +
-                   `│ *Title:* ${videos[0].title}\n` +
-                   `│ *Quality:* ${isVideo ? "720p-HD" : "mp3 (320kbps)"}\n` +
-                   `│ *Duration:* ${videos[0].timestamp}\n` +
-                   `│ *Viewers:* ${videos[0].views}\n` +
-                   `│ *Uploaded:* ${videos[0].ago}\n` +
-                   `│ *Artist:* ${videos[0].author.name}\n` +
-                   `╰────────────────◆\n` +
-                   `⦿ *Direct YtLink:* ${videoUrl}\n` +
-                   `╭────────────────◆\n` +
-                   `u can as well join here to get your song download\n` +
-                   `in more tracks 🤗😋 \n` +
-                   `https://t.me/keithmd \n` +
-                   `use prefix {/} example {/search dada}\n` +
-                   `╰────────────────◆\n` +
-                   `╭────────────────◆\n` +
-                   `│ *_Powered by keithkeizzah._*\n` +
-                   `╰─────────────────◆`
+      if (jsonResponse.status === 200 && jsonResponse.success) {
+        const downloadUrl = jsonResponse.result.download_url;
+        const messageData = {
+          image: { url: videoResults.videos[0].thumbnail },
+          caption: `Bmw is downloading ${jsonResponse.result.title} by ${videoResults.videos[0].author.name}\nTime: ${videoResults.videos[0].timestamp}\n\n\n> ©Ibrahim Adams`
         };
 
-        const mediaMessage = isVideo ? {
-          video: { url: mediaUrl },
-          caption: "*𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃 𝐁𝐘 𝐀𝐋𝐏𝐇𝐀*",
-          mimetype: 'video/mp4'
-        } : {
-          audio: { url: mediaUrl },
-          mimetype: 'audio/mp4'
-        };
-
-        await sendMediaMessage(dest, zk, mediaMessage, infoMess, ms);
-        repondre(`*Alpha md has just downloaded your ${isVideo ? "video" : "song"}*...`);
+        await client.sendMessage(chatId, messageData, { quoted: ms });
+        await client.sendMessage(chatId, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: ms });
+        repondre("Downloaded Successfully ✅");
       } else {
-        repondre('Failed to download the media. Please try again later.');
+        repondre("Searching...⏳");
       }
     } else {
-      repondre('No media found.');
+      repondre("No videos found.");
     }
   } catch (error) {
-    console.error('Error from API:', error);
-    repondre('An error occurred while searching or downloading the media.');
+    console.error("Error from API:", error);
+    repondre("Searching...⏳");
   }
-};
+});
 
+// Command to search and download audio
 zokou({
   nomCom: "play",
   categorie: "Download",
-  reaction: "💿"
-}, (dest, zk, commandeOptions) => handleMediaDownload(dest, zk, commandeOptions));
+  reaction: '🎧'
+}, async (chatId, client, messageData) => {
+  const { ms, repondre, arg } = messageData;
 
+  if (!arg[0]) {
+    repondre("Please insert a song name.");
+    return;
+  }
+
+  try {
+    const searchQuery = arg.join(" ");
+    const audioResults = await yts(searchQuery);
+
+    if (audioResults && audioResults.videos.length > 0) {
+      const audioUrl = audioResults.videos[0].url;
+      const response = await fetch(`https://api.giftedtech.us.kg/api/download/ytmp3v2?url=${encodeURIComponent(audioUrl)}&apikey=ibrahimadams`);
+      const jsonResponse = await response.json();
+
+      if (jsonResponse.status === 200 && jsonResponse.success) {
+        const downloadUrl = jsonResponse.result.download_url;
+        const messageData = {
+          image: { url: audioResults.videos[0].thumbnail },
+          caption: `*ALPHA SONG PLAYER*\n\n*◁ II ▷ 1:00 •* ${audioResults.videos[0].timestamp}\n\n*keith*`
+        };
+
+        await client.sendMessage(chatId, messageData, { quoted: ms });
+        await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
+        repondre(`*Bmw Just Downloaded ${jsonResponse.result.title}*\n\n*®Adams 2024*`);
+      } else {
+        repondre("Failed to download audio. Please try again later.");
+      }
+    } else {
+      repondre("No audio found.");
+    }
+  } catch (error) {
+    console.error("Error from API:", error);
+    repondre("An error occurred while searching or downloading the audio.");
+  }
+});
+
+// Command to search and download songs
 zokou({
   nomCom: "song",
   categorie: "Download",
-  reaction: "💿"
-}, (dest, zk, commandeOptions) => handleMediaDownload(dest, zk, commandeOptions));
+  reaction: '🎸'
+}, async (chatId, client, messageData) => {
+  const { ms, repondre, arg } = messageData;
 
-zokou({
-  nomCom: "video",
-  categorie: "Download",
-  reaction: "🎥"
-}, (dest, zk, commandeOptions) => handleMediaDownload(dest, zk, commandeOptions, true));
+  if (!arg[0]) {
+    repondre("Please insert a song name.");
+    return;
+  }
 
-zokou({
-  nomCom: "videodoc",
-  categorie: "Download",
-  reaction: "🎥"
-}, (dest, zk, commandeOptions) => handleMediaDownload(dest, zk, commandeOptions, true));
+  try {
+    const searchQuery = arg.join(" ");
+    const songResults = await yts(searchQuery);
+
+    if (songResults && songResults.videos.length > 0) {
+      const songUrl = songResults.videos[0].url;
+      const response = await fetch(`https://api.giftedtech.us.kg/api/download/ytmp3v2?url=${encodeURIComponent(songUrl)}&apikey=ibrahimadams`);
+      const jsonResponse = await response.json();
+
+      if (jsonResponse.status === 200 && jsonResponse.success) {
+        const downloadUrl = jsonResponse.result.download_url;
+        const messageData = {
+          image: { url: songResults.videos[0].thumbnail },
+          caption: `*BMW SONG PLAYER*\n\n*◁ II ▷ 1:00 •* ${songResults.videos[0].timestamp}\n\n*©Ibrahim Adams*`
+        };
+
+        await client.sendMessage(chatId, messageData, { quoted: ms });
+        await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
+        repondre(`*Bmw Just Downloaded ${jsonResponse.result.title}*\n\n*®Adams 2024*`);
+      } else {
+        repondre("Failed to download audio. Please try again later.");
+      }
+    } else {
+      repondre("No audio found.");
+    }
+  } catch (error) {
+    console.error("Error from API:", error);
+    repondre("An error occurred while searching or downloading the audio.");
+  }
+});
