@@ -1,7 +1,7 @@
 const { zokou } = require("../framework/zokou");
 const yts = require('yt-search');
 const BaseUrl = 'https://api.giftedtech.us.kg';
-apikey = 'ibrahimadams';
+const apikey = 'ibrahimadams';
 
 zokou({
   nomCom: "play",
@@ -38,22 +38,14 @@ zokou({
           image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD SONG PLAYER*\n
 ╭───────────────◆
-│✞ *Title:* ${video.title}
-│✞ *Quality:* ${video.type}
-│✞ *Duration:* ${video.timestamp}
-│✞ *Viewers:* ${video.views}
-│✞ *Uploaded:* ${video.ago}
-│✞ *Artist:* ${video.author.name}
+│ *Title:* ${videos[0].title}
+│ *Quality:* mp3 (320kbps)
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
 ╰────────────────◆
-⦿ *Direct YtLink:* ${video.url}
-╭────────────────◆
-You can also join here to get your song download in more tracks 🤗😋 
-https://t.me/keithmd 
-Use prefix {/} example {/search dada}
-╰────────────────◆
-╭────────────────◆
-│ *_Powered by keithkeizzah._*
-╰─────────────────◆`
+ *Direct YtLink:* ${videoUrl}`
         };
 
         // Send song details
@@ -65,7 +57,9 @@ Use prefix {/} example {/search dada}
           mimetype: 'audio/mp4'
         }, { quoted: ms });
      
-       repondre('*Alpha md has just downloaded your song*...');
+       repondre('*You can also join here to get your song download in more tracks 🤗😋 
+https://t.me/keithmd 
+Use prefix {/} example {/search dada}*...');
       } else {
         repondre('Failed to download audio. Please try again later.');
       }
@@ -113,22 +107,14 @@ zokou({
           image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD SONG PLAYER*\n
 ╭───────────────◆
-│✞ *Title:* ${video.title}
-│✞ *Quality:* ${video.type}
-│✞ *Duration:* ${video.timestamp}
-│✞ *Viewers:* ${video.views}
-│✞ *Uploaded:* ${video.ago}
-│✞ *Artist:* ${video.author.name}
+│ *Title:* ${videos[0].title}
+│ *Quality:* mp3 (320kbps)
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
 ╰────────────────◆
-⦿ *Direct YtLink:* ${video.url}
-╭────────────────◆
-You can also join here to get your song download in more tracks 🤗😋 
-https://t.me/keithmd 
-Use prefix {/} example {/search dada}
-╰────────────────◆
-╭────────────────◆
-│ *_Powered by keithkeizzah._*
-╰─────────────────◆`
+ *Direct YtLink:* ${videoUrl}`
         };
 
         // Send song details
@@ -140,7 +126,9 @@ Use prefix {/} example {/search dada}
           mimetype: 'audio/mp4'
         }, { quoted: ms });
        
-        repondre('*Alpha md has just downloaded your song*...');
+        repondre('*You can also join here to get your song download in more tracks 🤗😋 
+https://t.me/keithmd 
+Use prefix {/} example {/search dada}*...');
       } else {
         repondre('Failed to download audio. Please try again later.');
       }
@@ -189,22 +177,14 @@ zokou({
           image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD VIDEO PLAYER*\n
 ╭───────────────◆
-│✞ *Title:* ${video.title}
-│✞ *Quality:* ${video.type}
-│✞ *Duration:* ${video.timestamp}
-│✞ *Viewers:* ${video.views}
-│✞ *Uploaded:* ${video.ago}
-│✞ *Artist:* ${video.author.name}
+│ *Title:* ${videos[0].title}
+│ *Quality:* 720p-HD
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
 ╰────────────────◆
-⦿ *Direct YtLink:* ${video.url}
-╭────────────────◆
-You can also join here to get your song download in more tracks 🤗😋 
-https://t.me/keithmd 
-Use prefix {/} example {/search dada}
-╰────────────────◆
-╭────────────────◆
-│ *_Powered by keithkeizzah._*
-╰─────────────────◆`
+⦿ *Direct YtLink:* ${videoUrl}`
         };
 
         // Send video details
@@ -217,7 +197,9 @@ Use prefix {/} example {/search dada}
           mimetype: 'video/mp4'
         }, { quoted: ms });
 
-        repondre('*Alpha md has just downloaded your video*...');
+        repondre('*You can also join here to get your song download in more tracks 🤗😋 
+https://t.me/keithmd 
+Use prefix {/} example {/search dada}*...');
       } else {
         repondre('Failed to download the video. Please try again later.');
       }
@@ -265,22 +247,14 @@ zokou({
           image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD VIDEO PLAYER*\n
 ╭───────────────◆
-│✞ *Title:* ${video.title}
-│✞ *Quality:* ${video.type}
-│✞ *Duration:* ${video.timestamp}
-│✞ *Viewers:* ${video.views}
-│✞ *Uploaded:* ${video.ago}
-│✞ *Artist:* ${video.author.name}
+│ *Title:* ${videos[0].title}
+│ *Quality:* 720p-HD
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
 ╰────────────────◆
-⦿ *Direct YtLink:* ${video.url}
-╭────────────────◆
-You can also join here to get your song download in more tracks 🤗😋 
-https://t.me/keithmd 
-Use prefix {/} example {/search dada}
-╰────────────────◆
-╭────────────────◆
-│ *_Powered by keithkeizzah._*
-╰─────────────────◆`
+ *Direct YtLink:* ${videoUrl}`
         };
 
         // Send video details
@@ -293,7 +267,9 @@ Use prefix {/} example {/search dada}
           mimetype: 'video/mp4'
         }, { quoted: ms });
  
-       repondre('*Alpha md has just downloaded your video*...');
+       repondre('*You can also join here to get your song download in more tracks 🤗😋 
+https://t.me/keithmd 
+Use prefix {/} example {/search dada}*...');
       } else {
         repondre('Failed to download the video. Please try again later.');
       }
