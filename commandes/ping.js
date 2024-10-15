@@ -25,11 +25,13 @@ zokou({
 
       if (jsonResponse.status === 200 && jsonResponse.success) {
         const downloadUrl = jsonResponse.result.download_url;
+
         const messageData = {
           image: { url: videoResults.videos[0].thumbnail },
           caption: `*ALPHA-MD VIDEO PLAYER\n✞Title: ${jsonResponse.result.title} \n✞Artist: ${videoResults.videos[0].author.name}\n✞Time: ${videoResults.videos[0].timestamp}\n✞Direct Ytlink: ${videoResults.videoUrl}\n\n\n 𝗥𝗲𝗴𝗮𝗿𝗱𝘀 𝗞𝗲𝗶𝘁𝗵𝗸𝗲𝗶𝘇𝘇𝗮𝗵`
         };
 
+        await client.sendMessage(chatId, { text: "𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%" }, { quoted: ms });
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: ms });
         repondre("Keep using alpha md");
@@ -69,14 +71,16 @@ zokou({
 
       if (jsonResponse.status === 200 && jsonResponse.success) {
         const downloadUrl = jsonResponse.result.download_url;
+
         const messageData = {
           image: { url: audioResults.videos[0].thumbnail },
           caption: `*ALPHA SONG PLAYER*\n\n*Time* ${audioResults.videos[0].timestamp}\n*Title* ${audioResults.videos[0].author.name}\n\n*keith*`
         };
 
+        await client.sendMessage(chatId, { text: "𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%" }, { quoted: ms });
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
-        repondre(`* ${jsonResponse.result.title}*\n\n*Downloaded successfully.Keep using Alpha md*`);
+        repondre(`* ${jsonResponse.result.title}*\n\n*Downloaded successfully. Keep using Alpha md*`);
       } else {
         repondre("Failed to download audio. Please try again later.");
       }
@@ -113,14 +117,16 @@ zokou({
 
       if (jsonResponse.status === 200 && jsonResponse.success) {
         const downloadUrl = jsonResponse.result.download_url;
+
         const messageData = {
           image: { url: songResults.videos[0].thumbnail },
-          caption: `*ALPHA-MD SONG PLAYER*\n\n*Time* ${songResults.videos[0].timestamp}\n*Artist* $${songResults.videos[0].author.name}\n\n*Powered by keithkeizzah*`
+          caption: `*ALPHA-MD SONG PLAYER*\n\n*Time* ${songResults.videos[0].timestamp}\n*Artist* ${songResults.videos[0].author.name}\n\n*Powered by keithkeizzah*`
         };
 
+        await client.sendMessage(chatId, { text: "𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨... : 0%" }, { quoted: ms });
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
-        repondre(`* ${jsonResponse.result.title}*\n\n*Downloaded successfully keep using alpha bot*`);
+        repondre(`* ${jsonResponse.result.title}*\n\n*Downloaded successfully. Keep using alpha bot*`);
       } else {
         repondre("Failed to download audio. Please try again later.");
       }
