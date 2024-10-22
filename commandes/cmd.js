@@ -1,6 +1,6 @@
 const { zokou } = require("../framework/zokou");
 const yts = require('yt-search');
-const fetch = require('node-fetch'); // Ensure fetch is imported
+const axios = require("axios");
 const BaseUrl = 'https://widipe.com';
 
 zokou({
@@ -25,7 +25,7 @@ zokou({
       const videoUrl = video.url;
 
       // Call the API endpoint to fetch the audio download URL
-      const apiResponse = await fetch(`${BaseUrl}/download/ytdl?url=${encodeURIComponent(videoUrl)}`);
+      const apiResponse = await axios.get(`${BaseUrl}/download/ytdl?url=${encodeURIComponent(videoUrl)}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 200 && apiResult.success) {
