@@ -65,7 +65,7 @@ Use prefix {/} example {/search dada}
 
         repondre('*Alpha md has just downloaded your song*...');
       } else {
-        repondre('Failed to download audio. Please try again later.');
+        repondre('Failed to download audio. Please try again later.\n' + error);
       }
     } else {
       repondre('No audio found.');
