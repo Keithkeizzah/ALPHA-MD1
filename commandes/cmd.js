@@ -26,7 +26,7 @@ zokou({
 
       // Call the API endpoint to fetch the audio download URL
       const apiResponse = await axios.get(`${BaseUrl}/download/ytdl?url=${encodeURIComponent(videoUrl)}`);
-      const apiResult = await apiResponse.json();
+      const apiResult = apiResponse.data;
 
       if (apiResult.status === 200 && apiResult.success) {
         const audioDlUrl = apiResult.result.download_url;
