@@ -72,6 +72,6 @@ Use prefix {/} example {/search dada}
     }
   } catch (error) {
     console.error('Error from API:', error);
-    repondre('An error occurred while searching or downloading the audio.');
+    repondre('An error occurred while searching or downloading the audio.\n' + error);
   }
 });
