@@ -1,15 +1,14 @@
 const { zokou } = require("../framework/zokou");
 
 zokou({
-  nomCom: "repo",
-  aliases: ['sc', 'script'],
-  reaction: '🤍',
+  nomCom: "sing",
+  reaction: '🖕',
   nomFichier: __filename
 }, async (command, reply, context) => {
   const { repondre, auteurMessage } = context;
 
   try {
-    const response = await fetch("https://api.github.com/repos/franceking1/Flash-Md");
+    const response = await fetch("https://api.github.com/repos/Keithkeizzah/ALPHA-MD1");
     const repoData = await response.json();
 
     if (repoData) {
@@ -22,17 +21,16 @@ zokou({
 
       const releaseDate = new Date(repoData.created_at).toLocaleDateString('en-GB');
       const message = `
-        *HEY 👋 THIS IS FLASH-MD.*
-
-        I'm A WhatsApp bot created by *©France King*.
-
-        [✨] *STARS:* - ${repoInfo.stars}
-        [🧧] *FORKS:* - ${repoInfo.forks}
-        [📅] *RELEASE DATE:* - ${releaseDate}
-        [🗼] *REPO:* - ${repoData.html_url}
-        [👨‍💻] *OWNER:* - *France King* 
-        __________________________________
-                     *Made With* 🤍
+       *Hello ,,,👋This is 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃*
+ the best bot in the universe developed by Kᴇɪᴛʜ Kᴇɪᴢᴢᴀʜ,,fork and give a star 🌟 to my repo
+  ╭────────────────
+  │✞  *Stars:* - ${repoInfo.stars}
+  │✞  *Forks:* - ${repoInfo.forks}
+  │✞  *Release date:* - ${releaseDate}
+  │✞  *Repo:* - ${repoData.html_url}
+  │✞  *Owner:*   *keithkeizzah* 
+  ╰─────────────────── 
+                    
       `;
 
       await reply.sendMessage(command, {
@@ -40,10 +38,10 @@ zokou({
         contextInfo: {
           mentionedJid: [auteurMessage],
           externalAdReply: {
-            title: "THE FLASH MULTI DEVICE",
-            body: "POWERED BY FRANCE KING",
-            thumbnailUrl: "https://telegra.ph/file/4143dfac775bff078cc5a.jpg",
-            sourceUrl: "https://whatsapp.com/channel/0029VaTbb3p84Om9LRX1jg0P",
+            title: "✨𝗔𝗟𝗣𝗛𝗔-𝗠𝗗🌟",
+            body: "POWERED BY KEITH",
+            thumbnailUrl: "https://i.imgur.com/q7nH7wI.jpeg",
+            sourceUrl: "https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47",
             mediaType: 1,
             renderLargerThumbnail: true
           }
@@ -58,3 +56,4 @@ zokou({
     repondre("An error occurred while fetching the repository data.");
   }
 });
+
