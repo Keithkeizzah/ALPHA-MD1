@@ -1,39 +1,166 @@
 const { zokou } = require("../framework/zokou");
 const yts = require('yt-search');
-const fetch = require('node-fetch');
 const BaseUrl = 'https://api.giftedtech.my.id';
 const giftedapikey = 'gifted';
 
-const sendSongInfo = async (dest, zk, ms, video, audioDlUrl) => {
-  const infoMess = {
-    image: { url: video.thumbnail },
-    caption: `*ALPHA-MD SONG PLAYER*\n
+zokou({
+  nomCom: "play",
+  categorie: "Download",
+  reaction: "💿"
+}, async (dest, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+
+  if (!arg[0]) {
+    repondre("Please insert a song name.");
+    return;
+  }
+
+  try {
+    let topo = arg.join(" ");
+    let videos = [];
+
+    // Perform YouTube search
+    const search = await yts(topo);
+    videos = search.videos;
+
+    if (videos && videos.length > 0) {
+      const videoUrl = videos[0].url;
+
+      // Call the API endpoint with the video URL to fetch audio download URL
+      const apiResponse = await fetch(`${BaseUrl}/api/download/ytmp3?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResult = await apiResponse.json();
+
+      if (apiResult.status === 200 && apiResult.success) {
+        const audioDlUrl = apiResult.result.download_url;
+        
+        // Prepare the message with song details
+        const infoMess = {
+          image: { url: videos[0].thumbnail },
+          caption: `*ALPHA-MD SONG PLAYER*\n
 ╭───────────────◆
-│ *Title:* ${video.title}
+│ *Title:* ${videos[0].title}
 │ *Quality:* mp3 (320kbps)
-│ *Duration:* ${video.timestamp}
-│ *Viewers:* ${video.views}
-│ *Uploaded:* ${video.ago}
-│ *Artist:* ${video.author.name}
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
 ╰────────────────◆
-⦿ *Direct YtLink:* ${video.url}
+⦿ *Direct YtLink:* ${videoUrl}
 ╭────────────────◆
-Join here to get more tracks: https://t.me/keithmd
-Use prefix {/}  example {/search dada}
+u can as well join here to get your song download
+in more tracks 🤗😋 
+https://t.me/keithmd 
+use prefix {/}  example {/search dada}
 ╰────────────────◆
 ╭────────────────◆
 │ *_Powered by keithkeizzah._*
 ╰─────────────────◆`
-  };
+        };
 
-  await zk.sendMessage(dest, infoMess, { quoted: ms });
-  await zk.sendMessage(dest, {
-    audio: { url: audioDlUrl },
-    mimetype: 'audio/mp4'
-  }, { quoted: ms });
-};
+        // Send song details
+        await zk.sendMessage(dest, infoMess, { quoted: ms });
 
-const handleDownload = async (dest, zk, commandeOptions, isVideo = false) => {
+        // Send the audio as a Buffer instead of URL
+        await zk.sendMessage(dest, {
+          audio: { url: audioDlUrl },
+          mimetype: 'audio/mp4'
+        }, { quoted: ms });
+     
+       repondre('*Alpha md has just downloaded your song*...');
+      } else {
+        repondre('Failed to download audio. Please try again later.');
+      }
+    } else {
+      repondre('No audio found.');
+    }
+  } catch (error) {
+    console.error('Error from API:', error);
+    repondre('An error occurred while searching or downloading the audio.' + error);
+  }
+});
+
+zokou({
+  nomCom: "song",
+  categorie: "Download",
+  reaction: "💿"
+}, async (dest, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+
+  if (!arg[0]) {
+    repondre("Please insert a song name.");
+    return;
+  }
+
+  try {
+    let topo = arg.join(" ");
+    let videos = [];
+
+    // Perform YouTube search
+    const search = await yts(topo);
+    videos = search.videos;
+
+    if (videos && videos.length > 0) {
+      const videoUrl = videos[0].url;
+
+      // Call the API endpoint with the video URL to fetch audio download URL
+      const apiResponse = await fetch(`${BaseUrl}/api/download/ytmp3?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResult = await apiResponse.json();
+
+      if (apiResult.status === 200 && apiResult.success) {
+        const audioDlUrl = apiResult.result.download_url;
+        
+        // Prepare the message with song details
+        const infoMess = {
+          image: { url: videos[0].thumbnail },
+          caption: `*ALPHA-MD SONG PLAYER*\n
+╭───────────────◆
+│ *Title:* ${videos[0].title}
+│ *Quality:* mp3 (320kbps)
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+⦿ *Direct YtLink:* ${videoUrl}
+╭────────────────◆
+u can as well join here to get your song download
+in more tracks 🤗😋 
+https://t.me/keithmd 
+use prefix {/}  example {/search dada}
+╰────────────────◆
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
+        };
+
+        // Send song details
+        await zk.sendMessage(dest, infoMess, { quoted: ms });
+
+        // Send the audio as a Buffer instead of URL
+        await zk.sendMessage(dest, {
+          document: { url: audioDlUrl },
+          mimetype: 'audio/mp4'
+        }, { quoted: ms });
+       
+        repondre('*Alpha md has just downloaded your song*...');
+      } else {
+        repondre('Failed to download audio. Please try again later.');
+      }
+    } else {
+      repondre('No audio found.');
+    }
+  } catch (error) {
+    console.error('Error from API:', error);
+    repondre('An error occurred while searching or downloading the audio.' + error);
+  }
+});
+
+
+zokou({
+  nomCom: "video",
+  categorie: "Download",
+  reaction: "🎥"
+}, async (dest, zk, commandeOptions) => {
   const { ms, repondre, arg } = commandeOptions;
 
   if (!arg[0]) {
@@ -42,64 +169,144 @@ const handleDownload = async (dest, zk, commandeOptions, isVideo = false) => {
   }
 
   try {
-    const topo = arg.join(" ");
+    let topo = arg.join(" ");
+    let videos = [];
+
+    // Perform YouTube search
     const search = await yts(topo);
-    const videos = search.videos;
+    videos = search.videos;
 
     if (videos && videos.length > 0) {
-      const video = videos[0];
-      const videoUrl = video.url;
-      const downloadType = isVideo ? 'mp4' : 'mp3';
-      
-      const apiResponse = await fetch(`${BaseUrl}/api/download/${downloadType}?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const videoUrl = videos[0].url;
+
+      // Call the API endpoint with the video URL to fetch the video download URL
+      const apiResponse = await fetch(`${BaseUrl}/api/download/ytmp4?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 200 && apiResult.success) {
-        const downloadUrl = apiResult.result.download_url;
-        
-        if (isVideo) {
-          await zk.sendMessage(dest, {
-            video: { url: downloadUrl },
-            caption: "*𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃 𝐁𝐘 𝐀𝐋𝐏𝐇𝐀*",
-            mimetype: 'video/mp4'
-          }, { quoted: ms });
-        } else {
-          await sendSongInfo(dest, zk, ms, video, downloadUrl);
-        }
+        const videoDlUrl = apiResult.result.download_url;
 
-        repondre(`*Alpha md has just downloaded your ${isVideo ? 'video' : 'song'}*...`);
+        // Prepare the message with video details
+        const infoMess = {
+          image: { url: videos[0].thumbnail },
+          caption: `*ALPHA-MD VIDEO PLAYER*\n
+╭───────────────◆
+│ *Title:* ${videos[0].title}
+│ *Quality:* 720p-HD
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+⦿ *Direct YtLink:* ${videoUrl}
+╭────────────────◆
+u can as well join here to get your song download
+in more tracks 🤗😋 
+https://t.me/keithmd 
+use prefix {/}  example {/search dada}
+╰────────────────◆
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
+        };
+
+        // Send video details
+        await zk.sendMessage(dest, infoMess, { quoted: ms });
+
+        // Send the video as a URL (direct download link)
+        await zk.sendMessage(dest, {
+          video: { url: videoDlUrl },
+      caption: "*𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃 𝐁𝐘 𝐀𝐋𝐏𝐇𝐀*",
+          mimetype: 'video/mp4'
+        }, { quoted: ms });
+
+        repondre('*Alpha md has just downloaded your video*...');
       } else {
-        repondre(`Failed to download ${isVideo ? 'video' : 'audio'}. Please try again later.`);
+        repondre('Failed to download the video. Please try again later.');
       }
     } else {
-      repondre('No audio/video found.');
+      repondre('No videos found.');
     }
   } catch (error) {
     console.error('Error from API:', error);
-    repondre(`An error occurred while searching or downloading: ${error.message}`);
+    repondre('An error occurred while searching or downloading the video.' + error);
   }
-};
-
-zokou({
-  nomCom: "play",
-  categorie: "Download",
-  reaction: "💿"
-}, (dest, zk, commandeOptions) => handleDownload(dest, zk, commandeOptions, false));
-
-zokou({
-  nomCom: "song",
-  categorie: "Download",
-  reaction: "💿"
-}, (dest, zk, commandeOptions) => handleDownload(dest, zk, commandeOptions, false));
-
-zokou({
-  nomCom: "video",
-  categorie: "Download",
-  reaction: "🎥"
-}, (dest, zk, commandeOptions) => handleDownload(dest, zk, commandeOptions, true));
+});
 
 zokou({
   nomCom: "videodoc",
   categorie: "Download",
   reaction: "🎥"
-}, (dest, zk, commandeOptions) => handleDownload(dest, zk, commandeOptions, true));
+}, async (dest, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+
+  if (!arg[0]) {
+    repondre("Please insert a song/video name.");
+    return;
+  }
+
+  try {
+    let topo = arg.join(" ");
+    let videos = [];
+
+    // Perform YouTube search
+    const search = await yts(topo);
+    videos = search.videos;
+
+    if (videos && videos.length > 0) {
+      const videoUrl = videos[0].url;
+
+      // Call the API endpoint with the video URL to fetch the video download URL
+      const apiResponse = await fetch(`${BaseUrl}/api/download/ytmp4?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResult = await apiResponse.json();
+
+      if (apiResult.status === 200 && apiResult.success) {
+        const videoDlUrl = apiResult.result.download_url;
+
+        // Prepare the message with video details
+        const infoMess = {
+          image: { url: videos[0].thumbnail },
+          caption: `*ALPHA-MD VIDEO PLAYER*\n
+╭───────────────◆
+│ *Title:* ${videos[0].title}
+│ *Quality:* 720p-HD
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+
+⦿ *Direct YtLink:* ${videoUrl}
+╭────────────────◆
+u can as well join here to get your song download
+in more tracks 🤗😋 
+https://t.me/keithmd 
+use prefix {/}  example {/search dada}
+╰────────────────◆
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
+        };
+
+        // Send video details
+        await zk.sendMessage(dest, infoMess, { quoted: ms });
+
+        // Send the video as a URL (direct download link)
+        await zk.sendMessage(dest, {
+          document: { url: videoDlUrl },
+               caption: "*𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃 𝐁𝐘 𝐀𝐋𝐏𝐇𝐀*",
+          mimetype: 'video/mp4'
+        }, { quoted: ms });
+ 
+       repondre('*Alpha md has just downloaded your video*...');
+      } else {
+        repondre('Failed to download the video. Please try again later.');
+      }
+    } else {
+      repondre('No videos found.');
+    }
+  } catch (error) {
+    console.error('Error from API:', error);
+    repondre('An error occurred while searching or downloading the video.' + error);
+  }
+});
