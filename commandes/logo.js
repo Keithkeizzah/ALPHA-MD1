@@ -1,13 +1,167 @@
 const { zokou } = require("../framework/zokou");
-const yts = require("yt-search");
+const yts = require('yt-search');
+const BaseUrl = 'https://api.giftedtech.my.id';
+const giftedapikey = 'gifted';
 
-// Command to search and download videos
+zokou({
+  nomCom: "play",
+  categorie: "Download",
+  reaction: "💿"
+}, async (dest, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+
+  if (!arg[0]) {
+    repondre("Please insert a song name.");
+    return;
+  }
+
+  try {
+    let topo = arg.join(" ");
+    let videos = [];
+
+    // Perform YouTube search
+    const search = await yts(topo);
+    videos = search.videos;
+
+    if (videos && videos.length > 0) {
+      const videoUrl = videos[0].url;
+
+      // Call the API endpoint with the video URL to fetch audio download URL
+      const apiResponse = await fetch(`${BaseUrl}/api/download/mp3?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResult = await apiResponse.json();
+
+      if (apiResult.status === 200 && apiResult.success) {
+        const audioDlUrl = apiResult.result.download_url;
+        
+        // Prepare the message with song details
+        const infoMess = {
+          image: { url: videos[0].thumbnail },
+          caption: `*ALPHA-MD SONG PLAYER*\n
+╭───────────────◆
+│ *Title:* ${videos[0].title}
+│ *Quality:* mp3 (320kbps)
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+⦿ *Direct YtLink:* ${videoUrl}
+╭────────────────◆
+u can as well join here to get your song download
+in more tracks 🤗😋 
+https://t.me/keithmd 
+use prefix {/}  example {/search dada}
+╰────────────────◆
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
+        };
+
+        // Send song details
+        await zk.sendMessage(dest, infoMess, { quoted: ms });
+
+        // Send the audio as a Buffer instead of URL
+        await zk.sendMessage(dest, {
+          audio: { url: audioDlUrl },
+          mimetype: 'audio/mp4'
+        }, { quoted: ms });
+     
+       repondre('*Alpha md has just downloaded your song*...');
+      } else {
+        repondre('Failed to download audio. Please try again later.');
+      }
+    } else {
+      repondre('No audio found.');
+    }
+  } catch (error) {
+    console.error('Error from API:', error);
+    repondre('An error occurred while searching or downloading the audio.');
+  }
+});
+
+zokou({
+  nomCom: "song",
+  categorie: "Download",
+  reaction: "💿"
+}, async (dest, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
+
+  if (!arg[0]) {
+    repondre("Please insert a song name.");
+    return;
+  }
+
+  try {
+    let topo = arg.join(" ");
+    let videos = [];
+
+    // Perform YouTube search
+    const search = await yts(topo);
+    videos = search.videos;
+
+    if (videos && videos.length > 0) {
+      const videoUrl = videos[0].url;
+
+      // Call the API endpoint with the video URL to fetch audio download URL
+      const apiResponse = await fetch(`${BaseUrl}/api/download/mp3?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResult = await apiResponse.json();
+
+      if (apiResult.status === 200 && apiResult.success) {
+        const audioDlUrl = apiResult.result.download_url;
+        
+        // Prepare the message with song details
+        const infoMess = {
+          image: { url: videos[0].thumbnail },
+          caption: `*ALPHA-MD SONG PLAYER*\n
+╭───────────────◆
+│ *Title:* ${videos[0].title}
+│ *Quality:* mp3 (320kbps)
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+⦿ *Direct YtLink:* ${videoUrl}
+╭────────────────◆
+u can as well join here to get your song download
+in more tracks 🤗😋 
+https://t.me/keithmd 
+use prefix {/}  example {/search dada}
+╰────────────────◆
+╭────────────────◆
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
+        };
+
+        // Send song details
+        await zk.sendMessage(dest, infoMess, { quoted: ms });
+
+        // Send the audio as a Buffer instead of URL
+        await zk.sendMessage(dest, {
+          document: { url: audioDlUrl },
+          mimetype: 'audio/mp4'
+        }, { quoted: ms });
+       
+        repondre('*Alpha md has just downloaded your song*...');
+      } else {
+        repondre('Failed to download audio. Please try again later.');
+      }
+    } else {
+      repondre('No audio found.');
+    }
+  } catch (error) {
+    console.error('Error from API:', error);
+    repondre('An error occurred while searching or downloading the audio.');
+  }
+});
+
+
 zokou({
   nomCom: "video",
-  categorie: "Search",
-  reaction: '🎥'
-}, async (chatId, client, messageData) => {
-  const { ms, repondre, arg } = messageData;
+  categorie: "Download",
+  reaction: "🎥"
+}, async (dest, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
 
   if (!arg[0]) {
     repondre("Please insert a song/video name.");
@@ -15,165 +169,144 @@ zokou({
   }
 
   try {
-    const searchQuery = arg.join(" ");
-    const videoResults = await yts(searchQuery);
+    let topo = arg.join(" ");
+    let videos = [];
 
-    if (videoResults && videoResults.videos.length > 0) {
-      const videoUrl = videoResults.videos[0].url;
-      const response = await fetch("https://api.ibrahimadams.us.kg/api/download/ytmp4?url=" + encodeURIComponent(_0x4d538a) + "&apikey=" + "ibraah-tech");
-      const jsonResponse = await response.json();
+    // Perform YouTube search
+    const search = await yts(topo);
+    videos = search.videos;
 
-      if (jsonResponse.status === 200 && jsonResponse.success) {
-        const downloadUrl = jsonResponse.result.download_url;
+    if (videos && videos.length > 0) {
+      const videoUrl = videos[0].url;
 
-        const messageData = {
-          image: { url: videoResults.videos[0].thumbnail },
+      // Call the API endpoint with the video URL to fetch the video download URL
+      const apiResponse = await fetch(`${BaseUrl}/api/download/mp4?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResult = await apiResponse.json();
+
+      if (apiResult.status === 200 && apiResult.success) {
+        const videoDlUrl = apiResult.result.download_url;
+
+        // Prepare the message with video details
+        const infoMess = {
+          image: { url: videos[0].thumbnail },
           caption: `*ALPHA-MD VIDEO PLAYER*\n
 ╭───────────────◆
-│ *Title:* ${jsonResponse.result.title}
-│ *Duration:* ${videoResults.videos[0].timestamp}
-│ *Viewers:* ${videoResults.videos[0].views}
-│ *Uploaded:* ${videoResults.videos[0].ago}
-│ *Artist:* ${videoResults.videos[0].author.name}
+│ *Title:* ${videos[0].title}
+│ *Quality:* 720p-HD
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+⦿ *Direct YtLink:* ${videoUrl}
+╭────────────────◆
+u can as well join here to get your song download
+in more tracks 🤗😋 
+https://t.me/keithmd 
+use prefix {/}  example {/search dada}
 ╰────────────────◆
 ╭────────────────◆
-You can also join here to get your song download in more tracks 🤗😋 
-https://t.me/keithmd 
-Use prefix {/} example {/search dada}
-╰────────────────◆`
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
         };
 
-        await client.sendMessage(chatId, { text: "*𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨...*" }, { quoted: ms });
-let downloadedLength = 0;
-        await client.sendMessage(chatId, messageData, { quoted: ms });
-        await client.sendMessage(chatId, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: ms });
-        repondre("Keep using alpha md");
+        // Send video details
+        await zk.sendMessage(dest, infoMess, { quoted: ms });
+
+        // Send the video as a URL (direct download link)
+        await zk.sendMessage(dest, {
+          video: { url: videoDlUrl },
+      caption: "*𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃 𝐁𝐘 𝐀𝐋𝐏𝐇𝐀*",
+          mimetype: 'video/mp4'
+        }, { quoted: ms });
+
+        repondre('*Alpha md has just downloaded your video*...');
       } else {
-        repondre("wait alpha is loading your file");
+        repondre('Failed to download the video. Please try again later.');
       }
     } else {
-      repondre("No videos found.");
+      repondre('No videos found.');
     }
   } catch (error) {
-    console.error("Error from API:", error);
-    repondre("Wait Alpha is getting your file");
+    console.error('Error from API:', error);
+    repondre('An error occurred while searching or downloading the video.');
   }
 });
 
-// Command to search and download audio
 zokou({
-  nomCom: "play",
+  nomCom: "videodoc",
   categorie: "Download",
-  reaction: '🦄'
-}, async (chatId, client, messageData) => {
-  const { ms, repondre, arg } = messageData;
+  reaction: "🎥"
+}, async (dest, zk, commandeOptions) => {
+  const { ms, repondre, arg } = commandeOptions;
 
   if (!arg[0]) {
-    repondre("Please insert a song name.");
+    repondre("Please insert a song/video name.");
     return;
   }
 
   try {
-    const searchQuery = arg.join(" ");
-    const audioResults = await yts(searchQuery);
+    let topo = arg.join(" ");
+    let videos = [];
 
-    if (audioResults && audioResults.videos.length > 0) {
-      const audioUrl = audioResults.videos[0].url;
-      const response = await fetch("https://api.ibrahimadams.us.kg/api/download/ytmp4?url=" + encodeURIComponent(_0x4d538a) + "&apikey=" + "ibraah-tech");
-      const jsonResponse = await response.json();
+    // Perform YouTube search
+    const search = await yts(topo);
+    videos = search.videos;
 
-      if (jsonResponse.status === 200 && jsonResponse.success) {
-        const downloadUrl = jsonResponse.result.download_url;
+    if (videos && videos.length > 0) {
+      const videoUrl = videos[0].url;
 
-        const messageData = {
-          image: { url: audioResults.videos[0].thumbnail },
-          caption: `*ALPHA SONG PLAYER*\n
+      // Call the API endpoint with the video URL to fetch the video download URL
+      const apiResponse = await fetch(`${BaseUrl}/api/download/mp4?url=${encodeURIComponent(videoUrl)}&apikey=${giftedapikey}`);
+      const apiResult = await apiResponse.json();
+
+      if (apiResult.status === 200 && apiResult.success) {
+        const videoDlUrl = apiResult.result.download_url;
+
+        // Prepare the message with video details
+        const infoMess = {
+          image: { url: videos[0].thumbnail },
+          caption: `*ALPHA-MD VIDEO PLAYER*\n
 ╭───────────────◆
-│ *Title:* ${jsonResponse.result.title}
-│ *Duration:* ${audioResults.videos[0].timestamp}
-│ *Viewers:* ${audioResults.videos[0].views}
-│ *Uploaded:* ${audioResults.videos[0].ago}
-│ *Artist:* ${audioResults.videos[0].author.name}
+│ *Title:* ${videos[0].title}
+│ *Quality:* 720p-HD
+│ *Duration:* ${videos[0].timestamp}
+│ *Viewers:* ${videos[0].views}
+│ *Uploaded:* ${videos[0].ago}
+│ *Artist:* ${videos[0].author.name}
+╰────────────────◆
+
+⦿ *Direct YtLink:* ${videoUrl}
+╭────────────────◆
+u can as well join here to get your song download
+in more tracks 🤗😋 
+https://t.me/keithmd 
+use prefix {/}  example {/search dada}
 ╰────────────────◆
 ╭────────────────◆
-You can also join here to get your song download in more tracks 🤗😋 
-https://t.me/keithmd 
-Use prefix {/} example {/search dada}
-╰────────────────◆`
+│ *_Powered by keithkeizzah._*
+╰─────────────────◆`
         };
 
-        await client.sendMessage(chatId, { text: "*𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨...*" }, { quoted: ms });
-let downloadedLength = 0;
-        await client.sendMessage(chatId, messageData, { quoted: ms });
-        await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
-        repondre(`* ${jsonResponse.result.title}*\n\n*Downloaded successfully. Keep using Alpha md*`);
+        // Send video details
+        await zk.sendMessage(dest, infoMess, { quoted: ms });
+
+        // Send the video as a URL (direct download link)
+        await zk.sendMessage(dest, {
+          document: { url: videoDlUrl },
+               caption: "*𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃 𝐁𝐘 𝐀𝐋𝐏𝐇𝐀*",
+          mimetype: 'video/mp4'
+        }, { quoted: ms });
+ 
+       repondre('*Alpha md has just downloaded your video*...');
       } else {
-        repondre("Failed to download audio. Please try again later.");
+        repondre('Failed to download the video. Please try again later.');
       }
     } else {
-      repondre("No audio found.");
+      repondre('No videos found.');
     }
   } catch (error) {
-    console.error("Error from API:", error);
-    repondre("An error occurred while searching or downloading the audio.");
-  }
-});
-
-// Command to search and download songs
-zokou({
-  nomCom: "song",
-  categorie: "Download",
-  reaction: '🦄'
-}, async (chatId, client, messageData) => {
-  const { ms, repondre, arg } = messageData;
-
-  if (!arg[0]) {
-    repondre("Please insert a song name.");
-    return;
-  }
-
-  try {
-    const searchQuery = arg.join(" ");
-    const songResults = await yts(searchQuery);
-
-    if (songResults && songResults.videos.length > 0) {
-      const songUrl = songResults.videos[0].url;
-      const response = await fetch("https://api.ibrahimadams.us.kg/api/download/ytmp4?url=" + encodeURIComponent(_0x4d538a) + "&apikey=" + "ibraah-tech");
-      const jsonResponse = await response.json();
-
-      if (jsonResponse.status === 200 && jsonResponse.success) {
-        const downloadUrl = jsonResponse.result.download_url;
-
-        const messageData = {
-          image: { url: songResults.videos[0].thumbnail },
-          caption: `*ALPHA-MD SONG PLAYER*\n
-╭───────────────◆
-│ *Title:* ${jsonResponse.result.title}
-│ *Duration:* ${songResults.videos[0].timestamp}
-│ *Viewers:* ${songResults.videos[0].views}
-│ *Uploaded:* ${songResults.videos[0].ago}
-│ *Artist:* ${songResults.videos[0].author.name}
-╰────────────────◆
-╭────────────────◆
-You can also join here to get your song download in more tracks 🤗😋 
-https://t.me/keithmd 
-Use prefix {/} example {/search dada}
-╰────────────────◆`
-        };
-
-        await client.sendMessage(chatId, { text: "*𝘋𝘰𝘸𝘯𝘭𝘰𝘢𝘥𝘪𝘯𝘨...*" }, { quoted: ms });
-let downloadedLength = 0;
-        await client.sendMessage(chatId, messageData, { quoted: ms });
-        await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
-        repondre(`* ${jsonResponse.result.title}*\n\n*Downloaded successfully. Keep using alpha bot*`);
-      } else {
-        repondre("Failed to download audio. Please try again later.");
-      }
-    } else {
-      repondre("No audio found.");
-    }
-  } catch (error) {
-    console.error("Error from API:", error);
-    repondre("An error occurred while searching or downloading the audio.");
+    console.error('Error from API:', error);
+    repondre('An error occurred while searching or downloading the video.');
   }
 });
