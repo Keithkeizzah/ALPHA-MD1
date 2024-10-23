@@ -72,7 +72,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (message, reply, config) =
 ┃✵│▸ *ᴅᴀᴛᴇ:* ${formattedDate}
 ┃✵│▸ *ᴍᴏᴅᴇ:* ${mode}
 ┃✵│▸ *ᴛɪᴍᴇ ᴢᴏɴᴇ:* Africa/Nairobi
-┃✵│▸ *ᴛᴏᴛᴀʟ ᴜsᴇʀs:* v${formattedTotalUsers}
+┃✵│▸ *ᴛᴏᴛᴀʟ ᴜsᴇʀs:* ${formattedTotalUsers}0 people are using Alpha bot
 ┃✵│▸ *ʀᴀᴍ:* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
 ┃✵│▸ *ᴜᴘᴛɪᴍᴇ:* ${formatUptime(process.uptime())}
 ┃✵╰──────────────
