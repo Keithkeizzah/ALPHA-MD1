@@ -74,15 +74,16 @@ zokou({ nomCom: "sing", categorie: "General" }, async (message, reply, config) =
 
 ╭━━━ 〔 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 〕━━━┈⊷
 ┃✵╭──────────────
-┃✵│▸ *Owner:* ${settings.OWNER_NAME}
-┃✵│▸ *Prefix:* *[ ${settings.PREFIXE} ]*
-┃✵│▸ *Time:* ${formattedTime}
-┃✵│▸ *Date:* ${formattedDate}
-┃✵│▸ *Mode:* ${mode}
-┃✵│▸ *Time Zone:* Africa/Nairobi
-┃✵│▸ *Total Users:* ${formattedTotalUsers}
-┃✵│▸ *RAM:* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
-┃✵│▸ *Uptime:* ${formatUptime(process.uptime())}
+┃✵│▸ *ʙᴏᴛ ᴏᴡɴᴇʀ:* ${settings.OWNER_NAME}
+┃✵│▸ *ᴘʀᴇғɪx:* *[ ${settings.PREFIXE} ]*
+┃✵│▸ *ᴛɪᴍᴇ:* ${formattedTime}
+┃✵│▸ *ᴅᴀᴛᴇ:* ${formattedDate}
+┃✵│▸ *ᴍᴏᴅᴇ:* ${mode}
+┃✵│▸ *ᴘʟᴜɢɪɴs* : ${cm.length} 
+┃✵│▸ *ᴛɪᴍᴇ ᴢᴏɴᴇ:* Africa/Nairobi
+┃✵│▸ *ᴛᴏᴛᴀʟ ᴜsᴇʀs:* ${formattedTotalUsers}
+┃✵│▸ *ʀᴀᴍ:* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
+┃✵│▸ *ᴜᴘᴛɪᴍᴇ:* ${formatUptime(process.uptime())}
 ┃✵╰──────────────
 ╰━━━━━━━━━━━━━━━┈⊷
 
@@ -95,12 +96,12 @@ zokou({ nomCom: "sing", categorie: "General" }, async (message, reply, config) =
     let commandIndex = 1;
 
     for (const category of sortedCategories) {
-        commandsList += `\n*╭──────「 ${category.toUpperCase()} 」─────┈⊷*\n││◦➛╭────────────`;
+        commandsList += `\n*╭──────「 ${category.toUpperCase()} 」─────┈⊷*\n│◦➛╭────────────`;
         const sortedCommands = categorizedCommands[category].sort();
         for (const command of sortedCommands) {
-            commandsList += `\n││◦➛ ${commandIndex++}. ${command}`;
+            commandsList += `\n│◦➛ ${commandIndex++}. ${command}`;
         }
-        commandsList += "\n││◦➛╰───────────\n╰─────────────┈⊷\n";
+        commandsList += "\n│◦➛╰───────────\n╰─────────────┈⊷\n";
     }
 
     commandsList += readMore + "\nin honor of Alpha\n";
