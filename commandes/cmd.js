@@ -79,9 +79,8 @@ zokou({ nomCom: "sing", categorie: "General" }, async (message, reply, config) =
 ┃✵│▸ *ᴛɪᴍᴇ:* ${formattedTime}
 ┃✵│▸ *ᴅᴀᴛᴇ:* ${formattedDate}
 ┃✵│▸ *ᴍᴏᴅᴇ:* ${mode}
-┃✵│▸ *ᴘʟᴜɢɪɴs* : ${cm.length} 
 ┃✵│▸ *ᴛɪᴍᴇ ᴢᴏɴᴇ:* Africa/Nairobi
-┃✵│▸ *ᴛᴏᴛᴀʟ ᴜsᴇʀs:* ${formattedTotalUsers}
+┃✵│▸ *ᴛᴏᴛᴀʟ ᴜsᴇʀs:* v${formattedTotalUsers}
 ┃✵│▸ *ʀᴀᴍ:* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
 ┃✵│▸ *ᴜᴘᴛɪᴍᴇ:* ${formatUptime(process.uptime())}
 ┃✵╰──────────────
