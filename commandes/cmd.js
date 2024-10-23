@@ -95,10 +95,10 @@ zokou({ nomCom: "sing", categorie: "General" }, async (message, reply, config) =
     let commandIndex = 1;
 
     for (const category of sortedCategories) {
-        commandsList += `\n* ╭──────「 ${category.toUpperCase()} 」─────┈⊷*\n││◦➛╭────────────`;
+        commandsList += `\n*╭──────「 ${category.toUpperCase()} 」─────┈⊷*\n││◦➛╭────────────`;
         const sortedCommands = categorizedCommands[category].sort();
         for (const command of sortedCommands) {
-            commandsList += `\n│ ${commandIndex++}. ${command}`;
+            commandsList += `\n││◦➛ ${commandIndex++}. ${command}`;
         }
         commandsList += "\n││◦➛╰───────────\n╰─────────────┈⊷\n";
     }
@@ -125,3 +125,4 @@ zokou({ nomCom: "sing", categorie: "General" }, async (message, reply, config) =
         respond("🥵🥵 Menu error: " + error);
     }
 });
+
