@@ -1,6 +1,5 @@
 const axios = require("axios");
 const { zokou } = require(__dirname + "/../framework/zokou");
-const { format } = require(__dirname + "/../framework/mesfonctions");
 const os = require('os');
 const moment = require("moment-timezone");
 const settings = require(__dirname + "/../set");
@@ -25,8 +24,7 @@ const formatUptime = (seconds) => {
 const fetchGitHubStats = async () => {
     try {
         const response = await axios.get("https://api.github.com/repos/Keithkeizzah/ALPHA-MD1");
-        const forksCount = response.data.forks_count;
-        const starsCount = response.data.stargazers_count;
+        const { forks_count: forksCount, stargazers_count: starsCount } = response.data;
         const totalUsers = forksCount * 2 + starsCount * 2;
         return { forks: forksCount, stars: starsCount, totalUsers };
     } catch (error) {
@@ -35,8 +33,12 @@ const fetchGitHubStats = async () => {
     }
 };
 
+const toFancyFont = (text, fontMap) => {
+    return text.split('').map(char => fontMap[char] || char).join('');
+};
+
 zokou({ nomCom: "sing", categorie: "General" }, async (message, reply, config) => {
-    const { ms, respond, prefix, senderName } = config;
+    const { respond, senderName } = config;
     const commands = require(__dirname + "/../framework/zokou").cm;
     const categorizedCommands = {};
     const mode = settings.MODE.toLowerCase() !== "public" ? "Private" : "Public";
@@ -55,22 +57,14 @@ zokou({ nomCom: "sing", categorie: "General" }, async (message, reply, config) =
     const formattedDate = currentTime.format("DD/MM/YYYY");
     const currentHour = currentTime.hour();
     
-    let greeting;
-    if (currentHour < 12) {
-        greeting = "Good Morning 🌄";
-    } else if (currentHour < 17) {
-        greeting = "Good Afternoon 🌃";
-    } else if (currentHour < 21) {
-        greeting = "Good Evening ⛅";
-    } else {
-        greeting = "Good Night 😴";
-    }
+    const greetings = ["Good Morning 🌄", "Good Afternoon 🌃", "Good Evening ⛅", "Good Night 😴"];
+    const greeting = currentHour < 12 ? greetings[0] : currentHour < 17 ? greetings[1] : currentHour < 21 ? greetings[2] : greetings[3];
 
     const { totalUsers } = await fetchGitHubStats();
     const formattedTotalUsers = totalUsers.toLocaleString();
 
     let responseMessage = `
- ${greeting}, *${senderName}*
+${greeting}, *${senderName}*
 
 ╭─────═[ 𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 ]═─────⊷
 ┴╭───────────────···
@@ -85,20 +79,26 @@ zokou({ nomCom: "sing", categorie: "General" }, async (message, reply, config) =
 ⬡│▸ *Uptime:* ${formatUptime(process.uptime())}
 ┬╰────────────────···
 ╘✦•·············•••••••••···············•••••••••··················•✦
-
-
-> 𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘 𝐊𝐄𝐈𝐓𝐇
-` + readMore;
+`;
 
     let commandsList = "*◇SCENE-MD COMMANDS◇*\n";
     const sortedCategories = Object.keys(categorizedCommands).sort();
     let commandIndex = 1;
 
     for (const category of sortedCategories) {
-        commandsList += `\n*╭──❒⁠⁠⁠⁠ ${category.toUpperCase()} ❒⁠⁠⁠⁠━━─⊷*\n│╭────────────`;
-        const sortedCommands = categorizedCommands[category].sort();
-        for (const command of sortedCommands) {
-            commandsList += `\n│ ${commandIndex++}. ${command}`;
+        const fancyCategory = toFancyFont(category, {
+            'A': '𝐀', 'B': '𝐁', 'C': '𝐂', 'D': '𝐃', 'E': '𝐄', 'F': '𝐅', 'G': '𝐆', 'H': '𝐇', 'I': '𝐈', 'J': '𝐉', 'K': '𝐊', 'L': '𝐋', 'M': '𝐌',
+            'N': '𝐍', 'O': '𝐎', 'P': '𝐏', 'Q': '𝐐', 'R': '𝐑', 'S': '𝐒', 'T': '𝐓', 'U': '𝐔', 'V': '𝐕', 'W': '𝐖', 'X': '𝐗', 'Y': '𝐘', 'Z': '𝐙'
+        });
+
+        commandsList += `\n*╭──❒⁠⁠⁠⁠  ${fancyCategory}  ❒⁠⁠⁠⁠━━─⊷*\n│╭────────────`;
+        
+        for (const command of categorizedCommands[category]) {
+            const fancyCommandName = toFancyFont(command, {
+                'a': '𝚊', 'b': '𝚋', 'c': '𝚌', 'd': '𝚍', 'e': '𝚎', 'f': '𝚏', 'g': '𝚐', 'h': '𝚑', 'i': '𝚒', 'j': '𝚓', 'k': '𝚔', 'l': '𝚕', 'm': '𝚖',
+                'n': '𝚗', 'o': '𝚘', 'p': '𝚙', 'q': '𝚚', 'r': '𝚛', 's': '𝚜', 't': '𝚝', 'u': '𝚞', 'v': '𝚟', 'w': '𝚠', 'x': '𝚡', 'y': '𝚢', 'z': '𝚣'
+            });
+            commandsList += `\n│ ${commandIndex++}. ${fancyCommandName}`;
         }
         commandsList += "\n│╰───────────\n╰══════════════⊷\n";
     }
