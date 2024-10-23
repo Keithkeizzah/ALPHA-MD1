@@ -75,7 +75,7 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error from API:', error);
-    repondre('An error occurred while searching or downloading the audio.');
+    repondre('An error occurred while searching or downloading the audio.' + error);
   }
 });
 
@@ -151,7 +151,7 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error from API:', error);
-    repondre('An error occurred while searching or downloading the audio.');
+    repondre('An error occurred while searching or downloading the audio.' + error);
   }
 });
 
@@ -229,7 +229,7 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error from API:', error);
-    repondre('An error occurred while searching or downloading the video.');
+    repondre('An error occurred while searching or downloading the video.' + error);
   }
 });
 
@@ -307,6 +307,6 @@ use prefix {/}  example {/search dada}
     }
   } catch (error) {
     console.error('Error from API:', error);
-    repondre('An error occurred while searching or downloading the video.');
+    repondre('An error occurred while searching or downloading the video.' + error);
   }
 });
