@@ -22,7 +22,14 @@ zokou({
     if (video && video.url) {
       const songDetails = {
         image: { url: video.thumbnail },
-        caption: `\n*Song Name:* _${video.title}_\n*Duration:* _${video.timestamp}_\n*Url:* _${video.url}_\n\n*Downloading...*`
+        caption: `*ALPHA-MD SONG PLAYER*\n
+join for more track of the song
+https://t.me/keithmd
+╭───────────────◆
+│ *Title:* ${videos.title}
+│ *Duration:* ${video.timestamp}
+│ *Yt link:* ${video.url}
+╰────────────────◆`
       };
 
       await zk.sendMessage(origineMessage, songDetails, { quoted: commandeOptions.ms });
