@@ -9,6 +9,7 @@ const baileys_1 = require("@whiskeysockets/baileys");
 const fs = require('fs-extra');
 const util = require('util');
 let { listall } = require('./stylish-font');
+
 /*_________by Djalega++
 
 fonction zJson:
@@ -32,7 +33,7 @@ module.exports.genererNomFichier = async (extension) => {
 /** ************ */
 module.exports.stick = async (buffer, author) => {
     var sticker = new Sticker(buffer, {
-        pack: 'Zokou-MD',
+        pack: 'ALPHA-MD',
         author: author,
         type: StickerTypes.FULL,
         categories: ['🤩', '🎉'],
@@ -202,18 +203,18 @@ exports.reaction = reaction;
 var fruit = {};
 exports.fruit = fruit;
 async function ajouterCommande() {
-    fs.readdirSync(__dirname + "/../commandes").forEach((fichier) => {
+    fs.readdirSync(__dirname + "/../commands").forEach((fichier) => {
         if (path.extname(fichier).toLowerCase() == ".js") {
-            require(__dirname + "/../commandes/" + fichier.split(".js")[0]);
+            require(__dirname + "/../commands/" + fichier.split(".js")[0]);
             console.log('fichier : ' + fichier);
-            //console.log("le module    "+__dirname+"/../commandes/"+fichier.split(".js")[0])
+            //console.log("le module    "+__dirname+"/../commands/"+fichier.split(".js")[0])
         }
         // console.log('fichier : '+fichier )
     });
     /*const readDir = util.promisify(fs.readdir);
     const readFile = util.promisify(fs.readFile);
     //console.log("ch " + __dirname + '../')
-    var chemin = './commandes/'
+    var chemin = './commands/'
     var nomFichier = await readDir(chemin)
   //console.log("installation des plugins ... ")
     nomFichier.forEach((fichier) => {
@@ -236,11 +237,11 @@ async function xlab() {
     const readDir = util.promisify(fs.readdir);
     const readFile = util.promisify(fs.readFile);
     //console.log("ch " + __dirname + '../')
-    var chemin = './commandes/';
+    var chemin = './commands/';
     var nomFichier = await readDir(chemin);
     nomFichier.forEach((fichier) => {
         if (fichier.endsWith(".js")) {
-            var { commande } = require(__dirname + '/../commandes/' + fichier.split(".js")[0]);
+            var { commande } = require(__dirname + '/../commands/' + fichier.split(".js")[0]);
             var infos;
             if (commande) {
                 infos = commande();
@@ -273,3 +274,21 @@ function police(text, index) {
     return listall(text)[index];
 }
 exports.police = police;
+
+exports.generatepp = async (buffer) => {
+    const jimp = require('jimp');
+
+    const image = await jimp.read(buffer);
+    const min = image.getWidth();
+    const max = image.getHeight();
+    const cropped = image.clone().crop(0, 0, min, max);
+
+    const imgBuffer = await cropped.clone().scaleToFit(720, 720).getBufferAsync(jimp.MIME_JPEG);
+    const previewBuffer = await cropped.clone().normalize().getBufferAsync(jimp.MIME_JPEG);
+
+    return {
+        img: imgBuffer,
+        preview: previewBuffer
+    };
+}
+
