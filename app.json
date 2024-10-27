@@ -1,14 +1,14 @@
 {
   "name": "ALPHA-MD",
-  "description": "This BOT was developed by Beltah.",
+  "description": "This BOT was developed by keithkeizzah.",
   "keywords": [
     "bot",
     "node",
     "baileys",
     "whatsapp"
   ],
-  "logo": "https://telegra.ph/file/b148f6ed21fa02ac5325b.jpg",
-  "repository": "https://github.com/Keithkeizzah/private",
+  "logo": "https://telegra.ph/file/967c663a5978c545f78d6.jpg",
+  "repository": "https://github.com/Keithkeizzah/ALPHA-MD1",
   "succes_url": "/",
   "stack": "container",
   "env": {
