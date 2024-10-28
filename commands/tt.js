@@ -10,11 +10,11 @@ zokou({
   const reference = arg.join(" ");
   
   if (!reference) {
-    return respond("Please provide a channel link to stalk.");
+    return repondre("Please provide a channel link to stalk.");
   }
   
   if (!reference.includes('whatsapp.com/channel')) {
-    return respond("Doesn't look like a WhatsApp channel link, huh?");
+    return repondre("Doesn't look like a WhatsApp channel link, huh?");
   }
   
   try {
