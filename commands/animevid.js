@@ -3,8 +3,8 @@ const axios = require("axios");
 
 zokou({
   nomCom: "animevid",
-  reaction: "🙌",
-  categorie: "Anime-Video"
+  reaction: "🌟",
+  categorie: "Cool-Videos"
 }, async (chatId, message, context) => {
   const {
     repondre: reply,
@@ -13,28 +13,25 @@ zokou({
   } = context;
 
   try {
-    // Fetch random anime video data from the API
+    
     const response = await axios.get("https://widipe.com/download/storyanime");
     const data = response.data;
 
-    // Log the response to verify its structure
-    console.log("API response data:", data);
+ 
+    await reply("A moment...");
 
-    // Notify user that download is in progress
-    await reply("A moment, *ALPHA-MD* is Downloading that...");
-
-    // Extract the video URL; update the path if it's different in the response
-    const videoUrl = data?.video_url || data?.data?.no_wm || data?.data?.url || null;
-
+    
+    const videoUrl = data?.data?.no_wm;
+    
     if (!videoUrl) {
-      // Handle missing video URL gracefully
-      return reply("No video found. Please try again later.");
+     
+      return reply("No video found. Please try again later." + error);
     }
 
-    // Send the downloaded video with a caption
+  
     await message.sendMessage(chatId, {
       video: { url: videoUrl },
-      caption: "VIDEO DOWNLOADED BY *ALPHA-MD*",
+      caption: "powered by *ALPHA-MD*",
       gifPlayback: false
     }, { quoted: quotedMessage });
   } catch (error) {
