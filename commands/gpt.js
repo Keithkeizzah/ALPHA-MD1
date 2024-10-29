@@ -11,17 +11,18 @@ zokou({
   try {
     // Check if there are any arguments (user question)
     if (!args || args.length === 0) {
-      return respond("Please ask a question Keith will answer it.");
+      return respond("Please ask a question, and Keith will answer it.");
     }
 
     // Join all arguments into a single question string
     const question = args.join(" ");
-    // Send GET request to the API with the question and API key
-    const response = await axios.get(`https://widipe.com/v2/gpt4?text=`);
+    
+    // Send GET request to the API with the question
+    const response = await axios.get(`https://widipe.com/v2/gpt4?text=${encodeURIComponent(question)}`);
     const data = response.data;
 
     // Check if there is a result and respond
-    if (data) {
+    if (data && data.result) {
       respond(data.result);
     } else {
       respond("Error during response generation.");
