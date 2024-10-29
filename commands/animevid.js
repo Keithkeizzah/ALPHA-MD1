@@ -13,16 +13,22 @@ zokou({
   } = context;
 
   try {
-   
-    const response = await fetch("https://widipe.com/download/storyanime");
-    const data = await response.json();
+    // Fetch random anime video data from the API
+    const response = await axios.get("https://widipe.com/download/storyanime");
+    const data = response.data;
 
- await reply("A moment, *ALPHA-MD* is Downloading that...");
+    // Notify user that download is in progress
+    await reply("A moment, *ALPHA-MD* is Downloading that...");
 
+    // Extract video URL (without watermark)
+    const videoUrl = data?.data?.no_wm;
+    
+    if (!videoUrl) {
+      // Handle missing video URL gracefully
+      return reply("No video found. Please try again later.");
+    }
 
-    const videoUrl = data.data.no_wm;
-
-   
+    // Send the downloaded video with a caption
     await message.sendMessage(chatId, {
       video: { url: videoUrl },
       caption: "VIDEO DOWNLOADED BY *ALPHA-MD*",
@@ -30,6 +36,6 @@ zokou({
     }, { quoted: quotedMessage });
   } catch (error) {
     console.error("Error downloading video:", error);
-    reply("There was an error .");
+    reply("There was an error downloading the video.");
   }
 });
