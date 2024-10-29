@@ -4,7 +4,7 @@ const axios = require("axios");
 zokou({
   nomCom: "animevid",
   reaction: "🙌",
-  categorie: "Cool-Videos"
+  categorie: "Anime-Video"
 }, async (chatId, message, context) => {
   const {
     repondre: reply,
@@ -17,12 +17,15 @@ zokou({
     const response = await axios.get("https://widipe.com/download/storyanime");
     const data = response.data;
 
+    // Log the response to verify its structure
+    console.log("API response data:", data);
+
     // Notify user that download is in progress
     await reply("A moment, *ALPHA-MD* is Downloading that...");
 
-    // Extract video URL (without watermark)
-    const videoUrl = data?.data?.no_wm;
-    
+    // Extract the video URL; update the path if it's different in the response
+    const videoUrl = data?.video_url || data?.data?.no_wm || data?.data?.url || null;
+
     if (!videoUrl) {
       // Handle missing video URL gracefully
       return reply("No video found. Please try again later.");
