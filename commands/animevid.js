@@ -3,39 +3,29 @@ const axios = require("axios");
 
 zokou({
   nomCom: "animevid",
-  reaction: "🌟",
-  categorie: "Cool-Videos"
-}, async (chatId, message, context) => {
-  const {
-    repondre: reply,
-    arg: args,
-    ms: quotedMessage
-  } = context;
+  categorie: "Fun",
+  reaction: "🎥"
+},
+async (origineMessage, zk, commandeOptions) => {
+  const { repondre, ms } = commandeOptions;
+
+  const jsonURL = "https://widipe.com/download/storyanime";
 
   try {
-    
-    const response = await axios.get("https://widipe.com/download/storyanime");
+    const response = await axios.get(jsonURL);
     const data = response.data;
 
- 
-    await reply("A moment...");
+    if (data.status && data.result) {
+      const videoUrl = data.result.url;
+      const caption = "*POWERED BY ALPHA-MD*";
 
-    
-    const videoUrl = data?.data?.no_wm;
-    
-    if (!videoUrl) {
-     
-      return reply("No video found. Please try again later." + error);
+      
+      await zk.sendMessage(origineMessage, { video: { url: videoUrl }, caption }, { quoted: ms });
+    } else {
+      repondre("No video found. Please try again later.");
     }
-
-  
-    await message.sendMessage(chatId, {
-      video: { url: videoUrl },
-      caption: "powered by *ALPHA-MD*",
-      gifPlayback: false
-    }, { quoted: quotedMessage });
   } catch (error) {
-    console.error("Error downloading video:", error);
-    reply("There was an error downloading the video.");
+    console.error('Error retrieving data from JSON:', error);
+    repondre('Error retrieving data from JSON.');
   }
 });
