@@ -1,6 +1,8 @@
 const { zokou } = require("../framework/zokou");
 const yts = require("yt-search");
+const fetch = require("node-fetch");
 
+// Audio Downloader Command
 zokou({
   nomCom: "testing",
   categorie: "Download",
@@ -27,21 +29,17 @@ zokou({
 
         const messageData = {
           image: { url: audioResults.videos[0].thumbnail },
-          caption: `*ALPHA SONG PLAYER*\njoin for more track of the song
-https://t.me/keithmd
+          caption: `*ALPHA SONG PLAYER*\n
 ╭───────────────◆
 │ *Duration:* ${audioResults.videos[0].timestamp}
 │ *Artist:* ${audioResults.videos[0].author.name}
 ╰────────────────◆`
         };
 
-        await client.sendMessage(chatId, { text: "*Downloading wait*" }, { quoted: ms });
-let downloadedLength = 0;
+        await client.sendMessage(chatId, { text: "*Downloading, please wait...*" }, { quoted: ms });
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
-
-         await client.sendMessage(chatId, { document: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
-        repondre(` * ${jsonResponse.result.title}*\n\n*Downloaded successfully. Keep using Alpha md*`);
+        repondre(`*${jsonResponse.result.title}*\n\nDownloaded successfully! Keep using Alpha md.`);
       } else {
         repondre("Failed to download audio. Please try again later.");
       }
@@ -54,6 +52,7 @@ let downloadedLength = 0;
   }
 });
 
+// Video Downloader Command
 zokou({
   nomCom: "vid",
   categorie: "Search",
@@ -72,7 +71,7 @@ zokou({
 
     if (videoResults && videoResults.videos.length > 0) {
       const videoUrl = videoResults.videos[0].url;
-      const response = await fetch(`https://api.ibrahimadams.us.kg/api/download/ytmp4?url=${encodeURIComponent(audioUrl)}&apikey=cracker`);
+      const response = await fetch(`https://api.ibrahimadams.us.kg/api/download/ytmp4?url=${encodeURIComponent(videoUrl)}&apikey=cracker`);
       const jsonResponse = await response.json();
 
       if (jsonResponse.status === 200 && jsonResponse.success) {
@@ -87,24 +86,18 @@ zokou({
 ╰────────────────◆`
         };
 
-        await client.sendMessage(chatId, { text: "*𝘿𝙤 𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜  𝙬𝙖𝙞𝙩*" }, { quoted: ms });
-let downloadedLength = 0;
+        await client.sendMessage(chatId, { text: "*Downloading, please wait...*" }, { quoted: ms });
         await client.sendMessage(chatId, messageData, { quoted: ms });
         await client.sendMessage(chatId, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: ms });
-
-        await client.sendMessage(chatId, { document: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: ms }); 
-        repondre(` * ${jsonResponse.result.title}*\n\n*Downloaded successfully. Keep using Alpha md*`);
+        repondre(`*${jsonResponse.result.title}*\n\nDownloaded successfully! Keep using Alpha md.`);
       } else {
-        repondre("Failed to download audio. Please try again later.");
+        repondre("Failed to download video. Please try again later.");
       }
     } else {
-      repondre("No audio found.");
+      repondre("No video found.");
     }
   } catch (error) {
     console.error("Error from API:", error);
-    repondre("Wait Alpha is getting your file");
+    repondre("An error occurred while searching or downloading the video.");
   }
 });
-
-
-
