@@ -1,7 +1,9 @@
 const { zokou } = require("../framework/zokou");
 const yts = require('yt-search');
+const fetch = require("node-fetch");
+
 const BaseUrl = 'https://api.yanzbotz.live';
-const apikey = 'PrincelovesYanz';
+const apiKey = 'PrincelovesYanz';
 
 zokou({
   nomCom: "testing",
@@ -16,50 +18,51 @@ zokou({
   }
 
   try {
-    let topo = arg.join(" ");
-    let videos = [];
+    const songQuery = arg.join(" ");
 
     // Perform YouTube search
-    const search = await yts(topo);
-    videos = search.videos;
+    const searchResults = await yts(songQuery);
+    const videos = searchResults.videos;
 
     if (videos && videos.length > 0) {
-      const videoUrl = videos[0].url;
+      const video = videos[0];
+      const videoUrl = video.url;
 
-      // Call the API endpoint with the video URL to fetch audio download URL
-      const apiResponse = await fetch(`${BaseUrl}/api/downloader/youtube?url=${encodeURIComponent(videoUrl)}&apikey=${apikey}`);
+      // Call API to fetch audio download URL
+      const apiResponse = await fetch(`${BaseUrl}/api/downloader/youtube?url=${encodeURIComponent(videoUrl)}&apikey=${apiKey}`);
       const apiResult = await apiResponse.json();
 
       if (apiResult.status === 200 && apiResult.success) {
-        const audioDlUrl = apiResult.result.download_url;
-        
+        const audioDownloadUrl = apiResult.result.download_url;
+
         // Prepare the message with song details
-        const infoMess = {
-          image: { url: videos[0].thumbnail },
+        const songDetails = {
+          image: { url: video.thumbnail },
           caption: `*ALPHA-MD SONG PLAYER*\n
 ╭───────────────◆
-│ *Title:* ${videos[0].title}
-│ *Duration:* ${videos[0].timestamp}
-│ *Artist:* ${videos[0].author.name}
+│ *Title:* ${video.title}
+│ *Duration:* ${video.timestamp}
+│ *Artist:* ${video.author.name}
 │ *YtLink:* ${videoUrl}
 ╰────────────────◆
 `
         };
 
         // Send song details
-        await zk.sendMessage(dest, infoMess, { quoted: ms });
+        await zk.sendMessage(dest, songDetails, { quoted: ms });
 
-        // Send the audio as a Buffer instead of URL
+        // Send the audio as both audio and document format
         await zk.sendMessage(dest, {
-          audio: { url: audioDlUrl },
+          audio: { url: audioDownloadUrl },
           mimetype: 'audio/mp4'
         }, { quoted: ms });
+        
         await zk.sendMessage(dest, {
-          document: { url: audioDlUrl },
+          document: { url: audioDownloadUrl },
           mimetype: 'audio/mp4'
         }, { quoted: ms });
-     
-       repondre('*Alpha md has just downloaded your song*...');
+
+        repondre('*Alpha MD has just downloaded your song!*');
       } else {
         repondre('Failed to download audio. Please try again later.');
       }
@@ -68,6 +71,6 @@ zokou({
     }
   } catch (error) {
     console.error('Error from API:', error);
-    repondre('An error occurred while searching or downloading the audio.' + error);
+    repondre('An error occurred while searching or downloading the audio. ' + error.message);
   }
 });
