@@ -1,6 +1,6 @@
 const { zokou } = require("../framework/zokou");
 const yts = require('yt-search');
-const axios = require("axios");
+const node = require('node-fetch');
 
 const BaseUrl = 'https://api.yanzbotz.live';
 const apiKey = 'PrincelovesYanz';
