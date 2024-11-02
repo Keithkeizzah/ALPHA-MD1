@@ -16,7 +16,7 @@ zokou({
   nomCom: 'anticall',
   categorie: "HEROKU"
 }, async (chatId, zk, context) => {
-  const { ms, repondre, superUser, auteurMessage, text } = context;
+  const { ms, repondre, superUser, auteurMessage, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
@@ -25,21 +25,24 @@ zokou({
 
   // Prepare the response based on user input
   let responseMessage;
-  if (text === 'on') {
+  if (!arg[0]) { repondre('Instructions:\n\nType anticall yes or no'); return; }
+const option = arg.join(' ')
+switch (option) {
+   case "yes" :
     s.ANTICALL = 'yes';  // Enable Anti-Call
-    responseMessage = "Anti-Call has been enabled.";
-  } else if (text === 'off') {
-    s.ANTICALL = 'no';  // Disable Anti-Call
-    responseMessage = "Anti-Call has been disabled.";
-  } else {
-    responseMessage = "Usage:\n- `anticall on`: Enable Anti-Call\n- `anticall off`: Disable Anti-Call";
-  }
+    repondre ('anticall has been enabled')
+    break;
 
+ case "no":
+    s.ANTICALL = 'no';  // Disable Anti-Call
+    repondre ('anticall has been enabled')
+    break;
+default: repondre(please don't invent an option)
   // Send response message
   try {
-    await zk.sendMessage(chatId, { text: responseMessage }, { quoted: ms });
+    await zk.sendMessage(chatId, { arg: repondre }, { quoted: ms });
   } catch (error) {
     console.error("Error processing your request:", error);
-    await zk.sendMessage(chatId, { text: 'Error processing your request.' }, { quoted: ms });
+    await zk.sendMessage(chatId, { arg: 'Error processing your request.' }, { quoted: ms });
   }
 });
