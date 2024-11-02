@@ -1,16 +1,12 @@
 const { zokou } = require("../framework/zokou");
-const yts = require('yt-search');
-const node = require('node-fetch');
-
-const BaseUrl = 'https://api.yanzbotz.live';
-const apiKey = 'PrincelovesYanz';
+const yts = require("yt-search");
 
 zokou({
   nomCom: "testing",
   categorie: "Download",
-  reaction: "💿"
-}, async (dest, zk, commandeOptions) => {
-  const { ms, repondre, arg } = commandeOptions;
+  reaction: '🦄'
+}, async (chatId, client, messageData) => {
+  const { ms, repondre, arg } = messageData;
 
   if (!arg[0]) {
     repondre("Please insert a song name.");
@@ -18,59 +14,49 @@ zokou({
   }
 
   try {
-    const songQuery = arg.join(" ");
+    const searchQuery = arg.join(" ");
+    const audioResults = await yts(searchQuery);
 
-    // Perform YouTube search
-    const searchResults = await yts(songQuery);
-    const videos = searchResults.videos;
+    if (audioResults && audioResults.videos.length > 0) {
+      const audioUrl = audioResults.videos[0].url;
+      const response = await fetch(`https://api.ibrahimadams.us.kg/api/download/ytmp3?url=${encodeURIComponent(audioUrl)}&apikey=cracker`);
+      const jsonResponse = await response.json();
 
-    if (videos && videos.length > 0) {
-      const video = videos[0];
-      const videoUrl = video.url;
+      if (jsonResponse.status === 200 && jsonResponse.success) {
+        const downloadUrl = jsonResponse.result.download_url;
 
-      // Call API to fetch audio download URL
-      const apiResponse = await fetch(`${BaseUrl}/api/downloader/youtube?url=${encodeURIComponent(videoUrl)}&apikey=${apiKey}`);
-      const apiResult = await apiResponse.json();
-
-      if (apiResult.status === 200 && apiResult.success) {
-        const audioDownloadUrl = apiResult.result.download_url;
-
-        // Prepare the message with song details
-        const songDetails = {
-          image: { url: video.thumbnail },
-          caption: `*ALPHA-MD SONG PLAYER*\n
+        const messageData = {
+          image: { url: audioResults.videos[0].thumbnail },
+          caption: `*ALPHA SONG PLAYER*\n
 ╭───────────────◆
-│ *Title:* ${video.title}
-│ *Duration:* ${video.timestamp}
-│ *Artist:* ${video.author.name}
-│ *YtLink:* ${videoUrl}
+│ *Title:* ${jsonResponse.result.title}
+│ *Duration:* ${audioResults.videos[0].timestamp}
+│ *Viewers:* ${audioResults.videos[0].views}
+│ *Uploaded:* ${audioResults.videos[0].ago}
+│ *Artist:* ${audioResults.videos[0].author.name}
 ╰────────────────◆
-`
+╭────────────────◆
+You can also join here to get your song download in more tracks 🤗😋 
+https://t.me/keithmd 
+Use prefix {/} example {/search dada}
+╰────────────────◆`
         };
 
-        // Send song details
-        await zk.sendMessage(dest, songDetails, { quoted: ms });
-
-        // Send the audio as both audio and document format
-        await zk.sendMessage(dest, {
-          audio: { url: audioDownloadUrl },
-          mimetype: 'audio/mp4'
-        }, { quoted: ms });
-        
-        await zk.sendMessage(dest, {
-          document: { url: audioDownloadUrl },
-          mimetype: 'audio/mp4'
-        }, { quoted: ms });
-
-        repondre('*Alpha MD has just downloaded your song!*');
+        await client.sendMessage(chatId, { text: "*Downloading wait*" }, { quoted: ms });
+let downloadedLength = 0;
+        await client.sendMessage(chatId, messageData, { quoted: ms });
+        await client.sendMessage(chatId, { audio: { url: downloadUrl }, mimetype: "audio/mp4" }, { quoted: ms });
+        repondre(`* ${jsonResponse.result.title}*\n\n*Downloaded successfully. Keep using Alpha md*`);
       } else {
-        repondre('Failed to download audio. Please try again later.');
+        repondre("Failed to download audio. Please try again later.");
       }
     } else {
-      repondre('No audio found.');
+      repondre("No audio found.");
     }
   } catch (error) {
-    console.error('Error from API:', error);
-    repondre('An error occurred while searching or downloading the audio. ' + error.message);
+    console.error("Error from API:", error);
+    repondre("An error occurred while searching or downloading the audio.");
   }
 });
+
+
