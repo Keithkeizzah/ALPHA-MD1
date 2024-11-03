@@ -12,15 +12,10 @@ zokou(
     const { ms, msgRepondu, repondre, text: instruction, mime } = commandeOptions;
 
     try {
+      
       // Check if the message is a reply with an attached image
       if (!msgRepondu) {
         return repondre("Send the image, then tag it with the instruction.");
-      }
-
-      // Use instruction directly or get text from the quoted message if not provided
-      const finalInstruction = instruction || (msgRepondu.text || "").trim();
-      if (!finalInstruction) {
-        return repondre("Provide some instruction. This vision AI is powered by gemini-pro-vision.");
       }
 
       // Check if the quoted message contains an image
@@ -55,7 +50,7 @@ zokou(
 
       // Prepare content data for the model
       const imageData = [await getImageData(imgurLink, "image/jpeg")];
-      const contentRequest = [finalInstruction, ...imageData];
+      const contentRequest = [imageData];
 
       // Generate content using the model
       const generatedContent = await model.generateContent(contentRequest);
