@@ -1,4 +1,4 @@
-const { france } = require("../framework/zokou");
+const { zokou } = require("../framework/zokou");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const axios = require("axios");
 
