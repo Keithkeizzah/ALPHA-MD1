@@ -1,89 +1,95 @@
-const { zokou } = require("../framework/zokou");
-const { default: axios } = require("axios");
+const {
+  zokou
+} = require("../framework/zokou");
+const {
+  default: axios
+} = require("axios");
 const pkg = require("@whiskeysockets/baileys");
-const { generateWAMessageFromContent, proto } = pkg;
+const {
+  generateWAMessageFromContent,
+  proto
+} = pkg;
 
 zokou({
-  'nomCom': "bk9",
-  'reaction': '🚀',
-  'categorie': 'User'
-}, async (sender, _replyFunction, context) => {
-  const { repondre, arg, ms } = context;
+  nomCom: "testing",
+  categorie: "AI"
+}, async (sender, replyFunction, context) => {
+  const {
+    ms: messageContext,
+    repondre: respond,
+    arg: args
+  } = context;
+
+  // Check if an argument was provided
+  if (!args[0]) {
+    respond("Please provide a query for Bard. Example: `bard What is the capital of France?`");
+    return;
+  }
 
   try {
-    // Check if an argument was provided
-    if (!arg || arg.length === 0) {
-      return repondre("Please provide a query to generate.");
-    }
-
-    await repondre("`Wait a moment, Alpha is generating your query!`");
+    // Send initial response message
+    await replyFunction.sendMessage(sender, {
+      text: "Interacting with Bard... Please wait a moment."
+    }, { quoted: messageContext });
 
     // Prepare the API request
-    const prompt = encodeURIComponent(arg.join(" "));
-    const apiUrl = `https://bk9.fun/ai/gemini?q=${prompt}`;
-    
-    const response = await axios.get(apiUrl);
-    const data = response.data;
+    const username = context.nomAuteurMessage || "defaultUser";
+    const query = args.join(" ");
+    const apiUrl = `https://api.guruapi.tech/ai/gpt3?username=${username}&query=${encodeURIComponent(query)}`;
 
-    if (data && data.code) {
-      const generatedCode = data.code;
-      const message = `*Powered By Keith*`;
+    // Fetch the response from the API
+    const response = await fetch(apiUrl);
+    const responseData = await response.json();
 
-      // Define buttons for interactive message
-      const buttons = [
-        {
-          'name': "cta_copy",
-          'buttonParamsJson': JSON.stringify({
-            'display_text': "↪ Copy the generated item",
-            'id': 'copy_code',
-            'copy_code': generatedCode
-          })
-        },
-        {
-          'name': "cta_url",
-          'buttonParamsJson': JSON.stringify({
-            'display_text': "FOLLOW OUR SUPPORT CHANNEL",
-            'url': 'https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47'
-          })
-        }
-      ];
-
-      // Create the interactive message
-      const interactiveMessage = proto.Message.InteractiveMessage.create({
-        'body': proto.Message.InteractiveMessage.Body.create({
-          'text': message
-        }),
-        'footer': proto.Message.InteractiveMessage.Footer.create({
-          'text': "> *Regards keithkeizzah*"
-        }),
-        'header': proto.Message.InteractiveMessage.Header.create({
-          'title': '',
-          'subtitle': '',
-          'hasMediaAttachment': false
-        }),
-        'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.create({
-          'buttons': buttons
-        })
-      });
-
-      // Generate and send the message content
-      const messageContent = generateWAMessageFromContent(sender, {
-        'viewOnceMessage': {
-          'message': {
-            'interactiveMessage': interactiveMessage
-          }
-        }
-      }, {});
-
-      // Relay the message
-      await _replyFunction.relayMessage(sender, messageContent.message, {
-        'messageId': messageContent.key.id
-      });
-    } else {
-      throw new Error("Invalid response from API.");
+    if (!responseData.msg) {
+      respond("No response received from Bard. Please try again later.");
+      return;
     }
+
+    const botResponse = responseData.msg;
+
+    // Define interactive button for support channel link
+    const buttons = [{
+      name: "cta_url",
+      buttonParamsJson: JSON.stringify({
+        display_text: "FOLLOW OUR SUPPORT CHANNEL",
+        url: "https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47"
+      })
+    }];
+
+    // Create an interactive message structure
+    const interactiveMessage = proto.Message.InteractiveMessage.create({
+      body: proto.Message.InteractiveMessage.Body.create({
+        text: botResponse
+      }),
+      footer: proto.Message.InteractiveMessage.Footer.create({
+        text: "> *POWERED BY ALPHA-MD*"
+      }),
+      header: proto.Message.InteractiveMessage.Header.create({
+        title: '',
+        subtitle: '',
+        hasMediaAttachment: false
+      }),
+      nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+        buttons: buttons
+      })
+    });
+
+    // Generate and send the message content
+    const messageContent = generateWAMessageFromContent(sender, {
+      viewOnceMessage: {
+        message: {
+          interactiveMessage: interactiveMessage
+        }
+      }
+    }, {});
+
+    // Relay the message
+    await replyFunction.relayMessage(sender, messageContent.message, {
+      messageId: messageContent.key.id
+    });
+
   } catch (error) {
-    console.error("Error getting API response:", error.message);
-    repondre("Error getting response from API.");
+    respond("A fatal error has occurred...\n " + error.message);
   }
 });
