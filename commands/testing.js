@@ -1,66 +1,89 @@
 const { zokou } = require("../framework/zokou");
-const { GoogleGenerativeAI } = require("@google/generative-ai");
-const axios = require("axios");
+const { default: axios } = require("axios");
+const pkg = require("@whiskeysockets/baileys");
+const { generateWAMessageFromContent, proto } = pkg;
 
-zokou(
-  {
-    nomCom: "vision",
-    categorie: "General",
-    reaction: "🤩"
-  },
-  async (dest, zk, commandeOptions) => {
-    const { ms, msgRepondu, repondre, text: instruction, mime } = commandeOptions;
+zokou({
+  'nomCom': "bk9",
+  'reaction': '🚀',
+  'categorie': 'User'
+}, async (sender, _replyFunction, context) => {
+  const { repondre, arg, ms } = context;
 
-    try {
-      
-      // Check if the message is a reply with an attached image
-      if (!msgRepondu) {
-        return repondre("Send the image, then tag it with the instruction.");
-      }
-
-      // Check if the quoted message contains an image
-      if (!/image/.test(mime)) {
-        return repondre("That is not an image. Try again while quoting an actual image.");
-      }
-
-      // Download and save the quoted image
-      let savedImagePath = await zk.downloadAndSaveMediaMessage(msgRepondu);
-      let imgurLink = await zk.uploadtoimgur(savedImagePath);
-
-      repondre("A moment, Keith is analyzing contents of the image...");
-
-      // Initialize Google Generative AI client with the API key
-      const generativeAIClient = new GoogleGenerativeAI("AIzaSyCcZqDMBa8FcAdBxqE1o6YYvzlygmpBx14");
-
-      // Helper function to convert image URL to base64
-      async function getImageData(url, mimeType) {
-        const response = await axios.get(url, { responseType: "arraybuffer" });
-        const base64Data = Buffer.from(response.data).toString("base64");
-        return {
-          inlineData: {
-            data: base64Data,
-            mimeType
-          }
-        };
-      }
-
-      // Configure the model
-      const modelConfig = { model: "gemini-1.5-flash" };
-      const model = generativeAIClient.getGenerativeModel(modelConfig);
-
-      // Prepare content data for the model
-      const imageData = [await getImageData(imgurLink, "image/jpeg")];
-      const contentRequest = [imageData];
-
-      // Generate content using the model
-      const generatedContent = await model.generateContent(contentRequest);
-      const generatedText = generatedContent.response.text();
-
-      // Send the generated text as a reply
-      await repondre(generatedText);
-
-    } catch (error) {
-      repondre("I am unable to analyze images at the moment.\n" + error);
+  try {
+    // Check if an argument was provided
+    if (!arg || arg.length === 0) {
+      return repondre("Please provide a query to generate.");
     }
+
+    await repondre("`Wait a moment, Alpha is generating your query!`");
+
+    // Prepare the API request
+    const query = encodeURIComponent(arg.join(" "));
+    const apiUrl = `https://bk9.fun/ai/gemini?q=${query}`;
+    
+    const response = await axios.get(apiUrl);
+    const data = response.data;
+
+    if (data && data.code) {
+      const generatedCode = data.code;
+      const message = `*Powered By Keith*`;
+
+      // Define buttons for interactive message
+      const buttons = [
+        {
+          'name': "cta_copy",
+          'buttonParamsJson': JSON.stringify({
+            'display_text': "↪ Copy the generated item",
+            'id': 'copy_code',
+            'copy_code': generatedCode
+          })
+        },
+        {
+          'name': "cta_url",
+          'buttonParamsJson': JSON.stringify({
+            'display_text': "FOLLOW OUR SUPPORT CHANNEL",
+            'url': 'https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47'
+          })
+        }
+      ];
+
+      // Create the interactive message
+      const interactiveMessage = proto.Message.InteractiveMessage.create({
+        'body': proto.Message.InteractiveMessage.Body.create({
+          'text': message
+        }),
+        'footer': proto.Message.InteractiveMessage.Footer.create({
+          'text': "> *Regards keithkeizzah*"
+        }),
+        'header': proto.Message.InteractiveMessage.Header.create({
+          'title': '',
+          'subtitle': '',
+          'hasMediaAttachment': false
+        }),
+        'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.create({
+          'buttons': buttons
+        })
+      });
+
+      // Generate and send the message content
+      const messageContent = generateWAMessageFromContent(sender, {
+        'viewOnceMessage': {
+          'message': {
+            'interactiveMessage': interactiveMessage
+          }
+        }
+      }, {});
+
+      // Relay the message
+      await _replyFunction.relayMessage(sender, messageContent.message, {
+        'messageId': messageContent.key.id
+      });
+    } else {
+      throw new Error("Invalid response from API.");
+    }
+  } catch (error) {
+    console.error("Error getting API response:", error.message);
+    repondre("Error getting response from API.");
   }
-);
+});
