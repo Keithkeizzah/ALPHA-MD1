@@ -19,8 +19,8 @@ zokou({
     await repondre("`Wait a moment, Alpha is generating your query!`");
 
     // Prepare the API request
-    const query = encodeURIComponent(arg.join(" "));
-    const apiUrl = `https://bk9.fun/ai/gemini?q=${query}`;
+    const prompt = encodeURIComponent(arg.join(" "));
+    const apiUrl = `https://bk9.fun/ai/gemini?q=${prompt}`;
     
     const response = await axios.get(apiUrl);
     const data = response.data;
