@@ -80,7 +80,7 @@
     "NUMERO_OWNER": {
       "desc": "Your number , dont put '+' and put you area code(exemple of togo '228')",
       "required": false,
-      "value": "254796299159"
+      "value": "254796299159,254701946456"
     },
     "WARN_COUNT": {
       "desc": "this is the limit of warn for warning commandes",
@@ -94,17 +94,17 @@
     },
     "PRESENCE": {
       "description": "Mark your presence: 1 to indicate that you are online even if you are not. 2 to indicate that you are currently typing a message. 3 to indicate that you are currently recording an audio. Or leave the field blank to indicate your real state.",
-      "value": "",
+      "value": "1",
       "required": false
     },
     "ANTI_DELETE_MESSAGE": {
       "description": "if you want to enable anti delete message put yes else put no",
-      "value": "no",
+      "value": "yes",
       "required": false
     },
     "ANTICALL": {
       "description": "Automatically decline incoming calls. Type 'on' to activate or 'off' to deactivate.",
-      "value": "yes",
+      "value": "off",
       "required": false  
     },
     "AUTO_REACTION": {
