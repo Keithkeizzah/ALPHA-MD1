@@ -1,1 +1,1070 @@
-const _0x43b07e=(function(){let _0x2d773f=!![];return function(_0x4ef32e,_0x20c138){const _0x436949=_0x2d773f?function(){if(_0x20c138){const _0xb21867=_0x20c138['apply'](_0x4ef32e,arguments);return _0x20c138=null,_0xb21867;}}:function(){};return _0x2d773f=![],_0x436949;};}()),_0x3a0151=_0x43b07e(this,function(){return _0x3a0151['toString']()['search']('(((.+)+)+)+$')['toString']()['constructor'](_0x3a0151)['search']('(((.+)+)+)+$');});_0x3a0151();const _0x191d73=(function(){let _0x310857=!![];return function(_0x31a147,_0x46d34d){const _0x119552=_0x310857?function(){if(_0x46d34d){const _0x5c4592=_0x46d34d['apply'](_0x31a147,arguments);return _0x46d34d=null,_0x5c4592;}}:function(){};return _0x310857=![],_0x119552;};}()),_0x329518=_0x191d73(this,function(){const _0x2eb243=function(){let _0x52fb9d;try{_0x52fb9d=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(_0x5d13cb){_0x52fb9d=window;}return _0x52fb9d;},_0x5b8255=_0x2eb243(),_0x27efaf=_0x5b8255['console']=_0x5b8255['console']||{},_0xb45ffa=['log','warn','info','error','exception','table','trace'];for(let _0x212758=0x0;_0x212758<_0xb45ffa['length'];_0x212758++){const _0x1c6a6a=_0x191d73['constructor']['prototype']['bind'](_0x191d73),_0x2573b3=_0xb45ffa[_0x212758],_0x48e65c=_0x27efaf[_0x2573b3]||_0x1c6a6a;_0x1c6a6a['__proto__']=_0x191d73['bind'](_0x191d73),_0x1c6a6a['toString']=_0x48e65c['toString']['bind'](_0x48e65c),_0x27efaf[_0x2573b3]=_0x1c6a6a;}});_0x329518();'use strict';var __createBinding=this&&this['__createBinding']||(Object['create']?function(_0x3ad82b,_0x31e04e,_0x24108d,_0x3d67e3){if(_0x3d67e3===undefined)_0x3d67e3=_0x24108d;var _0x294ccf=Object['getOwnPropertyDescriptor'](_0x31e04e,_0x24108d);(!_0x294ccf||('get'in _0x294ccf?!_0x31e04e['__esModule']:_0x294ccf['writable']||_0x294ccf['configurable']))&&(_0x294ccf={'enumerable':!![],'get':function(){return _0x31e04e[_0x24108d];}}),Object['defineProperty'](_0x3ad82b,_0x3d67e3,_0x294ccf);}:function(_0x5d5648,_0x2fa8b9,_0x19f7ba,_0x1d22e1){if(_0x1d22e1===undefined)_0x1d22e1=_0x19f7ba;_0x5d5648[_0x1d22e1]=_0x2fa8b9[_0x19f7ba];}),__setModuleDefault=this&&this['__setModuleDefault']||(Object['create']?function(_0x4544cd,_0x76357){Object['defineProperty'](_0x4544cd,'default',{'enumerable':!![],'value':_0x76357});}:function(_0x3eac2b,_0x505301){_0x3eac2b['default']=_0x505301;}),__importStar=this&&this['__importStar']||function(_0x19b438){if(_0x19b438&&_0x19b438['__esModule'])return _0x19b438;var _0x39b182={};if(_0x19b438!=null){for(var _0xa9dbe5 in _0x19b438)if(_0xa9dbe5!=='default'&&Object['prototype']['hasOwnProperty']['call'](_0x19b438,_0xa9dbe5))__createBinding(_0x39b182,_0x19b438,_0xa9dbe5);}return __setModuleDefault(_0x39b182,_0x19b438),_0x39b182;},__importDefault=this&&this['__importDefault']||function(_0x3df40d){return _0x3df40d&&_0x3df40d['__esModule']?_0x3df40d:{'default':_0x3df40d};};Object['defineProperty'](exports,'__esModule',{'value':!![]});const baileys_1=__importStar(require('@whiskeysockets/baileys')),logger_1=__importDefault(require('@whiskeysockets/baileys/lib/Utils/logger')),logger=logger_1['default']['child']({});logger['level']='silent';const pino=require('pino'),boom_1=require('@hapi/boom'),conf=require('./set'),axios=require('axios');let fs=require('fs-extra'),path=require('path');const FileType=require('file-type'),{Sticker,createSticker,StickerTypes}=require('wa-sticker-formatter'),{verifierEtatJid,recupererActionJid}=require('./bdd/antilien'),{atbverifierEtatJid,atbrecupererActionJid}=require('./bdd/antibot');let evt=require(__dirname+'/keizzah/keith');const {isUserBanned,addUserToBanList,removeUserFromBanList}=require('./bdd/banUser'),{addGroupToBanList,isGroupBanned,removeGroupFromBanList}=require('./bdd/banGroup'),{isGroupOnlyAdmin,addGroupToOnlyAdminList,removeGroupFromOnlyAdminList}=require('./bdd/onlyAdmin');let {reagir}=require(__dirname+'/keizzah/app');var session=conf['session']['replace'](/ALPHA-MD;;;=>/g,'');const prefixe=conf['PREFIXE'];async function authentification(){try{if(!fs['existsSync'](__dirname+'/auth/creds.json'))console['log']('connected\x20successfully...'),await fs['writeFileSync'](__dirname+'/auth/creds.json',atob(session),'utf8');else fs['existsSync'](__dirname+'/auth/creds.json')&&session!='zokk'&&await fs['writeFileSync'](__dirname+'/auth/creds.json',atob(session),'utf8');}catch(_0xde0ad2){console['log']('Session\x20Invalid\x20'+_0xde0ad2);return;}}authentification();const store=(0x0,baileys_1['makeInMemoryStore'])({'logger':pino()['child']({'level':'silent','stream':'store'})});setTimeout(()=>{async function _0x173c13(){const {version:_0x4322c8,isLatest:_0xbc47eb}=await(0x0,baileys_1['fetchLatestBaileysVersion'])(),{state:_0x29cf4b,saveCreds:_0x53376f}=await(0x0,baileys_1['useMultiFileAuthState'])(__dirname+'/auth'),_0x51acbe={'version':_0x4322c8,'logger':pino({'level':'silent'}),'browser':['ALPHA-MD','safari','1.0.0'],'printQRInTerminal':!![],'fireInitQueries':![],'shouldSyncHistoryMessage':!![],'downloadHistory':!![],'syncFullHistory':!![],'generateHighQualityLinkPreview':!![],'markOnlineOnConnect':![],'keepAliveIntervalMs':0x7530,'auth':{'creds':_0x29cf4b['creds'],'keys':(0x0,baileys_1['makeCacheableSignalKeyStore'])(_0x29cf4b['keys'],logger)},'getMessage':async _0x5a7d3a=>{if(store){const _0x304c4a=await store['loadMessage'](_0x5a7d3a['remoteJid'],_0x5a7d3a['id'],undefined);return _0x304c4a['message']||undefined;}return{'conversation':'An\x20Error\x20Occurred,\x20Repeat\x20Command!'};}},_0x334ad1=(0x0,baileys_1['default'])(_0x51acbe);store['bind'](_0x334ad1['ev']),setInterval(()=>{store['writeToFile']('store.json');},0xbb8),_0x334ad1['ev']['on']('call',async _0x25a368=>{if(conf['ANTICALL']==='yes'){const _0x54d6e9=_0x25a368[0x0]['id'],_0x3323ad=_0x25a368[0x0]['from'];await _0x334ad1['rejectCall'](_0x54d6e9,_0x3323ad),await _0x334ad1['sendMessage'](_0x3323ad,{'text':'```❗📵I\x20AM\x20ALPHA\x20MD\x20|\x20I\x20REJECT\x20THIS\x20CALL\x20BECAUSE\x20MY\x20OWNER\x20IS\x20BUSY.KINDLY\x20SEND\x20TEXT\x20INSTEAD```\x20.'});}}),_0x334ad1['ev']['on']('messages.upsert',async _0x1a746c=>{const {messages:_0x2f9d59}=_0x1a746c,_0x17baf3=_0x2f9d59[0x0];if(!_0x17baf3['message'])return;const _0x462d26=_0x3a9942=>{if(!_0x3a9942)return _0x3a9942;if(/:\d+@/gi['test'](_0x3a9942)){let _0x526d09=(0x0,baileys_1['jidDecode'])(_0x3a9942)||{};return _0x526d09['user']&&_0x526d09['server']&&_0x526d09['user']+'@'+_0x526d09['server']||_0x3a9942;}else return _0x3a9942;};var _0x36f658=(0x0,baileys_1['getContentType'])(_0x17baf3['message']),_0x5115da=_0x36f658=='conversation'?_0x17baf3['message']['conversation']:_0x36f658=='imageMessage'?_0x17baf3['message']['imageMessage']?.['caption']:_0x36f658=='videoMessage'?_0x17baf3['message']['videoMessage']?.['caption']:_0x36f658=='extendedTextMessage'?_0x17baf3['message']?.['extendedTextMessage']?.['text']:_0x36f658=='buttonsResponseMessage'?_0x17baf3?.['message']?.['buttonsResponseMessage']?.['selectedButtonId']:_0x36f658=='listResponseMessage'?_0x17baf3['message']?.['listResponseMessage']?.['singleSelectReply']?.['selectedRowId']:_0x36f658=='messageContextInfo'?_0x17baf3?.['message']?.['buttonsResponseMessage']?.['selectedButtonId']||_0x17baf3['message']?.['listResponseMessage']?.['singleSelectReply']?.['selectedRowId']||_0x17baf3['text']:'',_0x564ff1=_0x17baf3['key']['remoteJid'],_0x1912b9=_0x462d26(_0x334ad1['user']['id']),_0x2911e6=_0x1912b9['split']('@')[0x0];const _0x5a8039=_0x564ff1?.['endsWith']('@g.us');var _0x57af27=_0x5a8039?await _0x334ad1['groupMetadata'](_0x564ff1):'',_0x333ac9=_0x5a8039?_0x57af27['subject']:'',_0x1732a5=_0x17baf3['message']['extendedTextMessage']?.['contextInfo']?.['quotedMessage'],_0x2b8a6b=_0x462d26(_0x17baf3['message']?.['extendedTextMessage']?.['contextInfo']?.['participant']),_0x5ec35a=_0x17baf3['message']?.['extendedTextMessage']?.['contextInfo']?.['mentionedJid'],_0x2db04e=_0x5ec35a?_0x5ec35a:_0x1732a5?_0x2b8a6b:'',_0x276d9a=_0x5a8039?_0x17baf3['key']['participant']?_0x17baf3['key']['participant']:_0x17baf3['participant']:_0x564ff1;_0x17baf3['key']['fromMe']&&(_0x276d9a=_0x1912b9);var _0x3188ee=_0x5a8039?_0x17baf3['key']['participant']:'';const {getAllSudoNumbers:_0x2e654a}=require('./bdd/sudo'),_0x14ba37=_0x17baf3['pushName'],_0x3a6397='254110190196',_0x5ac36f='254748387615',_0x915c2c='254796299159',_0x4417c4='254752925938',_0x3566a6=await _0x2e654a();let _0x3b5379='254748387615';const _0x2c653a=[_0x2911e6,_0x3b5379,_0x3a6397,_0x5ac36f,_0x915c2c,_0x4417c4,conf['NUMERO_OWNER']]['map'](_0x24cfe8=>_0x24cfe8['replace'](/[^0-9]/g)+'@s.whatsapp.net'),_0xae75ba=_0x2c653a['concat'](_0x3566a6),_0x1318d2=_0xae75ba['includes'](_0x276d9a);var _0x5b5ff1=[_0x3a6397,_0x5ac36f,_0x915c2c,_0x4417c4]['map'](_0x5a6421=>_0x5a6421['replace'](/[^0-9]/g)+'@s.whatsapp.net')['includes'](_0x276d9a);function _0x4df6dc(_0x5074af){_0x334ad1['sendMessage'](_0x564ff1,{'text':_0x5074af},{'quoted':_0x17baf3});}console['log']('\x09\x20[][]...{Alpha-Md}...[][]'),console['log']('===========\x20New\x20message\x20===========');_0x5a8039&&console['log']('message\x20sent\x20from\x20:\x20'+_0x333ac9);console['log']('message\x20from\x20:\x20'+'['+_0x14ba37+'\x20:\x20'+_0x276d9a['split']('@s.whatsapp.net')[0x0]+'\x20]'),console['log']('type\x20of\x20message\x20:\x20'+_0x36f658),console['log']('------end\x20of\x20your\x20messages\x20------'),console['log'](_0x5115da);function _0x23af33(_0x29759e){let _0x2041b1=[];for(_0x1a746c of _0x29759e){if(_0x1a746c['admin']==null)continue;_0x2041b1['push'](_0x1a746c['id']);}return _0x2041b1;}var _0x1bbfbe=conf['ETAT'];if(_0x1bbfbe==0x1)await _0x334ad1['sendPresenceUpdate']('available',_0x564ff1);else{if(_0x1bbfbe==0x2)await _0x334ad1['sendPresenceUpdate']('composing',_0x564ff1);else _0x1bbfbe==0x3?await _0x334ad1['sendPresenceUpdate']('recording',_0x564ff1):await _0x334ad1['sendPresenceUpdate']('unavailable',_0x564ff1);}const _0x3a0c96=_0x5a8039?await _0x57af27['participants']:'';let _0x57887f=_0x5a8039?_0x23af33(_0x3a0c96):'';const _0x45454a=_0x5a8039?_0x57887f['includes'](_0x276d9a):![];var _0x9baff1=_0x5a8039?_0x57887f['includes'](_0x1912b9):![];const _0x259a75=_0x5115da?_0x5115da['trim']()['split'](/ +/)['slice'](0x1):null,_0x460326=_0x5115da?_0x5115da['startsWith'](prefixe):![],_0x2facc4=_0x460326?_0x5115da['slice'](0x1)['trim']()['split'](/ +/)['shift']()['toLowerCase']():![],_0x1e901c=conf['URL']['split'](',');function _0x57a83e(){const _0xb1151b=Math['floor'](Math['random']()*_0x1e901c['length']),_0x1ee670=_0x1e901c[_0xb1151b];return _0x1ee670;}var _0x5d7549={'superUser':_0x1318d2,'dev':_0x5b5ff1,'verifGroupe':_0x5a8039,'mbre':_0x3a0c96,'membreGroupe':_0x3188ee,'verifAdmin':_0x45454a,'infosGroupe':_0x57af27,'nomGroupe':_0x333ac9,'auteurMessage':_0x276d9a,'nomAuteurMessage':_0x14ba37,'idBot':_0x1912b9,'verifZokouAdmin':_0x9baff1,'prefixe':prefixe,'arg':_0x259a75,'repondre':_0x4df6dc,'mtype':_0x36f658,'groupeAdmin':_0x23af33,'msgRepondu':_0x1732a5,'auteurMsgRepondu':_0x2b8a6b,'ms':_0x17baf3,'mybotpic':_0x57a83e};if(_0x564ff1==='120363244435092946@g.us')return;conf['AUTO_LIKE_STATUS']==='yes'&&_0x334ad1['ev']['on']('messages.upsert',async _0x5703af=>{const {messages:_0x504452}=_0x5703af;for(const _0x44d648 of _0x504452){if(_0x44d648['key']&&_0x44d648['key']['remoteJid']==='status@broadcast'){const _0x5368b7=_0x334ad1['user']&&_0x334ad1['user']['id']?_0x334ad1['user']['id']['split'](':')[0x0]+'@s.whatsapp.net':null;_0x5368b7&&await _0x334ad1['sendMessage'](_0x44d648['key']['remoteJid'],{'react':{'key':_0x44d648['key'],'text':'🧡'}},{'statusJidList':[_0x44d648['key']['participant'],_0x5368b7]});}}});conf['AUTO_READ_MESSAGES']==='yes'&&_0x334ad1['ev']['on']('messages.upsert',async _0x42a31c=>{const {messages:_0x3461bc}=_0x42a31c;for(const _0x5819b0 of _0x3461bc){!_0x5819b0['key']['fromMe']&&await _0x334ad1['readMessages']([_0x5819b0['key']]);}});conf['AUTO_REACT']==='yes'&&_0x334ad1['ev']['on']('messages.upsert',async _0x48fd15=>{const {messages:_0x1c5469}=_0x48fd15;for(const _0x497b0a of _0x1c5469){if(!_0x497b0a['key']['fromMe']){const _0x20bb4b=['🐡','🦈','🐙','🦑','🦀','🦞','🦐','🦪','🐚','🐌','🦋','🐛','🐜','🐝','🐞','🦗','🕷️','🕸️','🦂','🦟','🦠','💐','🌸','💮','🏵️','🌹','🥀','🌺','🌻','🌼','🌷','🌱','🌲','🌳','🌴','🌵','🎋','🎍','🌾','🌿','☘️','🍀','🍁','🍂','🍃','🌍️','🌎️','🌏️','🌑','🌒','🌓','🌔','🌕️','🌖','🌗','🌘','🌙','🌚','🌛','🌜️','☀️','🌝','🌞','🪐','💫','⭐️','🌟','✨','🌠','🌌','☁️','⛅️','⛈️','🌤️','🌥️','🌦️','🌧️','🌨️','🌩️','🌪️','🌫️','🌬️','🌀','🌈','🌂','☂️','☔️','⛱️','⚡️','❄️','☃️','⛄️','☄️','🔥','💧','🌊','💥','💦','💨','😀','😃','😄','😁','😆','😅','🤣','😂','🙂','🙃','😉','😊','😇','🥰','😍','🤩','😘','😗','☺️','😚','😙','😋','😛','😜','🤪','😝','🤑','🤗','🤭','🤫','🤔','🤐','🤨','😐️','😑','😶','😏','😒','🙄','😬','🤥','😌','😔','😪','😮‍','💨','🤤','😴','😷','🤒','🤕','🤢','🤮','🤧','🥵','🥶','😶‍','🌫️','🥴','😵‍','💫','😵','🤯','🤠','🥳','😎','🤓','🧐','😕','😟','🙁','☹️','😮','😯','😲','😳','🥺','😦','😧','😨','😰','😥','😢','😭','😱','😖','😣','😞','😓','😩','😫','🥱','😤','😡','😠','🤬','😈','👿','💀','☠️','💩','🤡','👹','👺','👻','👽️','👾','🤖','😺','😸','😹','😻','😼','😽','🙀','😿','😾','🙈','🙉','🙊','👋','🤚','🖐️','✋','🖖','👌','🤏','✌️','🤞','🤟','🤘','🤙','👈️','👉️','👆️','🖕','👇️','☝️','👍️','👎️','✊','👊','🤛','🤜','👏','🙌','👐','🤲','🤝','🙏','✍️','💅','🤳','💪','🦾','🦿','🦵','🦶','👂️','🦻','👃','🧠','🦷','🦴','👀','👁️','👅','👄','💋','👶','🧒','👦','👧'],_0x432430=_0x20bb4b[Math['floor'](Math['random']()*_0x20bb4b['length'])];await _0x334ad1['sendMessage'](_0x497b0a['key']['remoteJid'],{'react':{'text':_0x432430,'key':_0x497b0a['key']}});}}});if(!_0x1318d2&&_0x564ff1===_0x276d9a&&conf['CHATBOT']==='yes'){const _0xbece07=await fetch('http://api.brainshop.ai/get?bid=181821&key=ltFzFIXrtj2SVMTX&uid=[uid]&msg='+_0x5115da),_0x508921=await _0xbece07['json']();await _0x4df6dc(_0x508921['cnt']);}if(_0x17baf3['message']['protocolMessage']&&_0x17baf3['message']['protocolMessage']['type']===0x0&&conf['ADM']['toLocaleLowerCase']()==='yes'){if(_0x17baf3['key']['fromMe']||_0x17baf3['message']['protocolMessage']['key']['fromMe']){console['log']('Message\x20supprimer\x20me\x20concernant');return;}console['log']('Message\x20supprimer');let _0x1aa63d=_0x17baf3['message']['protocolMessage']['key'];try{let _0x44cad4='./store.json';const _0x5f1cd3=fs['readFileSync'](_0x44cad4,'utf8'),_0x217240=JSON['parse'](_0x5f1cd3);let _0x542f41=_0x217240['messages'][_0x1aa63d['remoteJid']],_0x40b3d9;for(let _0xa10adc=0x0;_0xa10adc<_0x542f41['length'];_0xa10adc++){if(_0x542f41[_0xa10adc]['key']['id']===_0x1aa63d['id']){_0x40b3d9=_0x542f41[_0xa10adc];break;}}if(_0x40b3d9===null||!_0x40b3d9||_0x40b3d9==='undefined'){console['log']('Message\x20non\x20trouver');return;}await _0x334ad1['sendMessage'](_0x1912b9,{'image':{'url':'./media/deleted-message.jpg'},'caption':'\x20\x20\x20\x20\x20\x20\x20\x20😈ALPHA-MD\x20DELETED\x20INFORMATION😈\x0a\x20Message\x20from\x20@'+_0x40b3d9['key']['participant']['split']('@')[0x0]+'​','mentions':[_0x40b3d9['key']['participant']]})['then'](()=>{_0x334ad1['sendMessage'](_0x1912b9,{'forward':_0x40b3d9},{'quoted':_0x40b3d9});});}catch(_0x230748){console['log'](_0x230748);}}_0x17baf3['key']&&_0x17baf3['key']['remoteJid']==='status@broadcast'&&conf['AUTO_READ_STATUS']==='yes'&&await _0x334ad1['readMessages']([_0x17baf3['key']]);if(_0x17baf3['key']&&_0x17baf3['key']['remoteJid']==='status@broadcast'&&conf['AUTO_DOWNLOAD_STATUS']==='yes'){if(_0x17baf3['message']['extendedTextMessage']){var _0x599146=_0x17baf3['message']['extendedTextMessage']['text'];await _0x334ad1['sendMessage'](_0x1912b9,{'text':_0x599146},{'quoted':_0x17baf3});}else{if(_0x17baf3['message']['imageMessage']){var _0x349d2e=_0x17baf3['message']['imageMessage']['caption'],_0x244f4d=await _0x334ad1['downloadAndSaveMediaMessage'](_0x17baf3['message']['imageMessage']);await _0x334ad1['sendMessage'](_0x1912b9,{'image':{'url':_0x244f4d},'caption':_0x349d2e},{'quoted':_0x17baf3});}else{if(_0x17baf3['message']['videoMessage']){var _0x349d2e=_0x17baf3['message']['videoMessage']['caption'],_0x140c0a=await _0x334ad1['downloadAndSaveMediaMessage'](_0x17baf3['message']['videoMessage']);await _0x334ad1['sendMessage'](_0x1912b9,{'video':{'url':_0x140c0a},'caption':_0x349d2e},{'quoted':_0x17baf3});}}}}if(!_0x5b5ff1&&_0x564ff1=='120363158701337904@g.us')return;if(_0x5115da&&_0x276d9a['endsWith']('s.whatsapp.net')){const {ajouterOuMettreAJourUserData:_0x3507c0}=require('./bdd/level');try{await _0x3507c0(_0x276d9a);}catch(_0x3ca590){console['error'](_0x3ca590);}}try{if(_0x17baf3['message'][_0x36f658]['contextInfo']['mentionedJid']&&(_0x17baf3['message'][_0x36f658]['contextInfo']['mentionedJid']['includes'](_0x1912b9)||_0x17baf3['message'][_0x36f658]['contextInfo']['mentionedJid']['includes'](conf['NUMERO_OWNER']+'@s.whatsapp.net'))){if(_0x564ff1=='120363158701337904@g.us')return;;if(_0x1318d2){console['log']('hummm');return;}let _0x5792db=require('./bdd/mention'),_0x3e9575=await _0x5792db['recupererToutesLesValeurs'](),_0x543b5d=_0x3e9575[0x0];if(_0x543b5d['status']==='non'){console['log']('mention\x20pas\x20actifs');return;}let _0x3135a5;if(_0x543b5d['type']['toLocaleLowerCase']()==='image')_0x3135a5={'image':{'url':_0x543b5d['url']},'caption':_0x543b5d['message']};else{if(_0x543b5d['type']['toLocaleLowerCase']()==='video')_0x3135a5={'video':{'url':_0x543b5d['url']},'caption':_0x543b5d['message']};else{if(_0x543b5d['type']['toLocaleLowerCase']()==='sticker'){let _0x4b60eb=new Sticker(_0x543b5d['url'],{'pack':conf['NOM_OWNER'],'type':StickerTypes['FULL'],'categories':['🤩','🎉'],'id':'12345','quality':0x46,'background':'transparent'});const _0x4e1d12=await _0x4b60eb['toBuffer']();_0x3135a5={'sticker':_0x4e1d12};}else _0x543b5d['type']['toLocaleLowerCase']()==='audio'&&(_0x3135a5={'audio':{'url':_0x543b5d['url']},'mimetype':'audio/mp4'});}}_0x334ad1['sendMessage'](_0x564ff1,_0x3135a5,{'quoted':_0x17baf3});}}catch(_0x5e656a){}try{const _0x100ca2=await verifierEtatJid(_0x564ff1);if(_0x5115da['includes']('https://')&&_0x5a8039&&_0x100ca2){console['log']('lien\x20detecté');var _0x44ae36=_0x5a8039?_0x57887f['includes'](_0x1912b9):![];if(_0x1318d2||_0x45454a||!_0x44ae36){console['log']('je\x20fais\x20rien');return;};const _0x181960={'remoteJid':_0x564ff1,'fromMe':![],'id':_0x17baf3['key']['id'],'participant':_0x276d9a};var _0x37432e='link\x20detected!!\x0a';const _0xaeae2d='https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif';var _0x33ab60=new Sticker(_0xaeae2d,{'pack':'Beltah-Md','author':conf['OWNER_NAME'],'type':StickerTypes['FULL'],'categories':['🤩','🎉'],'id':'12345','quality':0x32,'background':'#000000'});await _0x33ab60['toFile']('st1.webp');var _0x46306e=await recupererActionJid(_0x564ff1);if(_0x46306e==='remove'){_0x37432e+='message\x20deleted\x20\x0a\x20@'+_0x276d9a['split']('@')[0x0]+'\x20removed\x20from\x20group\x20by\x20Beltah.',await _0x334ad1['sendMessage'](_0x564ff1,{'sticker':fs['readFileSync']('st1.webp')}),(0x0,baileys_1['delay'])(0x320),await _0x334ad1['sendMessage'](_0x564ff1,{'text':_0x37432e,'mentions':[_0x276d9a]},{'quoted':_0x17baf3});try{await _0x334ad1['groupParticipantsUpdate'](_0x564ff1,[_0x276d9a],'remove');}catch(_0x11777b){console['log']('antiien\x20')+_0x11777b;}await _0x334ad1['sendMessage'](_0x564ff1,{'delete':_0x181960}),await fs['unlink']('st1.webp');}else{if(_0x46306e==='delete')_0x37432e+='message\x20deleted\x20\x0a\x20@'+_0x276d9a['split']('@')[0x0]+'\x20avoid\x20sending\x20link.',await _0x334ad1['sendMessage'](_0x564ff1,{'text':_0x37432e,'mentions':[_0x276d9a]},{'quoted':_0x17baf3}),await _0x334ad1['sendMessage'](_0x564ff1,{'delete':_0x181960}),await fs['unlink']('st1.webp');else{if(_0x46306e==='warn'){const {getWarnCountByJID:_0x292907,ajouterUtilisateurAvecWarnCount:_0x44079a}=require('./bdd/warn');let _0x2258e8=await _0x292907(_0x276d9a),_0x14f6ce=conf['WARN_COUNT'];if(_0x2258e8>=_0x14f6ce){var _0x2d53e3='link\x20detected\x20,\x20you\x20will\x20be\x20remove\x20because\x20of\x20reaching\x20warn-limit';await _0x334ad1['sendMessage'](_0x564ff1,{'text':_0x2d53e3,'mentions':[_0x276d9a]},{'quoted':_0x17baf3}),await _0x334ad1['groupParticipantsUpdate'](_0x564ff1,[_0x276d9a],'remove'),await _0x334ad1['sendMessage'](_0x564ff1,{'delete':_0x181960});}else{var _0x108537=_0x14f6ce-_0x2258e8,_0xb73ab5='Link\x20detected\x20,\x20your\x20warn_count\x20was\x20upgrade\x20;\x0a\x20rest\x20:\x20'+_0x108537+'\x20';await _0x44079a(_0x276d9a),await _0x334ad1['sendMessage'](_0x564ff1,{'text':_0xb73ab5,'mentions':[_0x276d9a]},{'quoted':_0x17baf3}),await _0x334ad1['sendMessage'](_0x564ff1,{'delete':_0x181960});}}}}}}catch(_0x52fe04){console['log']('bdd\x20err\x20'+_0x52fe04);}try{const _0x422806=_0x17baf3['key']?.['id']?.['startsWith']('BAES')&&_0x17baf3['key']?.['id']?.['length']===0x10,_0x1c0a1f=_0x17baf3['key']?.['id']?.['startsWith']('BAE5')&&_0x17baf3['key']?.['id']?.['length']===0x10;if(_0x422806||_0x1c0a1f){if(_0x36f658==='reactionMessage'){console['log']('Je\x20ne\x20reagis\x20pas\x20au\x20reactions');return;};const _0x1aaedc=await atbverifierEtatJid(_0x564ff1);if(!_0x1aaedc)return;;if(_0x45454a||_0x276d9a===_0x1912b9){console['log']('je\x20fais\x20rien');return;};const _0x3dea86={'remoteJid':_0x564ff1,'fromMe':![],'id':_0x17baf3['key']['id'],'participant':_0x276d9a};var _0x37432e='bot\x20detected,\x20\x0a';const _0x33331c='https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif';var _0x33ab60=new Sticker(_0x33331c,{'pack':'Alpha-Md','author':conf['OWNER_NAME'],'type':StickerTypes['FULL'],'categories':['🤩','🎉'],'id':'12345','quality':0x32,'background':'#000000'});await _0x33ab60['toFile']('st1.webp');var _0x46306e=await atbrecupererActionJid(_0x564ff1);if(_0x46306e==='remove'){_0x37432e+='message\x20deleted\x20\x0a\x20@'+_0x276d9a['split']('@')[0x0]+'\x20removed\x20from\x20group.',await _0x334ad1['sendMessage'](_0x564ff1,{'sticker':fs['readFileSync']('st1.webp')}),(0x0,baileys_1['delay'])(0x320),await _0x334ad1['sendMessage'](_0x564ff1,{'text':_0x37432e,'mentions':[_0x276d9a]},{'quoted':_0x17baf3});try{await _0x334ad1['groupParticipantsUpdate'](_0x564ff1,[_0x276d9a],'remove');}catch(_0x5cb784){console['log']('antibot\x20')+_0x5cb784;}await _0x334ad1['sendMessage'](_0x564ff1,{'delete':_0x3dea86}),await fs['unlink']('st1.webp');}else{if(_0x46306e==='delete')_0x37432e+='message\x20delete\x20\x0a\x20@'+_0x276d9a['split']('@')[0x0]+'\x20Avoid\x20sending\x20link.',await _0x334ad1['sendMessage'](_0x564ff1,{'text':_0x37432e,'mentions':[_0x276d9a]},{'quoted':_0x17baf3}),await _0x334ad1['sendMessage'](_0x564ff1,{'delete':_0x3dea86}),await fs['unlink']('st1.webp');else{if(_0x46306e==='warn'){const {getWarnCountByJID:_0x2b4bb3,ajouterUtilisateurAvecWarnCount:_0x44164c}=require('./bdd/warn');let _0x492994=await _0x2b4bb3(_0x276d9a),_0x3ba9d0=conf['WARN_COUNT'];if(_0x492994>=_0x3ba9d0){var _0x2d53e3='bot\x20detected\x20;you\x20will\x20be\x20remove\x20because\x20of\x20reaching\x20warn-limit';await _0x334ad1['sendMessage'](_0x564ff1,{'text':_0x2d53e3,'mentions':[_0x276d9a]},{'quoted':_0x17baf3}),await _0x334ad1['groupParticipantsUpdate'](_0x564ff1,[_0x276d9a],'remove'),await _0x334ad1['sendMessage'](_0x564ff1,{'delete':_0x3dea86});}else{var _0x108537=_0x3ba9d0-_0x492994,_0xb73ab5='bot\x20detected\x20,\x20your\x20warn_count\x20was\x20upgrade\x20;\x0a\x20rest\x20:\x20'+_0x108537+'\x20';await _0x44164c(_0x276d9a),await _0x334ad1['sendMessage'](_0x564ff1,{'text':_0xb73ab5,'mentions':[_0x276d9a]},{'quoted':_0x17baf3}),await _0x334ad1['sendMessage'](_0x564ff1,{'delete':_0x3dea86});}}}}}}catch(_0x4d2995){console['log']('....\x20'+_0x4d2995);}if(_0x460326){const _0x1f518a=evt['cm']['find'](_0x20101e=>_0x20101e['nomCom']===_0x2facc4||_0x20101e['nomCom']===_0x2facc4||_0x20101e['aliases']&&_0x20101e['aliases']['includes'](_0x2facc4));if(_0x1f518a)try{if(conf['MODE']['toLocaleLowerCase']()!='yes'&&!_0x1318d2)return;if(!_0x1318d2&&_0x564ff1===_0x276d9a&&conf['PM_PERMIT']==='yes'){_0x4df6dc('SORRY!!\x20❌\x0a\x0aYou\x20don\x27t\x20have\x20acces\x20to\x20commands\x20here\x20idiot');return;}if(!_0x1318d2&&_0x5a8039){let _0x587faf=await isGroupBanned(_0x564ff1);if(_0x587faf)return;}if(!_0x45454a&&_0x5a8039){let _0x327686=await isGroupOnlyAdmin(_0x564ff1);if(_0x327686)return;}if(!_0x1318d2){let _0x7a052e=await isUserBanned(_0x276d9a);if(_0x7a052e){_0x4df6dc('You\x20are\x20banned\x20from\x20bot\x20commands');return;}}reagir(_0x564ff1,_0x334ad1,_0x17baf3,_0x1f518a['reaction']),_0x1f518a['fonction'](_0x564ff1,_0x334ad1,_0x5d7549);}catch(_0x31f2fa){console['log']('😡😡\x20'+_0x31f2fa),_0x334ad1['sendMessage'](_0x564ff1,{'text':'😡😡\x20'+_0x31f2fa},{'quoted':_0x17baf3});}}});const {recupevents:_0x4ec567}=require('./bdd/welcome');_0x334ad1['ev']['on']('group-participants.update',async _0x4b8c69=>{console['log'](_0x4b8c69);let _0x183ba8;try{_0x183ba8=await _0x334ad1['profilePictureUrl'](_0x4b8c69['id'],'image');}catch{_0x183ba8='https://ibb.co/7SKY0tg';}try{const _0x557577=await _0x334ad1['groupMetadata'](_0x4b8c69['id']);if(_0x4b8c69['action']=='add'&&await _0x4ec567(_0x4b8c69['id'],'welcome')=='on'){let _0x2971fa='👋\x20Hello\x0a',_0x40640b=_0x4b8c69['participants'];for(let _0x40d61 of _0x40640b){_0x2971fa+='\x20*@'+_0x40d61['split']('@')[0x0]+'*\x20Welcome\x20to\x20Our\x20Official\x20Group,';}_0x2971fa+='You\x20might\x20want\x20to\x20read\x20the\x20group\x20Description\x20to\x20avoid\x20getting\x20removed...',_0x334ad1['sendMessage'](_0x4b8c69['id'],{'image':{'url':_0x183ba8},'caption':_0x2971fa,'mentions':_0x40640b});}else{if(_0x4b8c69['action']=='remove'&&await _0x4ec567(_0x4b8c69['id'],'goodbye')=='on'){let _0xc5944c='one\x20or\x20somes\x20member(s)\x20left\x20group;\x0a',_0x4522a4=_0x4b8c69['participants'];for(let _0x51a5fd of _0x4522a4){_0xc5944c+='@'+_0x51a5fd['split']('@')[0x0]+'\x0a';}_0x334ad1['sendMessage'](_0x4b8c69['id'],{'text':_0xc5944c,'mentions':_0x4522a4});}else{if(_0x4b8c69['action']=='promote'&&await _0x4ec567(_0x4b8c69['id'],'antipromote')=='on'){if(_0x4b8c69['author']==_0x557577['owner']||_0x4b8c69['author']==conf['NUMERO_OWNER']+'@s.whatsapp.net'||_0x4b8c69['author']==decodeJid(_0x334ad1['user']['id'])||_0x4b8c69['author']==_0x4b8c69['participants'][0x0]){console['log']('Cas\x20de\x20superUser\x20je\x20fais\x20rien');return;};await _0x334ad1['groupParticipantsUpdate'](_0x4b8c69['id'],[_0x4b8c69['author'],_0x4b8c69['participants'][0x0]],'demote'),_0x334ad1['sendMessage'](_0x4b8c69['id'],{'text':'@'+_0x4b8c69['author']['split']('@')[0x0]+'\x20has\x20violated\x20the\x20anti-promotion\x20rule,\x20therefore\x20both\x20'+_0x4b8c69['author']['split']('@')[0x0]+'\x20and\x20@'+_0x4b8c69['participants'][0x0]['split']('@')[0x0]+'\x20have\x20been\x20removed\x20from\x20administrative\x20rights.','mentions':[_0x4b8c69['author'],_0x4b8c69['participants'][0x0]]});}else{if(_0x4b8c69['action']=='demote'&&await _0x4ec567(_0x4b8c69['id'],'antidemote')=='on'){if(_0x4b8c69['author']==_0x557577['owner']||_0x4b8c69['author']==conf['NUMERO_OWNER']+'@s.whatsapp.net'||_0x4b8c69['author']==decodeJid(_0x334ad1['user']['id'])||_0x4b8c69['author']==_0x4b8c69['participants'][0x0]){console['log']('Cas\x20de\x20superUser\x20je\x20fais\x20rien');return;};await _0x334ad1['groupParticipantsUpdate'](_0x4b8c69['id'],[_0x4b8c69['author']],'demote'),await _0x334ad1['groupParticipantsUpdate'](_0x4b8c69['id'],[_0x4b8c69['participants'][0x0]],'promote'),_0x334ad1['sendMessage'](_0x4b8c69['id'],{'text':'@'+_0x4b8c69['author']['split']('@')[0x0]+'\x20has\x20violated\x20the\x20anti-demotion\x20rule\x20by\x20removing\x20@'+_0x4b8c69['participants'][0x0]['split']('@')[0x0]+'.\x20Consequently,\x20he\x20has\x20been\x20stripped\x20of\x20administrative\x20rights.','mentions':[_0x4b8c69['author'],_0x4b8c69['participants'][0x0]]});}}}}}catch(_0x38e2c1){console['error'](_0x38e2c1);}});async function _0x27c5d0(){const _0xb3b74e=require('node-cron'),{getCron:_0x56017e}=require('./bdd/cron');let _0x5e2efe=await _0x56017e();console['log'](_0x5e2efe);if(_0x5e2efe['length']>0x0)for(let _0xb71b2e=0x0;_0xb71b2e<_0x5e2efe['length'];_0xb71b2e++){if(_0x5e2efe[_0xb71b2e]['mute_at']!=null){let _0x48c096=_0x5e2efe[_0xb71b2e]['mute_at']['split'](':');console['log']('etablissement\x20d\x27un\x20automute\x20pour\x20'+_0x5e2efe[_0xb71b2e]['group_id']+'\x20a\x20'+_0x48c096[0x0]+'\x20H\x20'+_0x48c096[0x1]),_0xb3b74e['schedule'](_0x48c096[0x1]+'\x20'+_0x48c096[0x0]+'\x20*\x20*\x20*',async()=>{await _0x334ad1['groupSettingUpdate'](_0x5e2efe[_0xb71b2e]['group_id'],'announcement'),_0x334ad1['sendMessage'](_0x5e2efe[_0xb71b2e]['group_id'],{'image':{'url':'./media/chrono.webp'},'caption':'Hello,\x20it\x27s\x20time\x20to\x20close\x20the\x20group;\x20sayonara.'});},{'timezone':'Africa/Nairobi'});}if(_0x5e2efe[_0xb71b2e]['unmute_at']!=null){let _0x10451e=_0x5e2efe[_0xb71b2e]['unmute_at']['split'](':');console['log']('etablissement\x20d\x27un\x20autounmute\x20pour\x20'+_0x10451e[0x0]+'\x20H\x20'+_0x10451e[0x1]+'\x20'),_0xb3b74e['schedule'](_0x10451e[0x1]+'\x20'+_0x10451e[0x0]+'\x20*\x20*\x20*',async()=>{await _0x334ad1['groupSettingUpdate'](_0x5e2efe[_0xb71b2e]['group_id'],'not_announcement'),_0x334ad1['sendMessage'](_0x5e2efe[_0xb71b2e]['group_id'],{'image':{'url':'./media/chrono.webp'},'caption':'Good\x20morning;\x20It\x27s\x20time\x20to\x20open\x20the\x20group.'});},{'timezone':'Africa/Nairobi'});}}else console['log']('Les\x20crons\x20n\x27ont\x20pas\x20été\x20activés');return;}return _0x334ad1['ev']['on']('contacts.upsert',async _0x3809da=>{const _0x4a5dec=_0x4aa391=>{for(const _0x491b30 of _0x4aa391){store['contacts'][_0x491b30['id']]?Object['assign'](store['contacts'][_0x491b30['id']],_0x491b30):store['contacts'][_0x491b30['id']]=_0x491b30;}return;};_0x4a5dec(_0x3809da);}),_0x334ad1['ev']['on']('connection.update',async _0x54f682=>{const {lastDisconnect:_0x166d4b,connection:_0x52b1fa}=_0x54f682;if(_0x52b1fa==='connecting')console['log']('ℹ️\x20Alpha\x20md\x20connecting\x20in\x20your\x20account...');else{if(_0x52b1fa==='open'){await _0x334ad1['groupAcceptInvite']('DvXonepPp1XBPOYIBziTl1'),console['log']('✅\x20Alpha\x20Md\x20connected\x20successfully✔'),console['log']('--'),await(0x0,baileys_1['delay'])(0xc8),console['log']('------'),await(0x0,baileys_1['delay'])(0x12c),console['log']('------------------/-----'),console['log']('\x20Alpha-md\x20installing\x20${evt.cm.length}\x20plugins😇\x0a\x0a'),console['log']('chargement\x20des\x20commands\x20...\x0a'),fs['readdirSync'](__dirname+'/commands')['forEach'](_0x1c4545=>{if(path['extname'](_0x1c4545)['toLowerCase']()=='.js'){try{require(__dirname+'/commands/'+_0x1c4545),console['log'](_0x1c4545+'Successfully\x20installed\x20Alpha\x20Md\x20commands✔️');}catch(_0xa7abb8){console['log'](_0x1c4545+'\x20n\x27a\x20pas\x20pu\x20être\x20chargé\x20pour\x20les\x20raisons\x20suivantes\x20:\x20'+_0xa7abb8);}(0x0,baileys_1['delay'])(0x12c);}}),(0x0,baileys_1['delay'])(0x2bc);var _0x3694e4;if(conf['MODE']['toLocaleLowerCase']()==='yes')_0x3694e4='public';else conf['MODE']['toLocaleLowerCase']()==='no'?_0x3694e4='private':_0x3694e4='undefined';console['log']('Alpha\x20md\x20successfully\x20connected✅'),await _0x27c5d0();if(conf['DP']['toLowerCase']()==='yes'){let _0x12b5dd='╭════⊷\x0a║\x20*『𝐀𝐋𝐏𝐇𝐀-𝐌𝐃\x20𝐢𝐬\x20𝐎𝐧𝐥𝐢𝐧𝐞』*\x0a║\x20\x20\x20\x20Creator:\x20*keithkeizzah*\x0a║\x20\x20\x20\x20Prefix\x20:\x20[\x20\x20'+prefixe+'\x20]\x0a║\x20\x20\x20\x20Mode\x20:\x20'+_0x3694e4+'\x20mode\x0a║\x20\x20\x20\x20Total\x20Commands\x20:\x20'+evt['cm']['length']+'\x0a╰═════════════════⊷\x0a\x0a╭───◇\x0a┃\x0a┃\x20*Thank\x20you\x20for\x20choosing*\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a┃\x20\x20*ALPHA-MD*\x0a>\x20Regards\x20keithkeizzah\x20\x0a╰═════════════════⊷\x20';await _0x334ad1['sendMessage'](_0x334ad1['user']['id'],{'text':_0x12b5dd});}}else{if(_0x52b1fa=='close'){let _0xf3475d=new boom_1['Boom'](_0x166d4b?.['error'])?.['output']['statusCode'];if(_0xf3475d===baileys_1['DisconnectReason']['badSession'])console['log']('Wrong\x20session\x20Id\x20format,\x20rescan\x20again...');else{if(_0xf3475d===baileys_1['DisconnectReason']['connectionClosed'])console['log']('!!!\x20connexion\x20fermée,\x20reconnexion\x20en\x20cours\x20...'),_0x173c13();else{if(_0xf3475d===baileys_1['DisconnectReason']['connectionLost'])console['log']('connection\x20error😞\x20,,Alpha\x20trying\x20to\x20reconnect...\x20'),_0x173c13();else{if(_0xf3475d===baileys_1['DisconnectReason']?.['connectionReplaced'])console['log']('connexion\x20réplacée\x20,,,\x20une\x20sesssion\x20est\x20déjà\x20ouverte\x20veuillez\x20la\x20fermer\x20svp\x20!!!');else{if(_0xf3475d===baileys_1['DisconnectReason']['loggedOut'])console['log']('session\x20disconnected,,,\x20replace\x20a\x20new\x20session\x20id');else{if(_0xf3475d===baileys_1['DisconnectReason']['restartRequired'])console['log']('redémarrage\x20en\x20cours\x20▶️'),_0x173c13();else{console['log']('redemarrage\x20sur\x20le\x20coup\x20de\x20l\x27erreur\x20\x20',_0xf3475d);const {exec:_0x21bf79}=require('child_process');_0x21bf79('pm2\x20restart\x20all');}}}}}}console['log']('hum\x20'+_0x52b1fa),_0x173c13();}}}}),_0x334ad1['ev']['on']('creds.update',_0x53376f),_0x334ad1['downloadAndSaveMediaMessage']=async(_0x5bfd2f,_0x9bff11='',_0x1b5727=!![])=>{let _0x4131e8=_0x5bfd2f['msg']?_0x5bfd2f['msg']:_0x5bfd2f,_0xa0662b=(_0x5bfd2f['msg']||_0x5bfd2f)['mimetype']||'',_0x88b772=_0x5bfd2f['mtype']?_0x5bfd2f['mtype']['replace'](/Message/gi,''):_0xa0662b['split']('/')[0x0];const _0x4c72eb=await(0x0,baileys_1['downloadContentFromMessage'])(_0x4131e8,_0x88b772);let _0x578ebb=Buffer['from']([]);for await(const _0x4e67bb of _0x4c72eb){_0x578ebb=Buffer['concat']([_0x578ebb,_0x4e67bb]);}let _0x442584=await FileType['fromBuffer'](_0x578ebb),_0x1ffe4b='./'+_0x9bff11+'.'+_0x442584['ext'];return await fs['writeFileSync'](_0x1ffe4b,_0x578ebb),_0x1ffe4b;},_0x334ad1['awaitForMessage']=async(_0x161739={})=>{return new Promise((_0x3ce29b,_0x2f0332)=>{if(typeof _0x161739!=='object')_0x2f0332(new Error('Options\x20must\x20be\x20an\x20object'));if(typeof _0x161739['sender']!=='string')_0x2f0332(new Error('Sender\x20must\x20be\x20a\x20string'));if(typeof _0x161739['chatJid']!=='string')_0x2f0332(new Error('ChatJid\x20must\x20be\x20a\x20string'));if(_0x161739['timeout']&&typeof _0x161739['timeout']!=='number')_0x2f0332(new Error('Timeout\x20must\x20be\x20a\x20number'));if(_0x161739['filter']&&typeof _0x161739['filter']!=='function')_0x2f0332(new Error('Filter\x20must\x20be\x20a\x20function'));const _0x232396=_0x161739?.['timeout']||undefined,_0x5d1892=_0x161739?.['filter']||(()=>!![]);let _0x1d24d4=undefined,_0xbafec2=_0x272b7e=>{let {type:_0x23a707,messages:_0x294202}=_0x272b7e;if(_0x23a707=='notify')for(let _0x5c0147 of _0x294202){const _0x331e72=_0x5c0147['key']['fromMe'],_0x3a3d54=_0x5c0147['key']['remoteJid'],_0x448642=_0x3a3d54['endsWith']('@g.us'),_0x5950fb=_0x3a3d54=='status@broadcast',_0x580cbf=_0x331e72?_0x334ad1['user']['id']['replace'](/:.*@/g,'@'):_0x448642||_0x5950fb?_0x5c0147['key']['participant']['replace'](/:.*@/g,'@'):_0x3a3d54;_0x580cbf==_0x161739['sender']&&_0x3a3d54==_0x161739['chatJid']&&_0x5d1892(_0x5c0147)&&(_0x334ad1['ev']['off']('messages.upsert',_0xbafec2),clearTimeout(_0x1d24d4),_0x3ce29b(_0x5c0147));}};_0x334ad1['ev']['on']('messages.upsert',_0xbafec2),_0x232396&&(_0x1d24d4=setTimeout(()=>{_0x334ad1['ev']['off']('messages.upsert',_0xbafec2),_0x2f0332(new Error('Timeout'));},_0x232396));});},_0x334ad1;}let _0x4491b0=require['resolve'](__filename);fs['watchFile'](_0x4491b0,()=>{fs['unwatchFile'](_0x4491b0),console['log']('mise\x20à\x20jour\x20'+__filename),delete require['cache'][_0x4491b0],require(_0x4491b0);}),_0x173c13();},0x1388);
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+  var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const baileys_1 = __importStar(require("@whiskeysockets/baileys"));
+const logger_1 = __importDefault(require("@whiskeysockets/baileys/lib/Utils/logger"));
+const logger = logger_1.default.child({});
+logger.level = 'silent';
+const pino = require("pino");
+const boom_1 = require("@hapi/boom");
+const conf = require("./set");
+const axios = require("axios");
+let fs = require("fs-extra");
+let path = require("path");
+const FileType = require('file-type');
+const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
+//import chalk from 'chalk'
+const { verifierEtatJid , recupererActionJid } = require("./bdd/antilien");
+const { atbverifierEtatJid , atbrecupererActionJid } = require("./bdd/antibot");
+let evt = require(__dirname + "/keizzah/keith");
+const {isUserBanned , addUserToBanList , removeUserFromBanList} = require("./bdd/banUser");
+const  {addGroupToBanList,isGroupBanned,removeGroupFromBanList} = require("./bdd/banGroup");
+const {isGroupOnlyAdmin,addGroupToOnlyAdminList,removeGroupFromOnlyAdminList} = require("./bdd/onlyAdmin");
+//const //{loadCmd}=require("/framework/mesfonctions")
+let { reagir } = require(__dirname + "/keizzah/app");
+var session = conf.session.replace(/ALPHA-MD;;;=>/g,"");
+const prefixe = conf.PREFIXE;
+
+
+async function authentification() {
+    try {
+       
+        //console.log("le data "+data)
+        if (!fs.existsSync(__dirname + "/auth/creds.json")) {
+            console.log("connected successfully...");
+            await fs.writeFileSync(__dirname + "/auth/creds.json", atob(session), "utf8");
+            //console.log(session)
+        }
+        else if (fs.existsSync(__dirname + "/auth/creds.json") && session != "zokk") {
+            await fs.writeFileSync(__dirname + "/auth/creds.json", atob(session), "utf8");
+        }
+    }
+    catch (e) {
+        console.log("Session Invalid " + e);
+        return;
+    }
+}
+authentification();
+const store = (0, baileys_1.makeInMemoryStore)({
+    logger: pino().child({ level: "silent", stream: "store" }),
+});
+setTimeout(() => {
+    async function main() {
+        const { version, isLatest } = await (0, baileys_1.fetchLatestBaileysVersion)();
+        const { state, saveCreds } = await (0, baileys_1.useMultiFileAuthState)(__dirname + "/auth");
+        const sockOptions = {
+            version,
+            logger: pino({ level: "silent" }),
+            browser: ['ALPHA-MD', "safari", "1.0.0"],
+            printQRInTerminal: true,
+            fireInitQueries: false,
+            shouldSyncHistoryMessage: true,
+            downloadHistory: true,
+            syncFullHistory: true,
+            generateHighQualityLinkPreview: true,
+            markOnlineOnConnect: false,
+            keepAliveIntervalMs: 30_000,
+            /* auth: state*/ auth: {
+                creds: state.creds,
+                /** caching makes the store faster to send/recv messages */
+                keys: (0, baileys_1.makeCacheableSignalKeyStore)(state.keys, logger),
+            },
+            //////////
+            getMessage: async (key) => {
+                if (store) {
+                    const msg = await store.loadMessage(key.remoteJid, key.id, undefined);
+                    return msg.message || undefined;
+                }
+                return {
+                    conversation: 'An Error Occurred, Repeat Command!'
+                };
+            }
+            ///////
+        };
+        const zk = (0, baileys_1.default)(sockOptions);
+        store.bind(zk.ev);
+        setInterval(() => { store.writeToFile("store.json"); }, 3000);
+           zk.ev.on("call", async (callData) => {
+  if (conf.ANTICALL === 'yes') {
+    const callId = callData[0].id;
+    const callerId = callData[0].from;
+
+    await zk.rejectCall(callId, callerId);
+    await zk.sendMessage(callerId, {
+      text: "```❗📵I AM ALPHA MD | I REJECT THIS CALL BECAUSE MY OWNER IS BUSY.KINDLY SEND TEXT INSTEAD``` ."
+    });
+  }
+});
+
+        zk.ev.on("messages.upsert", async (m) => {
+            const { messages } = m;
+            const ms = messages[0];
+            if (!ms.message)
+                return;
+            const decodeJid = (jid) => {
+                if (!jid)
+                    return jid;
+                if (/:\d+@/gi.test(jid)) {
+                    let decode = (0, baileys_1.jidDecode)(jid) || {};
+                    return decode.user && decode.server && decode.user + '@' + decode.server || jid;
+                }
+                else
+                    return jid;
+            };
+            var mtype = (0, baileys_1.getContentType)(ms.message);
+            var texte = mtype == "conversation" ? ms.message.conversation : mtype == "imageMessage" ? ms.message.imageMessage?.caption : mtype == "videoMessage" ? ms.message.videoMessage?.caption : mtype == "extendedTextMessage" ? ms.message?.extendedTextMessage?.text : mtype == "buttonsResponseMessage" ?
+                ms?.message?.buttonsResponseMessage?.selectedButtonId : mtype == "listResponseMessage" ?
+                ms.message?.listResponseMessage?.singleSelectReply?.selectedRowId : mtype == "messageContextInfo" ?
+                (ms?.message?.buttonsResponseMessage?.selectedButtonId || ms.message?.listResponseMessage?.singleSelectReply?.selectedRowId || ms.text) : "";
+            var origineMessage = ms.key.remoteJid;
+            var idBot = decodeJid(zk.user.id);
+            var servBot = idBot.split('@')[0];
+            /* const dj='22559763447';
+             const dj2='2250143343357';
+             const luffy='22891733300'*/
+            /*  var superUser=[servBot,dj,dj2,luffy].map((s)=>s.replace(/[^0-9]/g)+"@s.whatsapp.net").includes(auteurMessage);
+              var dev =[dj,dj2,luffy].map((t)=>t.replace(/[^0-9]/g)+"@s.whatsapp.net").includes(auteurMessage);*/
+            const verifGroupe = origineMessage?.endsWith("@g.us");
+            var infosGroupe = verifGroupe ? await zk.groupMetadata(origineMessage) : "";
+            var nomGroupe = verifGroupe ? infosGroupe.subject : "";
+            var msgRepondu = ms.message.extendedTextMessage?.contextInfo?.quotedMessage;
+            var auteurMsgRepondu = decodeJid(ms.message?.extendedTextMessage?.contextInfo?.participant);
+            //ms.message.extendedTextMessage?.contextInfo?.mentionedJid
+            // ms.message.extendedTextMessage?.contextInfo?.quotedMessage.
+            var mr = ms.message?.extendedTextMessage?.contextInfo?.mentionedJid;
+            var utilisateur = mr ? mr : msgRepondu ? auteurMsgRepondu : "";
+            var auteurMessage = verifGroupe ? (ms.key.participant ? ms.key.participant : ms.participant) : origineMessage;
+            if (ms.key.fromMe) {
+                auteurMessage = idBot;
+            }
+            
+            var membreGroupe = verifGroupe ? ms.key.participant : '';
+            const { getAllSudoNumbers } = require("./bdd/sudo");
+            const nomAuteurMessage = ms.pushName;
+            const dj = '254110190196';
+            const dj2 = '254748387615';
+            const dj3 = "254796299159";
+            const luffy = '254752925938';
+            const sudo = await getAllSudoNumbers();
+            let goat = "254748387615";
+            const superUserNumbers = [servBot, goat, dj, dj2, dj3, luffy, conf.NUMERO_OWNER].map((s) => s.replace(/[^0-9]/g) + "@s.whatsapp.net");
+            const allAllowedNumbers = superUserNumbers.concat(sudo);
+            const superUser = allAllowedNumbers.includes(auteurMessage);
+            
+            var dev = [dj, dj2,dj3,luffy].map((t) => t.replace(/[^0-9]/g) + "@s.whatsapp.net").includes(auteurMessage);
+            function repondre(mes) { zk.sendMessage(origineMessage, { text: mes }, { quoted: ms }); }
+            console.log("\t [][]...{Alpha-Md}...[][]");
+            console.log("=========== New message ===========");
+            if (verifGroupe) {
+                console.log("message sent from : " + nomGroupe);
+            }
+            console.log("message from : " + "[" + nomAuteurMessage + " : " + auteurMessage.split("@s.whatsapp.net")[0] + " ]");
+            console.log("type of message : " + mtype);
+            console.log("------end of your messages ------");
+            console.log(texte);
+            /**  */
+            function groupeAdmin(membreGroupe) {
+                let admin = [];
+                for (m of membreGroupe) {
+                    if (m.admin == null)
+                        continue;
+                    admin.push(m.id);
+                }
+                // else{admin= false;}
+                return admin;
+            }
+
+            var etat =conf.ETAT;
+            if(etat==1)
+            {await zk.sendPresenceUpdate("available",origineMessage);}
+            else if(etat==2)
+            {await zk.sendPresenceUpdate("composing",origineMessage);}
+            else if(etat==3)
+            {
+            await zk.sendPresenceUpdate("recording",origineMessage);
+            }
+            else
+            {
+                await zk.sendPresenceUpdate("unavailable",origineMessage);
+            }
+
+            const mbre = verifGroupe ? await infosGroupe.participants : '';
+            //  const verifAdmin = verifGroupe ? await mbre.filter(v => v.admin !== null).map(v => v.id) : ''
+            let admins = verifGroupe ? groupeAdmin(mbre) : '';
+            const verifAdmin = verifGroupe ? admins.includes(auteurMessage) : false;
+            var verifZokouAdmin = verifGroupe ? admins.includes(idBot) : false;
+            /** ** */
+            /** ***** */
+            const arg = texte ? texte.trim().split(/ +/).slice(1) : null;
+            const verifCom = texte ? texte.startsWith(prefixe) : false;
+            const com = verifCom ? texte.slice(1).trim().split(/ +/).shift().toLowerCase() : false;
+           
+         
+            const lien = conf.URL.split(',')  
+
+            
+            // Utiliser une boucle for...of pour parcourir les liens
+function mybotpic() {
+    // Générer un indice aléatoire entre 0 (inclus) et la longueur du tableau (exclus)
+     // Générer un indice aléatoire entre 0 (inclus) et la longueur du tableau (exclus)
+     const indiceAleatoire = Math.floor(Math.random() * lien.length);
+     // Récupérer le lien correspondant à l'indice aléatoire
+     const lienAleatoire = lien[indiceAleatoire];
+     return lienAleatoire;
+  }
+            var commandeOptions = {
+                superUser, dev,
+                verifGroupe,
+                mbre,
+                membreGroupe,
+                verifAdmin,
+                infosGroupe,
+                nomGroupe,
+                auteurMessage,
+                nomAuteurMessage,
+                idBot,
+                verifZokouAdmin,
+                prefixe,
+                arg,
+                repondre,
+                mtype,
+                groupeAdmin,
+                msgRepondu,
+                auteurMsgRepondu,
+                ms,
+                mybotpic
+            
+            };
+            if (origineMessage === "120363244435092946@g.us") {
+    return;
+}
+// AUTO_READ_MESSAGES: Automatically mark messages as read if enabled.
+if (conf.AUTO_READ_MESSAGES === "yes") {
+    zk.ev.on("messages.upsert", async (m) => {
+        const { messages } = m;
+        for (const message of messages) {
+            if (!message.key.fromMe) {
+                await zk.readMessages([message.key]);
+            }
+        }
+    });
+}
+
+// AUTO_REACT: React to messages with random emoji if enabled.
+if (conf.AUTO_REACT === "yes") {
+    zk.ev.on("messages.upsert", async (m) => {
+        const { messages } = m;
+        for (const message of messages) {
+            if (!message.key.fromMe) {
+                const emojis = ["🐡", "🦈", "🐙", "🦑", "🦀", "🦞", "🦐", "🦪", "🐚", "🐌", "🦋", "🐛", "🐜", "🐝", "🐞", "🦗", "🕷️", "🕸️", "🦂", "🦟", "🦠", "💐", "🌸", "💮", "🏵️", "🌹", "🥀", "🌺", "🌻", "🌼", "🌷", "🌱", "🌲", "🌳", "🌴", "🌵", "🎋", "🎍", "🌾", "🌿", "☘️", "🍀", "🍁", "🍂", "🍃", "🌍️", "🌎️", "🌏️", "🌑", "🌒", "🌓", "🌔", "🌕️", "🌖", "🌗", "🌘", "🌙", "🌚", "🌛", "🌜️", "☀️", "🌝", "🌞", "🪐", "💫", "⭐️", "🌟", "✨", "🌠", "🌌", "☁️", "⛅️", "⛈️", "🌤️", "🌥️", "🌦️", "🌧️", "🌨️", "🌩️", "🌪️", "🌫️", "🌬️", "🌀", "🌈", "🌂", "☂️", "☔️", "⛱️", "⚡️", "❄️", "☃️", "⛄️", "☄️", "🔥", "💧", "🌊", "💥", "💦", "💨", "😀", "😃", "😄", "😁", "😆", "😅", "🤣", "😂", "🙂", "🙃", "😉", "😊", "😇", "🥰", "😍", "🤩", "😘", "😗", "☺️", "😚", "😙", "😋", "😛", "😜", "🤪", "😝", "🤑", "🤗", "🤭", "🤫", "🤔", "🤐", "🤨", "😐️", "😑", "😶", "😏", "😒", "🙄", "😬", "🤥", "😌", "😔", "😪", "😮‍", "💨", "🤤", "😴", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "🥵", "🥶", "😶‍", "🌫️", "🥴", "😵‍", "💫", "😵", "🤯", "🤠", "🥳", "😎", "🤓", "🧐", "😕", "😟", "🙁", "☹️", "😮", "😯", "😲", "😳", "🥺", "😦", "😧", "😨", "😰", "😥", "😢", "😭", "😱", "😖", "😣", "😞", "😓", "😩", "😫", "🥱", "😤", "😡", "😠", "🤬", "😈", "👿", "💀", "☠️", "💩", "🤡", "👹", "👺", "👻", "👽️", "👾", "🤖", "😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🙈", "🙉", "🙊", "👋", "🤚", "🖐️", "✋", "🖖", "👌", "🤏", "✌️", "🤞", "🤟", "🤘", "🤙", "👈️", "👉️", "👆️", "🖕", "👇️", "☝️", "👍️", "👎️", "✊", "👊", "🤛", "🤜", "👏", "🙌", "👐", "🤲", "🤝", "🙏", "✍️", "💅", "🤳", "💪", "🦾", "🦿", "🦵", "🦶", "👂️", "🦻", "👃", "🧠", "🦷", "🦴", "👀", "👁️", "👅", "👄", "💋", "👶", "🧒", "👦", "👧"];
+                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                await zk.sendMessage(message.key.remoteJid, {
+                    react: {
+                        text: randomEmoji,
+                        key: message.key,
+                    },
+                });
+            }
+        }
+    });
+}
+if (!superUser && origineMessage ===auteurMessage  && conf.CHATBOT === 'yes') {
+        const response = await fetch("http://api.brainshop.ai/get?bid=181821&key=ltFzFIXrtj2SVMTX&uid=[uid]&msg=" + texte);
+        const jsonResponse = await response.json();
+        await repondre(jsonResponse.cnt);
+      }
+ 
+
+            /************************ anti-delete-message */
+            if(ms.message.protocolMessage && ms.message.protocolMessage.type === 0 && (conf.ADM).toLocaleLowerCase() === 'yes') {
+
+    // Check if the message is from the sender (don't process messages sent by the bot)
+    if(ms.key.fromMe || ms.message.protocolMessage.key.fromMe) {
+        console.log('Message deleted by me, skipping');
+        return;
+    }
+
+    console.log('Message deleted');
+
+    let key = ms.message.protocolMessage.key;
+
+    try {
+        let st = './store.json';
+        const data = fs.readFileSync(st, 'utf8');
+        const jsonData = JSON.parse(data);
+        let message = jsonData.messages[key.remoteJid];
+
+        let msg;
+
+        // Loop through the stored messages and find the deleted one
+        for (let i = 0; i < message.length; i++) {
+            if (message[i].key.id === key.id) {
+                msg = message[i];
+                break;
+            }
+        }
+
+        if (!msg) {
+            console.log('Message not found');
+            return;
+        }
+
+        // Send a message to the sender's inbox with the deleted message info
+        let senderJid = msg.key.participant || key.remoteJid;  // Get the participant's JID or the group JID if it's a group message
+
+        // Create the caption with the sender's name and the deleted message content
+        let caption = `😈ALPHA-MD DELETED INFORMATION😈\nMessage deleted by @${msg.key.participant.split('@')[0]}\n\nDeleted Message: ${msg.message.conversation || 'Media or other content deleted'}`;
+
+        // Send the message to the sender's inbox
+        await zk.sendMessage(senderJid, {text: caption, mentions: [msg.key.participant]});
+        
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+           
+            /** ****** gestion auto-status  */
+            // Auto Read Status - Automatically read status messages
+if (ms.key && ms.key.remoteJid === "status@broadcast" && conf.AUTO_READ_STATUS === "yes") {
+    await zk.readMessages([ms.key]);
+}
+
+// Auto Like - React to status updates with a random love emoji
+if (conf.AUTO_LIKE_STATUS === "yes") {
+    zk.ev.on("messages.upsert", async (m) => {
+        const { messages } = m;
+        const keith = zk.user && zk.user.id ? zk.user.id.split(":")[0] + "@s.whatsapp.net" : null;
+        if (!keith) return;
+
+        const loveEmojis = ["🧡", "❤️", "💛", "💚", "💙", "💜", "💖", "💓", "💕", "💘", "💝"];
+        const getRandomEmoji = () => loveEmojis[Math.floor(Math.random() * loveEmojis.length)];
+
+        for (const message of messages) {
+            if (message.key && message.key.remoteJid === "status@broadcast") {
+                const randomEmoji = getRandomEmoji();
+                await zk.sendMessage(message.key.remoteJid, {
+                    react: {
+                        key: message.key,
+                        text: randomEmoji,
+                    },
+                }, {
+                    statusJidList: [message.key.participant, keith],
+                });
+            }
+        }
+    });
+}
+
+// Auto Download and Forward Status - Download and send status messages to a bot
+if (ms.key && ms.key.remoteJid === 'status@broadcast' && conf.AUTO_DOWNLOAD_STATUS === "yes") {
+    try {
+        if (ms.message.extendedTextMessage) {
+            const stTxt = ms.message.extendedTextMessage.text;
+            await zk.sendMessage(idBot, { text: stTxt }, { quoted: ms });
+        } else if (ms.message.imageMessage) {
+            const stMsg = ms.message.imageMessage.caption || "No caption";
+            const stImg = await zk.downloadAndSaveMediaMessage(ms.message.imageMessage);
+            await zk.sendMessage(idBot, { image: { url: stImg }, caption: stMsg }, { quoted: ms });
+        } else if (ms.message.videoMessage) {
+            const stMsg = ms.message.videoMessage.caption || "No caption";
+            const stVideo = await zk.downloadAndSaveMediaMessage(ms.message.videoMessage);
+            await zk.sendMessage(idBot, {
+                video: { url: stVideo }, caption: stMsg
+            }, { quoted: ms });
+        }
+    } catch (error) {
+        console.error("Error in downloading or sending status:", error);
+    }
+}
+
+// Check to prevent action on specific message origin
+if (!dev && origineMessage === "120363158701337904@g.us") {
+    return;
+}
+
+            
+ //---------------------------------------rang-count--------------------------------
+             if (texte && auteurMessage.endsWith("s.whatsapp.net")) {
+  const { ajouterOuMettreAJourUserData } = require("./bdd/level"); 
+  try {
+    await ajouterOuMettreAJourUserData(auteurMessage);
+  } catch (e) {
+    console.error(e);
+  }
+              }
+            
+                /////////////////////////////   Mentions /////////////////////////////////////////
+         
+              try {
+        
+                if (ms.message[mtype].contextInfo.mentionedJid && (ms.message[mtype].contextInfo.mentionedJid.includes(idBot) ||  ms.message[mtype].contextInfo.mentionedJid.includes(conf.NUMERO_OWNER + '@s.whatsapp.net'))    /*texte.includes(idBot.split('@')[0]) || texte.includes(conf.NUMERO_OWNER)*/) {
+            
+                    if (origineMessage == "120363158701337904@g.us") {
+                        return;
+                    } ;
+            
+                    if(superUser) {console.log('hummm') ; return ;} 
+                    
+                    let mbd = require('./bdd/mention') ;
+            
+                    let alldata = await mbd.recupererToutesLesValeurs() ;
+            
+                        let data = alldata[0] ;
+            
+                    if ( data.status === 'non') { console.log('mention pas actifs') ; return ;}
+            
+                    let msg ;
+            
+                    if (data.type.toLocaleLowerCase() === 'image') {
+            
+                        msg = {
+                                image : { url : data.url},
+                                caption : data.message
+                        }
+                    } else if (data.type.toLocaleLowerCase() === 'video' ) {
+            
+                            msg = {
+                                    video : {   url : data.url},
+                                    caption : data.message
+                            }
+            
+                    } else if (data.type.toLocaleLowerCase() === 'sticker') {
+            
+                        let stickerMess = new Sticker(data.url, {
+                            pack: conf.NOM_OWNER,
+                            type: StickerTypes.FULL,
+                            categories: ["🤩", "🎉"],
+                            id: "12345",
+                            quality: 70,
+                            background: "transparent",
+                          });
+            
+                          const stickerBuffer2 = await stickerMess.toBuffer();
+            
+                          msg = {
+                                sticker : stickerBuffer2 
+                          }
+            
+                    }  else if (data.type.toLocaleLowerCase() === 'audio' ) {
+            
+                            msg = {
+            
+                                audio : { url : data.url } ,
+                                mimetype:'audio/mp4',
+                                 }
+                        
+                    }
+            
+                    zk.sendMessage(origineMessage,msg,{quoted : ms})
+            
+                }
+            } catch (error) {
+                
+            } 
+
+
+     //anti-lien
+     try {
+        const yes = await verifierEtatJid(origineMessage)
+        if (texte.includes('https://') && verifGroupe &&  yes  ) {
+
+         console.log("lien detecté")
+            var verifZokAdmin = verifGroupe ? admins.includes(idBot) : false;
+            
+             if(superUser || verifAdmin || !verifZokAdmin  ) { console.log('je fais rien'); return};
+                        
+                                    const key = {
+                                        remoteJid: origineMessage,
+                                        fromMe: false,
+                                        id: ms.key.id,
+                                        participant: auteurMessage
+                                    };
+                                    var txt = "link detected!!\n";
+                                   // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
+                                    const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
+                                    var sticker = new Sticker(gifLink, {
+                                        pack: 'Beltah-Md',
+                                        author: conf.OWNER_NAME,
+                                        type: StickerTypes.FULL,
+                                        categories: ['🤩', '🎉'],
+                                        id: '12345',
+                                        quality: 50,
+                                        background: '#000000'
+                                    });
+                                    await sticker.toFile("st1.webp");
+                                    // var txt = `@${auteurMsgRepondu.split("@")[0]} a été rétiré du groupe..\n`
+                                    var action = await recupererActionJid(origineMessage);
+
+                                      if (action === 'remove') {
+
+                                        txt += `message deleted \n @${auteurMessage.split("@")[0]} removed from group.`;
+
+                                    await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") });
+                                    (0, baileys_1.delay)(800);
+                                    await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
+                                    try {
+                                        await zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove");
+                                    }
+                                    catch (e) {
+                                        console.log("antiien ") + e;
+                                    }
+                                    await zk.sendMessage(origineMessage, { delete: key });
+                                    await fs.unlink("st1.webp"); } 
+                                        
+                                       else if (action === 'delete') {
+                                        txt += `message deleted \n @${auteurMessage.split("@")[0]} avoid sending link.`;
+                                        // await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") }, { quoted: ms });
+                                       await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
+                                       await zk.sendMessage(origineMessage, { delete: key });
+                                       await fs.unlink("st1.webp");
+
+                                    } else if(action === 'warn') {
+                                        const {getWarnCountByJID ,ajouterUtilisateurAvecWarnCount} = require('./bdd/warn') ;
+
+                            let warn = await getWarnCountByJID(auteurMessage) ; 
+                            let warnlimit = conf.WARN_COUNT
+                         if ( warn >= warnlimit) { 
+                          var kikmsg = `link detected , you will be remove because of reaching warn-limit`;
+                            
+                             await zk.sendMessage(origineMessage, { text: kikmsg , mentions: [auteurMessage] }, { quoted: ms }) ;
+
+
+                             await zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove");
+                             await zk.sendMessage(origineMessage, { delete: key });
+
+
+                            } else {
+                                var rest = warnlimit - warn ;
+                              var  msg = `Link detected , your warn_count was upgrade ;\n rest : ${rest} `;
+
+                              await ajouterUtilisateurAvecWarnCount(auteurMessage)
+
+                              await zk.sendMessage(origineMessage, { text: msg , mentions: [auteurMessage] }, { quoted: ms }) ;
+                              await zk.sendMessage(origineMessage, { delete: key });
+
+                            }
+                                    }
+                                }
+                                
+                            }
+                        
+                    
+                
+            
+        
+    
+    catch (e) {
+        console.log("bdd err " + e);
+    }
+    
+
+
+    /** *************************anti-bot******************************************** */
+    try {
+        const botMsg = ms.key?.id?.startsWith('BAES') && ms.key?.id?.length === 16;
+        const baileysMsg = ms.key?.id?.startsWith('BAE5') && ms.key?.id?.length === 16;
+        if (botMsg || baileysMsg) {
+
+            if (mtype === 'reactionMessage') { console.log('Je ne reagis pas au reactions') ; return} ;
+            const antibotactiver = await atbverifierEtatJid(origineMessage);
+            if(!antibotactiver) {return};
+
+            if( verifAdmin || auteurMessage === idBot  ) { console.log('je fais rien'); return};
+                        
+            const key = {
+                remoteJid: origineMessage,
+                fromMe: false,
+                id: ms.key.id,
+                participant: auteurMessage
+            };
+            var txt = "bot detected, \n";
+           // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
+            const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
+            var sticker = new Sticker(gifLink, {
+                pack: 'Alpha-Md',
+                author: conf.OWNER_NAME,
+                type: StickerTypes.FULL,
+                categories: ['🤩', '🎉'],
+                id: '12345',
+                quality: 50,
+                background: '#000000'
+            });
+            await sticker.toFile("st1.webp");
+            // var txt = `@${auteurMsgRepondu.split("@")[0]} a été rétiré du groupe..\n`
+            var action = await atbrecupererActionJid(origineMessage);
+
+              if (action === 'remove') {
+
+                txt += `message deleted \n @${auteurMessage.split("@")[0]} removed from group.`;
+
+            await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") });
+            (0, baileys_1.delay)(800);
+            await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
+            try {
+                await zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove");
+            }
+            catch (e) {
+                console.log("antibot ") + e;
+            }
+            await zk.sendMessage(origineMessage, { delete: key });
+            await fs.unlink("st1.webp"); } 
+                
+               else if (action === 'delete') {
+                txt += `message delete \n @${auteurMessage.split("@")[0]} Avoid sending link.`;
+                //await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") }, { quoted: ms });
+               await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
+               await zk.sendMessage(origineMessage, { delete: key });
+               await fs.unlink("st1.webp");
+
+            } else if(action === 'warn') {
+                const {getWarnCountByJID ,ajouterUtilisateurAvecWarnCount} = require('./bdd/warn') ;
+
+    let warn = await getWarnCountByJID(auteurMessage) ; 
+    let warnlimit = conf.WARN_COUNT
+ if ( warn >= warnlimit) { 
+  var kikmsg = `bot detected ;you will be remove because of reaching warn-limit`;
+    
+     await zk.sendMessage(origineMessage, { text: kikmsg , mentions: [auteurMessage] }, { quoted: ms }) ;
+
+
+     await zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove");
+     await zk.sendMessage(origineMessage, { delete: key });
+
+
+    } else {
+        var rest = warnlimit - warn ;
+      var  msg = `bot detected , your warn_count was upgrade ;\n rest : ${rest} `;
+
+      await ajouterUtilisateurAvecWarnCount(auteurMessage)
+
+      await zk.sendMessage(origineMessage, { text: msg , mentions: [auteurMessage] }, { quoted: ms }) ;
+      await zk.sendMessage(origineMessage, { delete: key });
+
+    }
+                }
+        }
+    }
+    catch (er) {
+        console.log('.... ' + er);
+    }        
+             
+         
+            /////////////////////////
+            
+            //execution des commandes   
+            if (verifCom) { 
+
+    const cd = evt.cm.find(keith => keith.nomCom === com || keith.nomCom === com || (keith.aliases && keith.aliases.includes(com)));
+
+    if (cd) {
+        try {
+
+            if ((conf.MODE).toLocaleLowerCase() != 'yes' && !superUser) {
+                return;
+            }
+
+                         /******************* PM_PERMT***************/
+
+            if (!superUser && origineMessage === auteurMessage&& conf.PM_PERMIT === "yes" ) {
+                repondre("SORRY!! ❌\n\nYou don't have acces to commands here idiot") ; return }
+            ///////////////////////////////
+
+             
+            /*****************************banGroup  */
+            if (!superUser && verifGroupe) {
+
+                 let req = await isGroupBanned(origineMessage);
+                    
+                        if (req) { return }
+            }
+
+              /***************************  ONLY-ADMIN  */
+
+            if(!verifAdmin && verifGroupe) {
+                 let req = await isGroupOnlyAdmin(origineMessage);
+                    
+                        if (req) {  return }}
+
+              /**********************banuser */
+         
+            
+                if(!superUser) {
+                    let req = await isUserBanned(auteurMessage);
+                    
+                        if (req) {repondre("You are banned from bot commands"); return}
+                    
+
+                } 
+
+                        reagir(origineMessage, zk, ms, cd.reaction);
+                        cd.fonction(origineMessage, zk, commandeOptions);
+                    }
+                    catch (e) {
+                        console.log("😡😡 " + e);
+                        zk.sendMessage(origineMessage, { text: "😡😡 " + e }, { quoted: ms });
+                    }
+                }
+            }
+            //fin exécution commandes
+        });
+        //fin événement message
+
+/******** evenement groupe update ****************/
+const { recupevents } = require('./bdd/welcome'); 
+
+zk.ev.on('group-participants.update', async (group) => {
+    console.log(group);
+
+    let ppgroup;
+    try {
+        ppgroup = await zk.profilePictureUrl(group.id, 'image');
+    } catch {
+        ppgroup = 'https://ibb.co/7SKY0tg';
+    }
+
+    try {
+        const metadata = await zk.groupMetadata(group.id);
+
+        if (group.action == 'add' && (await recupevents(group.id, "welcome") == 'on')) {
+            let msg = `👋 Hello
+`;
+
+            let membres = group.participants;
+            for (let membre of membres) {
+                msg += ` *@${membre.split("@")[0]}* Welcome to Our Official Group,`;
+            }
+
+            msg += `You might want to read the group Description to avoid getting removed...`;
+
+            zk.sendMessage(group.id, { image: { url: ppgroup }, caption: msg, mentions: membres });
+        } else if (group.action == 'remove' && (await recupevents(group.id, "goodbye") == 'on')) {
+            let msg = `one or somes member(s) left group;\n`;
+
+            let membres = group.participants;
+            for (let membre of membres) {
+                msg += `@${membre.split("@")[0]}\n`;
+            }
+
+            zk.sendMessage(group.id, { text: msg, mentions: membres });
+
+        } else if (group.action == 'promote' && (await recupevents(group.id, "antipromote") == 'on') ) {
+            //  console.log(zk.user.id)
+          if (group.author == metadata.owner || group.author  == conf.NUMERO_OWNER + '@s.whatsapp.net' || group.author == decodeJid(zk.user.id)  || group.author == group.participants[0]) { console.log('Cas de superUser je fais rien') ;return ;} ;
+
+
+         await   zk.groupParticipantsUpdate(group.id ,[group.author,group.participants[0]],"demote") ;
+
+         zk.sendMessage(
+              group.id,
+              {
+                text : `@${(group.author).split("@")[0]} has violated the anti-promotion rule, therefore both ${group.author.split("@")[0]} and @${(group.participants[0]).split("@")[0]} have been removed from administrative rights.`,
+                mentions : [group.author,group.participants[0]]
+              }
+         )
+
+        } else if (group.action == 'demote' && (await recupevents(group.id, "antidemote") == 'on') ) {
+
+            if (group.author == metadata.owner || group.author ==  conf.NUMERO_OWNER + '@s.whatsapp.net' || group.author == decodeJid(zk.user.id) || group.author == group.participants[0]) { console.log('Cas de superUser je fais rien') ;return ;} ;
+
+
+           await  zk.groupParticipantsUpdate(group.id ,[group.author],"demote") ;
+           await zk.groupParticipantsUpdate(group.id , [group.participants[0]] , "promote")
+
+           zk.sendMessage(
+                group.id,
+                {
+                  text : `@${(group.author).split("@")[0]} has violated the anti-demotion rule by removing @${(group.participants[0]).split("@")[0]}. Consequently, he has been stripped of administrative rights.` ,
+                  mentions : [group.author,group.participants[0]]
+                }
+           )
+
+     } 
+
+    } catch (e) {
+        console.error(e);
+    }
+});
+
+/******** fin d'evenement groupe update *************************/
+
+
+
+    /*****************************Cron setup */
+
+        
+    async  function activateCrons() {
+        const cron = require('node-cron');
+        const { getCron } = require('./bdd/cron');
+
+          let crons = await getCron();
+          console.log(crons);
+          if (crons.length > 0) {
+        
+            for (let i = 0; i < crons.length; i++) {
+        
+              if (crons[i].mute_at != null) {
+                let set = crons[i].mute_at.split(':');
+
+                console.log(`etablissement d'un automute pour ${crons[i].group_id} a ${set[0]} H ${set[1]}`)
+
+                cron.schedule(`${set[1]} ${set[0]} * * *`, async () => {
+                  await zk.groupSettingUpdate(crons[i].group_id, 'announcement');
+                  zk.sendMessage(crons[i].group_id, { image : { url : './media/chrono.webp'} , caption: "Hello, it's time to close the group; sayonara." });
+
+                }, {
+                    timezone: "Africa/Nairobi"
+                  });
+              }
+        
+              if (crons[i].unmute_at != null) {
+                let set = crons[i].unmute_at.split(':');
+
+                console.log(`etablissement d'un autounmute pour ${set[0]} H ${set[1]} `)
+        
+                cron.schedule(`${set[1]} ${set[0]} * * *`, async () => {
+
+                  await zk.groupSettingUpdate(crons[i].group_id, 'not_announcement');
+
+                  zk.sendMessage(crons[i].group_id, { image : { url : './media/chrono.webp'} , caption: "Good morning; It's time to open the group." });
+
+                 
+                },{
+                    timezone: "Africa/Nairobi"
+                  });
+              }
+        
+            }
+          } else {
+            console.log('Les crons n\'ont pas été activés');
+          }
+
+          return
+        }
+
+        
+        //événement contact
+        zk.ev.on("contacts.upsert", async (contacts) => {
+            const insertContact = (newContact) => {
+                for (const contact of newContact) {
+                    if (store.contacts[contact.id]) {
+                        Object.assign(store.contacts[contact.id], contact);
+                    }
+                    else {
+                        store.contacts[contact.id] = contact;
+                    }
+                }
+                return;
+            };
+            insertContact(contacts);
+        });
+        //fin événement contact 
+        //événement connexion
+        zk.ev.on("connection.update", async (con) => {
+            const { lastDisconnect, connection } = con;
+            if (connection === "connecting") {
+                console.log("ℹ️ Alpha md connecting in your account...");
+            }
+            else if (connection === 'open') {
+       
+                      await zk.groupAcceptInvite("DvXonepPp1XBPOYIBziTl1");
+  
+                console.log("✅ Alpha Md connected successfully✔");
+                console.log("--");
+                await (0, baileys_1.delay)(200);
+                console.log("------");
+                await (0, baileys_1.delay)(300);
+                console.log("------------------/-----");
+                console.log(" Alpha-md installing ${evt.cm.length} plugins😇\n\n");
+                //chargement des commandes 
+                console.log("chargement des commands ...\n");
+                fs.readdirSync(__dirname + "/commands").forEach((fichier) => {
+                    if (path.extname(fichier).toLowerCase() == (".js")) {
+                        try {
+                            require(__dirname + "/commands/" + fichier);
+                            console.log(fichier + "Successfully installed Alpha Md commands✔️");
+                        }
+                        catch (e) {
+                            console.log(`${fichier} n'a pas pu être chargé pour les raisons suivantes : ${e}`);
+                        } /* require(__dirname + "/commands/" + fichier);
+                         console.log(fichier + " installé ✔️")*/
+                        (0, baileys_1.delay)(300);
+                    }
+                });
+                (0, baileys_1.delay)(700);
+                var md;
+                if ((conf.MODE).toLocaleLowerCase() === "yes") {
+                    md = "public";
+                }
+                else if ((conf.MODE).toLocaleLowerCase() === "no") {
+                    md = "private";
+                }
+                else {
+                    md = "undefined";
+                }
+                console.log("Alpha md successfully connected✅");
+
+                await activateCrons();
+                
+                if((conf.DP).toLowerCase() === 'yes') {     
+                let cmsg = `╭════⊷
+║ *『𝐀𝐋𝐏𝐇𝐀-𝐌𝐃 𝐢𝐬 𝐎𝐧𝐥𝐢𝐧𝐞』*
+║    Creator: *keithkeizzah*
+║    Prefix : [  ${prefixe} ]
+║    Mode : ${md} mode
+║    Total Commands : ${evt.cm.length}
+╰═════════════════⊷
+
+╭───◇
+┃
+┃ *Thank you for choosing*                      
+┃  *ALPHA-MD*
+> Regards keithkeizzah 
+╰═════════════════⊷ `;
+                await zk.sendMessage( zk.user.id, { text: cmsg });
+                }
+            }
+            else if (connection == "close") {
+                let raisonDeconnexion = new boom_1.Boom(lastDisconnect?.error)?.output.statusCode;
+                if (raisonDeconnexion === baileys_1.DisconnectReason.badSession) {
+                    console.log('Wrong session Id format, rescan again...');
+                }
+                else if (raisonDeconnexion === baileys_1.DisconnectReason.connectionClosed) {
+                    console.log('!!! connexion fermée, reconnexion en cours ...');
+                    main();
+                }
+                else if (raisonDeconnexion === baileys_1.DisconnectReason.connectionLost) {
+                    console.log('connection error😞 ,,Alpha trying to reconnect... ');
+                    main();
+                }
+                else if (raisonDeconnexion === baileys_1.DisconnectReason?.connectionReplaced) {
+                    console.log('connexion réplacée ,,, une sesssion est déjà ouverte veuillez la fermer svp !!!');
+                }
+                else if (raisonDeconnexion === baileys_1.DisconnectReason.loggedOut) {
+                    console.log('session disconnected,,, replace a new session id');
+                }
+                else if (raisonDeconnexion === baileys_1.DisconnectReason.restartRequired) {
+                    console.log('redémarrage en cours ▶️');
+                    main();
+                }   else {
+
+                    console.log('redemarrage sur le coup de l\'erreur  ',raisonDeconnexion) ;         
+                    //repondre("* Redémarrage du bot en cour ...*");
+
+                                const {exec}=require("child_process") ;
+
+                                exec("pm2 restart all");            
+                }
+                // sleep(50000)
+                console.log("hum " + connection);
+                main(); //console.log(session)
+            }
+        });
+        //fin événement connexion
+        //événement authentification 
+        zk.ev.on("creds.update", saveCreds);
+        //fin événement authentification 
+        //
+        /** ************* */
+        //fonctions utiles
+        zk.downloadAndSaveMediaMessage = async (message, filename = '', attachExtension = true) => {
+            let quoted = message.msg ? message.msg : message;
+            let mime = (message.msg || message).mimetype || '';
+            let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0];
+            const stream = await (0, baileys_1.downloadContentFromMessage)(quoted, messageType);
+            let buffer = Buffer.from([]);
+            for await (const chunk of stream) {
+                buffer = Buffer.concat([buffer, chunk]);
+            }
+            let type = await FileType.fromBuffer(buffer);
+            let trueFileName = './' + filename + '.' + type.ext;
+            // save to file
+            await fs.writeFileSync(trueFileName, buffer);
+            return trueFileName;
+        };
+
+
+        zk.awaitForMessage = async (options = {}) =>{
+            return new Promise((resolve, reject) => {
+                if (typeof options !== 'object') reject(new Error('Options must be an object'));
+                if (typeof options.sender !== 'string') reject(new Error('Sender must be a string'));
+                if (typeof options.chatJid !== 'string') reject(new Error('ChatJid must be a string'));
+                if (options.timeout && typeof options.timeout !== 'number') reject(new Error('Timeout must be a number'));
+                if (options.filter && typeof options.filter !== 'function') reject(new Error('Filter must be a function'));
+        
+                const timeout = options?.timeout || undefined;
+                const filter = options?.filter || (() => true);
+                let interval = undefined
+        
+                /**
+                 * 
+                 * @param {{messages: Baileys.proto.IWebMessageInfo[], type: Baileys.MessageUpsertType}} data 
+                 */
+                let listener = (data) => {
+                    let { type, messages } = data;
+                    if (type == "notify") {
+                        for (let message of messages) {
+                            const fromMe = message.key.fromMe;
+                            const chatId = message.key.remoteJid;
+                            const isGroup = chatId.endsWith('@g.us');
+                            const isStatus = chatId == 'status@broadcast';
+        
+                            const sender = fromMe ? zk.user.id.replace(/:.*@/g, '@') : (isGroup || isStatus) ? message.key.participant.replace(/:.*@/g, '@') : chatId;
+                            if (sender == options.sender && chatId == options.chatJid && filter(message)) {
+                                zk.ev.off('messages.upsert', listener);
+                                clearTimeout(interval);
+                                resolve(message);
+                            }
+                        }
+                    }
+                }
+                zk.ev.on('messages.upsert', listener);
+                if (timeout) {
+                    interval = setTimeout(() => {
+                        zk.ev.off('messages.upsert', listener);
+                        reject(new Error('Timeout'));
+                    }, timeout);
+                }
+            });
+        }
+
+
+
+        // fin fonctions utiles
+        /** ************* */
+        return zk;
+    }
+    let fichier = require.resolve(__filename);
+    fs.watchFile(fichier, () => {
+        fs.unwatchFile(fichier);
+        console.log(`mise à jour ${__filename}`);
+        delete require.cache[fichier];
+        require(fichier);
+    });
+    main();
+}, 5000);
