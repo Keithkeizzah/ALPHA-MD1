@@ -1,6 +1,5 @@
 const { keith } = require('../keizzah/keith');
-const traduire = require("../keizzah/traduction");
-const axios = require('axios'); // Use axios directly for HTTP requests
+const axios = require('axios'); // Ensure axios is used for making HTTP requests
 
 // Set up the command with the name 'gpt3' and the emoji reaction '🪅'
 keith({ nomCom: "gpt3", reaction: "🪅", categorie: "AI" }, async (dest, zk, commandeOptions) => {
@@ -16,11 +15,11 @@ keith({ nomCom: "gpt3", reaction: "🪅", categorie: "AI" }, async (dest, zk, co
     const prompt = arg.join(' ');
 
     // Call the external API to get the response
-    const response = await axios.get(`https://api.gurusensei.workers.dev/llama`, {
+    const response = await axios.get('https://api.gurusensei.workers.dev/llama', {
       params: { prompt: prompt }
     });
 
-    // Ensure the API returns a valid response
+    // Ensure the API returns a valid response and the format is correct
     if (response.data && response.data.response && response.data.response.response) {
       const answer = response.data.response.response;
 
@@ -30,7 +29,8 @@ keith({ nomCom: "gpt3", reaction: "🪅", categorie: "AI" }, async (dest, zk, co
       });
 
     } else {
-      throw new Error('Invalid response from the API.');
+      // If the response format is not what we expect
+      throw new Error('Invalid response format from the API.');
     }
   } catch (error) {
     // Handle any errors that occur during the process
