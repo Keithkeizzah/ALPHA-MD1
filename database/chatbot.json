@@ -131,5 +131,36 @@
   "how are you": "I am just a bot, but I am here to help you!",
   "goodnight": "sleep tight and dream of your beloved one 🥲💔!",
   "night": "Good night! Sleep well!",
+  "bonjour": "Bonjour, comment ça va ?",
+  "salut": "Salut, ça va ?",
+  "bonsoir": "Bonsoir, comment tu vas ?",
+  "ça_va": "Ça va bien, et toi ?"
+  "quel_est_ton_nom": "Quel est ton nom ?",
+  "comment_ca_va": "Comment ça va ?",
+  "d'où_viens_tu": "D'où viens-tu ?",
+  "quelle_heure_est_il": "Quelle heure est-il ?"
+  "aide": "Puis-je t'aider ?",
+  "tu_peux_m'aider": "Tu peux m'aider, s'il te plaît ?",
+  "je_besoin_d'aide": "J'ai besoin d'aide.",
+  "je_comprends_pas": "Je ne comprends pas."
+  "au_revoir": "Au revoir, à bientôt !",
+  "salut": "Salut, prends soin de toi !",
+  "à_bientôt": "À bientôt, prends soin de toi.",
+  "bonne_journée": "Bonne journée !"
+  "merci": "Merci beaucoup !",
+  "merci_pour_tout": "Merci pour tout !",
+  "je_te_remercie": "Je te remercie !",
+  "merci_bien": "Merci bien !"
+  "oui": "Oui.",
+  "d'accord": "D'accord.",
+  "c'est_vrai": "C'est vrai.",
+  "bien_sûr": "Bien sûr."
+  "s'il_te_plaît": "S'il te plaît.",
+  "excuse_moi": "Excuse-moi.",
+  "je_suis_désolé": "Je suis désolé.",
+  "pas_de_problème": "Pas de problème."
+  "où_est": "Où est... ?",
+  "comment_aller_à": "Comment aller à... ?",
+  "tourner_à_gauche": "Tourner à gauche.",
   "bye": "Goodbye! Take care!"
 }
