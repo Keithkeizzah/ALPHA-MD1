@@ -1,40 +1,54 @@
 const { keith } = require('../keizzah/keith');
-const axios = require('axios'); // Ensure axios is used for making HTTP requests
+const traduire = require("../keizzah/traduction");
+const { default: axios } = require('axios');
+const pkg = require('@whiskeysockets/baileys');
+const { generateWAMessageFromContent, proto } = pkg;
 
-// Set up the command with the name 'gpt3' and the emoji reaction '🪅'
-keith({ nomCom: "gpt3", reaction: "🪅", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+keith({ nomCom: "gpt3", reaction: "🪅", categorie: "abu" }, async (dest, zk, commandeOptions) => {
   const { repondre, arg, ms } = commandeOptions;
 
-  // Check if arguments are provided
-  if (!arg || arg.length === 0) {
-    return repondre('Hello 🖐️.\n\n What help can I offer you today?');
-  }
-
   try {
-    // Combine the arguments into a single string for the prompt
+    if (!arg || arg.length === 0) {
+      return repondre('Hello 🖐️.\n\nWhat help can I offer you today?');
+    }
+
+    // Combine arguments into a single string
     const prompt = arg.join(' ');
+    const response = await fetch(`https://api.gurusensei.workers.dev/llama?prompt=${prompt}`);
+    const data = await response.json();
 
-    // Call the external API to get the response
-    const response = await axios.get('https://api.gurusensei.workers.dev/llama', {
-      params: { prompt: prompt }
-    });
+    if (data && data.response && data.response.response) {
+      const answer = data.response.response;
 
-    // Ensure the API returns a valid response and the format is correct
-    if (response.data && response.data.response && response.data.response.response) {
-      const answer = response.data.response.response;
+      // Check if the answer contains code
+      const codeMatch = answer.match(/```([\s\S]*?)```/);
 
-      // Send the response to the destination (zk.sendMessage)
-      await zk.sendMessage(dest, answer, {
-        messageId: ms.key.id
-      });
+      if (codeMatch) {
+        const code = codeMatch[1];
 
+        // Send message with code
+        const msg = generateWAMessageFromContent(dest, {
+          conversation: `Response:\n\n${answer}\n\nCode:\n${code}`
+        }, {});
+
+        await zk.relayMessage(dest, msg.message, {
+          messageId: msg.key.id
+        });
+      } else {
+        // Response without code
+        const msg = generateWAMessageFromContent(dest, {
+          conversation: `Response:\n\n${answer}`
+        }, {});
+
+        await zk.relayMessage(dest, msg.message, {
+          messageId: msg.key.id
+        });
+      }
     } else {
-      // If the response format is not what we expect
-      throw new Error('Invalid response format from the API.');
+      throw new Error('Invalid response from the API.');
     }
   } catch (error) {
-    // Handle any errors that occur during the process
-    console.error('Error:', error);
-    repondre('Sorry, I encountered an error while processing your request. Please try again later.');
+    console.error('Error getting response:', error.message);
+    repondre('Error getting response.');
   }
 });
