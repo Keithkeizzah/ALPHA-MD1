@@ -1,6 +1,6 @@
 {
   "name": "ALPHA-MD",
-  "description": "Alpha is a multidevice  WhatsApp bot build to make your WhatsApp enjoyable.",
+  "description": "Alpha is a multidevice WhatsApp bot built to make your WhatsApp enjoyable.",
   "keywords": [
     "bot",
     "node",
@@ -13,123 +13,119 @@
   "stack": "container",
   "env": {
     "PREFIX": {
-      "description": "choose your prefix of bot",
+      "description": "Choose your bot's prefix",
       "value": ".",
       "required": true
     },
     "AUTO_READ_STATUS": {
-      "description": "Your contact status will be read automatically(type yes to active or no to deactive  ; don't write in capital letter)",
+      "description": "Your contact status will be read automatically (type 'yes' to activate or 'no' to deactivate; don't write in capital letters)",
       "value": "yes",
       "required": false
     },
     "AUTO_REPLY": {
-      "description": "This is to set greet when someone texts you an automatic greeting is sent to him or her",
+      "description": "This sets a greeting message when someone texts you automatically",
       "value": "yes",
       "required": false
     },
     "AUTO_LIKE_STATUS": {
-      "description": "Your contact status will be read automatically(type yes to active or no to deactive  ; don't write in capital letter)",
+      "description": "Your contact status will be liked automatically (type 'yes' to activate or 'no' to deactivate; don't write in capital letters)",
       "value": "yes",
-   },
-    "AUTO_READ_STATUS": {
-      "description": "Your contact status will be read automatically(type yes to active or no to deactive  ; don't write in capital letter)",
-      "value": "yes",
-      "required": false   "required": false  
+      "required": false
     },
     "CHAT_BOT": {
-      "description": "if turned on chatbot will automatically chat in your pm or groups.",
+      "description": "If turned on, the chatbot will automatically chat in your private messages or groups.",
       "value": "yes",
-      "required": false  
+      "required": false
     },
     "AUTO_DOWNLOAD_STATUS": {
-      "description": "Your contact status will be download automatically and send to you(type yes to active or no to deactive ; don't write in capital letter)",
+      "description": "Your contact status will be downloaded automatically and sent to you (type 'yes' to activate or 'no' to deactivate; don't write in capital letters)",
       "value": "no",
       "required": false
     },
     "PM_PERMIT": {
-      "description": "Other user can't use your bot in pm (type yes to active or no to deactive ; don't write in capital letter)",
+      "description": "Restrict other users from using your bot in private messages (type 'yes' to activate or 'no' to deactivate; don't write in capital letters)",
       "value": "no",
       "required": false
     },
     "ANTI_VV": {
-      "description": "to detect a view once message",
+      "description": "Detect view-once messages",
       "value": "no",
       "required": false
     },
     "ANTILINK": {
-      "description": "to detect a view once link",
+      "description": "Detect view-once links",
       "value": "no",
       "required": false
     },
     "BOT_NAME": {
-      "description": "put A name for your bot",
+      "description": "Give a name for your bot",
       "value": "ALPHA-MD",
       "required": false
     },
     "BOT_MENU_LINKS": {
-      "description": "add one or many link for your bot menu  ; eg : url1,url2,url3.....",
-      "value":"",
+      "description": "Add one or many links for your bot menu (e.g., url1,url2,url3)",
+      "value": "",
       "required": false
     },
     "PUBLIC_MODE": {
-      "description": "type yes to put your bot on public mode or no to put it on private mod",
+      "description": "Set 'yes' to make your bot public or 'no' to keep it private",
       "value": "yes",
-      "required": false 
-    },
-    "HEROKU_APY_KEY": {
-      "description": "insert your heroku api-key (REQUIRED)",
-      "value" : "", 
       "required": false
+    },
+    "HEROKU_API_KEY": {
+      "description": "Insert your Heroku API key (required)",
+      "value": "",
+      "required": true
     },
     "HEROKU_APP_NAME": {
-      "description": "insert your heroku APP NAME similar to the app name you just created(REQUIRED)",
-      "value" : "", 
-      "required": false
+      "description": "Insert your Heroku app name (required)",
+      "value": "",
+      "required": true
     },
     "SESSION_ID": {
-      "description": "put your session ID , the code you receive after scanning Qr code",
+      "description": "Enter your session ID, the code you receive after scanning the QR code",
       "value": "",
       "required": true
     },
     "OWNER_NAME": {
-      "desc": "Your Name",
-      "required": false,
-      "value": "keithkeizzah"
+      "description": "Your name",
+      "value": "keithkeizzah",
+      "required": false
     },
     "NUMERO_OWNER": {
-      "desc": "Your number , dont put '+' and put you area code(exemple of togo '228')",
-      "required": false,
-      "value": "254796299159"
+      "description": "Your phone number (exclude '+' and area code, e.g., '254796299159')",
+      "value": "254796299159",
+      "required": false
     },
     "WARN_COUNT": {
-      "desc": "this is the limit of warn for warning commandes",
-      "required": false,
-      "value": "3"
+      "description": "Set the warning limit for warning commands",
+      "value": "3",
+      "required": false
     },
     "STARTING_BOT_MESSAGE": {
-      "description": "if you don't want startting-bot-message put no else put yes",
-      "required": true,
-      "value": "yes"
+      "description": "Set 'yes' to display a starting bot message or 'no' to disable it",
+      "value": "yes",
+      "required": true
     },
     "PRESENCE": {
-      "description": "Mark your presence: 1 to indicate that you are online even if you are not. 2 to indicate that you are currently typing a message. 3 to indicate that you are currently recording an audio. Or leave the field blank to indicate your real state.",
+      "description": "Mark your presence: 1 for online, 2 for typing, 3 for recording, or leave blank for real state",
       "value": "",
       "required": false
     },
     "ANTI_DELETE_MESSAGE": {
-      "description": "if you want to enable anti delete message put yes else put no",
+      "description": "Enable anti-delete message (set 'yes' to activate or 'no' to deactivate)",
       "value": "no",
       "required": false
     },
     "ANTICALL": {
-      "description": "Automatically decline incoming calls. Type 'on' to activate or 'off' to deactivate.",
+      "description": "Automatically decline incoming calls (set 'on' to activate or 'off' to deactivate)",
       "value": "yes",
-      "required": false  
+      "required": false
     },
     "AUTO_REACTION": {
-      "description": "Put yes if you want the bot to react to messages in private",
-      "required": false,
-      "value": "yes"
+      "description": "Set 'yes' to enable bot reactions to messages in private chats",
+      "value": "yes",
+      "required": false
     }
   },
   "formation": {
@@ -143,4 +139,4 @@
       "plan": "heroku-postgresql:essential-0"
     }
   ]
-    }
+}
