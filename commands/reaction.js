@@ -6,7 +6,7 @@ const child_process = require('child_process');
 const {unlink } = require ('fs').promises ;
 
 
-// fonction sleep
+// fonction sleep.
 
 const sleep =  (ms) =>{
     return new Promise((resolve) =>{ setTimeout (resolve, ms)})
