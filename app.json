@@ -94,7 +94,7 @@
     },
     "AUTO_READ_MESSAGES": {
       "description": "yes toactivate no to deactivate",
-      "value": "keithkeizzah",
+      "value": "yes",
       "required": false  
     },
     "NUMERO_OWNER": {
