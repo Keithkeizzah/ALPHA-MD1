@@ -92,6 +92,11 @@
       "value": "keithkeizzah",
       "required": false
     },
+    "AUTO_READ_MESSAGES": {
+      "description": "yes toactivate no to deactivate",
+      "value": "keithkeizzah",
+      "required": false  
+    },
     "NUMERO_OWNER": {
       "description": "Your phone number (exclude '+' and area code, e.g., '254796299159')",
       "value": "254796299159",
