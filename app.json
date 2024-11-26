@@ -34,7 +34,7 @@
     },
     "CHAT_BOT": {
       "description": "If turned on, the chatbot will automatically chat in your private messages or groups.",
-      "value": "yes",
+      "value": "no",
       "required": false
     },
     "AUTO_DOWNLOAD_STATUS": {
