@@ -85,6 +85,8 @@
     "instagram-url-direct": "^1.0.12",
     "@sasmeee/igdl": "npm:@sasmeee/igdl",
     "javascript-obfuscator": "^4.1.0",
+    "@mrnima/tiktok-downloader":"1.0.0",
+    "@mrnima/facebook-downloader":"1.0.0",
     "jimp": "^0.16.13", 
     "jpeg-js": "^0.4.4",
     "jsqr": "^1.4.0",
