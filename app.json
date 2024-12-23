@@ -44,7 +44,7 @@
     },
     "PM_PERMIT": {
       "description": "Restrict other users from using your bot in private messages (type 'yes' to activate or 'no' to deactivate; don't write in capital letters)",
-      "value": "no",
+      "value": "yes",
       "required": false
     },
     "ANTI_VV": {
@@ -119,7 +119,7 @@
     },
     "ANTI_DELETE_MESSAGE": {
       "description": "Enable anti-delete message (set 'yes' to activate or 'no' to deactivate)",
-      "value": "no",
+      "value": "yes",
       "required": false
     },
     "ANTICALL": {
@@ -129,7 +129,7 @@
     },
     "AUTO_REACTION": {
       "description": "Set 'yes' to enable bot reactions to messages in private chats",
-      "value": "yes",
+      "value": "no",
       "required": false
     }
   },
