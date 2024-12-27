@@ -11,11 +11,7 @@ keith(
   async (dest, zk, commandeOptions) => {
     const { ms, repondre, superUser, arg } = commandeOptions;
 
-    if (!superUser) {
-      repondre('Only Mods can use this command');
-      return;
-    }
-
+    
     if (!arg[0] || !arg.join('').includes('=')) {
       repondre('Bad format; Example of usage: Setvar OWNER_NAME=keithkeizzah');
       return;
@@ -47,11 +43,7 @@ keith(
   async (dest, zk, commandeOptions) => {
     const { ms, repondre, superUser } = commandeOptions;
 
-    if (!superUser) {
-      repondre('Only Mods can use this command');
-      return;
-    }
-
+   
     const heroku = new Heroku({ token: s.HEROKU_APY_KEY });
     const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
 
@@ -77,11 +69,7 @@ keith(
   async (dest, zk, commandeOptions) => {
     const { ms, repondre, superUser, arg } = commandeOptions;
 
-    if (!superUser) {
-      repondre('Only Mods can use this command');
-      return;
-    }
-
+    
     if (!arg[0]) {
       repondre('Insert the variable name in capital letters');
       return;
