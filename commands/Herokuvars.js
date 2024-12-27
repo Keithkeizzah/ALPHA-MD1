@@ -1,113 +1,117 @@
 const { keith } = require("../keizzah/keith");
 const s = require("../set");
-const fs = require('fs');
 const HerokuClient = require('heroku-client'); // Renamed to avoid redefinition
 
-// Command to set Heroku variable
-keith(
-    {
-        nomCom: "setvar",
-        categorie: "HEROKU-CLIENT"
-    }, 
-    async (dest, zk, commandeOptions) => {
-        const { ms, repondre, superUser, arg } = commandeOptions;
-        
-        if (!superUser) {
-            repondre('Only Mods can use this command');
-            return;
-        }
-        
-        if (!arg[0] || !(arg.join('').split('='))) {
-            repondre('Bad format; Example of usage: Setvar OWNER_NAME=keithkeizzah');
-            return;
-        }
+// Command to set a Heroku config var
+keith({
+  nomCom: "setvar",
+  categorie: "Heroku-client",
+  reaction: "🗿"
+}, async (dest, zk, commandeOptions) => {
+  const { repondre, ms, arg } = commandeOptions;
 
-        const text = arg.join(" ");
-        const heroku = new HerokuClient({
-            token: s.HEROKU_APY_KEY
-        });
-        
-        const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
-        
-        // Update the Heroku config variable
-        await heroku.patch(baseURI + "/config-vars", {
-            body: {
-                [text.split('=')[0]]: text.split('=')[1]
-            }
-        });
-        
-        repondre('That Heroku var is changing, The bot is rebooting....');
+  if (!superUser) {
+    repondre('Only Mods can use this command');
+    return;
+  }
+
+  if (!arg[0] || !arg[0].includes('=')) {
+    repondre('Bad format; Example of usage: Setvar OWNER_NAME=keithkeizzah');
+    return;
+  }
+
+  const [key, value] = arg.join(" ").split('=');
+
+  const heroku = new HerokuClient({
+    token: s.HEROKU_APY_KEY
+  });
+
+  const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
+
+  try {
+    // Update the Heroku config variable
+    await heroku.patch(baseURI + "/config-vars", {
+      body: {
+        [key]: value
+      }
+    });
+
+    repondre('That Heroku var is changing, The bot is rebooting....');
+  } catch (error) {
+    repondre('Error: ' + error.message);
+  }
+});
+
+// Command to get all Heroku config vars
+keith({
+  nomCom: "allvar",
+  categorie: "Heroku-client",
+  reaction: "🗿"
+}, async (dest, zk, commandeOptions) => {
+  const { repondre, ms, arg } = commandeOptions;
+
+  if (!superUser) {
+    repondre('Only Mods can use this command');
+    return;
+  }
+
+  const heroku = new HerokuClient({
+    token: s.HEROKU_APY_KEY
+  });
+
+  const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
+
+  try {
+    // Get all Heroku config variables
+    const vars = await heroku.get(baseURI + '/config-vars');
+    let responseStr = '*╭───༺All my Heroku vars༻────╮*\n\n';
+
+    for (const [key, value] of Object.entries(vars)) {
+      responseStr += `★ *${key}* = ${value}\n`;
     }
-);
 
-// Command to list all Heroku variables
-keith(
-    {
-        nomCom: "allvar",
-        categorie: "HEROKU-CLIENT"
-    }, 
-    async (dest, zk, commandeOptions) => {
-        const { ms, repondre, superUser } = commandeOptions;
-        
-        if (!superUser) {
-            repondre('Only Mods can use this command');
-            return;
-        }
+    repondre(responseStr);
+  } catch (error) {
+    repondre('Error: ' + error.message);
+  }
+});
 
-        const heroku = new HerokuClient({
-            token: s.HEROKU_APY_KEY
-        });
-        
-        const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
-        
-        // Get all Heroku config variables
-        let h = await heroku.get(baseURI + '/config-vars');
-        let str = '*╭───༺All my Heroku vars༻────╮*\n\n';
-        
-        for (const vr in h) {
-            str += `★ *${vr}* = ${h[vr]}\n`;
-        }
-        
-        repondre(str);
+// Command to get a specific Heroku config var
+keith({
+  nomCom: "advar",
+  categorie: "Heroku-client",
+  reaction: "🗿"
+}, async (dest, zk, commandeOptions) => {
+  const { repondre, ms, arg } = commandeOptions;
+
+  if (!superUser) {
+    repondre('Only Mods can use this command');
+    return;
+  }
+
+  if (!arg[0]) {
+    repondre('Insert the variable name in capital letters');
+    return;
+  }
+
+  const varName = arg.join(' ').toUpperCase(); // Ensure variable name is in uppercase
+
+  try {
+    const heroku = new HerokuClient({
+      token: s.HEROKU_APY_KEY
+    });
+
+    const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
+
+    // Get specific config variable
+    const vars = await heroku.get(baseURI + '/config-vars');
+
+    if (vars[varName]) {
+      repondre(`${varName} = ${vars[varName]}`);
+    } else {
+      repondre('Variable not found');
     }
-);
-
-// Command to get a specific Heroku variable
-keith(
-    {
-        nomCom: "getvar",
-        categorie: "HEROKU-CLIENT"
-    }, 
-    async (dest, zk, commandeOptions) => {
-        const { ms, repondre, superUser, arg } = commandeOptions;
-        
-        if (!superUser) {
-            repondre('Only Mods can use this command');
-            return;
-        }
-
-        if (!arg[0]) {
-            repondre('Insert the variable name in capital letters');
-            return;
-        }
-        
-        try {
-            const heroku = new HerokuClient({
-                token: s.HEROKU_APY_KEY
-            });
-            
-            const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
-            
-            // Get specific config variable
-            let h = await heroku.get(baseURI + '/config-vars');
-            
-            if (h[arg.join(' ')]) {
-                repondre(`${arg.join(' ')} = ${h[arg.join(' ')]}`);
-            } else {
-                repondre('Variable not found');
-            }
-        } catch (e) {
-            repondre('Error: ' + e);
-        }
-    }
-);
+  } catch (error) {
+    repondre('Error: ' + error.message);
+  }
+});
