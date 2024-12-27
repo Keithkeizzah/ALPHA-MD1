@@ -22,7 +22,7 @@ keith(
     }
 
     const text = arg.join(" ");
-    const heroku = new Heroku({ token: s.HEROKU_API_KEY });
+    const heroku = new Heroku({ token: s.HEROKU_APY_KEY });
     const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
 
     try {
@@ -52,7 +52,7 @@ keith(
       return;
     }
 
-    const heroku = new Heroku({ token: s.HEROKU_API_KEY });
+    const heroku = new Heroku({ token: s.HEROKU_APY_KEY });
     const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
 
     try {
@@ -88,7 +88,7 @@ keith(
     }
 
     try {
-      const heroku = new Heroku({ token: s.HEROKU_API_KEY });
+      const heroku = new Heroku({ token: s.HEROKU_APY_KEY });
       const baseURI = `/apps/${s.HEROKU_APP_NAME}`;
       const h = await heroku.get(baseURI + '/config-vars');
 
