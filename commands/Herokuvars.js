@@ -8,7 +8,7 @@ keith({
   categorie: "Heroku-client",
   reaction: "🗿"
 }, async (dest, zk, commandeOptions) => {
-  const { repondre, ms, arg } = commandeOptions;
+  const { repondre, ms, arg, superUser } = commandeOptions;
 
   if (!superUser) {
     repondre('Only Mods can use this command');
@@ -48,7 +48,7 @@ keith({
   categorie: "Heroku-client",
   reaction: "🗿"
 }, async (dest, zk, commandeOptions) => {
-  const { repondre, ms, arg } = commandeOptions;
+  const { repondre, ms, arg, superUser } = commandeOptions;
 
   if (!superUser) {
     repondre('Only Mods can use this command');
@@ -82,7 +82,7 @@ keith({
   categorie: "Heroku-client",
   reaction: "🗿"
 }, async (dest, zk, commandeOptions) => {
-  const { repondre, ms, arg } = commandeOptions;
+  const { repondre, ms, arg, superUser } = commandeOptions;
 
   if (!superUser) {
     repondre('Only Mods can use this command');
