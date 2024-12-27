@@ -15,7 +15,7 @@ keith({
   }
 
   const appname = s.HEROKU_APP_NAME;
-  const herokuapi = s.HEROKU_APY_KEY;
+  const herokuapi = s.HEROKU_API_KEY;
 
   const heroku = new Heroku({
     token: herokuapi,
@@ -58,7 +58,7 @@ keith({
   }
 
   const appname = s.HEROKU_APP_NAME;
-  const herokuapi = s.HEROKU_APY_KEY;
+  const herokuapi = s.HEROKU_API_KEY;
 
   const input = arg.split('=');
   
