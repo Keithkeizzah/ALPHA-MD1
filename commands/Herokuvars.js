@@ -1,8 +1,8 @@
-
 const { keith } = require("../keizzah/keith");
 const Heroku = require('heroku-client');
 const s = require("../set");
 
+// Command to retrieve Heroku config vars
 keith({
   nomCom: 'allvar',
   categorie: "HEROKU-CLIENT"
@@ -11,10 +11,11 @@ keith({
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner. or Alpha owner 💀,,idiot*");
+    return repondre("*This command is restricted to the bot owner or Alpha owner 💀*");
   }
-const appname = s.HEROKU_APP_NAME
-const herokuapi = s.HEROKU_APY_KEY
+
+  const appname = s.HEROKU_APP_NAME;
+  const herokuapi = s.HEROKU_APY_KEY;
 
   const heroku = new Heroku({
     token: herokuapi,
@@ -24,7 +25,7 @@ const herokuapi = s.HEROKU_APY_KEY
 
   try {
     // Fetch config vars from Heroku API
-    let configVars = await heroku.get(baseURI);
+    const configVars = await heroku.get(baseURI);
 
     let str = '*╭───༺All my Heroku vars༻────╮*\n\n';
     
@@ -42,8 +43,9 @@ const herokuapi = s.HEROKU_APY_KEY
     console.error('Error fetching Heroku config vars:', error);
     repondre('Sorry, there was an error fetching the config vars.');
   }
-};
+});
 
+// Command to set a Heroku config var
 keith({
   nomCom: 'setvar',
   categorie: "HEROKU-CLIENT"
@@ -52,39 +54,38 @@ keith({
 
   // Check if the command is issued by the owner
   if (!superUser) {
-    return repondre("*This command is restricted to the bot owner. or Alpha owner 💀,,*");
+    return repondre("*This command is restricted to the bot owner or Alpha owner 💀*");
   }
-const appname = s.HEROKU_APP_NAME
-const herokuapi = s.HEROKU_APY_KEY
 
-  
+  const appname = s.HEROKU_APP_NAME;
+  const herokuapi = s.HEROKU_APY_KEY;
+
   const input = arg.split('=');
+  
   if (input.length !== 2) {
-    return reply('Incorrect Usage:\nProvide the key and value correctly.\nExample: setvar ANTICALL=yes');
+    return repondre('Incorrect Usage:\nProvide the key and value correctly.\nExample: setvar ANTICALL=yes');
   }
 
   const [key, value] = input;
 
- 
-  const herok = new Heroku({
+  const heroku = new Heroku({
     token: herokuapi,
   });
 
   const baseURI = `/apps/${appname}/config-vars`;
 
   try {
-    
-    await herok.patch(baseURI, {
+    // Set the new config var
+    await heroku.patch(baseURI, {
       body: {
         [key]: value,
       },
     });
 
-    
-    await repondre(`*✅ The variable ${key} = ${value} has been set successfully.Bot is restarting...*`);
+    // Notify success
+    await repondre(`*✅ The variable ${key} = ${value} has been set successfully. The bot is restarting...*`);
   } catch (error) {
-    
     console.error('Error setting config variable:', error);
-    await repondre('❌ There was an error setting the variable. Please try again later.\n' + error );
+    await repondre('❌ There was an error setting the variable. Please try again later.\n' + error);
   }
-};
+});
