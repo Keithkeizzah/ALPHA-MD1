@@ -1,3 +1,5 @@
+// thanks chatgpt😻😻
+
 const { keith } = require("../keizzah/keith");
 const Heroku = require('heroku-client');
 const s = require("../set");
@@ -7,7 +9,7 @@ keith({
   nomCom: 'allvar',
   categorie: "HEROKU-CLIENT"
 }, async (chatId, zk, context) => {
-  const { ms, repondre, superUser, auteurMessage, arg } = context;
+  const { repondre, superUser } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
@@ -50,7 +52,7 @@ keith({
   nomCom: 'setvar',
   categorie: "HEROKU-CLIENT"
 }, async (chatId, zk, context) => {
-  const { ms, repondre, superUser, auteurMessage, arg } = context;
+  const { repondre, superUser, arg } = context;
 
   // Check if the command is issued by the owner
   if (!superUser) {
@@ -60,13 +62,11 @@ keith({
   const appname = s.HEROKU_APP_NAME;
   const herokuapi = s.HEROKU_API_KEY;
 
-  const input = arg.split('=');
-  
-  if (input.length !== 2) {
+  if (!arg || arg.length !== 1 || !arg[0].includes('=')) {
     return repondre('Incorrect Usage:\nProvide the key and value correctly.\nExample: setvar ANTICALL=yes');
   }
 
-  const [key, value] = input;
+  const [key, value] = arg[0].split('=');
 
   const heroku = new Heroku({
     token: herokuapi,
@@ -86,6 +86,6 @@ keith({
     await repondre(`*✅ The variable ${key} = ${value} has been set successfully. The bot is restarting...*`);
   } catch (error) {
     console.error('Error setting config variable:', error);
-    await repondre('❌ There was an error setting the variable. Please try again later.\n' + error);
+    await repondre(`❌ There was an error setting the variable. Please try again later.\n${error.message}`);
   }
 });
