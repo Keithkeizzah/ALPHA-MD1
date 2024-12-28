@@ -50,7 +50,7 @@ ${lyrics}
         await zk.sendMessage(dest, {
             image: { url: results[0].thumbnail },
             caption: formattedMessage
-        }, { quoted: zk });
+        }, { quoted: ms });
 
     } catch (error) {
         repondre(`Error: I was unable to fetch the lyrics. Please try again later.\n\n${error.message}`);
