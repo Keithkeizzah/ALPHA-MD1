@@ -6,7 +6,7 @@ keith({
     nomCom: "lyrics",
     aliases: ["lyric", "mistari"],
     reaction: "📑"
-}, async (zk, dest, context) => {
+}, async (zk, dest, ms, context) => {
     const { repondre, arg } = context;
 
     try {
