@@ -6,8 +6,8 @@ keith({
     nomCom: "lyrics",
     aliases: ["lyric", "mistari"],
     reaction: "📑"
-}, async (zk, dest, ms, context) => {
-    const { repondre, arg } = context;
+}, async (zk, dest, context) => {
+    const { repondre, arg, ms } = context;
 
     try {
         if (!arg || arg.length === 0) {
